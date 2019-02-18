@@ -1,0 +1,98 @@
+
+
+PROJECT NAME: ft_debut
+
+
+1.	In the most concise way possible, answer this question, what is 42? How
+	would you describe 42 to someone who doesn’t know what 42 is?
+
+	42 is a non-profit organization. It offers resources and the best as well
+	as the most modern of environments and techniques for learning software
+	engineering & computer programming. Individuals are selected based off of
+	merit.
+
+
+2. 	Why are there no instructions on the initial 42 logic tests?
+
+	Perhaps because one of the key skills of a problem solver is to be able
+	to figure out and puzzle together things even when little to any information
+	and direction is given.
+
+
+3. 	What are the core 42 principles?
+
+	42 promotes learning how to learn and the development of soft skills,
+	as well as problem solving, software engineering and computer programming
+	skills.
+
+
+4. 	If somebody is thinking of going to 42, but has no coding experience - do
+	you really think it’s worth their time?
+
+	Yes, because the piscine is about more than just coding. The piscine is
+	about character, will, determination, perseverance, work ethic, discipline
+	communication skills and a lot more. It will bring out the true nature and
+	character of someone and will allow one to see who they actually are. As
+	for the coding it can and will be learned throughout the piscine and the
+	progress will be more or less evident with the exams.
+
+
+5. 	What makes 42 unique?
+
+	Aspects about 42 that make it unique:
+
+		-	its gamified project based curriculum
+		-	the fact that learning is self-managed
+		-	its peer-to-peer correction system
+		-	the fact that it actually is tuition free with no strings attached
+
+
+6. 	What do you think you’re learning the most at 42?
+
+	Self-management, how to learn anything efficiently and the art of problem
+	solving.
+
+
+7. 	Imagine (this will happen very soon in real life!), you’ve been stuck on the
+	problem	for a while and have no idea what to do - what your next steps
+	would be?
+
+	while (True):
+		Take a break from it.
+		Try again.
+		Learn more about it and things that it involves and is related to.
+		Try again.
+		Talk about it with others.
+		Try again.
+
+
+8. 	How will you ensure that your personal level of motivation remains high on a
+	daily basis to complete at least 1 level per month without the Piscine
+	pressure and strict deadlines?
+
+	My personal ambitions take care of that.
+
+
+9.	If someone asks you why it says internships are required on the 42 website,
+	but they do not offer job placement, what would you say?
+
+	Internships give students real professional experience which is important
+	for one's development but at the same time it doesn’t bind one to a single
+	position, it allows one to experience something new and then pivot to other
+	things. It gives students the ups of having a job without the down side of
+	having to stay stuck in one.
+
+
+10.	How do the internships work? Is it mandatory that you have to reach a
+	certain level before leaving on an internship or can you validate it
+	anytime you find one?
+
+	I believe it is mandatory to reach a certain level before leaving.
+
+
+11.	How does 42 help you adapt to a work place?
+
+	By placing you in an environnement of constant struggle and adaptation and
+	an environnement where you have to constantly learn to get through each and
+	every problem and obstacle. Also by forcing real world interactions with
+	people through peer evaluations and group projects.
