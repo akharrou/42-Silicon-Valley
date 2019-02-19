@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/19 07:20:43 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/19 08:32:35 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,13 @@ SRCS        =   ft_atoi.c          \
                 ft_strsplit.c      \
                 ft_strsub.c        \
                 ft_strtrim.c       \
+                                   \
+                                   \
+                                   \
+                ft_intlen.c        \
+
+
+
 
 OBJS        =	$(SRCS:.c=.o)
 

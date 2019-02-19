@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 08:41:39 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 08:31:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#define INT_MIN -2147483648
 
-char		*ft_itoa(int n)
+unsigned int	ft_intlen(int n)
 {
-	int		i;
-	int		quotient;
-	long	col;
-	char	*buf;
+	unsigned int i;
 
-	if (!(buf = (char *)malloc((col = intlen(n)) + 1)))
-		return (NULL);
-	if (n == INT_MIN)
-		return (ft_strcpy(buf, "-2147483648"));
 	i = 0;
+	if (n == INT_MIN)
+		return (11);
 	if (n < 0)
 	{
-		buf[i++] = '-';
+		i++;
 		n = -n;
 	}
-	col = ft_pow(col, 10);
-	while (col > 1)
+	while (n > 0)
 	{
-		col /= 10;
-		quotient = (n / col);
-		buf[i++] = quotient + ((quotient < 10) ? '0' : 'W');
-		n -= (quotient * col);
+		i++;
+		n /= 10;
 	}
-	buf[i] = '\0';
-	return (buf);
+	return (i);
 }
