@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 08:31:45 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 19:06:46 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 14:12:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define INT_MIN -2147483648
+#include "libft.h"
 
-unsigned int	ft_intlen(int n)
+int		ft_tolower(int c)
 {
-	unsigned int i;
-
-	i = 0;
-	if (n == INT_MIN)
-		return (11);
-	if (n < 0)
-	{
-		i++;
-		n = -n;
-	}
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
+	if (ft_isupper(c))
+		return (c + 32);
+	return (c);
 }

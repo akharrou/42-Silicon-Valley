@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:07:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 19:09:30 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 07:11:34 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 14:12:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int		ft_isalnum(int c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	if (src < dst)
 	{
-		return (1);
+		src = src + len - 1;
+		dst = dst + len - 1;
+		while (len-- > 0)
+			((char *)dst)[len] = ((char *)src)[len];
 	}
-	return (0);
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
 }

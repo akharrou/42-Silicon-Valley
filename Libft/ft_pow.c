@@ -6,27 +6,32 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:42:20 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 08:52:34 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:12:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_pow(int nb, int power)
+#include "libft.h"
+
+long double		ft_pow(int nb, int power)
 {
 	int				sign;
-	long double		product;
+	long double		val;
 
-	// if (power == 0)
-	// 	return (1);
-	// if (power == 1)
-	// 	return (nb);
+	if (power == 0)
+		return (1);
 	sign = (nb < 0) ? -1 : 1;
 	nb = (nb < 0) ? -nb : nb;
-	product = nb;
-	while (--power)
+	val = nb;
+	if (power < 0)
 	{
-		product *= nb;
-		if (product > 2147483647)
-			return (-1);
+		power = -power + 1;
+		while (power--)
+			val /= nb;
 	}
-	return (sign * product);
+	else
+	{
+		while (--power)
+			val *= nb;
+	}
+	return (val * sign);
 }

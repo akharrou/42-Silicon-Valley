@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 08:41:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:15:30 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*ft_itoa(int n)
 	long	col;
 	char	*buf;
 
-	if (!(buf = (char *)malloc((col = intlen(n)) + 1)))
+	if (!(buf = (char *)malloc((col = ft_intlen(n)) + 1)))
 		return (NULL);
 	if (n == INT_MIN)
 		return (ft_strcpy(buf, "-2147483648"));

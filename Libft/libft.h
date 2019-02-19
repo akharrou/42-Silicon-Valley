@@ -6,11 +6,19 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 08:31:42 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:16:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <string.h>
+
+#ifndef INT_MAX
+# define INT_MAX 2147483647
+#endif
+
+#ifndef INT_MIN
+# define INT_MIN -2147483648
+#endif
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -69,7 +77,10 @@ void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
-unsigned int 	ft_intlen(int n);
+int				ft_isupper(int c);
+int				ft_islower(int c);
+unsigned int 	ft_intlen(long n);
+long double		ft_pow(int nb, int power);
 
 #endif
 
