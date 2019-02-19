@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:07:21 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 19:08:41 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 07:27:26 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 07:27:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isprint(int c)
+void	ft_putstr(char const *s)
 {
-	if ((unsigned char)c >= 32 && (unsigned char)c <= 126)
-	{
-		return (1);
-	}
-	return (0);
+
 }

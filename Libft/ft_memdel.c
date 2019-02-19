@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:08:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 20:55:45 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 07:21:23 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 07:21:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_toupper(int c)
+void	ft_memdel(void **ap)
 {
-	if ((unsigned int)c >= 'a' && (unsigned int)c >= 'z')
-		return (c - 32);
-	return (c);
+
 }

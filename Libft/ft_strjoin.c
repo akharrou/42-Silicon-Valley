@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:07:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 19:08:50 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 07:25:17 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 07:25:19 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isascii(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if ((unsigned char)c >= 0 && (unsigned char)c <= 0177)
-	{
-		return (1);
-	}
-	return (0);
+
 }
