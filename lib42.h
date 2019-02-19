@@ -30,10 +30,6 @@
 // ======================================================================= //
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-/**
-DEPENDENCIES: write, <unistd.h>
-ft putchar ; prints out given character
-*/
 
 
 /* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
@@ -45,41 +41,58 @@ ft putchar ; prints out given character
  *
  * SEARCH TAGS:		ft putchar
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
-
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-/**
-DEPENDENCIES: ft_putchar, write, <unistd.h>
-ft putstr ; prints out given character string
-*/
+
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+ * DEPENDENCIES:	write(), <unistd.h>
+ *
+ * DESCRIPTION:		Prints a string of bytes to standard out.
+ *
+ * RETURN VALUES:	none.
+ *
+ * SEARCH TAGS:		ft putstr
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
 void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, &(*str++), 1);
 }
 
-/**
-DEPENDENCIES: ft_putchar, ft_putstr, write, <unistd.h>
-ft putstrtab ; prints out given string array, each string followed
-by a newline ('\n').
-*/
+
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+ * DEPENDENCIES:	ft_putstr()
+ *
+ * DESCRIPTION:		Prints out given string array, each
+ * 					string followed by a newline ('\n').
+ *
+ * RETURN VALUES:	none.
+ *
+ * SEARCH TAGS:		ft putstrab
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
 void	ft_putstrtab(char **tab)
 {
 	while (*tab)
 	{
 		ft_putstr(*tab);
-		ft_putchar('\n');
+		ft_putstr("\n");
 		tab++;
 	}
 }
 
-/**
-DEPENDENCIES: ft_putchar, ft_putstr
-ft putnbr ; prints out given integer
-*/
+
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+ * DEPENDENCIES:	ft_putstr(), ft_putchar()
+ *
+ * DESCRIPTION:		Prints out given integer.
+ *
+ * RETURN VALUES:	none.
+ *
+ * SEARCH TAGS:		ft putnbr
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
 void	ft_putnbr(int nb)
 {
 	if (nb == -2147483648)
@@ -97,11 +110,17 @@ void	ft_putnbr(int nb)
 	ft_putchar(nb % 10 + '0');
 }
 
-/**
-DEPENDENCIES: ft_validate_base_system, ft_putchar
-ft putnbr_base ; displays a integer given in decimal as
-an integer in the given base.
-*/
+
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+ * DEPENDENCIES:	ft_validate_base_system(), ft_putchar()
+ *
+ * DESCRIPTION:		Displays a integer given in decimal as
+ * 					an integer in the given base.
+ *
+ * RETURN VALUES:	none.
+ *
+ * SEARCH TAGS:		ft putnbr_base
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
 void	ft_putnbr_base(long nbr, char *base)
 {
 	int		quotient;
@@ -159,28 +178,35 @@ void	ft_putstr_non_printable(char *str)
 // ======================================================================= //
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-/**
-DEPENDENCIES: none.
-ft atoi ; returns string number as an integer
-*/
+
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+ * DEPENDENCIES:	none.
+ *
+ * DESCRIPTION:		Converts a string number into an integer.
+ *
+ * RETURN VALUES:	Returns the string number as an integer.
+ *
+ * SEARCH TAGS:		ft atoi
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */
 int		ft_atoi(char *str)
 {
-	int sign;
-	int result;
-	int i;
+	int	i;
+	int	val;
+	int	sign;
 
-	sign = 1;
-	result = 0;
 	i = 0;
 	while ((str[i] >= '\a' && str[i] <= '\r') || str[i] == ' ')
 		i++;
-	if ((str[i] == '+' || str[i] == '-') &&
-		(str[i + 1] >= '0' && str[i + 1] <= '9'))
-		if (str[i++] == '-')
-			sign = -1;
-	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
-		result = (result * 10) + (str[i++] - '0');
-	return (sign * result);
+	sign = (str[i] == '-') ? -1 : 1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	val = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		val = (val * 10) + (str[i] - '0');
+		i++;
+	}
+	return (val * sign);
 }
 
 /**
@@ -659,7 +685,7 @@ int		ft_strcmp(char *s1, char *s2)
 
 /**
 DEPENDENCIES: none.
-ft strcmp ; compares up to 'n' characters of two strings.
+ft strncmp ; compares up to 'n' characters of two strings.
 (reproduces the function strncmp).
 */
 int		ft_strncmp(char *s1, char *s2, unsigned int n)

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 19:17:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/17 20:17:18 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 15:23:55 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/18 15:26:02 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	unsigned int i;
 
-	if (dst && src && n > 0)
-	{
-		i = 0;
-		while (i < n)
-		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i++;
-		}
-	}
+	i = 0;
+	while (*src)
+		dst[i++] = *src++;
+	dst[i] = *src;
 	return (dst);
 }

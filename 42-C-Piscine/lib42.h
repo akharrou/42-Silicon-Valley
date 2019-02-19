@@ -350,15 +350,15 @@ void	ft_advanced_sort_wordtab(char **tab, int (*cmp)(char *, char *))
 }
 
 /**
-DEPENDENCIES: 
+DEPENDENCIES:
 
 	ft_validate_base_system
 	ft_itoa_base
 	ft_atoi_base
 	ft_ischarset_v2
 
-ft convert_base ; takes an integer (in characters, i.e as a string) in base 
-'base_from' and converts it to an integer (in characters, i.e as a string) in 
+ft convert_base ; takes an integer (in characters, i.e as a string) in base
+'base_from' and converts it to an integer (in characters, i.e as a string) in
 base 'base_to'; returns the string.
 */
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -440,7 +440,7 @@ int		ft_atoi_base_conv_util(char *str, char *base, short base_len)
 
 /**
 DEPENDENCIES: ft_strncpy, malloc, free, <stdlib.h>
-ft realloc ; creates a buffer twice the size of 'init_size', copies all 
+ft realloc ; creates a buffer twice the size of 'init_size', copies all
 the values found in buffer into the 'new_buffer', frees the 'buffer', returns
 a pointer to the 'new_buffer'.
 */
@@ -1370,8 +1370,8 @@ int		ft_str_is_blank(char *str)
 DEPENDENCIES: none.
 ft is_sort ; returns 1 if the array is sorted and 0 if it isn't
 
-NOTE: The function given as argument should return a negative integer if the 
-first argument is lower than the second, 0 if they’re equal or a positive 
+NOTE: The function given as argument should return a negative integer if the
+first argument is lower than the second, 0 if they’re equal or a positive
 integer for anything else.
 */
 int		ft_is_sort(int *tab, int length, int (*f)(int, int))
@@ -2388,8 +2388,8 @@ void	ft_display_file(int filedes)
 }
 
 /**
-DEPENDENCIES: <fcntl.h>, <sys/types.h>, <sys/uio.h>, <unistd.h>, 
-			  read, write, open, close, 
+DEPENDENCIES: <fcntl.h>, <sys/types.h>, <sys/uio.h>, <unistd.h>,
+			  read, write, open, close,
 			  ft_error_msg, ft_display_file
 
 ft display_file ; reads and writes (i.e displays) multiple files.

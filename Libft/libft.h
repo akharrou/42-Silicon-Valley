@@ -6,12 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/17 20:20:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/18 20:51:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#include <string.h>
 
 void		ft_memset(void *dst, int c, size_t n);
 void		ft_bzero(void *str, size_t n);

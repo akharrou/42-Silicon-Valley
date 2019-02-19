@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/17 20:23:06 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/18 20:47:53 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,39 @@ CFLAGS      =	-Wall -Wextra -Werror
 
 NAME        =	libft.a
 
-SRCS        =	memset.c \
-    			bzero.c \
-    			memcpy.c \
-    			x4.c \
-    			x5.c
+SRCS        =	ft_atoi.c		\
+				ft_bzero.c		\
+				ft_isalnum.c	\
+				ft_isalpha.c	\
+				ft_isascii.c	\
+				ft_isdigit.c	\
+				ft_islower.c	\
+				ft_isprint.c	\
+				ft_isupper.c	\
+				ft_memccpy.c	\
+				ft_memchr.c		\
+				ft_memcmp.c		\
+				ft_memcpy.c		\
+				ft_memmove.c	\
+				ft_memset.c		\
+				ft_strcat.c		\
+				ft_strchr.c		\
+				ft_strcmp.c		\
+				ft_strcpy.c		\
+				ft_strdup.c		\
+				ft_strlcat.c	\
+				ft_strlen.c		\
+				ft_strncat.c	\
+				ft_strncmp.c	\
+				ft_strncpy.c	\
+				ft_strnlen.c	\
+				ft_strnstr.c	\
+				ft_strrchr.c	\
+				ft_strstr.c		\
+				ft_tolower.c	\
+				ft_toupper.c
 
-OBJS        =	memset.o \
-             	bzero.o \
-             	memcpy.o \
-             	x4 \
-             	x5
+OBJS        =	$(SRCS:.c=.o)
 
 DEL         =    /bin/rm -rf
 
@@ -37,7 +59,7 @@ $(NAME): $(OBJS)
 	@ar -rvs $(NAME) $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -I $(INC_DIR) $^
+	$(CC) $(CFLAGS) -c $^
 
 clean:
 	@$(DEL) *.o
