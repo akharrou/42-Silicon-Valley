@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/19 19:55:25 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/20 09:28:59 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,11 +74,12 @@ SRCS        =   ft_atoi.c               \
                 ft_strsub.c             \
                 ft_strtrim.c            \
                                         \
-                ft_lstnew.c             \√
+                ft_lstnew.c             \
                 ft_lstdelone.c          \
                 ft_lstdel.c             \
-                ft_lstadd.c             \√
-                ft_lstiter.c            \√
+                ft_lstadd.c             \
+                ft_lstiteri.c           \
+                ft_lstiter.c            \
                 ft_lstmap.c             \
                                         \
                 ft_islower.c            \

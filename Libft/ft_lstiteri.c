@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 19:33:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/20 09:24:49 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/20 09:14:33 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/20 09:17:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstiteri(t_list *lst, void (*f)(unsigned int i, t_list *elem))
 {
-	t_list *tmp;
+	unsigned int i;
 
-	while (*alst)
+	i = 0;
+	while (lst)
 	{
-		tmp = (*alst)->next;
-		ft_lstdelone(&(*alst), del);
-		(*alst) = tmp;
+		(*f)(i, lst);
+		lst = lst->next;
+		i++;
 	}
 }
