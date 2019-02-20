@@ -4,6 +4,7 @@
  *
  */
 
+#include "../ft_strdup_range.c"
 #include "../ft_strsub.c"
 
 #include <stdio.h>

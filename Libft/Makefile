@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/19 18:39:13 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/19 18:59:53 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRCS        =   ft_atoi.c               \
                                         \
                 ft_islower.c            \
                 ft_isupper.c            \
-                ft_isspace              \
+                ft_isspace.c            \
                 ft_intlen.c             \
                 ft_pow.c                \
                 ft_strdup_range.c       \

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 15:14:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:36:58 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:00:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_wcount(const char *s, const char *charset)
 	int		i;
 	int		word_count;
 
+	i = 0;
 	word_count = 0;
 	while (s[i])
 	{
