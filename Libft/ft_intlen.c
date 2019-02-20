@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 14:12:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:37:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ unsigned int	ft_intlen(long n)
 	unsigned int i;
 
 	i = 0;
-	if (n < 0)
-	{
-		i++;
+	if (n <= 0)
 		n = -n;
-	}
 	while (n > 0)
 	{
 		i++;
