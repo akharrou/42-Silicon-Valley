@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/19 17:04:48 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/19 17:48:53 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,16 +62,16 @@ SRCS        =   ft_atoi.c               \
                 ft_putstr_fd.c          \√
                 ft_strclr.c             \√
                 ft_strdel.c             \√
-                ft_strequ.c             \
+                ft_strequ.c             \√
                 ft_striter.c            \√
                 ft_striteri.c           \√
                 ft_strjoin.c            \
-                ft_strmap.c             \
-                ft_strmapi.c            \
-                ft_strnequ.c            \
+                ft_strmap.c             \√
+                ft_strmapi.c            \√
+                ft_strnequ.c            \√
                 ft_strnew.c             \√
                 ft_strsplit.c           \√
-                ft_strsub.c             \
+                ft_strsub.c             \√
                 ft_strtrim.c            \
                                         \
                 ft_islower.c            \

@@ -11,7 +11,7 @@
 #include <string.h>
 #include <unistd.h>
 
-void	ft_putchar(char *c)
+void	ft_putchar_(char *c)
 {
 	write(1, c, 1);
 }
@@ -24,7 +24,7 @@ int		main(int ac, char *av[])
 		return (1);
 	}
 
-	ft_striter(av[1], &ft_putchar);
+	ft_striter(av[1], &ft_putchar_);
 
 	return (0);
 }
