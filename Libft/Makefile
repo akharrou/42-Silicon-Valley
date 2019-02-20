@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/19 18:59:53 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/19 19:55:25 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,13 @@ SRCS        =   ft_atoi.c               \
                 ft_strsub.c             \
                 ft_strtrim.c            \
                                         \
+                ft_lstnew.c             \√
+                ft_lstdelone.c          \
+                ft_lstdel.c             \
+                ft_lstadd.c             \√
+                ft_lstiter.c            \√
+                ft_lstmap.c             \
+                                        \
                 ft_islower.c            \
                 ft_isupper.c            \
                 ft_isspace.c            \
@@ -83,9 +90,6 @@ SRCS        =   ft_atoi.c               \
                 ft_ischarset.c          \
                 ft_wcount.c             \
                 ft_wcount_char.c        \
-
-
-
 
 OBJS        =	$(SRCS:.c=.o)
 

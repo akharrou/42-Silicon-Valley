@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 18:56:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:34:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
 # endif
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 void			*ft_memset(void *dst, int c, size_t n);
 void			ft_bzero(void *str, size_t n);
@@ -76,6 +83,13 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+
+t_list			*ft_lstnew(void const *content, size_t content_size);
+void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstadd(t_list **alst, t_list *new_elem);
+void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list			*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem));
 
 int				ft_isupper(int c);
 int				ft_islower(int c);
