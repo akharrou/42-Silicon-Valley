@@ -6,11 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:28:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 07:28:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:23:32 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_putchar_fd(char c, int fd)
 {
-
+	write(fd, &c, 1);
 }

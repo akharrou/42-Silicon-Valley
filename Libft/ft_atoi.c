@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 17:53:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 18:50:27 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:19:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int		ft_atoi(const char *str)
 		i++;
 	val = 0;
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		val = (val * 10) + (str[i] - '0');
-		i++;
-	}
+		val = (val * 10) + (str[i++] - '0');
 	return (val * sign);
 }

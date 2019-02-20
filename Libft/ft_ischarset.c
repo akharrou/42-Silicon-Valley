@@ -6,17 +6,17 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 15:17:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:36:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:29:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_ischarset(int c, const char *seperators);
+int		ft_ischarset(int c, const char *charset)
 {
-	while (*seperators)
+	while (*charset)
 	{
-		if ((unsigned char)c == *seperators)
+		if ((unsigned char)c == *charset)
 			return (1);
-		seperators++;
+		charset++;
 	}
 	return (0);
 }

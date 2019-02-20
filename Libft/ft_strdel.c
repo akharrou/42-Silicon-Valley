@@ -6,13 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:22:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 07:22:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:55:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
 void	ft_strdel(char **as)
 {
-
+	free(*as);
+	(*as) = NULL;
 }

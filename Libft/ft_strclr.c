@@ -6,11 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:23:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 07:23:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:57:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_strclr(char *s)
 {
-
+	ft_memset((void *)s, 0, ft_strlen(s));
 }

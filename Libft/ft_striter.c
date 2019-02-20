@@ -6,11 +6,15 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:23:13 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 07:23:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 17:03:20 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-
+	while (*s)
+	{
+		(*f)(&(*s));
+		s++;
+	}
 }
