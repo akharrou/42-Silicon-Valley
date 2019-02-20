@@ -6,9 +6,23 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 17:53:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:19:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:52:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**This is a comment.
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+**as dasd qwdqw dwqd qwdqw
+*/
 
 int		ft_atoi(const char *str)
 {
