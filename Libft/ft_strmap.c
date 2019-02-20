@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:23:33 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 17:20:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:57:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	unsigned int 	i;
-	char 			*new_str;
+	unsigned int	i;
+	char			*new_str;
 
-	new_str = (char *)malloc(ft_strlen(s));
+	if (!(new_str = (char *)malloc(ft_strlen(s))))
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

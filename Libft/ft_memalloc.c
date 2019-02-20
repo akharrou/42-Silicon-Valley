@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:21:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:45:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:23:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memalloc(size_t size)
 {
 	void	*buf;
 
-	buf = (void *)malloc(size);
+	if (!(buf = (void *)malloc(size)))
+		return (NULL);
 	ft_memset(buf, 0, size);
 	return (buf);
 }

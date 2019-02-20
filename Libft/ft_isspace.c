@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:23:46 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 18:58:02 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 18:37:31 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 18:38:34 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int		ft_isspace(int c)
 {
-	unsigned int	i;
-	char			*new_str;
-
-	if (!(new_str = (char *)malloc(ft_strlen(s))))
-		return (NULL);
-	i = 0;
-	while (s[i])
+	if ((unsigned int)c == ' ' ||
+		(unsigned int)c == '\t' ||
+		(unsigned int)c == '\n')
 	{
-		new_str[i] = (*f)(i, s[i]);
-		i++;
+		return (1);
 	}
-	return (new_str);
+	return (0);
 }

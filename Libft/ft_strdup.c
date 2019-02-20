@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 15:14:55 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/18 15:22:30 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:47:48 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 	while (s1[i])
 		i++;
 	if (!(dest = malloc(i + 1)))
-		return (0);
+		return (NULL);
 	i = 0;
 	while (s1[i])
 	{

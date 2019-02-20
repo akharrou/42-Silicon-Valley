@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 15:09:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:09:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:47:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup_range(const char *str, int index, int end)
 	char	*dst;
 
 	if (!(dst = (char *)malloc(end - index + 1)))
-		return (0);
+		return (NULL);
 	i = 0;
 	while (index < end)
 		dst[i++] = str[index++];

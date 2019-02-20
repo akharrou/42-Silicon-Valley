@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:42:30 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:56:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define INT_MIN -2147483648
 # endif
 
-void			ft_memset(void *dst, int c, size_t n);
+void			*ft_memset(void *dst, int c, size_t n);
 void			ft_bzero(void *str, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -79,12 +79,12 @@ void			ft_putnbr_fd(int n, int fd);
 
 int				ft_isupper(int c);
 int				ft_islower(int c);
+int				ft_isspace(int c);
 unsigned int	ft_intlen(long n);
 long double		ft_pow(int nb, int power);
 char			*ft_strdup_range(const char *str, int index, int end);
 int				ft_ischarset(int c, const char *seperators);
 int				ft_wcount(const char *s, const char *charset);
 int				ft_wcount_char(const char *s, int c);
-
 
 #endif

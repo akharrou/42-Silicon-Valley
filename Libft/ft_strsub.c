@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:03 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 17:45:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 18:15:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	end = start + len;
 	if (!(dst = (char *)malloc(end - start + 1)))
-		return (0);
+		return (NULL);
 	i = 0;
 	while (start < end)
 		dst[i++] = s[start++];
