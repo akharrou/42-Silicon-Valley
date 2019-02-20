@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strdup_range.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:25:43 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:43:09 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 15:09:44 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 15:09:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+char	*ft_strdup_range(const char *str, int index, int end)
 {
 	int		i;
-	int		j;
-	int		k;
-	char	**strtab;
+	char	*dst;
 
-	if (!(strtab = (char**)malloc(sizeof(char*) * (ft_wcount_char(s, c) + 1))))
-		return (NULL);
+	if (!(dst = (char *)malloc(end - index + 1)))
+		return (0);
 	i = 0;
-	k = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && !(s[i] == c))
-			i++;
-		if (!(strtab[k++] = ft_strdup_range(s, j, i)))
-			return (NULL);
-		while (s[i] && s[i] == c)
-			i++;
-	}
-	strtab[k] = 0;
-	return (strtab);
+	while (index < end)
+		dst[i++] = str[index++];
+	dst[i] = '\0';
+	return (dst);
 }

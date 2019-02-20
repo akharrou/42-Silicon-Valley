@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_ischarset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:27:12 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:00:31 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 15:17:40 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 15:36:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int		ft_ischarset(int c, const char *seperators);
 {
-	write(1, &c, 1);
+	while (*seperators)
+	{
+		if ((unsigned char)c == *seperators)
+			return (1);
+		seperators++;
+	}
+	return (0);
 }

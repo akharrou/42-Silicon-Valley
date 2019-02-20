@@ -4,8 +4,10 @@
  *
  */
 
+#include "../ft_pow.c"
+#include "../ft_intlen.c"
+#include "../ft_strcpy.c"
 #include "../ft_itoa.c"
-#include "../Part 1/ft_strcpy.c"
 
 #include <stdio.h>
 #include <stdlib.h>

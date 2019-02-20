@@ -19,7 +19,7 @@ int		main(int ac, char *av[])
 	}
 
 	printf("System	: %f\n", pow(atoi(av[1]), atoi(av[2])));
-	printf("Mine	: %f\n", ft_pow(atoi(av[1]), atoi(av[2])));
+	printf("Mine	: %Lf\n", ft_pow(atoi(av[1]), atoi(av[2])));
 
 	return (0);
 }

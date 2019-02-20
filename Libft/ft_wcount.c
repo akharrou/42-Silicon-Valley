@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_wcount.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:25:43 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 15:43:09 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 15:14:37 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/19 15:36:58 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+int		ft_wcount(const char *s, const char *charset)
 {
 	int		i;
-	int		j;
-	int		k;
-	char	**strtab;
+	int		word_count;
 
-	if (!(strtab = (char**)malloc(sizeof(char*) * (ft_wcount_char(s, c) + 1))))
-		return (NULL);
-	i = 0;
-	k = 0;
+	word_count = 0;
 	while (s[i])
 	{
-		while (s[i] && s[i] == c)
+		while (s[i] && ft_ischarset(s[i], charset))
 			i++;
-		j = i;
-		while (s[i] && !(s[i] == c))
+		while (s[i] && !ft_ischarset(s[i], charset))
 			i++;
-		if (!(strtab[k++] = ft_strdup_range(s, j, i)))
-			return (NULL);
-		while (s[i] && s[i] == c)
+		word_count++;
+		while (s[i] && ft_ischarset(s[i], charset))
 			i++;
 	}
-	strtab[k] = 0;
-	return (strtab);
+	return (word_count);
 }
