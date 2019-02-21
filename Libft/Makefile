@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/20 09:28:59 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/21 08:58:25 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,6 @@ SRCS        =   ft_atoi.c               \
                 ft_strdup_range.c       \
                 ft_ischarset.c          \
                 ft_wcount.c             \
-                ft_wcount_char.c        \
 
 OBJS        =	$(SRCS:.c=.o)
 

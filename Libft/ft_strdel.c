@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:22:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:55:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:47:31 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	free(*as);
-	(*as) = NULL;
+	if (as && *as)
+	{
+		free(*as);
+		(*as) = NULL;
+	}
 }

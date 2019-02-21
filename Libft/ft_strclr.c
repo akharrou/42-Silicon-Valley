@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:23:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:57:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:53:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_strclr(char *s)
 {
-	ft_memset((void *)s, 0, ft_strlen(s));
+	if (s)
+		ft_memset((void *)s, 0, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:24:03 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/20 16:29:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 20:08:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	return (ft_strncmp(s1, s2, n) == 0) ? 1 : 0;
+	if (s1 && s2)
+	{
+		if (n > 0)
+			return (ft_strncmp(s1, s2, n) == 0) ? 1 : 0;
+		return (1);
+	}
+	return (0);
 }

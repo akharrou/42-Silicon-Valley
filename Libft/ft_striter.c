@@ -6,12 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:23:13 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 19:02:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:56:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	while (*s)
-		(*f)(&(*s++));
+	if (s && *f)
+		while (*s)
+			(*f)(&(*s++));
 }

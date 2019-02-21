@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/20 17:45:14 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/21 08:58:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ long double			ft_pow(int nb, int power);
 char				*ft_strdup_range(const char *str, int index, int end);
 int					ft_ischarset(int c, const char *seperators);
 int					ft_wcount(const char *s, const char *charset);
-int					ft_wcount_char(const char *s, int c);
 
 #endif

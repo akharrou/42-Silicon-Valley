@@ -4,8 +4,11 @@
  *
  */
 
+#include "../ft_memset.c"
+#include "../ft_memalloc.c"
+#include "../ft_strnew.c"
+
 #include "../ft_strdup_range.c"
-#include "../ft_wcount_char.c"
 #include "../ft_strsplit.c"
 
 #include <stdio.h>
