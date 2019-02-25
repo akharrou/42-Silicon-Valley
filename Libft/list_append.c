@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 11:36:00 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 20:55:40 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@
 **         to).
 **
 **         If the list does not exist the newly created element is made
-**         to be the first/last element of the list, and (*head) is
-**         made to point to it.
+**         to be the first/last element of the list.
 **
 **         (*head) stays pointing to whatever it originally pointed to.
 **

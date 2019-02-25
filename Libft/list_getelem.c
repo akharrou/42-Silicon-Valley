@@ -6,13 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:29:18 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:21:02 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 20:51:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         list_getelem -- retrieve the element that contains a certain item.
+**         list_getelem -- retrieve an element containing a certain item.
 **
 **    SYNOPSIS
 **         #include <libft.h>
