@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:07:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 14:12:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:43:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 int		ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-	{
-		return (1);
-	}
-	return (0);
+	return (ISALPHA(c) || ISDIGIT(c))
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/20 10:45:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/21 11:47:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char		*ft_itoa(int n)
 	{
 		col /= 10;
 		quotient = (n / col);
-		buf[i++] = quotient + ((quotient < 10) ? '0' : 'W');
+		buf[i++] = quotient + '0';
 		n -= (quotient * col);
 	}
 	buf[i] = '\0';

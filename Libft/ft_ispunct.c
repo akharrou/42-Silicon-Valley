@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_ispunct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 19:07:21 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 13:54:14 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/24 13:32:17 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/24 14:03:50 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int c)
+#include "libft.h"
+
+int		ft_ispunct(int c)
 {
-	return (c >= 32 && c <= 126);
+	return (ISGRAPH(c) && !ISALNUM(c));
 }
