@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 21:47:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:48:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int					ft_isprime(int n);
 int					ft_ischarset(int c, const char *seperators);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-
 
 void				ft_bzero(void *str, size_t n);
 void				*ft_memset(void *dst, int c, size_t n);
