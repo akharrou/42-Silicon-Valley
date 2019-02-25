@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:30:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 20:42:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:32:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,41 @@
 **                                element of a list.
 **
 **    DESCRIPTION
-**         Removes and frees the last element of the list that (*head) points
-**         to and returns the item it contains.
+**         Removes and frees the last element of the list, that (*head)
+**         points to, updates the NEW last element of the list to point
+**         to NULL and returns the item it contains.
+**
+**         If the list had a single element, (*head), after popping the
+**         last element, will be made to point to NULL.
 **
 **    RETURN VALUES
-**         If successful returns the item from the popped element of the list.
+**         If successful returns the item from the popped element of the
+**         list; otherwise NULL.
 */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void		*list_pop(t_list **head)
 {
+	void	*item;
+	t_list	*current;
+	t_list	*previous;
 
+	if (head && (*head))
+	{
+		previous = NULL;
+		current = (*head);
+		while (current->successor)
+		{
+			previous = current;
+			current = current->successor;
+		}
+		if (previous)
+			previous->successor = current->successor;
+		item = current->item;
+		free(current);
+		return (item);
+	}
+	return (NULL);
 }

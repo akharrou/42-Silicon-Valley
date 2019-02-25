@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 20:55:40 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:05:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ int		list_append(t_list **head, const void *item)
 	}
 	return (-1);
 }
-

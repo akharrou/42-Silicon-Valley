@@ -14,8 +14,8 @@ Make the following functions:
  √  list_at.c
  √  list_getelem.c
  √  list_getitem.c
-    list_pop.c
-    list_pop_tail.c
+ √  list_pop.c
+ √  list_pop_tail.c
     list_popleft.c
     list_pop_elem.c
     list_pop_elem_at.c
