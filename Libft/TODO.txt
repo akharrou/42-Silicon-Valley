@@ -16,7 +16,7 @@ Make the following functions:
  √  list_getitem.c
  √  list_pop.c
  √  list_pop_tail.c
-    list_popleft.c
+ √  list_popleft.c
     list_pop_elem.c
     list_pop_elem_at.c
     list_remove_item_at.c
