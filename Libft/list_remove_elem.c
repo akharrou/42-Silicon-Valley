@@ -1,59 +1,82 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_delelem.c                                     :+:      :+:    :+:   */
+/*   list_remove_elem.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 20:24:43 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 20:26:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 09:13:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         list_delelem --
+**         list_remove_elem -- removes (i.e frees) an element of the list
+**                             along with the item it contains.
 **
 **    SYNOPSIS
 **         #include <libft.h>
 **
 **         int
-**         list_delelem(t_list **head, const void *item_ref, int (*cmp)());
+**         list_remove_elem(t_list **head, const void *item_ref,
+**             int (*cmp)(void *, void *), void (*free_item)(void *));
 **
 **    PARAMETERS
 **
-**         t_list *head             Pointer to the first element of a list.
+**         t_list **head                  Pointer to a pointer to the
+**                                        first element of a list.
 **
-**         const void *item_ref     A reference to find the element.
+**         const void *item_ref           Reference to find the item.
 **
-**         int (*cmp)()             A comparasion function to compare the
-**                                  current item and the item reference.
+**         int (*cmp)(void *, void *)     A pointer to a comparasion
+**                                        function. It compares the
+**                                        item reference to the current
+**                                        item. Returns 0 for a match.
+**
+**         void (*free_item)(void *)      A pointer to a function that
+**                                        frees an element's item.
 **
 **    DESCRIPTION
-**         Iterates through a list until the specified item reference is
-**         matched according to the comparative function.
+**         Traverses a list until the 'item_ref' matches the current
+**         element's item, according to the comparasion function, then
+**         frees the item, frees its element and stitches the list back
+**         together.
+**
+**         If the removed element is the first element of the list, then
+**         (*head), after the removal, is updated to point to the new first
+**         element of the list.
 **
 **    RETURN VALUES
-**         If successfully found, the element containing the item is
-**         returned; otherwise NULL is returned.
+**         Returns 0 if successful; otherwise -1.
 */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int		list_delelem(t_list **head, const void *item_ref,
-			int (*cmp)())
+int		list_remove_elem(t_list **head, const void *item_ref,
+			int (*cmp)(void *, void *), void (*free_item)(void *))
 {
-	if (head && cmp && item_ref)
+	t_list	*current;
+	t_list	*previous;
+
+	if (head && *head && item_ref && cmp)
 	{
-		while (cmp(item_ref, head->item) != 0)
+		current = (*head);
+		while (cmp((void *)item_ref, current->item) != 0)
 		{
-			if (head->successor)
-				head = head->successor;
-			else
-				return (NULL);
+			if (!(current->successor))
+				return (-1);
+			previous = current;
+			current = current->successor;
 		}
-		return (head);
+		if (current == (*head))
+			(*head) = current->successor;
+		else
+			previous->successor = current->successor;
+		free_item(current->item);
+		free(current);
+		return (0);
 	}
-	return (NULL);
+	return (-1);
 }

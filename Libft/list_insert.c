@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:25:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:02:09 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 08:15:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@
 **         const void *item               Data that will be stored in
 **                                        the new list element.
 **
-**         int (*cmp)(void *, void *)     Function that compares two
-**                                        items.
+**         int (*cmp)(void *, void *)     A pointer to a comparasion
+**                                        function. It compares the
+**                                        item reference to the current
+**                                        item. Returns 0 for a match.
 **
 **    DESCRIPTION
 **         Creates a new list element, storing 'item' as its item, then

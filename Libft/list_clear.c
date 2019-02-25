@@ -6,13 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:29:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:36:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 09:35:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         list_clear -- free an entire list and all the items it conains.
+**         list_clear -- free all elements, and their items, of a list.
 **
 **    SYNOPSIS
 **         #include <libft.h>
@@ -25,11 +25,12 @@
 **         t_list **head              Pointer to a pointer to the
 **                                    first element of a list.
 **
-**         void free_item(void *)     A function that frees an item
-**                                    of the list.
+**         void free_item(void *)     A pointer to a function that
+**                                    frees an element's item.
 **
 **    DESCRIPTION
-**         Frees all the elements and items of a list.
+**         Iterates through a list free'ing of its elements along with
+**         their items.
 **
 **    RETURN VALUES
 **         Returns 0 if successful; otherwise -1.
@@ -38,7 +39,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int		list_clear(t_list **head, void free_item(void *))
+int		list_clear(t_list **head, void (*free_item)(void *))
 {
 	t_list	*tmp;
 

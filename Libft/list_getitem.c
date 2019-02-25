@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 17:26:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:25:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 08:27:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@
 **
 **         t_list *head             Pointer to the first element of a list.
 **
-**         const void *item_ref     A reference to find the element.
+**         const void *item_ref     A reference to find the item.
 **
 **         int (*cmp)()             A comparasion function to compare the
 **                                  current item and the item reference.
+**                                  Returns 0 for a match.
 **
 **    DESCRIPTION
 **         Iterates through a list until the specified item reference is
-**         matched according to the comparative function.
+**         matched according to the comparative function, then returns
+**         a pointer to the item.
 **
 **    RETURN VALUES
 **         If successfully found, the item is returned; otherwise NULL is
@@ -40,7 +42,8 @@
 
 #include "libft.h"
 
-void	*list_getitem(t_list *head, const void *item_ref, int (*cmp)())
+void	*list_getitem(t_list *head, const void *item_ref,
+			int (*cmp)(void *, void *))
 {
 	return ((list_getelem(head, item_ref, cmp))->item);
 }

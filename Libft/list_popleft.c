@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:31:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 21:43:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 21:51:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 **
 **    DESCRIPTION
 **         Removes and frees the first element of the list, that (*head)
-**         points to, updates (*head) to point to the new first element
+**         points to, updates (*head) to point to the new first element of
 **         the list and returns the item that the first element contained.
 **
 **         If the list had a single element, (*head), after popping the

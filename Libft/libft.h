@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 21:48:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 09:03:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,25 +169,27 @@ void				*list_item_at(t_list *head, unsigned int i);
 t_list				*list_elem_at(t_list *head, unsigned int i);
 
 void				*list_getitem(t_list *head, const void *item_ref,
-					int (*cmp)());
+					int (*cmp)(void *, void *));
 t_list				*list_getelem(t_list *head, const void *item_ref,
-					int (*cmp)());
+					int (*cmp)(void *, void *));
 
 void				*list_pop(t_list **head);
 void				*list_pop_tail(t_list **tail);
 void				*list_popleft(t_list **head);
-void				*list_pop_elem_at(t_list **head, unsigned int i);
-void				*list_pop_elem(t_list **head, const void *item_ref,
-					int (*cmp)());
+void				*list_pop_item_at(t_list **head, unsigned int i);
+void				*list_pop_item(t_list **head, const void *item_ref,
+					int (*cmp)(void *, void *));
 
-int					list_remove_item_at(t_list **head, unsigned int i);
-int					list_remove_elem_at(t_list **head, unsigned int i);
 int					list_remove_item(t_list **head, const void *item_ref,
-					int (*cmp)());
+					int (*cmp)(void *, void *), void (*free_item)(void *));
+int					list_remove_item_at(t_list **head, unsigned int i,
+					void (*free_item)(void *));
 int					list_remove_elem(t_list **head, const void *item_ref,
-					int (*cmp)());
+					int (*cmp)(void *, void *), void (*free_item)(void *));
+int					list_remove_elem_at(t_list **head, unsigned int i,
+					void (*free_item)(void *));
 
-int					list_clear(t_list **head, void free_item(void *));
+int					list_clear(t_list **head, void (*free_item)(void *));
 
 void				list_iter(t_list *head, void (*f)(void *item));
 void				list_iteri(t_list *head,

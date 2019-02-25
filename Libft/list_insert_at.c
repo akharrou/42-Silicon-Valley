@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:27:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:10:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 09:27:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,22 @@
 static void		list_insert_elem_at(t_list **head, t_list **new_elem,
 					unsigned int i)
 {
-	int		index;
-	t_list	*current;
-	t_list	*previous;
+	unsigned int	index;
+	t_list			*current;
+	t_list			*previous;
 
 	index = 0;
 	current = (*head);
 	while (i > index)
 	{
-		if (current->successor)
-		{
-			previous = current;
-			current = current->successor;
-			++index;
-		}
-		else
+		if (!(current->successor))
 		{
 			current->successor = (*new_elem);
 			return ;
 		}
+		previous = current;
+		current = current->successor;
+		++index;
 	}
 	(*new_elem)->successor = current;
 	if (current == (*head))

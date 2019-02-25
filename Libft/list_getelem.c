@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:29:18 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 20:51:38 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 08:15:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,20 @@
 **         #include <libft.h>
 **
 **         t_list *
-**         list_getelem(t_list *head, const void *item_ref, int (*cmp)());
+**         list_getelem(t_list *head, const void *item_ref,
+**             int (*cmp)(void *, void *));
 **
 **    PARAMETERS
 **
-**         t_list *head             Pointer to the first element of a list.
+**         t_list *head                  Pointer to the first element
+**                                       of a list.
 **
-**         const void *item_ref     A reference to find the element.
+**         const void *item_ref          A reference to find the item.
 **
-**         int (*cmp)()             A comparasion function to compare the
-**                                  current item and the item reference.
+**         int (*cmp)(void *, void *)    A pointer to a comparasion
+**                                       function. It compares the
+**                                       item reference to the current
+**                                       item. Returns 0 for a match.
 **
 **    DESCRIPTION
 **         Iterates through a list until the specified item reference is
@@ -40,11 +44,12 @@
 
 #include "libft.h"
 
-t_list	*list_getelem(t_list *head, const void *item_ref, int (*cmp)())
+t_list	*list_getelem(t_list *head, const void *item_ref,
+			int (*cmp)(void *, void *))
 {
 	if (head && cmp && item_ref)
 	{
-		while (cmp(item_ref, head->item) != 0)
+		while (cmp((void *)item_ref, head->item) != 0)
 		{
 			if (head->successor)
 				head = head->successor;

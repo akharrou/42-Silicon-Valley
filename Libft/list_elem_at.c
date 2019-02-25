@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:28:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:09:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 09:26:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@
 
 t_list	*list_elem_at(t_list *head, unsigned int i)
 {
-	int	index;
+	unsigned int	index;
 
 	if (head)
 	{
 		index = 0;
 		while (i > index)
 		{
-			if (head->successor)
-				head = head->successor;
+			if (!(head->successor))
+				return (NULL);
+			head = head->successor;
 			++index;
 		}
-		if (i == index)
-			return (head);
+		return (head);
 	}
 	return (NULL);
 }
