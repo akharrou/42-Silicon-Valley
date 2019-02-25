@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:06:46 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:29:16 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:55:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		ft_tolower(int c)
 {
-	if (ft_isupper(c))
-		return (c + 32);
-	return (c);
+	return (ISUPPER(c) ? c + 32 : c);
 }

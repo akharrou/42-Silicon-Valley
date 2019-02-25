@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   list_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/22 19:32:18 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/22 19:32:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+unsigned int	list_count(t_list *head)
 {
-	size_t i;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
 }

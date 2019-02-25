@@ -43,7 +43,7 @@ int		main(int ac, char *av[])
 
 	if (ac < 2)
 	{
-		printf("Usage: ./program data1 data2 data3 ... \n");
+		printf("Usage: ./program item1 item2 item3 ... \n");
 		return (1);
 	}
 

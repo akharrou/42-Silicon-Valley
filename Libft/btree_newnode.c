@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/23 16:08:23 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/23 16:08:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+t_btree		*btree_newnode(void *item)
 {
-	size_t i;
+	t_btree *new_node;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
+	if (!(new_node = malloc(sizeof(t_btree))))
+		return (NULL);
+	new_node->item = item;
+	new_node->left = NULL;
+	new_node->right = NULL;
+	return (new_node);
 }

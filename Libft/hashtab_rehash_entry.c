@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   hashtab_rehash_entry.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 21:37:12 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 21:39:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+int				hashtab_rehash_entry(t_hashtable **table_to, t_entry **entry)
 {
-	size_t i;
+	unsigned int	index;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	if (table_to && *table_to && entry && *entry)
 	{
-		i++;
-		n /= 10;
+		index = HASHCODE((*entry)->key, (*table_to)->num_buckets);
+		(*entry)->successor = ((*table_to)->bucket_list)[index];
+		((*table_to)->bucket_list)[index] = (*entry);
+		(*table_to)->entries += 1;
+		return (0);
 	}
-	return (i);
+	return (-1);
 }

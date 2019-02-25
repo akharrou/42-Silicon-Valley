@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   dict_clear.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/22 09:52:31 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/22 09:57:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+int		dict_clear(t_hashtable **table)
 {
-	size_t i;
-
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
+	return (hashtab_destroy_table(table));
 }

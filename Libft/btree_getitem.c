@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   btree_getitem.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 21:05:24 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/23 15:59:43 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+void	*btree_getitem(t_btree *root, void *item_ref,
+	int (*cmpf)(void *, void *))
 {
-	size_t i;
-
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	if (root)
 	{
-		i++;
-		n /= 10;
+		if ((*cmpf)(root->item, item_ref) == 0)
+			return (root->item);
+		if (root->left)
+			return (btree_getitem(root->left, item_ref, cmpf));
+		if (root->right)
+			return (btree_getitem(root->right, item_ref, cmpf));
 	}
-	return (i);
+	return (0);
 }

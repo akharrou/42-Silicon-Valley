@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 20:04:43 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 20:04:46 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
-
-size_t	ft_intlen(long n)
+char	*ft_strrev(char *str)
 {
-	size_t i;
+	int		i;
+	int		j;
+	char	temp;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	j = 0;
+	while (str[j])
+		++j;
+	i = -1;
+	while (--j > ++i)
 	{
-		i++;
-		n /= 10;
+		temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
 	}
-	return (i);
+	return (str);
 }

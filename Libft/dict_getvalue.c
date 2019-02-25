@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   dict_getvalue.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/22 10:03:35 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/22 10:05:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+void	*dict_getvalue(t_hashtable *table, char *key)
 {
-	size_t i;
-
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
+	return ((hashtab_fetch_entry(table, key))->value);
 }

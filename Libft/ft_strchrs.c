@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchrs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 16:47:58 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 18:06:58 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
-
-size_t	ft_intlen(long n)
+static int	ft_found(const char *s, int c)
 {
-	size_t i;
+	while (*s)
+		if (*s++ == (unsigned char)c)
+			return (1);
+	if (*s == (unsigned char)c)
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
+int			ft_strchrs(char *str, char *substr)
+{
+	while (*substr)
+		if (!ft_found(str, *substr++))
+			return (0);
+	return (1);
 }

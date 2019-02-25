@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   hashtab_shrink_table.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 21:36:52 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 21:39:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+int				hashtab_shrink_table(t_hashtable **table)
 {
-	size_t i;
+	t_hashtable		*new_table;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	if (table && *table)
 	{
-		i++;
-		n /= 10;
+		if ((*table)->num_buckets > 1)
+		{
+			new_table = hashtab_alloc_table((*table)->num_buckets / 2);
+			if (new_table == NULL)
+				return (-1);
+			if (hashtab_rehash_table(table, &new_table) == -1)
+				return (-1);
+			hashtab_destroy_table(table);
+			(*table) = new_table;
+			return (0);
+		}
+		return (0);
 	}
-	return (i);
+	return (-1);
 }

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_putbytes_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 19:59:31 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 20:02:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+void	ft_putbytes_fd(char *str, int fd)
 {
-	size_t i;
-
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	while (*str)
 	{
-		i++;
-		n /= 10;
+		if (!ISPRINT(*str))
+		{
+			write(fd, "\\", 1);
+			if (*str <= '\xf')
+				write(fd, "0", 1);
+			ft_putnbr_base_fd(*str++, "0123456789abcdef", fd);
+		}
+		else
+			write(fd, str++, 1);
 	}
-	return (i);
 }

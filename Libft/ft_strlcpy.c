@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 20:07:05 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 20:08:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t i;
+	size_t			dst_len;
+	size_t			src_len;
+	int				bytes_left;
+	unsigned int	i;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	dst_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
+	bytes_left = (int)size - 1;
+	if (bytes_left >= 0)
 	{
-		i++;
-		n /= 10;
+		i = 0;
+		while (bytes_left-- && src[i])
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+		return (src_len);
 	}
-	return (i);
+	return (src_len + size);
 }

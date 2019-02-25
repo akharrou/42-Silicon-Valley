@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   hashtab_fetch_entry.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 21:31:25 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/21 21:39:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+t_entry			*hashtab_fetch_entry(t_hashtable *table, char *key)
 {
-	size_t i;
+	t_entry			*cur_entry;
+	unsigned int	index;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	if (table && key)
 	{
-		i++;
-		n /= 10;
+		index = HASHCODE(key, table->num_buckets);
+		cur_entry = (table->bucket_list)[index];
+		while (cur_entry)
+		{
+			if (ft_strcmp(cur_entry->key, key) == 0)
+				return (cur_entry);
+			cur_entry = cur_entry->successor;
+		}
 	}
-	return (i);
+	return (NULL);
 }

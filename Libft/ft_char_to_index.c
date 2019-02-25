@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_char_to_index.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 18:54:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/22 08:13:43 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/22 08:13:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
-
-size_t	ft_intlen(long n)
+unsigned int	ft_char_to_index(char c)
 {
-	size_t i;
-
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	if (c >= '0' && c <= '9')
 	{
-		i++;
-		n /= 10;
+		return (c - '0');
 	}
-	return (i);
+	else if (c >= 'a' && c <= 'z')
+	{
+		return (c - 'a' + 10);
+	}
+	else if (c >= 'A' && c <= 'Z')
+	{
+		return (c - 'A' + 10);
+	}
+	else if (c == '\'')
+	{
+		return (36);
+	}
+	return (0);
 }

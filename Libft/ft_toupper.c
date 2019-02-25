@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:08:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:29:13 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/24 13:55:30 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		ft_toupper(int c)
 {
-	if (ft_islower(c))
-		return (c - 32);
-	return (c);
+	return (ISLOWER(c) ? c - 32 : c);
 }
