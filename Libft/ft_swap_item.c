@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_swap_item.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:28:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:07:34 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/21 13:25:28 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/25 11:21:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-
-void	ft_putendl_fd(char const *s, int fd)
+void	ft_swap_item(void **a, void **b)
 {
-	if (s)
-	{
-		write(fd, &s, ft_strlen(s));
-		write(fd, "\n", 1);
-	}
+	void *tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

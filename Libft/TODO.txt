@@ -2,45 +2,12 @@
 
 Make the following functions:
 
- √  list_newelem.c
- √  list_prepend.c
- √  list_append.c
- √  list_append_tail.c
- √  list_extend.c
- √  list_extend_tail.c
- √  list_extendleft.c
- √  list_insert.c
- √  list_insert_at.c
- √  list_at.c
- √  list_getelem.c
- √  list_getitem.c
- √  list_pop.c
- √  list_pop_tail.c
- √  list_popleft.c
- √  list_pop_item.c
- √  list_pop_item_at.c
- √  list_remove_item.c
- √  list_remove_item_at.c
- √  list_remove_elem.c
- √  list_remove_elem_at.c
- √  list_clear.c
- √  list_iter.c
- √  list_iteri.c
- √  list_count.c
-    list_sort.c
     list_reverse.c
-    list_copy.c
-    list_map.c
     list_merge.c
 
 	btree_insert.c
 	btree_getitem.c
 	btree_remove.c
 	btree_clear.c
-
-    ft_swap_int.c
-    ft_swap_char.c
-    ft_swap_str.c
-    ft_swap_item.c
 
     ft_sqrt.c

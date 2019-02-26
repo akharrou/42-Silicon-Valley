@@ -6,14 +6,15 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:27:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 14:58:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 10:58:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
 void	ft_putstr(char const *s)
 {
-	while (*s)
-		write(1, s++, 1);
+	if (s)
+		write(1, &s, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 09:03:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 14:24:43 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,10 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 
-void				ft_putbyte(char c);
-void				ft_putbyte_fd(char c, int fd);
-void				ft_putbytes(char *str);
-void				ft_putbytes_fd(char *str, int fd);
+void				ft_putbyte(int c);
+void				ft_putbyte_fd(int c, int fd);
+void				ft_putbytes(const char *byte_str);
+void				ft_putbytes_fd(const char *byte_str, int fd);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr(char const *s);
@@ -138,10 +138,10 @@ unsigned int		ft_hash(const char *str);
 long double			ft_pow(int nb, int power);
 int					ft_wcount(const char *s, const char *charset);
 
-void				ft_swap_int(void **n1, void **n2);
-void				ft_swap_char(void **c1, void **c2);
-void				ft_swap_str(void **s1, void **s2);
-void				ft_swap_item(void **item1, void **item2);
+void				ft_swap_int(int *a, int *b);
+void				ft_swap_char(char *a, char *b);
+void				ft_swap_str(char **a, char **b);
+void				ft_swap_item(void **a, void **b);
 
 # ifndef FT_LIST_H
 #  define FT_LIST_H
@@ -166,7 +166,9 @@ int					list_insert_at(t_list **head, const void *item,
 					unsigned int i);
 
 void				*list_item_at(t_list *head, unsigned int i);
+void				*list_last_item(t_list *head);
 t_list				*list_elem_at(t_list *head, unsigned int i);
+t_list				*list_last_elem(t_list *head);
 
 void				*list_getitem(t_list *head, const void *item_ref,
 					int (*cmp)(void *, void *));
@@ -196,10 +198,10 @@ void				list_iteri(t_list *head,
 					void (*f)(unsigned int i, void *item));
 unsigned int		list_count(t_list *head);
 void				list_sort(t_list **head, int (*cmp)(void *, void *));
-t_list				*list_reverse(t_list *head);
-int					list_copy(t_list **dest, t_list *src);
-t_list				*list_map(t_list *head, t_list *(*f)(t_list *elem));
-void				list_merge(t_list **list1, t_list *list2);
+int					list_reverse(t_list **head);
+int					list_map(t_list **dest, t_list *src,
+					t_list *(*f)(t_list *elem));
+int					list_merge(t_list **list1, t_list *list2);
 
 # endif
 

@@ -6,25 +6,25 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:22:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 19:47:19 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 10:57:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putbytes(char *str)
+void	ft_putbytes(const char *byte_str)
 {
-	while (*str)
+	while (*byte_str)
 	{
-		if (!ISPRINT(*str))
+		if (!ISPRINT(*byte_str))
 		{
 			ft_putchar('\\');
-			if (*str <= '\xf')
+			if (*byte_str <= '\xf')
 				ft_putchar('0');
-			ft_putnbr_base(*str++, "0123456789abcdef");
+			ft_putnbr_base(*byte_str++, "0123456789abcdef");
 		}
 		else
-			ft_putchar(*str++);
+			ft_putchar(*byte_str++);
 	}
 }

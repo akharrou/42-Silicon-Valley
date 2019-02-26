@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:28:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 19:10:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 10:37:41 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@
 
 void	*list_item_at(t_list *head, unsigned int i)
 {
-	return ((list_elem_at(head, i))->item);
+	t_list *elem;
+
+	elem = list_elem_at(head, i);
+	if (elem)
+		return (elem->item);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 17:26:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 08:27:45 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 11:31:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
 **
 **    PARAMETERS
 **
-**         t_list *head             Pointer to the first element of a list.
+**         t_list *head                  Pointer to the first element of
+**                                       a list.
 **
-**         const void *item_ref     A reference to find the item.
+**         const void *item_ref          A reference to find the item.
 **
-**         int (*cmp)()             A comparasion function to compare the
-**                                  current item and the item reference.
-**                                  Returns 0 for a match.
+**         int (*cmp)(void *, void *)    A comparasion function to compare the
+**                                       current item and the item reference.
+**                                       Returns 0 for a match.
 **
 **    DESCRIPTION
 **         Iterates through a list until the specified item reference is

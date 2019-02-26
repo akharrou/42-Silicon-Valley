@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 19:59:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/21 20:00:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 10:54:34 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putbyte_fd(char c, int fd)
+void	ft_putbyte_fd(int c, int fd)
 {
 	if (!ISPRINT(c))
 	{

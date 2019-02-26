@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/24 14:07:44 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/25 13:42:21 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,19 +121,27 @@ SRCS        =   ft_isupper.c                                \
                 list_extendleft.c                           \
                 list_insert.c                               \
                 list_insert_at.c                            \
-                list_at.c                                   \
-                list_getelem.c                              \
+                list_item_at.c                              \
+                list_last_item.c                            \
+                list_elem_at.c                              \
+                list_last_elem.c                            \
                 list_getitem.c                              \
-                list_clear.c                                \
-                list_remove.c                               \
+                list_getelem.c                              \
                 list_pop.c                                  \
+                list_pop_tail.c                             \
                 list_popleft.c                              \
+                list_pop_item_at.c                          \
+                list_pop_item.c                             \
+                list_remove_item.c                          \
+                list_remove_item_at.c                       \
+                list_remove_elem.c                          \
+                list_remove_elem_at.c                       \
+                list_clear.c                                \
                 list_iter.c                                 \
                 list_iteri.c                                \
                 list_count.c                                \
                 list_sort.c                                 \
                 list_reverse.c                              \
-                list_copy.c                                 \
                 list_map.c                                  \
                 list_merge.c                                \
                                                             \

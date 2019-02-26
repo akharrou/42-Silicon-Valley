@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:21:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/19 16:55:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/25 10:47:19 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	(*ap) = NULL;
+	if (ap)
+	{
+		free(*ap);
+		(*ap) = NULL;
+	}
 }
