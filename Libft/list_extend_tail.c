@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 21:53:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:13:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:40:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 **
 **    PARAMETERS
 **
-**         t_list **tail                 Pointer to a pointer to
-**                                       any element of the list
-**                                       other than the last.
+**         t_list **tail          Pointer to a pointer to the
+**                                last element of the list (or
+**                                any element of the list).
 **
 **         const void **item_vector      Vector containing items
 **                                       to add to the end of the

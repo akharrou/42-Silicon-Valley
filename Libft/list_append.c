@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 21:05:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:39:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@
 **    PARAMETERS
 **
 **         t_list **head          Pointer to a pointer to the
-**                                first element of a list
-**                                (that said, it could be a
-**                                pointer to any element of
-**                                a list since the list will
-**                                be traversed in any case).
+**                                first element of a list.
 **
 **         const void *item       Data that will be stored in
 **                                the new list element.
