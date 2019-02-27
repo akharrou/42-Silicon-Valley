@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 11:38:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 21:35:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int		list_extend(t_list **head, const void **item_vector)
 
 	if (head && item_vector)
 	{
+		if (!(*head))
+			(*head) = list_newelem(*item_vector++);
 		original_head = (*head);
 		while (*item_vector)
 		{

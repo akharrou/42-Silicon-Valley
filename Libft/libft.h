@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 14:24:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 20:38:01 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,8 @@ void				ft_swap_char(char *a, char *b);
 void				ft_swap_str(char **a, char **b);
 void				ft_swap_item(void **a, void **b);
 
-# ifndef FT_LIST_H
-#  define FT_LIST_H
+# ifndef LIST_H
+#  define LIST_H
 
 typedef struct		s_list_element
 {
@@ -169,7 +169,6 @@ void				*list_item_at(t_list *head, unsigned int i);
 void				*list_last_item(t_list *head);
 t_list				*list_elem_at(t_list *head, unsigned int i);
 t_list				*list_last_elem(t_list *head);
-
 void				*list_getitem(t_list *head, const void *item_ref,
 					int (*cmp)(void *, void *));
 t_list				*list_getelem(t_list *head, const void *item_ref,
@@ -181,7 +180,6 @@ void				*list_popleft(t_list **head);
 void				*list_pop_item_at(t_list **head, unsigned int i);
 void				*list_pop_item(t_list **head, const void *item_ref,
 					int (*cmp)(void *, void *));
-
 int					list_remove_item(t_list **head, const void *item_ref,
 					int (*cmp)(void *, void *), void (*free_item)(void *));
 int					list_remove_item_at(t_list **head, unsigned int i,
@@ -190,7 +188,6 @@ int					list_remove_elem(t_list **head, const void *item_ref,
 					int (*cmp)(void *, void *), void (*free_item)(void *));
 int					list_remove_elem_at(t_list **head, unsigned int i,
 					void (*free_item)(void *));
-
 int					list_clear(t_list **head, void (*free_item)(void *));
 
 void				list_iter(t_list *head, void (*f)(void *item));
@@ -205,8 +202,8 @@ int					list_merge(t_list **list1, t_list *list2);
 
 # endif
 
-# ifndef FT_BTREE_H
-#  define FT_BTREE_H
+# ifndef BTREE_H
+#  define BTREE_H
 
 typedef struct		s_btree_node
 {
@@ -227,8 +224,8 @@ int					btree_level_count(t_btree *root);
 
 # endif
 
-# ifndef FT_TRIE_H
-#  define FT_TRIE_H
+# ifndef TRIE_H
+#  define TRIE_H
 
 #  define ALPHABET_SIZE 27
 #  define HEXDIGIT_SIZE 16
@@ -255,8 +252,8 @@ unsigned int		trie_count(t_trie *root);
 
 # endif
 
-# ifndef FT_HASHTABLE_H
-#  define FT_HASHTABLE_H
+# ifndef HASHTABLE_H
+#  define HASHTABLE_H
 
 #  define HASHCODE(key, buckets) (ft_hash(key) % buckets)
 
@@ -292,8 +289,10 @@ int					hashtab_rehash_table(t_hashtable **table_from,
 int					hashtab_destroy_table(t_hashtable **table);
 int					hashtab_set_appropriate_load_factor(t_hashtable **table);
 
-#  ifndef FT_DICT_H
-#   define FT_DICT_H
+# endif
+
+# ifndef DICT_H
+#  define DICT_H
 
 typedef t_hashtable	t_dict;
 
@@ -310,8 +309,6 @@ int					dict_insert(t_dict **table,
 								char *key,
 								void *value,
 								unsigned int num_entries);
-
-#  endif
 
 # endif
 

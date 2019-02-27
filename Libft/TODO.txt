@@ -2,11 +2,6 @@
 
 Make the following functions:
 
-    list_reverse.c
-    list_merge.c
-
-	btree_insert.c
-	btree_getitem.c
 	btree_remove.c
 	btree_clear.c
 

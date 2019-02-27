@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 21:20:39 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:12:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:40:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 **
 **    PARAMETERS
 **
-**         t_list **tail        Pointer to a pointer to any element
-**                              of the list other than the last.
+**         t_list **tail        Pointer to a pointer to any
+**                              element of the list other
+**                              than the last element.
 **
 **    DESCRIPTION
 **         Removes and frees the last element of the list, that (*tail)

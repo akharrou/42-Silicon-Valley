@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 07:56:42 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 09:30:36 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 20:40:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ int		list_remove_item_at(t_list **head, unsigned int i,
 			void (*free_item)(void *))
 {
 	unsigned int	index;
-	t_list 			*current;
+	t_list			*current;
 	t_list			*previous;
 
 	if (head && *head && free_item)
 	{
+		index = 0;
 		current = (*head);
 		while (i > index)
 		{

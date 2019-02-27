@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:33:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:12:58 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 19:39:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 **
 **    PARAMETERS
 **
-**         t_list **tail          Pointer to a pointer to any element
-**                                of the list other than the last.
+**         t_list **tail          Pointer to a pointer to the
+**                                last element of the list (or
+**                                any element of the list).
 **
 **         const void *item       Data that will be stored in
 **                                the new list element.

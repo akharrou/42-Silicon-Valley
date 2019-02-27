@@ -1,63 +1,126 @@
 /*
  *
- *  TEST MAIN
+ * TEST MAIN
  *
  */
 
-#include "../ft_strlen.c"
-#include "../ft_putstr.c"
+#include "../libft.h"
 
-#include "../ft_lstnew.c"
-#include "../ft_lstdelone.c"
-#include "../ft_lstdel.c"
-#include "../ft_lstadd.c"
-#include "../ft_lstmap.c"
-#include "../ft_lstiter.c"
-#include "../ft_lstiteri.c"
+#include "../list_newelem.c"
+#include "../list_prepend.c"
+#include "../list_append.c"
+#include "../list_append_tail.c"
+#include "../list_extend.c"
+#include "../list_extend_tail.c"
+#include "../list_extendleft.c"
+#include "../list_insert.c"
+#include "../list_insert_at.c"
+#include "../list_item_at.c"
+#include "../list_last_item.c"
+#include "../list_elem_at.c"
+#include "../list_last_elem.c"
+#include "../list_getitem.c"
+#include "../list_getelem.c"
+#include "../list_pop.c"
+#include "../list_pop_tail.c"
+#include "../list_popleft.c"
+#include "../list_pop_item_at.c"
+#include "../list_pop_item.c"
+#include "../list_remove_item.c"
+#include "../list_remove_item_at.c"
+#include "../list_remove_elem.c"
+#include "../list_remove_elem_at.c"
+#include "../list_clear.c"
+#include "../list_iter.c"
+#include "../list_iteri.c"
+#include "../list_count.c"
+#include "../list_sort.c"
+#include "../list_reverse.c"
+#include "../list_map.c"
+#include "../list_merge.c"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
-void	ft_print_list_elem_content(t_list *elem)
+void	print_item(unsigned int i, void *item)
 {
-	ft_putstr((char *)elem->content);
-	ft_putstr("\n");
-}
-
-void	ft_print_list_elem(unsigned int i, t_list *link)
-{
-	printf("———————————————————————————————————\nElement #%i:\n\nNext:		%p\nContent:	%s\nContent Size:	%i\n", i, link->next, (char *)link->content, (int)link->content_size);
-}
-
-void	ft_del_list_strelem(void *content, size_t content_size)
-{
-	(void)content_size;
-	(void)content;
+	printf("%i: %s\n", i, (char *)item);
 }
 
 int		main(int ac, char *av[])
 {
-	t_list			*head;
-	unsigned int	i;
-
-	if (ac < 2)
+	if (ac == 1)
 	{
-		printf("Usage: ./program item1 item2 item3 ... \n");
+		printf("Usage: ./a item1 item2 item3 itemN ...\n");
 		return (1);
 	}
 
-	i = 0;
-	while (av[++i])
-		ft_lstadd(&head, ft_lstnew(av[i], ft_strlen(av[i] + 1)));
+	t_list *head;
+	t_list *tail;
 
-	ft_lstiteri(head, &ft_print_list_elem);
-	printf("———————————————————————————————————\n");
+/* APPENDING VALUES */
+	// int i = 1;
+	// while (ac > i)
+	// 	list_append(&head, (void *)av[i++]);
+	// list_iteri(head, &print_item);
 
-	ft_lstdel(&head, ft_del_list_strelem);
+/* PREPENDING VALUES */
+	// int i = 1;
+	// while (ac > i)
+	// 	list_prepend(&head, (void *)av[i++]);
+	// list_iteri(head, &print_item);
 
-	ft_lstiteri(head, &ft_print_list_elem);
-	printf("%p\n", head);
+/* EXTENDING LISTS */
+	// list_extend(&head, (void *)(++av));
+	// list_iteri(head, &print_item);
+
+/* EXTENDING LISTS FROM TAIL */
+	// list_append(&head, *av++);
+	// tail = head;
+	// list_extend_tail(&tail, (void *)av);
+	// list_iteri(head, &print_item);
+	// printf("First Element: %s\n", head->item);
+	// printf("Last Element: %s\n", tail->item);
+
+
 
 	return (0);
 }
+
+
+// Tests Completed:
+
+//   [√]  list_newelem()
+//   [√]  list_prepend()
+//   [√]  list_append()
+//   [√]  list_append_tail()
+//   [√]  list_extend()
+//   [√]  list_extend_tail()
+//   []  list_extendleft()
+//   []  list_insert()
+//   []  list_insert_at()
+//   []  list_item_at()
+//   []  list_last_item()
+//   []  list_elem_at()
+//   []  list_last_elem()
+//   []  list_getitem()
+//   []  list_getelem()
+//   []  list_pop()
+//   []  list_pop_tail()
+//   []  list_popleft()
+//   []  list_pop_item_at()
+//   []  list_pop_item()
+//   []  list_remove_item()
+//   []  list_remove_item_at()
+//   []  list_remove_elem()
+//   []  list_remove_elem_at()
+//   []  list_clear()
+//   [√]  list_iter()
+//   [√]  list_iteri()
+//   []  list_count()
+//   []  list_sort()
+//   []  list_reverse()
+//   []  list_map()
+//   []  list_merge()

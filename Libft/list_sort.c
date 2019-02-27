@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:26:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:38:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 12:37:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 **         function.
 **
 **    RETURN VALUES
-**         Has no return value.
+**         None.
 */
 
 #include "libft.h"

@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/25 13:42:21 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/26 20:38:07 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,6 @@ SRCS        =   ft_isupper.c                                \
                 ft_convert_base.c                           \
                                                             \
                 ft_pow.c                                    \
-                ft_sqrt.c                                   \
                 ft_wcount.c                                 \
                                                             \
                 ft_swap_int.c                               \
@@ -187,10 +186,12 @@ OBJS        =	$(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -rvs $(NAME) $^
+	@ar -rs $(NAME) $^
+	@echo && echo "   [√] 	[Library Successfully Compiled!]" && echo
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^
+	@$(CC) $(CFLAGS) -c $<
+	@echo "Compiling => " $<
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
 

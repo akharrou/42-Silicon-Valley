@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 21:53:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:13:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 21:46:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 **                             (*tail) is made to point to the last element
 **                             of the list.
 **
+**                             Don't use this function if the list does
+**                             not have a pointer to its head and if the
+**                             list does not have at least one element.
+**
 **    SYNOPSIS
 **         #include <libft.h>
 **
@@ -24,9 +28,9 @@
 **
 **    PARAMETERS
 **
-**         t_list **tail                 Pointer to a pointer to
-**                                       any element of the list
-**                                       other than the last.
+**         t_list **tail                Pointer to a pointer to the
+**                                      last element of the list (or
+**                                      any element of the list).
 **
 **         const void **item_vector      Vector containing items
 **                                       to add to the end of the

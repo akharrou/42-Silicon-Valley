@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:33:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 13:15:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/26 20:42:02 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,23 @@
 
 int		list_map(t_list **dest, t_list *src, t_list *(*f)(t_list *elem))
 {
-	t_list  *new_elem;
-	t_list  *previous;
+	t_list	*new_elem;
+	t_list	*previous;
 
 	if (src && *f)
 	{
-			(*dest) = (*f)(src);
-			previous = (*dest);
+		(*dest) = (*f)(src);
+		previous = (*dest);
+		src = src->successor;
+		while (src)
+		{
+			new_elem = (*f)(src);
+			previous->successor = new_elem;
+			previous = new_elem;
 			src = src->successor;
-			while (src)
-			{
-					new_elem = (*f)(src);
-					previous->successor = new_elem;
-					previous = new_elem;
-					src = src->successor;
-			}
-			previous->successor = NULL;
-			return (0);
+		}
+		previous->successor = NULL;
+		return (0);
 	}
 	return (-1);
 }
