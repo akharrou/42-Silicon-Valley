@@ -1,8 +1,6 @@
 
-
 Make the following functions:
 
 	btree_remove.c
 	btree_clear.c
-
-    ft_sqrt.c
+	ft_sqrt.c
