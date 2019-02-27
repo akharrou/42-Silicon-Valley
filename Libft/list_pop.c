@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:30:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 21:32:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/27 10:35:30 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		*list_pop(t_list **head)
 		}
 		if (previous)
 			previous->successor = current->successor;
+		else
+			(*head) = NULL;
 		item = current->item;
 		free(current);
 		return (item);

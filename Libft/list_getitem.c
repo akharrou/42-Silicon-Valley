@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 17:26:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/25 11:31:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/27 09:55:06 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,10 @@
 void	*list_getitem(t_list *head, const void *item_ref,
 			int (*cmp)(void *, void *))
 {
-	return ((list_getelem(head, item_ref, cmp))->item);
+	t_list	*elem;
+
+	elem = list_getelem(head, item_ref, cmp);
+	if (elem)
+		return (elem->item);
+	return (NULL);
 }

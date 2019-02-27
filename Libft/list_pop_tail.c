@@ -6,15 +6,27 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 21:20:39 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/26 19:40:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/27 11:24:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
 **         list_pop_tail -- removes the last element of a list and returns
-**                          the item it contains and (*tail) is made to point
-**                          to the last element of the list.
+**                          the item it contains.
+**
+**                          If (*tail) points to anywhere other than the
+**                          last element, (*tail), after popping, will be
+**                          made to point to the new last element.
+**
+**                          If (*tail) points to the last element of a list,
+**                          (*tail), after popping, will be made to point to
+**                          NULL.
+**
+**                          This function can only be used ONCE with a
+**                          pointer to a pointer that points to the last
+**                          element of a list and TWICE with one that points
+**                          to anywhere else.
 **
 **    SYNOPSIS
 **         #include <libft.h>
