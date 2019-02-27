@@ -39,6 +39,8 @@
 #include "../list_map.c"
 #include "../list_merge.c"
 
+#include "../ft_strdup.c"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,6 +49,11 @@
 void	print_item(unsigned int i, void *item)
 {
 	printf("%i: %s\n", i, (char *)item);
+}
+
+void	free_item(void *item)
+{
+	free(item);
 }
 
 int		main(int ac, char *av[])
@@ -84,7 +91,34 @@ int		main(int ac, char *av[])
 	// printf("First Element: %s\n", head->item);
 	// printf("Last Element: %s\n", tail->item);
 
+/* EXTENDING LISTS FROM THE LEFT */
+	// list_extendleft(&head, (void *)(++av));
+	// list_iteri(head, &print_item);
 
+/* COUNTING NUMBER OF ELEMENTS */
+	// list_extend(&head, (void *)(++av));
+	// list_iteri(head, &print_item);
+	// printf("————————————————————\nElement Count: %i\n", list_count(head));
+
+/* FREEING AN ENTIRE LIST */
+	// char **str;
+	// int i = 0;
+
+	// str = (char **)malloc(sizeof(char *) * ac);
+	// while (ac > ++i)
+	// 	str[i - 1] = ft_strdup(av[i]);
+	// str[i - 1] = NULL;
+
+	// list_extend(&head, (void *)str);
+	// printf("————————————————————————————\n1st Iteration:\n");
+	// list_iteri(head, &print_item);
+	// printf("————————————————————————————\nlist_clear() ——> %i\n", list_clear(&head, &free_item));
+	// printf("————————————————————————————\n2nd Iteration:\n");
+	// list_iteri(head, &print_item);
+	// printf("————————————————————————————\n");
+
+	(void)head;
+	(void)tail;
 
 	return (0);
 }
@@ -98,7 +132,7 @@ int		main(int ac, char *av[])
 //   [√]  list_append_tail()
 //   [√]  list_extend()
 //   [√]  list_extend_tail()
-//   []  list_extendleft()
+//   [√]  list_extendleft()
 //   []  list_insert()
 //   []  list_insert_at()
 //   []  list_item_at()
@@ -116,10 +150,10 @@ int		main(int ac, char *av[])
 //   []  list_remove_item_at()
 //   []  list_remove_elem()
 //   []  list_remove_elem_at()
-//   []  list_clear()
+//   [√]  list_clear()
 //   [√]  list_iter()
 //   [√]  list_iteri()
-//   []  list_count()
+//   [√]  list_count()
 //   []  list_sort()
 //   []  list_reverse()
 //   []  list_map()

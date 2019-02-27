@@ -6,11 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 21:53:19 by akharrou          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2019/02/26 21:46:03 by akharrou         ###   ########.fr       */
-=======
-/*   Updated: 2019/02/26 19:40:14 by akharrou         ###   ########.fr       */
->>>>>>> cc3cbba20abce6c96bf26f5145b0fb12767fcac9
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +28,9 @@
 **
 **    PARAMETERS
 **
-<<<<<<< HEAD
 **         t_list **tail                Pointer to a pointer to the
 **                                      last element of the list (or
 **                                      any element of the list).
-=======
-**         t_list **tail          Pointer to a pointer to the
-**                                last element of the list (or
-**                                any element of the list).
->>>>>>> cc3cbba20abce6c96bf26f5145b0fb12767fcac9
 **
 **         const void **item_vector      Vector containing items
 **                                       to add to the end of the
