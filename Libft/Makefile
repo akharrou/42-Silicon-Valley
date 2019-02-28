@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/27 16:49:04 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/27 17:22:11 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,19 +33,8 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 CTypes/ft_isprint.c                                \
                 CTypes/ft_isprime.c                                \
                 CTypes/ft_ischarset.c                              \
-                Stdlib/ft_toupper.c                                \
-                Stdlib/ft_tolower.c                                \
-                                                                   \
-                Stdlib/ft_bzero.c                                  \
-                Stdlib/ft_memset.c                                 \
-                Stdlib/ft_memcpy.c                                 \
-                Stdlib/ft_memccpy.c                                \
-                Stdlib/ft_memmove.c                                \
-                Stdlib/ft_memchr.c                                 \
-                Stdlib/ft_memcmp.c                                 \
-                Stdlib/ft_memdel.c                                 \
-                Stdlib/ft_memalloc.c                               \
-                Stdlib/ft_realloc.c                                \
+                CTypes/ft_toupper.c                                \
+                CTypes/ft_tolower.c                                \
                                                                    \
                 String/ft_strlen.c                                 \
                 String/ft_strnlen.c                                \
@@ -96,22 +85,28 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Stdio/ft_putnbr_base.c                             \
                 Stdio/ft_putnbr_base_fd.c                          \
                                                                    \
+                Stdlib/ft_bzero.c                                  \
+                Stdlib/ft_memset.c                                 \
+                Stdlib/ft_memcpy.c                                 \
+                Stdlib/ft_memccpy.c                                \
+                Stdlib/ft_memmove.c                                \
+                Stdlib/ft_memchr.c                                 \
+                Stdlib/ft_memcmp.c                                 \
+                Stdlib/ft_memdel.c                                 \
+                Stdlib/ft_memalloc.c                               \
+                Stdlib/ft_realloc.c                                \
                 Stdlib/ft_intlen.c                                 \
                 Stdlib/ft_atoi.c                                   \
                 Stdlib/ft_itoa.c                                   \
                 Stdlib/ft_atoi_base.c                              \
                 Stdlib/ft_itoa_base.c                              \
                 Stdlib/ft_convert_base.c                           \
-                                                                   \
                 Stdlib/ft_find_next_prime.c                        \
-                Stdlib/ft_pow.c                                    \
                 Stdlib/ft_wcount.c                                 \
-                                                                   \
                 Stdlib/ft_swap_int.c                               \
                 Stdlib/ft_swap_char.c                              \
                 Stdlib/ft_swap_str.c                               \
                 Stdlib/ft_swap_item.c                              \
-                                                                   \
                 Stdlib/ft_hash.c                                   \
                                                                    \
                 Stdlib/ft_lstadd.c                                 \
@@ -121,6 +116,8 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Stdlib/ft_lstiteri.c                               \
                 Stdlib/ft_lstmap.c                                 \
                 Stdlib/ft_lstnew.c                                 \
+                                                                   \
+                Math/ft_pow.c                                      \
                                                                    \
                 Lists-Stacks-Queues/list_newelem.c                 \
                 Lists-Stacks-Queues/list_prepend.c                 \
@@ -197,7 +194,7 @@ OBJS        =	$(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -rs $(NAME) $^
+	@ar -rs $(NAME) *.o
 	@echo && echo "   [√] 	[Library Successfully Compiled!]" && echo
 
 %.o: %.c
