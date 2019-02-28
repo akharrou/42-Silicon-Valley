@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/27 17:22:11 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/27 18:03:13 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAGS      =	-Wall -Wextra -Werror -O2
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
 
 NAME        =	libft.a
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 SRCS        =   CTypes/ft_isupper.c                                \
                 CTypes/ft_islower.c                                \
@@ -35,38 +37,6 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 CTypes/ft_ischarset.c                              \
                 CTypes/ft_toupper.c                                \
                 CTypes/ft_tolower.c                                \
-                                                                   \
-                String/ft_strlen.c                                 \
-                String/ft_strnlen.c                                \
-                String/ft_strcmp.c                                 \
-                String/ft_strncmp.c                                \
-                String/ft_strequ.c                                 \
-                String/ft_strnequ.c                                \
-                String/ft_strrev.c                                 \
-                String/ft_strcpy.c                                 \
-                String/ft_strncpy.c                                \
-                String/ft_strlcpy.c                                \
-                String/ft_strcat.c                                 \
-                String/ft_strncat.c                                \
-                String/ft_strlcat.c                                \
-                String/ft_strchr.c                                 \
-                String/ft_strrchr.c                                \
-                String/ft_strchrs.c                                \
-                String/ft_strstr.c                                 \
-                String/ft_strnstr.c                                \
-                String/ft_strdup.c                                 \
-                String/ft_strdup_range.c                           \
-                String/ft_strnew.c                                 \
-                String/ft_strdel.c                                 \
-                String/ft_strclr.c                                 \
-                String/ft_striter.c                                \
-                String/ft_striteri.c                               \
-                String/ft_strmap.c                                 \
-                String/ft_strmapi.c                                \
-                String/ft_strjoin.c                                \
-                String/ft_strtrim.c                                \
-                String/ft_strsub.c                                 \
-                String/ft_strsplit.c                               \
                                                                    \
                 Stdio/ft_putbyte.c                                 \
                 Stdio/ft_putbyte_fd.c                              \
@@ -108,7 +78,6 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Stdlib/ft_swap_str.c                               \
                 Stdlib/ft_swap_item.c                              \
                 Stdlib/ft_hash.c                                   \
-                                                                   \
                 Stdlib/ft_lstadd.c                                 \
                 Stdlib/ft_lstdel.c                                 \
                 Stdlib/ft_lstdelone.c                              \
@@ -116,6 +85,38 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Stdlib/ft_lstiteri.c                               \
                 Stdlib/ft_lstmap.c                                 \
                 Stdlib/ft_lstnew.c                                 \
+                                                                   \
+                String/ft_strlen.c                                 \
+                String/ft_strnlen.c                                \
+                String/ft_strcmp.c                                 \
+                String/ft_strncmp.c                                \
+                String/ft_strequ.c                                 \
+                String/ft_strnequ.c                                \
+                String/ft_strrev.c                                 \
+                String/ft_strcpy.c                                 \
+                String/ft_strncpy.c                                \
+                String/ft_strlcpy.c                                \
+                String/ft_strcat.c                                 \
+                String/ft_strncat.c                                \
+                String/ft_strlcat.c                                \
+                String/ft_strchr.c                                 \
+                String/ft_strrchr.c                                \
+                String/ft_strchrs.c                                \
+                String/ft_strstr.c                                 \
+                String/ft_strnstr.c                                \
+                String/ft_strdup.c                                 \
+                String/ft_strdup_range.c                           \
+                String/ft_strnew.c                                 \
+                String/ft_strdel.c                                 \
+                String/ft_strclr.c                                 \
+                String/ft_striter.c                                \
+                String/ft_striteri.c                               \
+                String/ft_strmap.c                                 \
+                String/ft_strmapi.c                                \
+                String/ft_strjoin.c                                \
+                String/ft_strtrim.c                                \
+                String/ft_strsub.c                                 \
+                String/ft_strsplit.c                               \
                                                                    \
                 Math/ft_pow.c                                      \
                                                                    \
@@ -187,18 +188,20 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Dicts/dict_remove.c                                \
                 Dicts/dict_clear.c                                 \
 
-OBJS        =	$(SRCS:.c=.o)
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+OBJS        =   $(SRCS:.c=.o)
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -rs $(NAME) *.o
+	@ar -rcs $(NAME) $(OBJS)
 	@echo && echo "   [√] 	[Library Successfully Compiled!]" && echo
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiling => " $<
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
@@ -206,7 +209,7 @@ $(NAME): $(OBJS)
 DEL = /bin/rm -rf
 
 clean:
-	@$(DEL) *.o
+	@$(DEL) */*.o
 
 fclean: clean
 	@$(DEL) $(NAME)
