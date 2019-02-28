@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/26 20:38:07 by akharrou         ###   ########.fr        #
+#    Updated: 2019/02/27 16:49:04 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,165 +19,176 @@ CFLAGS      =	-Wall -Wextra -Werror -O2
 
 NAME        =	libft.a
 
-SRCS        =   ft_isupper.c                                \
-                ft_islower.c                                \
-                ft_isblank.c                                \
-                ft_isspace.c                                \
-                ft_isalpha.c                                \
-                ft_isdigit.c                                \
-                ft_isalnum.c                                \
-                ft_isascii.c                                \
-                ft_isgraph.c                                \
-                ft_ispunct.c                                \
-                ft_iscntrl.c                                \
-                ft_isprint.c                                \
-                ft_isprime.c                                \
-                ft_ischarset.c                              \
-                ft_toupper.c                                \
-                ft_tolower.c                                \
-                                                            \
-                ft_bzero.c                                  \
-                ft_memset.c                                 \
-                ft_memcpy.c                                 \
-                ft_memccpy.c                                \
-                ft_memmove.c                                \
-                ft_memchr.c                                 \
-                ft_memcmp.c                                 \
-                ft_memdel.c                                 \
-                ft_memalloc.c                               \
-                ft_realloc.c                                \
-                                                            \
-                ft_strlen.c                                 \
-                ft_strnlen.c                                \
-                ft_strcmp.c                                 \
-                ft_strncmp.c                                \
-                ft_strequ.c                                 \
-                ft_strnequ.c                                \
-                ft_strrev.c                                 \
-                ft_strcpy.c                                 \
-                ft_strncpy.c                                \
-                ft_strlcpy.c                                \
-                ft_strcat.c                                 \
-                ft_strncat.c                                \
-                ft_strlcat.c                                \
-                ft_strchr.c                                 \
-                ft_strrchr.c                                \
-                ft_strchrs.c                                \
-                ft_strstr.c                                 \
-                ft_strnstr.c                                \
-                ft_strdup.c                                 \
-                ft_strdup_range.c                           \
-                ft_strnew.c                                 \
-                ft_strdel.c                                 \
-                ft_strclr.c                                 \
-                ft_striter.c                                \
-                ft_striteri.c                               \
-                ft_strmapi.c                                \
-                ft_strjoin.c                                \
-                ft_strtrim.c                                \
-                ft_strsplit.c                               \
-                                                            \
-                ft_putbyte.c                                \
-                ft_putbyte_fd.c                             \
-                ft_putbytes.c                               \
-                ft_putbytes_fd.c                            \
-                ft_putchar.c                                \
-                ft_putchar_fd.c                             \
-                ft_putstr.c                                 \
-                ft_putstr_fd.c                              \
-                ft_putendl.c                                \
-                ft_putendl_fd.c                             \
-                ft_putstrtab.c                              \
-                ft_putstrtab_fd.c                           \
-                ft_putnbr.c                                 \
-                ft_putnbr_fd.c                              \
-                ft_putnbr_base.c                            \
-                ft_putnbr_base_fd.c                         \
-                                                            \
-                ft_intlen.c                                 \
-                ft_atoi.c                                   \
-                ft_itoa.c                                   \
-                ft_atoi_base.c                              \
-                ft_itoa_base.c                              \
-                ft_convert_base.c                           \
-                                                            \
-                ft_pow.c                                    \
-                ft_wcount.c                                 \
-                                                            \
-                ft_swap_int.c                               \
-                ft_swap_char.c                              \
-                ft_swap_str.c                               \
-                ft_swap_item.c                              \
-                                                            \
-                ft_hash.c                                   \
-                                                            \
-                list_newelem.c                              \
-                list_prepend.c                              \
-                list_append.c                               \
-                list_append_tail.c                          \
-                list_extend.c                               \
-                list_extend_tail.c                          \
-                list_extendleft.c                           \
-                list_insert.c                               \
-                list_insert_at.c                            \
-                list_item_at.c                              \
-                list_last_item.c                            \
-                list_elem_at.c                              \
-                list_last_elem.c                            \
-                list_getitem.c                              \
-                list_getelem.c                              \
-                list_pop.c                                  \
-                list_pop_tail.c                             \
-                list_popleft.c                              \
-                list_pop_item_at.c                          \
-                list_pop_item.c                             \
-                list_remove_item.c                          \
-                list_remove_item_at.c                       \
-                list_remove_elem.c                          \
-                list_remove_elem_at.c                       \
-                list_clear.c                                \
-                list_iter.c                                 \
-                list_iteri.c                                \
-                list_count.c                                \
-                list_sort.c                                 \
-                list_reverse.c                              \
-                list_map.c                                  \
-                list_merge.c                                \
-                                                            \
-                btree_newnode.c                             \
-                btree_apply_prefix.c                        \
-                btree_apply_infix.c                         \
-                btree_apply_suffix.c                        \
-                btree_insert.c                              \
-                btree_getitem.c                             \
-                btree_level_count.c                         \
-                                                            \
-                trie_newnode.c                              \
-                trie_insert.c                               \
-                trie_remove.c                               \
-                trie_clear.c                                \
-                trie_getitem.c                              \
-                trie_count.c                                \
-                                                            \
-                hashtab_alloc_table.c                       \
-                hashtab_grow_table.c                        \
-                hashtab_shrink_table.c                      \
-                hashtab_fetch_entry.c                       \
-                hashtab_insert_entry.c                      \
-                hashtab_delete_entry.c                      \
-                hashtab_rehash_entry.c                      \
-                hashtab_rehash_table.c                      \
-                hashtab_destroy_table.c                     \
-                hashtab_set_appropriate_load_factor.c       \
-                                                            \
-                dict_insert.c                               \
-                dict_getkey.c                               \
-                dict_getvalue.c                             \
-                dict_getitem.c                              \
-                dict_getvalue_fast.c                        \
-                dict_getitem_fast.c                         \
-                dict_remove.c                               \
-                dict_clear.c                                \
+SRCS        =   CTypes/ft_isupper.c                                \
+                CTypes/ft_islower.c                                \
+                CTypes/ft_isblank.c                                \
+                CTypes/ft_isspace.c                                \
+                CTypes/ft_isalpha.c                                \
+                CTypes/ft_isdigit.c                                \
+                CTypes/ft_isalnum.c                                \
+                CTypes/ft_isascii.c                                \
+                CTypes/ft_isgraph.c                                \
+                CTypes/ft_ispunct.c                                \
+                CTypes/ft_iscntrl.c                                \
+                CTypes/ft_isprint.c                                \
+                CTypes/ft_isprime.c                                \
+                CTypes/ft_ischarset.c                              \
+                Stdlib/ft_toupper.c                                \
+                Stdlib/ft_tolower.c                                \
+                                                                   \
+                Stdlib/ft_bzero.c                                  \
+                Stdlib/ft_memset.c                                 \
+                Stdlib/ft_memcpy.c                                 \
+                Stdlib/ft_memccpy.c                                \
+                Stdlib/ft_memmove.c                                \
+                Stdlib/ft_memchr.c                                 \
+                Stdlib/ft_memcmp.c                                 \
+                Stdlib/ft_memdel.c                                 \
+                Stdlib/ft_memalloc.c                               \
+                Stdlib/ft_realloc.c                                \
+                                                                   \
+                String/ft_strlen.c                                 \
+                String/ft_strnlen.c                                \
+                String/ft_strcmp.c                                 \
+                String/ft_strncmp.c                                \
+                String/ft_strequ.c                                 \
+                String/ft_strnequ.c                                \
+                String/ft_strrev.c                                 \
+                String/ft_strcpy.c                                 \
+                String/ft_strncpy.c                                \
+                String/ft_strlcpy.c                                \
+                String/ft_strcat.c                                 \
+                String/ft_strncat.c                                \
+                String/ft_strlcat.c                                \
+                String/ft_strchr.c                                 \
+                String/ft_strrchr.c                                \
+                String/ft_strchrs.c                                \
+                String/ft_strstr.c                                 \
+                String/ft_strnstr.c                                \
+                String/ft_strdup.c                                 \
+                String/ft_strdup_range.c                           \
+                String/ft_strnew.c                                 \
+                String/ft_strdel.c                                 \
+                String/ft_strclr.c                                 \
+                String/ft_striter.c                                \
+                String/ft_striteri.c                               \
+                String/ft_strmap.c                                 \
+                String/ft_strmapi.c                                \
+                String/ft_strjoin.c                                \
+                String/ft_strtrim.c                                \
+                String/ft_strsub.c                                 \
+                String/ft_strsplit.c                               \
+                                                                   \
+                Stdio/ft_putbyte.c                                 \
+                Stdio/ft_putbyte_fd.c                              \
+                Stdio/ft_putbytes.c                                \
+                Stdio/ft_putbytes_fd.c                             \
+                Stdio/ft_putchar.c                                 \
+                Stdio/ft_putchar_fd.c                              \
+                Stdio/ft_putstr.c                                  \
+                Stdio/ft_putstr_fd.c                               \
+                Stdio/ft_putendl.c                                 \
+                Stdio/ft_putendl_fd.c                              \
+                Stdio/ft_putstrtab.c                               \
+                Stdio/ft_putstrtab_fd.c                            \
+                Stdio/ft_putnbr.c                                  \
+                Stdio/ft_putnbr_fd.c                               \
+                Stdio/ft_putnbr_base.c                             \
+                Stdio/ft_putnbr_base_fd.c                          \
+                                                                   \
+                Stdlib/ft_intlen.c                                 \
+                Stdlib/ft_atoi.c                                   \
+                Stdlib/ft_itoa.c                                   \
+                Stdlib/ft_atoi_base.c                              \
+                Stdlib/ft_itoa_base.c                              \
+                Stdlib/ft_convert_base.c                           \
+                                                                   \
+                Stdlib/ft_find_next_prime.c                        \
+                Stdlib/ft_pow.c                                    \
+                Stdlib/ft_wcount.c                                 \
+                                                                   \
+                Stdlib/ft_swap_int.c                               \
+                Stdlib/ft_swap_char.c                              \
+                Stdlib/ft_swap_str.c                               \
+                Stdlib/ft_swap_item.c                              \
+                                                                   \
+                Stdlib/ft_hash.c                                   \
+                                                                   \
+                Stdlib/ft_lstadd.c                                 \
+                Stdlib/ft_lstdel.c                                 \
+                Stdlib/ft_lstdelone.c                              \
+                Stdlib/ft_lstiter.c                                \
+                Stdlib/ft_lstiteri.c                               \
+                Stdlib/ft_lstmap.c                                 \
+                Stdlib/ft_lstnew.c                                 \
+                                                                   \
+                Lists-Stacks-Queues/list_newelem.c                 \
+                Lists-Stacks-Queues/list_prepend.c                 \
+                Lists-Stacks-Queues/list_append.c                  \
+                Lists-Stacks-Queues/list_append_tail.c             \
+                Lists-Stacks-Queues/list_extend.c                  \
+                Lists-Stacks-Queues/list_extend_tail.c             \
+                Lists-Stacks-Queues/list_extendleft.c              \
+                Lists-Stacks-Queues/list_insert.c                  \
+                Lists-Stacks-Queues/list_insert_at.c               \
+                Lists-Stacks-Queues/list_item_at.c                 \
+                Lists-Stacks-Queues/list_last_item.c               \
+                Lists-Stacks-Queues/list_elem_at.c                 \
+                Lists-Stacks-Queues/list_last_elem.c               \
+                Lists-Stacks-Queues/list_getitem.c                 \
+                Lists-Stacks-Queues/list_getelem.c                 \
+                Lists-Stacks-Queues/list_pop.c                     \
+                Lists-Stacks-Queues/list_pop_tail.c                \
+                Lists-Stacks-Queues/list_popleft.c                 \
+                Lists-Stacks-Queues/list_pop_item_at.c             \
+                Lists-Stacks-Queues/list_pop_item.c                \
+                Lists-Stacks-Queues/list_remove_item.c             \
+                Lists-Stacks-Queues/list_remove_item_at.c          \
+                Lists-Stacks-Queues/list_remove_elem.c             \
+                Lists-Stacks-Queues/list_remove_elem_at.c          \
+                Lists-Stacks-Queues/list_clear.c                   \
+                Lists-Stacks-Queues/list_iter.c                    \
+                Lists-Stacks-Queues/list_iteri.c                   \
+                Lists-Stacks-Queues/list_count.c                   \
+                Lists-Stacks-Queues/list_sort.c                    \
+                Lists-Stacks-Queues/list_reverse.c                 \
+                Lists-Stacks-Queues/list_map.c                     \
+                Lists-Stacks-Queues/list_merge.c                   \
+                                                                   \
+                BinaryTrees/btree_newnode.c                        \
+                BinaryTrees/btree_apply_prefix.c                   \
+                BinaryTrees/btree_apply_infix.c                    \
+                BinaryTrees/btree_apply_suffix.c                   \
+                BinaryTrees/btree_insert.c                         \
+                BinaryTrees/btree_getitem.c                        \
+                BinaryTrees/btree_level_count.c                    \
+                                                                   \
+                Tries/trie_newnode.c                               \
+                Tries/trie_insert.c                                \
+                Tries/trie_remove.c                                \
+                Tries/trie_clear.c                                 \
+                Tries/trie_getitem.c                               \
+                Tries/trie_count.c                                 \
+                                                                   \
+                Hashtables/hashtab_alloc_table.c                   \
+                Hashtables/hashtab_grow_table.c                    \
+                Hashtables/hashtab_shrink_table.c                  \
+                Hashtables/hashtab_fetch_entry.c                   \
+                Hashtables/hashtab_insert_entry.c                  \
+                Hashtables/hashtab_delete_entry.c                  \
+                Hashtables/hashtab_rehash_entry.c                  \
+                Hashtables/hashtab_rehash_table.c                  \
+                Hashtables/hashtab_destroy_table.c                 \
+                Hashtables/hashtab_set_appropriate_load_factor.c   \
+                                                                   \
+                Dicts/dict_insert.c                                \
+                Dicts/dict_getkey.c                                \
+                Dicts/dict_getvalue.c                              \
+                Dicts/dict_getitem.c                               \
+                Dicts/dict_getvalue_fast.c                         \
+                Dicts/dict_getitem_fast.c                          \
+                Dicts/dict_remove.c                                \
+                Dicts/dict_clear.c                                 \
 
 OBJS        =	$(SRCS:.c=.o)
 

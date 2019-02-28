@@ -6,13 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 08:37:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/27 16:29:30 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdlib.h>
 # include <string.h>
 
 # ifndef INT_MAX
@@ -21,6 +22,14 @@
 
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
+# endif
+
+# ifndef _NULL
+#  define _NULL (void *)0
+# endif
+
+# ifndef MALLOC_GUARD
+#  define MALLOC_GUARD(expr) if (!(expr)) return (NULL)
 # endif
 
 # define ISBLANK(c) (c == ' ' || c == '\t')
@@ -143,62 +152,83 @@ void				ft_swap_char(char *a, char *b);
 void				ft_swap_str(char **a, char **b);
 void				ft_swap_item(void **a, void **b);
 
+# ifndef LST_H
+#  define LST_H
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
+
+void				ft_lstadd(t_list **alst, t_list *new_elem);
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstiteri(t_list *lst,
+					void (*f)(unsigned int i, t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstnew(void const *content, size_t content_size);
+
+# endif
+
 # ifndef LIST_H
 #  define LIST_H
 
 typedef struct		s_list_element
 {
 	void					*item;
-	struct s_list_element	*successor;
-}					t_list;
+	struct s_list_element	*next;
+}					t_lst;
 
-t_list				*list_newelem(const void *item);
+t_lst				*list_newelem(const void *item);
 
-int					list_prepend(t_list **head, const void *item);
-int					list_append(t_list **head, const void *item);
-int					list_append_tail(t_list **tail, const void *item);
-int					list_extend(t_list **head, const void **item_vector);
-int					list_extend_tail(t_list **tail, const void **item_vector);
-int					list_extendleft(t_list **head, const void **item_vector);
-int					list_insert(t_list **head, const void *item,
+int					list_prepend(t_lst **head, const void *item);
+int					list_append(t_lst **head, const void *item);
+int					list_append_tail(t_lst **tail, const void *item);
+int					list_extend(t_lst **head, const void **item_vector);
+int					list_extend_tail(t_lst **tail, const void **item_vector);
+int					list_extendleft(t_lst **head, const void **item_vector);
+int					list_insert(t_lst **head, const void *item,
 					int (*cmp)(void *, void *));
-int					list_insert_at(t_list **head, const void *item,
+int					list_insert_at(t_lst **head, const void *item,
 					unsigned int i);
 
-void				*list_item_at(t_list *head, unsigned int i);
-void				*list_last_item(t_list *head);
-t_list				*list_elem_at(t_list *head, unsigned int i);
-t_list				*list_last_elem(t_list *head);
-void				*list_getitem(t_list *head, const void *item_ref,
+void				*list_item_at(t_lst *head, unsigned int i);
+void				*list_last_item(t_lst *head);
+t_lst				*list_elem_at(t_lst *head, unsigned int i);
+t_lst				*list_last_elem(t_lst *head);
+void				*list_getitem(t_lst *head, const void *item_ref,
 					int (*cmp)(void *, void *));
-t_list				*list_getelem(t_list *head, const void *item_ref,
+t_lst				*list_getelem(t_lst *head, const void *item_ref,
 					int (*cmp)(void *, void *));
 
-void				*list_pop(t_list **head);
-void				*list_pop_tail(t_list **tail);
-void				*list_popleft(t_list **head);
-void				*list_pop_item_at(t_list **head, unsigned int i);
-void				*list_pop_item(t_list **head, const void *item_ref,
+void				*list_pop(t_lst **head);
+void				*list_pop_tail(t_lst **tail);
+void				*list_popleft(t_lst **head);
+void				*list_pop_item_at(t_lst **head, unsigned int i);
+void				*list_pop_item(t_lst **head, const void *item_ref,
 					int (*cmp)(void *, void *));
-int					list_remove_item(t_list **head, const void *item_ref,
+int					list_remove_item(t_lst **head, const void *item_ref,
 					int (*cmp)(void *, void *), void (*free_item)(void *));
-int					list_remove_item_at(t_list **head, unsigned int i,
+int					list_remove_item_at(t_lst **head, unsigned int i,
 					void (*free_item)(void *));
-int					list_remove_elem(t_list **head, const void *item_ref,
+int					list_remove_elem(t_lst **head, const void *item_ref,
 					int (*cmp)(void *, void *), void (*free_item)(void *));
-int					list_remove_elem_at(t_list **head, unsigned int i,
+int					list_remove_elem_at(t_lst **head, unsigned int i,
 					void (*free_item)(void *));
-int					list_clear(t_list **head, void (*free_item)(void *));
+int					list_clear(t_lst **head, void (*free_item)(void *));
 
-void				list_iter(t_list *head, void (*f)(void *item));
-void				list_iteri(t_list *head,
+void				list_iter(t_lst *head, void (*f)(void *item));
+void				list_iteri(t_lst *head,
 					void (*f)(unsigned int i, void *item));
-unsigned int		list_count(t_list *head);
-void				list_sort(t_list **head, int (*cmp)(void *, void *));
-int					list_reverse(t_list **head);
-int					list_map(t_list **dest, t_list *src,
-					t_list *(*f)(t_list *elem));
-int					list_merge(t_list **list1, t_list *list2);
+unsigned int		list_count(t_lst *head);
+void				list_sort(t_lst **head, int (*cmp)(void *, void *));
+int					list_reverse(t_lst **head);
+int					list_map(t_lst **dest, t_lst *src,
+					t_lst *(*f)(t_lst *elem));
+int					list_merge(t_lst **list1, t_lst *list2);
 
 # endif
 
@@ -264,7 +294,7 @@ typedef struct		s_entry
 {
 	char			*key;
 	void			*value;
-	struct s_entry	*successor;
+	struct s_entry	*next;
 }					t_entry;
 
 typedef struct		s_hashtable
