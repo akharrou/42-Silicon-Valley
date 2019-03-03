@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/02/27 18:03:13 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/02 21:01:09 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,13 +78,6 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Stdlib/ft_swap_str.c                               \
                 Stdlib/ft_swap_item.c                              \
                 Stdlib/ft_hash.c                                   \
-                Stdlib/ft_lstadd.c                                 \
-                Stdlib/ft_lstdel.c                                 \
-                Stdlib/ft_lstdelone.c                              \
-                Stdlib/ft_lstiter.c                                \
-                Stdlib/ft_lstiteri.c                               \
-                Stdlib/ft_lstmap.c                                 \
-                Stdlib/ft_lstnew.c                                 \
                                                                    \
                 String/ft_strlen.c                                 \
                 String/ft_strnlen.c                                \
@@ -96,6 +89,7 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 String/ft_strcpy.c                                 \
                 String/ft_strncpy.c                                \
                 String/ft_strlcpy.c                                \
+                String/ft_strcpy_until.c                           \
                 String/ft_strcat.c                                 \
                 String/ft_strncat.c                                \
                 String/ft_strlcat.c                                \
@@ -124,6 +118,7 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Lists-Stacks-Queues/list_prepend.c                 \
                 Lists-Stacks-Queues/list_append.c                  \
                 Lists-Stacks-Queues/list_append_tail.c             \
+                Lists-Stacks-Queues/list_append_special.c          \
                 Lists-Stacks-Queues/list_extend.c                  \
                 Lists-Stacks-Queues/list_extend_tail.c             \
                 Lists-Stacks-Queues/list_extendleft.c              \
@@ -179,12 +174,13 @@ SRCS        =   CTypes/ft_isupper.c                                \
                 Hashtables/hashtab_destroy_table.c                 \
                 Hashtables/hashtab_set_appropriate_load_factor.c   \
                                                                    \
+                Dicts/dict_new.c                                   \
                 Dicts/dict_insert.c                                \
-                Dicts/dict_getkey.c                                \
-                Dicts/dict_getvalue.c                              \
+                Dicts/dict_getindex.c                              \
                 Dicts/dict_getitem.c                               \
-                Dicts/dict_getvalue_fast.c                         \
                 Dicts/dict_getitem_fast.c                          \
+                Dicts/dict_getentry.c                              \
+                Dicts/dict_getentry_fast.c                         \
                 Dicts/dict_remove.c                                \
                 Dicts/dict_clear.c                                 \
 
@@ -198,7 +194,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar -rcs $(NAME) $(OBJS)
-	@echo && echo "   [√] 	[Library Successfully Compiled!]" && echo
+	@echo && echo $(GREEN) "   [√] 	[Library Successfully Compiled!]" && echo
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -215,5 +211,13 @@ fclean: clean
 	@$(DEL) $(NAME)
 
 re: fclean all
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
+
+.PHONY: all clean fclean re
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
+
+GREEN = "\033[1;32m"
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
