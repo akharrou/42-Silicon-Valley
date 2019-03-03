@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:31:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 **         #include <../libft.h>
 **
 **         void
-**         list_iteri(t_lst *head, void (*f)(unsigned int i, void *item));
+**         list_iteri(t_list *head, void (*f)(unsigned int i, void *item));
 **
 **    PARAMETERS
 **
-**         t_lst *head                            Pointer to the first
+**         t_list *head                            Pointer to the first
 **                                                 element of a list.
 **
 **         void (*f)(unsigned int i, void *item)   A pointer to a function
@@ -43,7 +43,7 @@
 
 #include "../libft.h"
 
-void	list_iteri(t_lst *head, void (*f)(unsigned int i, void *item))
+void	list_iteri(t_list *head, void (*f)(unsigned int i, void *item))
 {
 	unsigned int i;
 

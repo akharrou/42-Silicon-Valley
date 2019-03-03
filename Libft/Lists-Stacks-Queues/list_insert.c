@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:25:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_insert(t_lst **head, const void *item,
+**         list_insert(t_list **head, const void *item,
 **             int (*cmp)(void *, void *));
 **
 **    PARAMETERS
 **
-**         t_lst **head                  Pointer to a pointer to the
+**         t_list **head                  Pointer to a pointer to the
 **                                        first element of a list.
 **
 **         const void *item               Data that will be stored in
@@ -52,11 +52,11 @@
 
 #include "../libft.h"
 
-static void		list_insert_elem(t_lst **head, t_lst **new_elem,
+static void		list_insert_elem(t_list **head, t_list **new_elem,
 					int (*cmp)(void *, void *))
 {
-	t_lst	*current;
-	t_lst	*previous;
+	t_list	*current;
+	t_list	*previous;
 
 	current = (*head);
 	while (cmp((void *)((*new_elem)->item), current->item) > 0)
@@ -80,10 +80,10 @@ static void		list_insert_elem(t_lst **head, t_lst **new_elem,
 	return ;
 }
 
-int				list_insert(t_lst **head, const void *item,
+int				list_insert(t_list **head, const void *item,
 					int (*cmp)(void *, void *))
 {
-	t_lst	*new_elem;
+	t_list	*new_elem;
 
 	if (head && cmp && (new_elem = list_newelem(item)))
 	{

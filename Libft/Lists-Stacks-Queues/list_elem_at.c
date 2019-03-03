@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:28:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
-**         list_elem_at(t_lst *head, unsigned int i);
+**         t_list *
+**         list_elem_at(t_list *head, unsigned int i);
 **
 **    PARAMETERS
 **
-**         t_lst *head          Pointer to the first element of
+**         t_list *head          Pointer to the first element of
 **                               a list.
 **
 **         unsigned int i        Index at which to find the element.
@@ -41,7 +41,7 @@
 
 #include "../libft.h"
 
-t_lst	*list_elem_at(t_lst *head, unsigned int i)
+t_list	*list_elem_at(t_list *head, unsigned int i)
 {
 	unsigned int	index;
 

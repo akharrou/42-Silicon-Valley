@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:28:01 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:43:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:16:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int				ft_atoi_base(char *str, char *base)
 	index = 0;
 	while (str[i] && ft_ischarset_v2(str[i++], base, &index))
 	{
+		if (val > INT_MAX || val < INT_MIN)
+			return (0);
 		val = (val * base_len) + (index);
 		index = 0;
 	}

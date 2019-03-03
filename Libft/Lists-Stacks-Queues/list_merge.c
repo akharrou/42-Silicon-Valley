@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:33:34 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_merge(t_lst **dest, t_lst *src);
+**         list_merge(t_list **dest, t_list *src);
 **
 **    PARAMETERS
 **
-**         t_lst **dest          Pointer to a pointer to a
+**         t_list **dest          Pointer to a pointer to a
 **                                destination list.
 **
-**         t_lst *src            Pointer to a list that is
+**         t_list *src            Pointer to a list that is
 **                                that will be appended to
 **                                the (*dest) list.
 **
@@ -38,9 +38,9 @@
 
 #include "../libft.h"
 
-int		list_merge(t_lst **dest, t_lst *src)
+int		list_merge(t_list **dest, t_list *src)
 {
-	t_lst *last;
+	t_list *last;
 
 	if (!dest || (!(*dest) && !src))
 		return (-1);

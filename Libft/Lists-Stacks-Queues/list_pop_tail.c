@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 21:20:39 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@
 **         #include <../libft.h>
 **
 **         void *
-**         list_pop_tail(t_lst **tail);
+**         list_pop_tail(t_list **tail);
 **
 **    PARAMETERS
 **
-**         t_lst **tail        Pointer to a pointer to any
+**         t_list **tail        Pointer to a pointer to any
 **                              element of the list other
 **                              than the last element.
 **
@@ -57,11 +57,11 @@
 
 #include "../libft.h"
 
-void		*list_pop_tail(t_lst **tail)
+void		*list_pop_tail(t_list **tail)
 {
 	void	*item;
-	t_lst	*current;
-	t_lst	*previous;
+	t_list	*current;
+	t_list	*previous;
 
 	if (tail && (*tail))
 	{

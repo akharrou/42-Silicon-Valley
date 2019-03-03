@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:33:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_map(t_lst **dest, t_lst *src, t_lst *(*f)(t_lst *elem));
+**         list_map(t_list **dest, t_list *src, t_list *(*f)(t_list *elem));
 **
 **    PARAMETERS
 **
-**         t_lst **dest                   Pointer to the destination pointer
+**         t_list **dest                   Pointer to the destination pointer
 **                                         of the new list.
 **
-**         t_lst *src                     Pointer to the head of the source
+**         t_list *src                     Pointer to the head of the source
 **                                         list.
 **
-**         t_lst *(*f)(t_lst *elem)      Mapping function that takes a list
+**         t_list *(*f)(t_list *elem)      Mapping function that takes a list
 **                                         elements, and returns a different
 **                                         list element.
 **
@@ -43,10 +43,10 @@
 
 #include "../libft.h"
 
-int		list_map(t_lst **dest, t_lst *src, t_lst *(*f)(t_lst *elem))
+int		list_map(t_list **dest, t_list *src, t_list *(*f)(t_list *elem))
 {
-	t_lst	*new_elem;
-	t_lst	*previous;
+	t_list	*new_elem;
+	t_list	*previous;
 
 	if (src && *f)
 	{

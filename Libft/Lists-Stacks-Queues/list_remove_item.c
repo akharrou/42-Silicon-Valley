@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 09:04:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_remove_item(t_lst **head, const void *item_ref,
+**         list_remove_item(t_list **head, const void *item_ref,
 **             int (*cmp)(void *, void *), void (*free_item)(void *));
 **
 **    PARAMETERS
 **
-**         t_lst **head                  Pointer to a pointer to the
+**         t_list **head                  Pointer to a pointer to the
 **                                        first element of a list.
 **
 **         const void *item_ref           Reference to find the item.
@@ -48,11 +48,11 @@
 
 #include "../libft.h"
 
-int		list_remove_item(t_lst **head, const void *item_ref,
+int		list_remove_item(t_list **head, const void *item_ref,
 			int (*cmp)(void *, void *), void (*free_item)(void *))
 {
-	t_lst	*current;
-	t_lst	*previous;
+	t_list	*current;
+	t_list	*previous;
 
 	if (head && *head && item_ref && cmp && free_item)
 	{

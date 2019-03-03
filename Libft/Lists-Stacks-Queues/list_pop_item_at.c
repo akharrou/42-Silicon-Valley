@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 07:00:41 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         void *
-**         list_pop_item_at(t_lst **head, unsigned int i);
+**         list_pop_item_at(t_list **head, unsigned int i);
 **
 **    PARAMETERS
 **
-**         t_lst **head          Pointer to a pointer to the
+**         t_list **head          Pointer to a pointer to the
 **                                first element of a list.
 **
 **         unsigned int i         Index at which to pop the
@@ -43,11 +43,11 @@
 
 #include "../libft.h"
 
-void	*list_pop_item_at(t_lst **head, unsigned int i)
+void	*list_pop_item_at(t_list **head, unsigned int i)
 {
 	void			*item;
-	t_lst			*current;
-	t_lst			*previous;
+	t_list			*current;
+	t_list			*previous;
 	unsigned int	index;
 
 	if (head && (*head))

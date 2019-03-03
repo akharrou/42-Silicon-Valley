@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:29:18 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
-**         list_getelem(t_lst *head, const void *item_ref,
+**         t_list *
+**         list_getelem(t_list *head, const void *item_ref,
 **             int (*cmp)(void *, void *));
 **
 **    PARAMETERS
 **
-**         t_lst *head                  Pointer to the first element
+**         t_list *head                  Pointer to the first element
 **                                       of a list.
 **
 **         const void *item_ref          A reference to find the item.
@@ -44,7 +44,7 @@
 
 #include "../libft.h"
 
-t_lst	*list_getelem(t_lst *head, const void *item_ref,
+t_list	*list_getelem(t_list *head, const void *item_ref,
 			int (*cmp)(void *, void *))
 {
 	if (head && cmp && item_ref)

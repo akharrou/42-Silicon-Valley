@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 13:36:04 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
-**         list_last_item(t_lst *head);
+**         t_list *
+**         list_last_item(t_list *head);
 **
 **    PARAMETERS
 **
-**         t_lst *head      Pointer to the first element of
+**         t_list *head      Pointer to the first element of
 **                           a list.
 **
 **    DESCRIPTION
@@ -36,9 +36,9 @@
 
 #include "../libft.h"
 
-void		*list_last_item(t_lst *head)
+void		*list_last_item(t_list *head)
 {
-	t_lst	*last_elem;
+	t_list	*last_elem;
 
 	last_elem = list_last_elem(head);
 	if (last_elem)

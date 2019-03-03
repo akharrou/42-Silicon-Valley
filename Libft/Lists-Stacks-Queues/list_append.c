@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
-**         list_append(t_lst **head, const void *item);
+**         t_list *
+**         list_append(t_list **head, const void *item);
 **
 **    PARAMETERS
 **
-**         t_lst **head          Pointer to a pointer to the
+**         t_list **head          Pointer to a pointer to the
 **                                first element of a list.
 **
 **         const void *item       Data that will be stored in
@@ -44,10 +44,10 @@
 
 #include "../libft.h"
 
-int		list_append(t_lst **head, const void *item)
+int		list_append(t_list **head, const void *item)
 {
-	t_lst	*probe;
-	t_lst	*new_elem;
+	t_list	*probe;
+	t_list	*new_elem;
 
 	if (head && (new_elem = list_newelem(item)))
 	{

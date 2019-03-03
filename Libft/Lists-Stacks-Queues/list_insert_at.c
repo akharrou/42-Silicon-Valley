@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:27:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_insert_at(t_lst **head, const void *item, unsigned int i);
+**         list_insert_at(t_list **head, const void *item, unsigned int i);
 **
 **    PARAMETERS
 **
-**         t_lst **head          Pointer to a pointer to the
+**         t_list **head          Pointer to a pointer to the
 **                                first element of a list.
 **
 **         const void *item       Data that will be stored in
@@ -49,12 +49,12 @@
 
 #include "../libft.h"
 
-static void		list_insert_elem_at(t_lst **head, t_lst **new_elem,
+static void		list_insert_elem_at(t_list **head, t_list **new_elem,
 					unsigned int i)
 {
 	unsigned int	index;
-	t_lst			*current;
-	t_lst			*previous;
+	t_list			*current;
+	t_list			*previous;
 
 	index = 0;
 	current = (*head);
@@ -76,10 +76,10 @@ static void		list_insert_elem_at(t_lst **head, t_lst **new_elem,
 		previous->next = (*new_elem);
 }
 
-int				list_insert_at(t_lst **head, const void *item,
+int				list_insert_at(t_list **head, const void *item,
 					unsigned int i)
 {
-	t_lst	*new_elem;
+	t_list	*new_elem;
 
 	if (head && (new_elem = list_newelem(item)))
 	{

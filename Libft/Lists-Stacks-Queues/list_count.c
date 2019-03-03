@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:32:18 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         unsigned int
-**         list_count(t_lst *head);
+**         list_count(t_list *head);
 **
 **    PARAMETERS
 **
-**         t_lst *head         Pointer to the first element
+**         t_list *head         Pointer to the first element
 **                              of a list.
 **
 **    DESCRIPTION
@@ -35,7 +35,7 @@
 
 #include "../libft.h"
 
-unsigned int	list_count(t_lst *head)
+unsigned int	list_count(t_list *head)
 {
 	unsigned int i;
 

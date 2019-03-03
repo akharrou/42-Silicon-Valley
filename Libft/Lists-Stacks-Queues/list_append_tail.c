@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 16:33:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
-**         list_append_tail(t_lst **tail, const void *item);
+**         t_list *
+**         list_append_tail(t_list **tail, const void *item);
 **
 **    PARAMETERS
 **
-**         t_lst **tail          Pointer to a pointer to the
+**         t_list **tail          Pointer to a pointer to the
 **                                last element of the list (or
 **                                any element of the list).
 **
@@ -47,10 +47,10 @@
 
 #include "../libft.h"
 
-int		list_append_tail(t_lst **tail, const void *item)
+int		list_append_tail(t_list **tail, const void *item)
 {
-	t_lst	*probe;
-	t_lst	*new_elem;
+	t_list	*probe;
+	t_list	*new_elem;
 
 	if (tail && (new_elem = list_newelem(item)))
 	{

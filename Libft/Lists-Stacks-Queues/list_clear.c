@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:29:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_clear(t_lst **head, void free_item(void *));
+**         list_clear(t_list **head, void free_item(void *));
 **
 **    PARAMETERS
 **
-**         t_lst **head              Pointer to a pointer to the
+**         t_list **head              Pointer to a pointer to the
 **                                    first element of a list.
 **
 **         void free_item(void *)     A pointer to a function that
@@ -38,9 +38,9 @@
 
 #include "../libft.h"
 
-int		list_clear(t_lst **head, void (*free_item)(void *))
+int		list_clear(t_list **head, void (*free_item)(void *))
 {
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	if (head && free_item)
 	{

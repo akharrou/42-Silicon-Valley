@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:34:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/27 20:47:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void		entry_free_(t_entry **entry)
 	{
 		if ((*entry)->key)
 			free((*entry)->key);
-		if ((*entry)->value)
-			free((*entry)->value);
+		if ((*entry)->item)
+			free((*entry)->item);
 		free(*entry);
 		(*entry) = NULL;
 	}

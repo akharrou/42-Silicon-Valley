@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:32:42 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_reverse(t_lst **head);
+**         list_reverse(t_list **head);
 **
 **    PARAMETERS
 **
-**         t_lst **head     Pointer to a pointer
+**         t_list **head     Pointer to a pointer
 **                           to the first element
 **                           of a list.
 **
@@ -35,11 +35,11 @@
 
 #include "../libft.h"
 
-int		list_reverse(t_lst **head)
+int		list_reverse(t_list **head)
 {
 	int		size;
-	t_lst	*last;
-	t_lst	*after_last;
+	t_list	*last;
+	t_list	*after_last;
 
 	if (head && (*head))
 	{

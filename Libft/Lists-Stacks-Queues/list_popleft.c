@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:31:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 **         #include <../libft.h>
 **
 **         void *
-**         list_popleft(t_lst **head);
+**         list_popleft(t_list **head);
 **
 **    PARAMETERS
 **
-**         t_lst **head          Pointer to a pointer to the first
+**         t_list **head          Pointer to a pointer to the first
 **                                element of a list.
 **
 **    DESCRIPTION
@@ -41,10 +41,10 @@
 
 #include "../libft.h"
 
-void		*list_popleft(t_lst **head)
+void		*list_popleft(t_list **head)
 {
 	void	*item;
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	if (head && (*head))
 	{

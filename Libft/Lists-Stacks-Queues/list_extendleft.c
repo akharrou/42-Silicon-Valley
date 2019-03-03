@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:25:33 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 **         #include <../libft.h>
 **
 **         int
-**         list_extendleft(t_lst **head, const void **item_vector);
+**         list_extendleft(t_list **head, const void **item_vector);
 **
 **    PARAMETERS
 **
-**         t_lst **head                 Pointer to a pointer to the
+**         t_list **head                 Pointer to a pointer to the
 **                                       first element of a list.
 **
 **         const void **item_vector      Vector containing items
@@ -42,7 +42,7 @@
 
 #include "../libft.h"
 
-int		list_extendleft(t_lst **head, const void **item_vector)
+int		list_extendleft(t_list **head, const void **item_vector)
 {
 	if (head && item_vector)
 	{

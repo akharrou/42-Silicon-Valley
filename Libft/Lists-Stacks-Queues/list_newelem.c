@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 19:19:47 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/27 16:44:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:01:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **    SYNOPSIS
 **         #include <../libft.h>
 **
-**         t_lst *
+**         t_list *
 **         list_newelem(void *item);
 **
 **    PARAMETERS
@@ -37,11 +37,11 @@
 
 #include "../libft.h"
 
-t_lst		*list_newelem(const void *item)
+t_list		*list_newelem(const void *item)
 {
-	t_lst	*new_elem;
+	t_list	*new_elem;
 
-	if (!(new_elem = malloc(sizeof(t_lst))))
+	if (!(new_elem = malloc(sizeof(t_list))))
 		return (NULL);
 	new_elem->item = (void *)item;
 	new_elem->next = NULL;
