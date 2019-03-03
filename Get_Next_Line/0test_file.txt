@@ -1,0 +1,9 @@
+0- this is a file,
+1- that contains some content,
+2- it will be used to test,
+3- the get_next_line function,
+4- i will use it pretty often,
+5- it will be pretty useful,
+6- thanks for taking the time to read the contents of this file,
+7- have a good day,
+8- bye!
