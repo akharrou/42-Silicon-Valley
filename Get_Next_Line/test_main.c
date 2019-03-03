@@ -36,7 +36,7 @@ int		main(int ac, char *av[])
 
 	// close(fd1);
 
-/* SINGLE DESCRIPTOR ENTIRE FILE — — — — — — — — — — — — — — — — — — — — — — */
+/* STANDARD INPUT FILEDESCRIPTOR — — — — — — — — — — — — — — — — — — — — — — */
 
 	// while (get_next_line(0, &line) > 0)
 	// 	ft_putendl(line);
