@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_matrixnew.c                                     :+:      :+:    :+:   */
+/*   ft_matrix_clear.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/03 11:01:20 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/04 15:17:03 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/04 15:27:41 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 
-void	**ft_matrixnew(void **matrix, size_t height, size_t width,
-		size_t typesize)
+int		ft_matrix_clear(void ***matrix)
 {
-	unsigned int i;
+	int row;
 
-	if (height > 0)
+	if (matrix)
 	{
-		if (!(matrix = (void **)malloc(sizeof(void *) * (height + 1))))
+		if (*matrix)
 		{
-			matrix[height] = NULL;
-			i = 0;
-			while (height > i)
-				if (!(matrix[i++] = ft_memalloc(typesize * (width + 1))))
-					break ;
-			if (height == i)
-				return (matrix);
-			free(matrix);
+			row = 0;
+			while ((*matrix)[row])
+				free((*matrix)[row++]);
 		}
+		(*matrix) = NULL;
+		return (0);
 	}
-	return (NULL);
+	return (-1);
 }

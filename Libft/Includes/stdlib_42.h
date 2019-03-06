@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 10:10:40 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/04 15:53:53 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				ft_memcmp(const void *dst, const void *src, size_t n);
 void			ft_memdel(void **ap);
 void			*ft_memalloc(size_t size);
 char			*ft_realloc(char *buffer, int init_size);
-void			**ft_matrixnew(void **matrix, size_t height, size_t width,
+void			**ft_matrix_new(void **matrix, size_t height, size_t width,
 				size_t typesize);
 size_t			ft_intlen(long n);
 int				ft_find_next_prime(int n);

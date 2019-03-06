@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/04 13:15:51 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/05 15:45:47 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memdel.c                                            \
                 Stdlib/ft_memalloc.c                                          \
                 Stdlib/ft_realloc.c                                           \
-                Stdlib/ft_matrixnew.c                                         \
+                Stdlib/ft_matrix_new.c                                         \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_atoi.c                                              \
                 Stdlib/ft_itoa.c                                              \
@@ -227,7 +227,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@ar -rcs $(NAME) $(OBJECTS)
-	@echo && echo $(GREEN) "   [√] 	[Library Successfully Compiled!]" && echo
+	@echo && echo $(GREEN) "[√]     [Library Successfully Compiled!]" && echo
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -247,7 +247,7 @@ re: fclean all
 
 # Text Colorization — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-GREEN = "           \033[1;32m"
+GREEN = "\033[1;32m"
 WHITE = "\033[1;37m"
 
 # Norminette Check — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
