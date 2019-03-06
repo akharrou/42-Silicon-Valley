@@ -1,0 +1,165 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Snippet Template":
+	{
+		"prefix": "snippet template",
+		"body": [
+			"\"${1:name}\":",
+			"{",
+				"\t\"prefix\": \"${2:suggestion}\",",
+				"\t\"body\": [",
+					"\t\t\"$0\",",
+				"\t],",
+				"\t\"description\": \"${3:text}\"",
+			"},",
+		],
+		"description": "Spawn a snippet template."
+	},
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// ======================================================================= //
+//                             ANIMATED BOXES                              //
+// ======================================================================= //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+	"Program":
+	{
+		"prefix": "program header box ",
+		"body": [
+			" /* * * * * * * * * * * * * * * * * * * * * * * * *",
+			" * PROGRAM:                         author: AymenTM",
+			" *",
+			" *    > $0",
+			" *",
+			" * * * * * * * * * * * * * * * * * * * * * * * * */",
+		],
+		"description": "Spawns a program header box."
+	},
+
+	"Fix Me Tag":
+	{
+		"prefix": "fix me box ",
+		"body": [
+			"/* FIXME: $1 */",
+		],
+		"description": "Spawns a fix me notification box."
+	},
+
+	"Note Box":
+	{
+		"prefix": "note box ",
+		"body": [
+			"/* NOTE: $1 */",
+		],
+		"description": "Spawns a quick ittle idea box."
+	},
+
+	"Todo List":
+	{
+		"prefix": "todo TODO list ",
+		"body": [
+			" /* TODO:",
+			" * \t\t\t1 —> $0",
+			" * \t\t\t2 —> ",
+			" * \t\t\t3 —> ",
+			" * \t\t\t4 —> ",
+			" * \t\t\t5 —> ",
+			" */",
+		],
+		"description": "Spawns a todo list."
+	},
+
+	"Idea Box":
+	{
+		"prefix": "idea box ",
+		"body": [
+			" /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
+			" * IDEA:",
+			" *",
+			" *    > $0",
+			" *",
+ 			" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */"
+		],
+		"description": "Spawns a quick ittle idea box."
+	},
+
+	"Important Box":
+	{
+		"prefix": "important box ",
+		"body": [
+			" /* * * * * * * * * * * * * * * * * * *",
+			" * IMPORTANT:",
+			" *",
+			" *    > $0",
+			" *",
+ 			" * * * * * * * * * * * * * * * * * * * */"
+		],
+		"description": "Spawns an 'important' box."
+	},
+
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// ======================================================================= //
+//                         DOCUMENTATION TEMPLATES                         //
+// ======================================================================= //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+	"Function Documentation":
+	{
+		"prefix": "doc box ",
+		"body": [
+			"",
+			"/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —",
+			" * DEPENDENCIES:\t$3none.",
+			" * ",
+			" * DESCRIPTION:\t\t$2________",
+			" * ",
+			" * RETURN VALUES:\t${1:If successful, returns 0. Otherwise returns -1.}",
+			" * ",
+			" * SEARCH TAGS:\t\t$4________",
+			" — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — */",
+			"$0"
+		],
+		"description": "Spawns a documentation framework for functions."
+	},
+
+	"Python Function Documentation":
+	{
+		"prefix": "pdoc box ",
+		"body": [
+			"",
+			"# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #",
+			"# DEPENDENCIES:\t\t$1none.",
+			"# ",
+			"# DESCRIPTION:\t\t$2________",
+			"# ",
+			"# RETURN VALUES:\t$3________",
+			"# ",
+			"# SEARCH TAGS:\t\t$4________",
+			"# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #",
+			"$0"
+		],
+		"description": "Spawns a documentation framework for functions."
+	},
+
+}

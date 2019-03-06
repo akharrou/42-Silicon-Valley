@@ -1,0 +1,346 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Import Argv":
+	{
+		"prefix": "argv import",
+		"body": [
+			"from sys import argv\n"
+		],
+		"description": "Import argv from sys module."
+	},
+
+	"Define Main Function":
+	{
+		"prefix": "def main function",
+		"body": [
+			"def main():",
+			"\t$0",
+			"",
+			"if __name__ = '__main__':",
+			"\tmain()"
+		],
+		"description": "Spawn a main function."
+	},
+
+	"Define Function":
+	{
+		"prefix": "def function",
+		"body": [
+			"def ${1:function}(${2:params}):",
+			"\t$0",
+			"",
+		],
+		"description": "Spawn a 'define function template'."
+	},
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// ======================================================================= //
+//                           DATA TYPE VARIABLES                           //
+// ======================================================================= //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+	"Boolean":
+	{
+		"prefix": "bool variable",
+		"body": [
+			"${1:bool_name} = bool($21:x})",
+			"$0"
+		],
+		"description": "Spawns a bool variable."
+	},
+
+	// "Integer":
+	// {
+	// 	"prefix": "int = 0",
+	// 	"body": [
+	// 		"${1:int_name} = int($2)",
+	// 		"$0"
+	// 	],
+	// 	"description": "Spawn an int variable."
+	// },
+
+	"String":
+	{
+		"prefix": "string variable",
+		"body": [
+			"${1:str_name} = str('${2:x}')",
+			"$0"
+		],
+		"description": "Spawn a string variable."
+	},
+
+	"List":
+	{
+		"prefix": "list = []",
+		"body": [
+			"${1:list_name} = list(${2:x})",
+			"$0"
+		],
+		"description": "Spawn a list variable."
+	},
+
+	"Tuple":
+	{
+		"prefix": "tuple = []",
+		"body": [
+			"${1:tuple_name} = tuple([${2:x}])",
+			"$0"
+		],
+		"description": "Spawn a tuple variable."
+	},
+
+	"Set":
+	{
+		"prefix": "set = set()",
+		"body": [
+			"${1:set_name} = set([${2:x}])",
+			"$0"
+		],
+		"description": "Spawn a set variable."
+	},
+
+	"Dict":
+	{
+		"prefix": "dict = []",
+		"body": [
+			"${1:dict_name} = dict({${2:x}})",
+			"$0"
+		],
+		"description": "Spawn a dict variable."
+	},
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// ======================================================================= //
+//                          CONTROL FLOW STATEMENTS                        //
+// ======================================================================= //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+	"While":
+	{
+		"prefix": "while loop",
+		"body": [
+			"while ${1:condition}:",
+			"\t${2:# do something}",
+			"\t$0",
+		],
+		"description": "Spawns a while loop template."
+	},
+
+	"For":
+	{
+		"prefix": "for loop",
+		"body": [
+			"for ${1:i} in ${2:iterable}:",
+			"\t${3:# do something}",
+			"\t$0",
+		],
+		"description": "Spawns a for loop template."
+	},
+
+	"Shorthand If Statement":
+	{
+		"prefix": "sif statement",
+		"body": [
+			"${2:do A} if ${1:condition} else ${3:do B}",
+			"$0"
+		],
+		"description": "Spawns a shorthand if statement."
+	},
+
+	// "Shorthand If Statement (1)":
+	// {
+	// 	"prefix": "sif statement",
+	// 	"body": [
+	// 		"{True: ${2:a}, False: ${3:b}}[${1:condition}]",
+	// 		"$0"
+	// 	],
+	// 	"description": "Spawns a shorthand if statement, (2nd way of doing it)."
+	// },
+
+	"If Statement":
+	{
+		"prefix": "if statement",
+		"body": [
+			"if ${1:condition}:",
+			"\t${2:# do something}",
+			"\t$0",
+		],
+		"description": "Spawn an if statement."
+	},
+
+	"Elif Statement":
+	{
+		"prefix": "elif statement",
+		"body": [
+			"elif ${1:condition}:",
+			"\t${2:# do something else}",
+			"\t$0",
+		],
+		"description": "Spawn an elif statement."
+	},
+
+	"Else Statement":
+	{
+		"prefix": "else statement",
+		"body": [
+			"else:",
+			"\t${1:# do something else}",
+			"\t$0",
+		],
+		"description": "Spawn an else statement."
+	},
+
+	"If, Else Statement":
+	{
+		"prefix": "ife statement",
+		"body": [
+			"if ${1:condition}:",
+			"\t${2:# do something}",
+			"else:",
+			"\t${3:# do something else}",
+			"\t$0",
+		],
+		"description": "Spawn an if, else statement."
+	},
+
+	"If, Elif, Else Statement":
+	{
+		"prefix": "iffe statement",
+		"body": [
+			"if ${1:condition}:",
+			"\t${2:# do something}",
+			"elif ${3:condition}:",
+			"\t${4:# do something}",
+			"else:",
+			"\t${5:# do yet another something}",
+			"\t$0",
+		],
+		"description": "Spawn an if, elif, else statement."
+	},
+
+	"While, If, Elif, Else":
+	{
+		"prefix": "whiffe statement",
+		"body": [
+			"while (${1:condition}):",
+			"",
+			"\tif ${2:condition}:",
+			"\t\t${3:# do something}",
+			"\telif ${4:condition}:",
+			"\t\t${5:# do something}",
+			"\telse:",
+			"\t\t${6:# do yet another something}",
+			"\t$0",
+		],
+		"description": "Spawns a while loop followed by an if, elif, else statement."
+	},
+
+	"For, If, Elif, Else":
+	{
+		"prefix": "foriffe statement",
+		"body": [
+			"for ${1:i} in ${2:iterable}:",
+			"",
+			"\tif ${3:condition}:",
+			"\t\t${4:# do something}",
+			"\telif ${5:condition}:",
+			"\t\t${6:# do something}",
+			"\telse:",
+			"\t\t${7:# do yet another something}",
+			"\t$0",
+		],
+		"description": "Spawns a for loop followed by an if, elif, else statement."
+	},
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// ======================================================================= //
+//                           DATA TYPE VARIABLES                           //
+// ======================================================================= //
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+	"Print":
+	{
+		"prefix": "print string ",
+		"body": [
+			"print('${1:x}')",
+			"$0"
+		],
+		"description": "Spawns the print() function."
+	},
+
+	"Print Formatted String":
+	{
+		"prefix": "print formatted string ",
+		"body": [
+			"print(f'${1:x}')",
+			"$0"
+		],
+		"description": "Spawns the print() function, (formatted string)."
+	},
+
+	"Input - Prompt User for a String.":
+	{
+		"prefix": "input string ",
+		"body": [
+			"str(input('$1')$0",
+		],
+		"description": "Prompt user for an string."
+	},
+
+	"Input - Prompt User for an Integer.":
+	{
+		"prefix": "input integer ",
+		"body": [
+			"int(input('$1')$0",
+		],
+		"description": "Prompt user for an integer."
+	},
+
+	"Input - Prompt User for a List.":
+	{
+		"prefix": "input list ",
+		"body": [
+			"list(input('$1')$0",
+		],
+		"description": "Prompt user for data that will be made into a list."
+	},
+
+	"Convert a character to a String":
+	{
+		"prefix": "ord char",
+		"body": [
+			"ord(${1:x})",
+			"$0"
+		],
+		"description": "Spawns the ord() function"
+	},
+
+	"Convert an integer to a character":
+	{
+		"prefix": "chr char",
+		"body": [
+			"chr(${1:x})",
+			"$0"
+		],
+		"description": "Spawns the chr() function"
+	},
+}

@@ -1,0 +1,56 @@
+
+List of Vscode Extensions:
+
+
+    Enabled:
+    ____________________________________________________
+
+    - Atom One Dark Theme
+    - Bookmarks
+    - C/C++
+    - C/C++ Clang Command Adapter
+    - C++ Intellisnse
+    - Code Runner
+    - Explorer New File
+    - File Navigator
+    - File Templates
+    - File Utils
+    - Indenticator
+    - kite
+    - MagicPython
+    - Material Dark Soda
+    - Path Intellisense
+    - Project Manager
+    - Python
+    - Python for VSCode
+    - Python Preview
+    - Python Extension Pack
+    - AREPL for Python
+    - Spacegrey VSCode (mihai vilcu)
+    - Sublime Text Keymap and Settings Importer
+    - TODO Highlight
+    - Tomorrow and Tomorrow Night Theme Kit
+    - vscode-icons
+
+
+    Disabled:
+    ____________________________________________________
+
+    - Auto Close Tag
+    - Auto Rename Tag
+    - Bracket Pair Colorizer 2
+    - Subtle Match Brackets
+    - Code Spell Checker
+    - Color Highlight
+    - Debugger for Chrome
+    - Git History
+    - Github Pull Requests
+    - Gitlens — Git supercharged
+    - IntelliSense for CSS class names in HTML
+    - Live Server
+    - Paste JSON as Code
+    - Prettier - Code formatter
+    - Rainbow Brackets
+    - VS Live Share
+
+
