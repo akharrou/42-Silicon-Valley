@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:25:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 16:34:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 17:33:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         hashtab_shrink -- realloc hashtable decreasing its size by
-**                           HTAB_DIVISER, (macro defined in 'hashtable.h').
+**         hashtab_grow -- shrink a hashtable (to HTAB_DIVISER times less the
+**                         size).
 **
 **    SYNOPSIS
 **         #include "stdlib_42.h"

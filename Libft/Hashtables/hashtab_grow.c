@@ -6,14 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:25:07 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 16:34:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 17:33:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         hashtab_grow -- grows a hashtable, multiplying its size by
-**                         HTAB_MULTIPLIER (macro defined in 'hashtable.h').
+**         hashtab_grow -- grow a hashtable (to HTAB_MULTIPLIER times the size).
 **
 **    SYNOPSIS
 **         #include "stdlib_42.h"
