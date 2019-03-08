@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:35:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 11:24:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 16:34:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 **
 **    PARAMETERS
 **
-**         t_hashtable **table      Address of a pointer to a hashtable.
+**         t_hashtable **table      Pointer to a pointer to a hashtable.
 **
 **    DESCRIPTION
 **         Checks that the current load factor is neither greater than

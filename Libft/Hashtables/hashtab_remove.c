@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_remove.c                             :+:      :+:    :+:   */
+/*   hashtab_remove.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:33:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 11:35:09 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 17:26:14 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 17:26:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@
 **
 **    PARAMETERS
 **
-**         t_hashtable **table           Address of a pointer to a
+**         t_hashtable **table           Pointer to a pointer to a
 **                                       hashtable.
 **
 **         char *key                     Key corresponding to a
 **                                       value.
 **
 **    DESCRIPTION
-**         Looks for an entry based on the 'key', if it exists deletes/frees
-**         it and everything it contains, including its item otherwise does
-**         nothing and returns -1.
+**         Looks for an entry based on the 'key', if found, the entry is
+**         deleted/free'd along with everything it contains. If the entry
+**         is not found, nothing happens and -1 is returned.
 **
 **    RETURN VALUES
 **         If successful returns 0; otherwise -1.
@@ -62,29 +62,13 @@ static void		entry_free__(t_entry **entry)
 
 int				hashtab_remove(t_hashtable **table, char *key)
 {
-	t_entry			*prev_entry;
-	t_entry			*cur_entry;
-	unsigned int	index;
+	void *item;
 
-	if (table && key)
+	item = hashtab_popitem(table, key);
+	if (item != NULL)
 	{
-		index = HASHCODE(key, (*table)->num_buckets);
-		cur_entry = ((*table)->bucket_list)[index];
-		while (cur_entry)
-		{
-			if (ft_strcmp(cur_entry->key, key) == 0)
-			{
-				if (cur_entry == ((*table)->bucket_list)[index])
-					((*table)->bucket_list)[index] = cur_entry->next;
-				else
-					prev_entry->next = cur_entry->next;
-				entry_free__(&cur_entry);
-				(*table)->entries -= 1;
-				return (0);
-			}
-			prev_entry = cur_entry;
-			cur_entry = cur_entry->next;
-		}
+		free(item);
+		return (0);
 	}
 	return (-1);
 }

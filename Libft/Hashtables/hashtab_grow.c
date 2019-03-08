@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:25:07 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 13:01:00 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 16:34:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **
 **    PARAMETERS
 **
-**         t_hashtable **table          Address of a pointer to a hashtable.
+**         t_hashtable **table          Pointer to a pointer to a hashtable.
 **
 **    DESCRIPTION
 **         Allocates a new hashtable, the size of the current hashtable

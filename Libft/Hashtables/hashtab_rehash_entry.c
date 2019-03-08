@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:37:12 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 10:06:48 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 17:24:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,21 @@
 **         #include "hashtable.h"
 **
 **         int
-**         hashtab_rehash_entry(t_hashtable **table_to, t_entry **entry);
+**         hashtab_rehash_entry(t_hashtable **dest_table, t_entry **entry);
 **
 **    PARAMETERS
 **
-**         PARAM 1                 Brief
+**         t_hashtable **dest_table       Pointer to a pointer to the
+**                                      destination hashtable for the
+**                                      rehashed entry.
 **
-**         PARAM 2                 Brief
-**
-**         PARAM 3                 Brief
+**         t_entry **entry              Pointer to an entry that is to
+**                                      be rehashed.
 **
 **    DESCRIPTION
-**         Description.
+**         The entry is rehashed and the output is modulo'ed with the
+**         size of the (*dest_table) size and stored at that index in the
+**         hashtable that (*dest_table) points to.
 **
 **    RETURN VALUES
 **         If successful returns 0; otherwise -1.
@@ -39,16 +42,16 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-int				hashtab_rehash_entry(t_hashtable **table_to, t_entry **entry)
+int				hashtab_rehash_entry(t_hashtable **dest_table, t_entry **entry)
 {
 	unsigned int	index;
 
-	if (table_to && *table_to && entry && *entry)
+	if (dest_table && *dest_table && entry && *entry)
 	{
-		index = HASHCODE((*entry)->key, (*table_to)->num_buckets);
-		(*entry)->next = ((*table_to)->bucket_list)[index];
-		((*table_to)->bucket_list)[index] = (*entry);
-		(*table_to)->entries += 1;
+		index = HASHCODE((*entry)->key, (*dest_table)->num_buckets);
+		(*entry)->next = ((*dest_table)->bucket_list)[index];
+		((*dest_table)->bucket_list)[index] = (*entry);
+		(*dest_table)->entries += 1;
 		return (0);
 	}
 	return (-1);

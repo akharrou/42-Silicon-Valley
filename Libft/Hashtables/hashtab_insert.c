@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_insert.c                             :+:      :+:    :+:   */
+/*   hashtab_insert.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:28:03 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 11:48:02 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 17:26:22 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 17:26:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 **
 **    PARAMETERS
 **
-**         t_hashtable **table      Address of a pointer to a hashtable.
+**         t_hashtable **table      Pointer to a pointer to a hashtable.
 **
 **         char *key                Key.
 **

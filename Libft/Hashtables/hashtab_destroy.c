@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_destroy.c                            :+:      :+:    :+:   */
+/*   hashtab_destroy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:34:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 11:09:31 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 17:26:38 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 17:26:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **
 **    PARAMETERS
 **
-**         t_hashtable **table           Address of a pointer to a hashtable.
+**         t_hashtable **table           Pointer to a pointer to a hashtable.
 **
 **
 **    DESCRIPTION
