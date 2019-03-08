@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_shrink_table.c                             :+:      :+:    :+:   */
+/*   dict_extend.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:36:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 15:56:13 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 16:26:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/stdlib_42.h"
-#include "../Includes/hashtable.h"
+#include "../Includes/dict.h"
 
-int				hashtab_shrink_table(t_hashtable **table)
+/*
+**  Add multiple items to a list.
+*/
+
+int		dict_extend(t_hashtable **table, char **key_vector, void **item_vector)
 {
-	t_hashtable		*new_table;
+	int	ret;
 
-	if (table && *table)
+	if (table && key_vector && item_vector && *key_vector && *item_vector)
 	{
-		if ((*table)->num_buckets > 1)
+		if (!(*table))
+			(*table) = hashtab_new(INIT_HASHTABLE_SIZE);
+		if (*table)
 		{
-			new_table = hashtab_alloc_table((*table)->num_buckets / 2);
-			if (new_table == NULL)
-				return (-1);
-			if (hashtab_rehash_table(table, &new_table) == -1)
-				return (-1);
-			hashtab_destroy_table(table);
-			(*table) = new_table;
+			while (*key_vector && *item_vector)
+			{
+				ret = hashtab_insert(table, *key_vector, *item_vector);
+				if (ret == -1)
+					return (-1);
+			}
 			return (0);
 		}
-		return (0);
 	}
 	return (-1);
 }

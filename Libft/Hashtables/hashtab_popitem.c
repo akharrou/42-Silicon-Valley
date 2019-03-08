@@ -1,37 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_delete_entry.c                             :+:      :+:    :+:   */
+/*   hashtab_popitem.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:33:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 11:17:09 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 12:57:48 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**    NAME
+**         hashtab_popitem -- pop an entry from a hashtable and get its item.
+**
+**    SYNOPSIS
+**         #include "stdlib_42.h"
+**         #include "string_42.h"
+**         #include "hashtable.h"
+**
+**         void *
+**         hashtab_popitem(t_hashtable **table, char *key);
+**
+**    PARAMETERS
+**
+**         t_hashtable **table       Address of a pointer to a
+**                                   hashtable.
+**
+**         char *key                 Key corresponding to a
+**                                   value.
+**
+**    DESCRIPTION
+**         Looks for an entry based on the 'key', if it exists, its item is
+**         saved, the entry is free'd and the item is returned.
+**
+**    RETURN VALUES
+**         If successful returns a pointer to the item; otherwise NULL.
+*/
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 #include "../Includes/hashtable.h"
 
-static void			entry_free__(t_entry **entry)
+/*
+**  Helper function used to free an entry and that which it contains
+**  except for its item.
+*/
+
+static void		free_entry_except_item(t_entry **entry)
 {
 	if (entry && *entry)
 	{
 		if ((*entry)->key)
 			free((*entry)->key);
-		if ((*entry)->item)
-			free((*entry)->item);
 		free(*entry);
 		(*entry) = NULL;
 	}
 }
 
-int					hashtab_delete_entry(t_hashtable **table, char *key)
+void			*hashtab_popitem(t_hashtable **table, char *key)
 {
 	t_entry			*prev_entry;
 	t_entry			*cur_entry;
 	unsigned int	index;
+	void			*item;
 
 	if (table && key)
 	{
@@ -45,13 +77,14 @@ int					hashtab_delete_entry(t_hashtable **table, char *key)
 					((*table)->bucket_list)[index] = cur_entry->next;
 				else
 					prev_entry->next = cur_entry->next;
-				entry_free__(&cur_entry);
+				item = cur_entry->item;
 				(*table)->entries -= 1;
-				return (0);
+				free_entry_except_item(&cur_entry);
+				return (item);
 			}
 			prev_entry = cur_entry;
 			cur_entry = cur_entry->next;
 		}
 	}
-	return (-1);
+	return (NULL);
 }

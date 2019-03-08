@@ -1,14 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_destroy_table.c                            :+:      :+:    :+:   */
+/*   hashtab_clear.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:34:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 11:09:31 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**    NAME
+**         hashtab_clear -- remove and free all entries of a hashtable without
+**                          free'ing the hashtable itself.
+**
+**    SYNOPSIS
+**         #include "stdlib_42.h"
+**         #include "hashtable.h"
+**
+**         int
+**         hashtab_clear(t_hashtable **table, void (*free_item)(void *));
+**
+**    PARAMETERS
+**
+**         t_hashtable **table           Address of a pointer to a hashtable.
+**
+**    DESCRIPTION
+**         Removes and frees all entries contained in the hashtable pointed to
+**         by (*table) without free'ing the hashtable itself.
+**
+**    RETURN VALUES
+**         If successful returns 0; otherwise -1.
+*/
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
@@ -41,7 +65,7 @@ static void		bucket_free_(t_entry **head)
 	}
 }
 
-int				hashtab_destroy_table(t_hashtable **table)
+int				hashtab_clear(t_hashtable **table)
 {
 	unsigned int	i;
 
@@ -52,19 +76,16 @@ int				hashtab_destroy_table(t_hashtable **table)
 			if ((*table)->bucket_list)
 			{
 				i = 0;
-				while (i < (*table)->num_buckets)
+				while ((*table)->num_buckets > i)
 				{
 					if (((*table)->bucket_list)[i])
 						bucket_free_(&((*table)->bucket_list)[i]);
 					i++;
 				}
-				free((*table)->bucket_list);
-				(*table)->bucket_list = NULL;
+				(*table)->entries = 0;
+				return (0);
 			}
-			free(*table);
-			(*table) = NULL;
 		}
-		return (0);
 	}
 	return (-1);
 }

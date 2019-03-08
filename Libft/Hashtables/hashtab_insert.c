@@ -1,18 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_insert_entry.c                             :+:      :+:    :+:   */
+/*   hashtab_insert.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:28:03 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 11:48:02 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**    NAME
+**         hashtab_insert -- insert a key-value pair as an entry into a
+**                           hashtable.
+**
+**    SYNOPSIS
+**         #include "string_42.h"
+**         #include "stdlib_42.h"
+**         #include "hashtable.h"
+**
+**         int
+**         hashtab_insert(t_hashtable **table, char *key, void *item);
+**
+**    PARAMETERS
+**
+**         t_hashtable **table      Address of a pointer to a hashtable.
+**
+**         char *key                Key.
+**
+**         void *item               Value.
+**
+**    DESCRIPTION
+**         A key-value pair is taken as input, turned into an entry, then
+**         inserted into the hashtable pointed to by (*table).
+**
+**    RETURN VALUES
+**         If successful, returns the index of the inserted entry in the
+**         hashtable; otherwise -1.
+*/
 
 #include "../Includes/string_42.h"
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
+
+/*
+**  Helper function that creates an entry out of a key-value pair.
+**  Note, a copy of the key is made; free'ing it is taken care of.
+*/
 
 static t_entry	*entry_create_(char *key, void *item)
 {
@@ -30,11 +65,7 @@ static t_entry	*entry_create_(char *key, void *item)
 	return (NULL);
 }
 
-/*
-** If successful, returns the index of the inserted entry; otherwise -1.
-*/
-
-int				hashtab_insert_entry(t_hashtable **table, char *key, void *item)
+int				hashtab_insert(t_hashtable **table, char *key, void *item)
 {
 	t_entry			*entry;
 	unsigned int	index;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 09:55:34 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 12:29:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		dict_insert(t_hashtable **table, char *key, void *item)
 	{
 		if (!(*table))
 		{
-			(*table) = hashtab_alloc_table(INIT_HASHTABLE_SIZE);
+			(*table) = hashtab_new(INIT_HASHTABLE_SIZE);
 			if (!(*table))
 				return (-1);
 		}
-		return (hashtab_insert_entry(table, key, item));
+		return (hashtab_insert(table, key, item));
 	}
 	return (-1);
 }

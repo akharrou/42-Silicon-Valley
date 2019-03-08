@@ -1,20 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_fetch_entry.c                              :+:      :+:    :+:   */
+/*   hashtab_getentry.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 21:31:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Created: 2019/03/07 11:10:25 by akharrou          #+#    #+#             */
+/*   Updated: 2019/03/07 12:42:53 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**    NAME
+**         hashtab_getentry -- search and retrieve an entry.
+**
+**    SYNOPSIS
+**         #include "string_42.h"
+**         #include "stdlib_42.h"
+**         #include "hashtable.h"
+**
+**         t_entry *
+**         hashtab_getentry(t_hashtable *table, char *key);
+**
+**    PARAMETERS
+**
+**         t_hashtable *table        Pointer to a hashtable.
+**
+**         char *key                 Key to find the entry.
+**
+**    DESCRIPTION
+**         Looks for an entry based on the 'key', if it exists returns
+**         a pointer to the entry.
+**
+**    RETURN VALUES
+**         If the entry is found, a pointer to it is returned; otherwise
+**         NULL is returned.
+*/
 
 #include "../Includes/string_42.h"
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-t_entry			*hashtab_fetch_entry(t_hashtable *table, char *key)
+t_entry			*hashtab_getentry(t_hashtable *table, char *key)
 {
 	t_entry			*cur_entry;
 	unsigned int	index;

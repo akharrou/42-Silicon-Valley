@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 08:16:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 10:31:19 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 15:48:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 # define HASHCODE(key, buckets) (ft_hash(key) % buckets)
 
 # define INIT_HASHTABLE_SIZE 256
+
 # define MIN_LOAD_FACTOR 0.0
 # define MAX_LOAD_FACTOR 0.7
+
+# define HTAB_MULTIPLIER 2
+# define HTAB_DIVISER 2
 
 typedef struct		s_entry
 {
@@ -33,19 +37,22 @@ typedef struct		s_hashtable
 	t_entry			**bucket_list;
 }					t_hashtable;
 
-t_hashtable			*hashtab_alloc_table(unsigned int num_entries);
-int					hashtab_grow_table(t_hashtable **table);
-int					hashtab_shrink_table(t_hashtable **table);
-t_entry				*hashtab_fetch_entry(t_hashtable *table, char *key);
-int					hashtab_insert_entry(t_hashtable **table,
-										char *key,
-										void *item);
-int					hashtab_delete_entry(t_hashtable **table, char *key);
-int					hashtab_rehash_entry(t_hashtable **table_to,
-										t_entry **entry);
-int					hashtab_rehash_table(t_hashtable **table_from,
-										t_hashtable **table_to);
-int					hashtab_destroy_table(t_hashtable **table);
+t_hashtable			*hashtab_new(unsigned int num_entries);
+int					hashtab_insert(t_hashtable **table, char *key, void *item);
+t_entry				*hashtab_getentry(t_hashtable *table, char *key);
+void				*hashtab_getitem(t_hashtable *table, char *key);
+
+void				*hashtab_popitem(t_hashtable **table, char *key);
+int					hashtab_remove(t_hashtable **table, char *key);
+int					hashtab_clear(t_hashtable **table);
+int					hashtab_destroy(t_hashtable **table);
+
 int					hashtab_set_appropriate_load_factor(t_hashtable **table);
+int					hashtab_grow(t_hashtable **table);
+int					hashtab_shrink(t_hashtable **table);
+int					hashtab_rehash_entry(t_hashtable **table_to,
+							t_entry **entry);
+int					hashtab_rehash_table(t_hashtable **table_from,
+							t_hashtable **table_to);
 
 #endif

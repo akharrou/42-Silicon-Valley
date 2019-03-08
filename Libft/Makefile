@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/05 15:45:47 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/07 16:27:02 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memdel.c                                            \
                 Stdlib/ft_memalloc.c                                          \
                 Stdlib/ft_realloc.c                                           \
-                Stdlib/ft_matrix_new.c                                         \
+                Stdlib/ft_matrix_new.c                                        \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_atoi.c                                              \
                 Stdlib/ft_itoa.c                                              \
@@ -198,25 +198,29 @@ TRIE        =   Tries/trie_newnode.c                                          \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-HASHTABLE   =   Hashtables/hashtab_alloc_table.c                              \
-                Hashtables/hashtab_grow_table.c                               \
-                Hashtables/hashtab_shrink_table.c                             \
-                Hashtables/hashtab_fetch_entry.c                              \
-                Hashtables/hashtab_insert_entry.c                             \
-                Hashtables/hashtab_delete_entry.c                             \
+HASHTABLE   =   Hashtables/hashtab_new.c                                      \
+                Hashtables/hashtab_insert.c                                   \
+                Hashtables/hashtab_getentry.c                                 \
+                Hashtables/hashtab_getitem.c                                  \
+                Hashtables/hashtab_remove.c                                   \
+                Hashtables/hashtab_popitem.c                                  \
+                Hashtables/hashtab_clear.c                                    \
+                Hashtables/hashtab_destroy.c                                  \
+                Hashtables/hashtab_set_appropriate_load_factor.c              \
+                Hashtables/hashtab_grow.c                                     \
+                Hashtables/hashtab_shrink.c                                   \
                 Hashtables/hashtab_rehash_entry.c                             \
                 Hashtables/hashtab_rehash_table.c                             \
-                Hashtables/hashtab_destroy_table.c                            \
-                Hashtables/hashtab_set_appropriate_load_factor.c              \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 DICT        =   Dicts/dict_new.c                                              \
                 Dicts/dict_insert.c                                           \
+                Dicts/dict_extend.c                                           \
                 Dicts/dict_getindex.c                                         \
                 Dicts/dict_getitem.c                                          \
-                Dicts/dict_getitem_fast.c                                     \
                 Dicts/dict_getentry.c                                         \
+                Dicts/dict_getitem_fast.c                                     \
                 Dicts/dict_getentry_fast.c                                    \
                 Dicts/dict_remove.c                                           \
                 Dicts/dict_clear.c                                            \
