@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:14 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:26:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/07 17:29:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,6 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 #include "../Includes/hashtable.h"
-
-/*
-**  Helper function used to free an entry and all that it contains.
-*/
-
-static void		entry_free__(t_entry **entry)
-{
-	if (entry && *entry)
-	{
-		if ((*entry)->key)
-			free((*entry)->key);
-		if ((*entry)->item)
-			free((*entry)->item);
-		free(*entry);
-		(*entry) = NULL;
-	}
-}
 
 int				hashtab_remove(t_hashtable **table, char *key)
 {
