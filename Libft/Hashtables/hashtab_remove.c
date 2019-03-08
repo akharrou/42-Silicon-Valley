@@ -31,9 +31,9 @@
 **                                       value.
 **
 **    DESCRIPTION
-**         Looks for an entry based on the 'key', if it exists deletes/frees
-**         it and everything it contains, including its item otherwise does
-**         nothing and returns -1.
+**         Looks for an entry based on the 'key', if found, the entry is
+**         deleted/free'd along with everything it contains. If the entry
+**         is not found, nothing happens and -1 is returned.
 **
 **    RETURN VALUES
 **         If successful returns 0; otherwise -1.
