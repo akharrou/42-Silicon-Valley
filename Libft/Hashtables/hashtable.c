@@ -1,69 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtab_new.c                                      :+:      :+:    :+:   */
+/*   hashtable.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:13:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:18:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         hashtab_new -- create a hashtable of size 'num_entries'.
+**         hashtable -- create a hashtable of size INIT_HASHTABLE_SIZE.
 **
 **    SYNOPSIS
 **         #include "stdlib_42.h"
 **         #include "hashtable.h"
 **
 **         t_hashtable *
-**         hashtab_new(unsigned int num_entries);
+**         hashtable(void);
 **
 **    PARAMETERS
-**
-**         unsigned int num_entries       Number of entries that the newly
-**                                        created hashtable will be capable
-**                                        of holding.
-**
-**                                        Note: this integer will be rounded
-**                                        up to the closest prime number; this
-**                                        this reduces the chances of colisions
-**                                        even less likely.
+**         None.
 **
 **    DESCRIPTION
-**         Allocates an empty hash table of size 'num_entries' (rounded up
-**         to the closest prime number).
+**         Allocates an empty hash table of size INIT_HASHTABLE_SIZE (rounded
+**         up to the closest prime number).
 **
 **    RETURN VALUES
-**         If successful, returns a pointer to the newly allocated hashtable;
+**         If successful, returns a pointer to the newly created hashtable;
 **         otherwise a NULL pointer is returned.
 */
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-t_hashtable	*hashtab_new(unsigned int num_entries)
+t_hashtable	*hashtable(void)
 {
 	t_hashtable		*table;
+	unsigned int	size;
 	unsigned int	i;
 
-	if (num_entries < 1)
+	if (INIT_HASHTABLE_SIZE < 1)
 		return (NULL);
 	if (!(table = (t_hashtable *)malloc(sizeof(t_hashtable))))
 		return (NULL);
-	num_entries = (unsigned int)ft_find_next_prime(num_entries);
+	size = (unsigned int)ft_find_next_prime(INIT_HASHTABLE_SIZE);
 	if (!(table->buckets =
-			(t_entry **)malloc(sizeof(t_entry *) * num_entries)))
+			(t_entry **)malloc(sizeof(t_entry *) * size)))
 	{
 		free(table);
 		return (NULL);
 	}
-	table->num_buckets = num_entries;
+	table->num_buckets = size;
 	table->entries = 0;
 	i = 0;
-	while (i < num_entries)
+	while (size > i)
 		(table->buckets)[i++] = NULL;
 	return (table);
 }
