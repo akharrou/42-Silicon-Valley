@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:14 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:29:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:47:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 **         t_hashtable **table           Pointer to a pointer to a
 **                                       hashtable.
 **
-**         char *key                     Key corresponding to a
-**                                       value.
+**         char *key                     Key corresponding to an
+**                                       entry.
 **
 **    DESCRIPTION
 **         Looks for an entry based on the 'key', if found, the entry is

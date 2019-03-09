@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:17:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:07:48 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:47:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 **         t_hashtable **table       Pointer to a pointer to a
 **                                   hashtable.
 **
-**         char *key                 Key corresponding to a
-**                                   value.
+**         char *key                 Key corresponding to an
+**                                   entry.
 **
 **    DESCRIPTION
 **         Looks for an entry based on the 'key', if found, the entry's
@@ -93,10 +93,8 @@ void			*hashtab_popitem(t_hashtable **table, char *key)
 	if (table && *table && key)
 	{
 		index = HASHCODE(key, (*table)->num_buckets);
-		return (popitem_util(table,
-							((*table)->bucket_list)[index],
-							index,
-							key));
+		return (
+			popitem_util(table, ((*table)->bucket_list)[index], index, key) );
 	}
 	return (NULL);
 }
