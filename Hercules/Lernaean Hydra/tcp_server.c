@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   tcp_server.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:36:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/08 23:52:13 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 10:00:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,42 @@ void	communicate(int client_sockfd, struct sockaddr_in client_addr)
 void	make_daemon(int ac, char *arg)
 {
 	if (ac == 2 && arg && strcmp(arg, "-D") == 0)
-		daemon(1, 1);
+	{
+		pid_t pid;
+		pid_t sid;
+
+		/* Fork off the parent process */
+		pid = fork();
+		if (pid < 0)
+			exit(EXIT_FAILURE);
+
+		/* If we got a good PID, then we can exit the parent process. */
+		if (pid > 0)
+			/* Child can continue to run even after the parent has finished
+			executing */
+			exit(EXIT_SUCCESS);
+
+		/* Change the file mode mask */
+		umask(0);
+
+		/* Create a new SID for the child process */
+		sid = setsid();
+		if (sid < 0)
+			/* Log the failure */
+			exit(EXIT_FAILURE);
+
+		/* Change the current working directory */
+		if ((chdir("/")) < 0)
+			/* Log the failure */
+			exit(EXIT_FAILURE);
+
+		/* Close out the standard file descriptors ; Because daemons generally
+		dont interact directly with user so there is no need of keeping these
+		open */
+		close(STDIN_FILENO);
+		close(STDOUT_FILENO);
+		close(STDERR_FILENO);
+	}
 	else
 	{
 		printf("Invalid Argument.\n");
@@ -65,9 +100,9 @@ int		main(int ac, char *av[])
 	server_address.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	/* Bind Socket to the Server Address */
-	CHECK(bind(  server_socket_fd,
-                 (const struct sockaddr *)&server_address,
-                 (socklen_t)sizeof(server_address)          ));
+	CHECK(bind(server_socket_fd,
+				(const struct sockaddr *)&server_address,
+				(socklen_t)sizeof(server_address)));
 
 	while (1)
 	{
@@ -76,9 +111,9 @@ int		main(int ac, char *av[])
 
 		/* Accept Enqueued Connection(s) */
 		client_address_size = sizeof(client_address);
-		CHECK(client_socket_fd = accept(  server_socket_fd,
-                                          (struct sockaddr *)&client_address,
-                                          (socklen_t *)&client_address_size	 ));
+		CHECK(client_socket_fd = accept(server_socket_fd,
+										(struct sockaddr *)&client_address,
+										(socklen_t *)&client_address_size));
 
 		/* Communicate */
 		communicate(client_socket_fd, client_address);

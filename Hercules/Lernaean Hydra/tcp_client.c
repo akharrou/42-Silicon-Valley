@@ -1,18 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   tcp_client.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:36:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/08 23:45:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 10:17:34 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "socket_programming.h"
 
-void	communicate(int sockfd, struct sockaddr_in server_addr)
+void	ping(int sockfd, struct sockaddr_in server_addr, int ntimes)
+{
+	char	buf[BUFF_SIZE];
+
+	printf("Connection Established with —> %i on port %i.\n",server_addr.sin_addr.s_addr, server_addr.sin_port);
+	while (--ntimes > -1)
+	{
+		sleep(2);
+		bzero(buf, BUFF_SIZE);
+
+		/* Ping Server */
+		printf("\nFrom Client:\nping\n");
+		sleep(2);
+		write(sockfd, "ping\n", 5);
+
+		bzero(buf, BUFF_SIZE);
+
+		/* Read & Display Reponse */
+		read(sockfd, buf, BUFF_SIZE);
+		printf("\nFrom Server:\n%s", buf);
+	}
+	sleep(1);
+	write(sockfd, END_MSG, strlen(END_MSG));
+}
+
+void	chat(int sockfd, struct sockaddr_in server_addr)
 {
 	char	buf[BUFF_SIZE];
 	int		i;
@@ -28,10 +53,10 @@ void	communicate(int sockfd, struct sockaddr_in server_addr)
 			i++;
 
 		/* Terminate Connection if... */
-		if (buf[0] == '\n' || END_OF_COMMUNICATION)
+		if (END_OF_COMMUNICATION)
 		{
 			write(sockfd, END_MSG, strlen(END_MSG));
-            printf("Client Exiting...\n");
+            printf("\nClient Exiting...\n");
             break ;
 		}
 
@@ -45,11 +70,14 @@ void	communicate(int sockfd, struct sockaddr_in server_addr)
 	}
 }
 
-int		main(void)
+int		main(int ac, char *av[])
 {
 	struct sockaddr_in	server_address;
 
 	int	client_socket_fd;
+	int	npings;
+
+	(void)ac;
 
 	/* Create Socket */
 	CHECK(client_socket_fd = socket(AF_INET, SOCK_STREAM, TCP));
@@ -65,8 +93,15 @@ int		main(void)
 	               (const struct sockaddr *)&server_address,
 	               (socklen_t)sizeof(server_address)           ));
 
-	/* Communicate */
-	communicate(client_socket_fd, server_address);
+	/* Communicate or Ping */
+	if (av[1] && strcmp(av[1], "-C") == 0)
+		chat(client_socket_fd, server_address);
+	else
+	{
+		npings = (ac == 2) ? atoi(av[1]) : 3;
+		npings = (npings == 0) ? 3 : npings;
+		ping(client_socket_fd, server_address, npings);
+	}
 
 	/* Close Socket */
 	close(client_socket_fd);
