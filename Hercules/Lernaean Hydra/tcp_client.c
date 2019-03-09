@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:36:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 10:17:34 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 10:19:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	chat(int sockfd, struct sockaddr_in server_addr)
 	{
 		/* Type Message */
 		bzero(buf, BUFF_SIZE);
-        printf("\nFrom Client:\n");
+		printf("\nFrom Client:\n");
 		i = 0;
 		while ((buf[i] = getchar()) != '\n')
 			i++;
@@ -56,8 +56,8 @@ void	chat(int sockfd, struct sockaddr_in server_addr)
 		if (END_OF_COMMUNICATION)
 		{
 			write(sockfd, END_MSG, strlen(END_MSG));
-            printf("\nClient Exiting...\n");
-            break ;
+			printf("\nClient Exiting...\n");
+			break ;
 		}
 
 		/* Send Message to Server */
@@ -65,8 +65,8 @@ void	chat(int sockfd, struct sockaddr_in server_addr)
 
 		/* Read & Display Reponse */
 		bzero(buf, BUFF_SIZE);
-        read(sockfd, buf, BUFF_SIZE);
-        printf("\nFrom Server:\n%s", buf);
+		read(sockfd, buf, BUFF_SIZE);
+		printf("\nFrom Server:\n%s", buf);
 	}
 }
 
