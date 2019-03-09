@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtable.c                                        :+:      :+:    :+:   */
+/*   hashtable_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:22:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:27:19 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         hashtable -- create a hashtable of size INIT_HASHTABLE_SIZE.
+**         hashtab_init -- create a hashtable of size INIT_HASHTABLE_SIZE.
 **
 **    SYNOPSIS
 **         #include "stdlib_42.h"
 **         #include "hashtable.h"
 **
 **         t_hashtable *
-**         hashtable(void);
+**         hashtab_init(void);
 **
 **    PARAMETERS
 **         None.
@@ -36,7 +36,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-t_hashtable	*hashtable(void)
+t_hashtable	*hashtab_init(void)
 {
 	t_hashtable		*table;
 	unsigned int	size;

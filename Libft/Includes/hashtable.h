@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 08:16:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:14:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:27:30 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_hashtable
 	t_entry			**buckets;
 }					t_hashtable;
 
-t_hashtable			*hashtable(void);
+t_hashtable			*hashtab_init(void);
 t_hashtable			*hashtab_new(unsigned int num_entries);
 int					hashtab_insert(t_hashtable **table, char *key, void *item);
 t_entry				*hashtab_getentry(t_hashtable *table, char *key);
