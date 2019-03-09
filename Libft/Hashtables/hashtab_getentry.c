@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:10:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 12:42:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:52:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-t_entry			*hashtab_getentry(t_hashtable *table, char *key)
+t_entry	*hashtab_getentry(t_hashtable *table, char *key)
 {
 	t_entry			*cur_entry;
 	unsigned int	index;

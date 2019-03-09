@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:26:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:52:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 **         #include "hashtable.h"
 **
 **         int
-**         hashtab_destroy(t_hashtable **table, void (*free_item)(void *));
+**         hashtab_destroy(t_hashtable **table);
 **
 **    PARAMETERS
 **
@@ -39,7 +39,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-static void		entry_free_(t_entry **entry)
+static void	entry_free_(t_entry **entry)
 {
 	if (entry && *entry)
 	{
@@ -52,7 +52,7 @@ static void		entry_free_(t_entry **entry)
 	}
 }
 
-static void		bucket_free_(t_entry **head)
+static void	bucket_free_(t_entry **head)
 {
 	t_entry	*temp;
 
@@ -67,7 +67,7 @@ static void		bucket_free_(t_entry **head)
 	}
 }
 
-int				hashtab_destroy(t_hashtable **table)
+int			hashtab_destroy(t_hashtable **table)
 {
 	unsigned int	i;
 

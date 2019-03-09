@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:25:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:33:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:54:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-int		hashtab_shrink(t_hashtable **table)
+int	hashtab_shrink(t_hashtable **table)
 {
 	t_hashtable		*new_table;
 

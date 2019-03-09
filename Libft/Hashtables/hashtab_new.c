@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:26:31 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:53:46 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-t_hashtable		*hashtab_new(unsigned int num_entries)
+t_hashtable	*hashtab_new(unsigned int num_entries)
 {
 	t_hashtable		*table;
 	unsigned int	i;

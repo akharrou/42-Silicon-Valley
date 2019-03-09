@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:37:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:24:09 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:54:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-int		hashtab_rehash_table(t_hashtable **src_table,
-				t_hashtable **dest_table)
+int	hashtab_rehash_table(t_hashtable **src_table,
+			t_hashtable **dest_table)
 {
 	t_entry			*cur_entry;
 	t_entry			*temp;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:37:12 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:24:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:53:58 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/hashtable.h"
 
-int				hashtab_rehash_entry(t_hashtable **dest_table, t_entry **entry)
+int	hashtab_rehash_entry(t_hashtable **dest_table, t_entry **entry)
 {
 	unsigned int	index;
 

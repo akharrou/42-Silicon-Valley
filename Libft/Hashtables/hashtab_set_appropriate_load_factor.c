@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:35:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 16:34:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:54:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 
 #include "../Includes/hashtable.h"
 
-int				hashtab_set_appropriate_load_factor(t_hashtable **table)
+int	hashtab_set_appropriate_load_factor(t_hashtable **table)
 {
 	if (table && *table)
 	{

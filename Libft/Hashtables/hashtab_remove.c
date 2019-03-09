@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:14 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 08:47:42 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 08:54:11 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 #include "../Includes/string_42.h"
 #include "../Includes/hashtable.h"
 
-int				hashtab_remove(t_hashtable **table, char *key)
+int	hashtab_remove(t_hashtable **table, char *key)
 {
 	void *item;
 
