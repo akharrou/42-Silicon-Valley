@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:22 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:11:27 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:25:53 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,22 @@ int				hashtab_insert(t_hashtable **table, char *key, void *item)
 	t_entry			*entry;
 	unsigned int	index;
 
-	if (table && *table && key && item)
+	if (table && key && item)
 	{
-		if (hashtab_set_appropriate_load_factor(table) == -1)
-			return (-1);
-		if (!(entry = entry_create_(key, item)))
-			return (-1);
-		index = HASHCODE(key, (*table)->num_buckets);
-		entry->next = ((*table)->buckets)[index];
-		((*table)->buckets)[index] = entry;
-		(*table)->entries += 1;
-		return (index);
+		if (!(*table))
+			(*table) = hashtab_new(INIT_HASHTABLE_SIZE);
+		if (*table)
+		{
+			if (hashtab_set_appropriate_load_factor(table) == -1)
+				return (-1);
+			if (!(entry = entry_create_(key, item)))
+				return (-1);
+			index = HASHCODE(key, (*table)->num_buckets);
+			entry->next = ((*table)->buckets)[index];
+			((*table)->buckets)[index] = entry;
+			(*table)->entries += 1;
+			return (index);
+		}
 	}
 	return (-1);
 }
