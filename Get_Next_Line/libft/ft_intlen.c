@@ -6,16 +6,15 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/01 10:45:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:37:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(long n)
+unsigned int	ft_intlen(long n)
 {
-	size_t i;
+	unsigned int i;
 
 	i = 0;
 	if (n <= 0)

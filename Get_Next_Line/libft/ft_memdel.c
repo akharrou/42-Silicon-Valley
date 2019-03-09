@@ -6,17 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:21:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/01 10:45:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:55:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {
-	if (ap)
-	{
-		free(*ap);
-		(*ap) = NULL;
-	}
+	free(*ap);
+	(*ap) = NULL;
 }

@@ -6,15 +6,15 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:22:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/01 10:45:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:47:31 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	ft_strdel(char **as)
 {
-	if (as)
+	if (as && *as)
 	{
 		free(*as);
 		(*as) = NULL;

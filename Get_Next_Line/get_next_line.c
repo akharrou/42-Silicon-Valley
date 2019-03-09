@@ -6,11 +6,10 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 15:44:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/02 19:56:59 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/06 11:33:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "get_next_line.h"
 
 static int		tt_btyes(t_fdentry *fdentry)
@@ -104,7 +103,7 @@ int				get_next_line(const int fd, char **line)
 	t_fdentry		*fd_entry;
 	int				ret;
 
-	if (fd > -1 && line)
+	if (fd > -1 && line && read(fd, &ret, 0))
 	{
 		if ((ret = dict_getindex(filedes_table, (char *)&fd)) == -1)
 		{

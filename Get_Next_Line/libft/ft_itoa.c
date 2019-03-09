@@ -6,10 +6,11 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/01 10:45:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 10:45:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 char		*ft_itoa(int n)
@@ -33,7 +34,7 @@ char		*ft_itoa(int n)
 	{
 		col /= 10;
 		quotient = (n / col);
-		buf[i++] = quotient + '0';
+		buf[i++] = quotient + ((quotient < 10) ? '0' : 'W');
 		n -= (quotient * col);
 	}
 	buf[i] = '\0';

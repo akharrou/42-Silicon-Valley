@@ -6,11 +6,15 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 19:07:16 by akharrou          #+#    #+#             */
-/*   Updated: 2019/02/24 13:34:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/02/20 11:22:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isupper(int c)
 {
-	return (c >= 'A' && c <= 'Z');
+	if (c >= 'A' && c <= 'Z')
+	{
+		return (1);
+	}
+	return (0);
 }

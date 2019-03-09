@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:37:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/01 10:45:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/06 11:48:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				hashtab_rehash_table(t_hashtable **table_from,
-									t_hashtable **table_to)
+int		hashtab_rehash_table(t_hashtable **table_from,
+				t_hashtable **table_to)
 {
 	t_entry			*cur_entry;
 	t_entry			*temp;

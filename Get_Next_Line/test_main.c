@@ -10,6 +10,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "get_next_line.c"
 #include "get_next_line.h"
 
 int		main(int ac, char *av[])
