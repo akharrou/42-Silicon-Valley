@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/07 16:27:02 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/09 11:37:46 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -198,7 +198,8 @@ TRIE        =   Tries/trie_newnode.c                                          \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-HASHTABLE   =   Hashtables/hashtab_new.c                                      \
+HASHTABLE   =   Hashtables/hashtab_init.c                                     \
+                Hashtables/hashtab_new.c                                      \
                 Hashtables/hashtab_insert.c                                   \
                 Hashtables/hashtab_getentry.c                                 \
                 Hashtables/hashtab_getitem.c                                  \
