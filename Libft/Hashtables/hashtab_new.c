@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:13:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:22:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ t_hashtable	*hashtab_new(unsigned int num_entries)
 	}
 	table->num_buckets = num_entries;
 	table->entries = 0;
-	i = 0;
-	while (i < num_entries)
-		(table->buckets)[i++] = NULL;
+	i = -1;
+	while (num_entries > ++i)
+		(table->buckets)[i] = NULL;
 	return (table);
 }
