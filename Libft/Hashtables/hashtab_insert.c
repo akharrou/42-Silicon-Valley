@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:22 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:28:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:29:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int				hashtab_insert(t_hashtable **table, char *key, void *item)
 
 	if (table && key && item)
 	{
-		if (!(*table))
+		if ((*table) == NULL)
 			(*table) = hashtab_init();
 		if (*table)
 		{
