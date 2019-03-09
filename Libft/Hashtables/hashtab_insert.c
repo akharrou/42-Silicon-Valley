@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:22 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 17:26:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int				hashtab_insert(t_hashtable **table, char *key, void *item)
 		if (!(entry = entry_create_(key, item)))
 			return (-1);
 		index = HASHCODE(key, (*table)->num_buckets);
-		entry->next = ((*table)->bucket_list)[index];
-		((*table)->bucket_list)[index] = entry;
+		entry->next = ((*table)->buckets)[index];
+		((*table)->buckets)[index] = entry;
 		(*table)->entries += 1;
 		return (index);
 	}

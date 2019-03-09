@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:38 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 08:52:24 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,17 @@ int			hashtab_destroy(t_hashtable **table)
 	{
 		if (*table)
 		{
-			if ((*table)->bucket_list)
+			if ((*table)->buckets)
 			{
 				i = 0;
 				while (i < (*table)->num_buckets)
 				{
-					if (((*table)->bucket_list)[i])
-						bucket_free_(&((*table)->bucket_list)[i]);
+					if (((*table)->buckets)[i])
+						bucket_free_(&((*table)->buckets)[i]);
 					i++;
 				}
-				free((*table)->bucket_list);
-				(*table)->bucket_list = NULL;
+				free((*table)->buckets);
+				(*table)->buckets = NULL;
 			}
 			free(*table);
 			(*table) = NULL;

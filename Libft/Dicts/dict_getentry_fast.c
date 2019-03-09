@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 21:29:58 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_entry		*dict_getentry_fast(t_hashtable *table, char *key, int table_index)
 
 	if (table && key && table_index > -1)
 	{
-		cur_entry = (table->bucket_list)[table_index];
+		cur_entry = (table->buckets)[table_index];
 		while (cur_entry)
 		{
 			if (ft_strcmp(cur_entry->key, key) == 0)

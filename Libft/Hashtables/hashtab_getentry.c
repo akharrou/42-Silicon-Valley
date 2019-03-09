@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:10:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 08:52:14 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_entry	*hashtab_getentry(t_hashtable *table, char *key)
 	if (table && key)
 	{
 		index = HASHCODE(key, table->num_buckets);
-		cur_entry = (table->bucket_list)[index];
+		cur_entry = (table->buckets)[index];
 		while (cur_entry)
 		{
 			if (ft_strcmp(cur_entry->key, key) == 0)

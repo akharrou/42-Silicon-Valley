@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:17:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 08:53:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ static void	*popitem_util(t_hashtable **table, t_entry *first_entry,
 	{
 		if (ft_strcmp(cur_entry->key, key) == 0)
 		{
-			if (cur_entry == ((*table)->bucket_list)[index])
-				((*table)->bucket_list)[index] = cur_entry->next;
+			if (cur_entry == ((*table)->buckets)[index])
+				((*table)->buckets)[index] = cur_entry->next;
 			else
 				prev_entry->next = cur_entry->next;
 			item = cur_entry->item;
@@ -94,7 +94,7 @@ void		*hashtab_popitem(t_hashtable **table, char *key)
 	{
 		index = HASHCODE(key, (*table)->num_buckets);
 		return (
-			popitem_util(table, ((*table)->bucket_list)[index], index, key) );
+			popitem_util(table, ((*table)->buckets)[index], index, key) );
 	}
 	return (NULL);
 }

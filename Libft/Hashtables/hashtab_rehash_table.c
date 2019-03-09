@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:37:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 08:54:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	hashtab_rehash_table(t_hashtable **src_table,
 		i = 0;
 		while (i < (*src_table)->num_buckets)
 		{
-			if (((*src_table)->bucket_list)[i])
+			if (((*src_table)->buckets)[i])
 			{
-				cur_entry = ((*src_table)->bucket_list)[i];
+				cur_entry = ((*src_table)->buckets)[i];
 				while (cur_entry)
 				{
 					temp = cur_entry->next;
@@ -65,7 +65,7 @@ int	hashtab_rehash_table(t_hashtable **src_table,
 						return (-1);
 					cur_entry = temp;
 				}
-				((*src_table)->bucket_list)[i] = NULL;
+				((*src_table)->buckets)[i] = NULL;
 			}
 			i++;
 		}
