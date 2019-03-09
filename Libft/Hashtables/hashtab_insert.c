@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:22 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:11:27 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static t_entry	*entry_create_(char *key, void *item)
 
 	if (key && item)
 	{
-		if (!(new_entry = malloc(sizeof(t_entry))))
+		if (!(new_entry = (t_entry *)malloc(sizeof(t_entry))))
 			return (NULL);
 		new_entry->key = ft_strdup(key);
 		new_entry->item = item;

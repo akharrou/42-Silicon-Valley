@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:26:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 11:11:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_hashtable	*hashtab_new(unsigned int num_entries)
 
 	if (num_entries < 1)
 		return (NULL);
-	if (!(table = malloc(sizeof(t_hashtable))))
+	if (!(table = (t_hashtable *)malloc(sizeof(t_hashtable))))
 		return (NULL);
 	num_entries = (unsigned int)ft_find_next_prime(num_entries);
 	if (!(table->buckets =
-			malloc(sizeof(t_entry*) * num_entries)))
+			(t_entry **)malloc(sizeof(t_entry *) * num_entries)))
 	{
 		free(table);
 		return (NULL);
