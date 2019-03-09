@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 08:16:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:37:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 12:06:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,7 @@ int					hashtab_remove(t_hashtable **table, char *key);
 int					hashtab_clear(t_hashtable **table);
 int					hashtab_destroy(t_hashtable **table);
 
-int					hashtab_set_appropriate_load_factor(t_hashtable **table);
 int					hashtab_grow(t_hashtable **table);
 int					hashtab_shrink(t_hashtable **table);
-int					hashtab_rehash_entry(t_hashtable **dest_table,
-							t_entry **entry);
-int					hashtab_rehash_table(t_hashtable **src_table,
-							t_hashtable **dest_table);
 
 #endif
