@@ -83,9 +83,9 @@ int		main(int ac, char *av[])
 	struct sockaddr_in	server_address;
 	struct sockaddr_in	client_address;
 
-	int					server_socket_fd;
-	int					client_socket_fd;
-	int					client_address_size;
+	int			server_socket_fd;
+	int			client_socket_fd;
+	int			client_address_size;
 
 	if (ac > 1)
 		make_daemon(ac, av[1]);
@@ -100,9 +100,9 @@ int		main(int ac, char *av[])
 	server_address.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	/* Bind Socket to the Server Address */
-	CHECK(bind(server_socket_fd,
-				(const struct sockaddr *)&server_address,
-				(socklen_t)sizeof(server_address)));
+	CHECK(bind(  server_socket_fd,
+		     (const struct sockaddr *)&server_address,
+		     (socklen_t)sizeof(server_address)           ));
 
 	while (1)
 	{
@@ -111,9 +111,9 @@ int		main(int ac, char *av[])
 
 		/* Accept Enqueued Connection(s) */
 		client_address_size = sizeof(client_address);
-		CHECK(client_socket_fd = accept(server_socket_fd,
-										(struct sockaddr *)&client_address,
-										(socklen_t *)&client_address_size));
+		CHECK(client_socket_fd = accept(  server_socket_fd,
+			                          (struct sockaddr *)&client_address,
+						  (socklen_t *)&client_address_size    ));
 
 		/* Communicate */
 		communicate(client_socket_fd, client_address);
