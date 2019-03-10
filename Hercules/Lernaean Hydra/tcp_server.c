@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 17:36:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 10:00:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 17:04:40 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,17 @@ void	communicate(int client_sockfd, struct sockaddr_in client_addr)
 {
 	char buf[BUFF_SIZE];
 
-	printf("Connection Established with —> %i on port %i.\n",client_addr.sin_addr.s_addr, client_addr.sin_port);
+	printf("Connection Established with —> %i on port %i.\n",
+			client_addr.sin_addr.s_addr, client_addr.sin_port);
 	while (1)
 	{
 		bzero(buf, sizeof(buf));
-		if ((read(client_sockfd, buf, BUFF_SIZE)) > 1)
+		if (read(client_sockfd, buf, BUFF_SIZE) < 0 || END_OF_COMMUNICATION)
 		{
-			if (END_OF_COMMUNICATION)
-			{
-				printf("Connection Interrupted.\n");
-				return ;
-			}
-			write(client_sockfd, "pong pong\n", 10);
+			printf("Connection Interrupted.\n");
+			break ;
 		}
+		write(client_sockfd, "pong pong\n", 10);
 	}
 }
 
@@ -179,4 +177,3 @@ int		main(int ac, char *av[])
 **      If the queue is empty, it just does nothing.
 **
 */
-

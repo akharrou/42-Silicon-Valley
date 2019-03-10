@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 19:36:34 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 10:03:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/09 17:05:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@
 
 # define TCP 0
 # define MAX_CONNECTIONS 5
-# define SERVER_PORT 18000
 # define LOCAL_HOST "127.0.0.1"
+# define END_OF_COMMUNICATION (strcmp(buf, END_MSG) == 0 || buf[0] == '\n')
+
+# define SERVER_PORT 18000
 # define SERVER_IP LOCAL_HOST
 # define END_MSG "exit\n"
-# define END_OF_COMMUNICATION (strcmp(buf, END_MSG) == 0 || buf[0] == '\n')
 
 # define STDIN 0
 # define BUFF_SIZE 1024
 # define CHECK(expr) if ((expr) == -1) { perror(NULL); exit(EXIT_FAILURE); }
-
-extern int errno;
 
 #endif
