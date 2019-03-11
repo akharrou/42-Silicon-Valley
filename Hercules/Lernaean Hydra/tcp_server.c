@@ -102,11 +102,11 @@ int		main(int ac, char *av[])
 		     (const struct sockaddr *)&server_address,
 		     (socklen_t)sizeof(server_address)           ));
 
+	/* Listen for Incoming Connections */
+	listen(server_socket_fd, MAX_CONNECTIONS);
+	
 	while (1)
 	{
-		/* Listen for Incoming Connections */
-		listen(server_socket_fd, MAX_CONNECTIONS);
-
 		/* Accept Enqueued Connection(s) */
 		client_address_size = sizeof(client_address);
 		CHECK(client_socket_fd = accept(  server_socket_fd,
