@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/09 12:13:09 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/09 17:34:05 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -209,6 +209,7 @@ HASHTABLE   =   Hashtables/hashtab_init.c                                     \
                 Hashtables/hashtab_destroy.c                                  \
                 Hashtables/hashtab_grow.c                                     \
                 Hashtables/hashtab_shrink.c                                   \
+                Hashtables/hashtab_count.c                                    \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
