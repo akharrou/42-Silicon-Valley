@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 09:43:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 19:13:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/14 22:40:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		main(int ac, char *av[])
 {
-	t_game		tetromino;
-	ssize_t		fd;
+	t_game	tetromino;
+	ssize_t	fd;
 
 	if (ac != 2)
 		EXIT(USAGE);
@@ -23,9 +23,10 @@ int		main(int ac, char *av[])
 	if (fd < 3)
 		EXIT(ERROR);
 	tetromino = read_pieces(fd);
+	tetromino.board = initialize_board(tetromino);
 	tetromino = fill_board(tetromino);
 	print_board(tetromino);
-	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 // #include <stdio.h>
