@@ -6,15 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 21:06:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/14 22:47:04 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         read_pieces -- reads from a file and stores all (legal) tetromino
-**                        pieces found into an array of tetromino pieces
-**                        (t_piece array).
+**         read_pieces -- reads, from a (valid) file, tetromino pieces, storing
+**                        them along the way.
 **
 **    SYNOPSIS
 **         #include "fillit.h"
@@ -28,9 +27,8 @@
 **                           file we will read from.
 **
 **    DESCRIPTION
-**         Reads up to MAX_NUM_PIECES (the maximum number of pieces possible)
-**         from 'fd', a file descriptor corresponding to a file containing a
-**         series of tetromino pieces.
+**         From a (valid and correctly formatted file) that 'fd' points to,
+**         reads up to MAX_NUM_PIECES (the maximum number of pieces possible).
 **
 **         Every piece read goes through 2 checks:
 **
@@ -43,27 +41,29 @@
 **           - the second checks the legality of each piece, that is to say
 **             that each piece has its 4 blocks interlinked.
 **
-**         If a piece passes both tests, then the relative coordinates of
-**         each of its blocks are stored. The structure kept is a 2 dimensional
-**         (4 x 2) array:
+**         If a piece passes both checks, then the relative coordinates of
+**         each of its blocks are stored in a 2 dimensional (4 x 2) array as
+**         so:
 **
-**                        ——————————              ———————
-**                       | block #1 |    ———>    | x | y |
-**                        ——————————              ———————
-**                       | block #2 |    ———>    | x | y |
-**                        ——————————              ———————
-**                       | block #3 |    ———>    | x | y |
-**                        ——————————              ———————
-**                       | block #4 |    ———>    | x | y |
-**                        ——————————              ———————
+**                        ——————————              ——————————————
+**                       | block #1 |    ———>    | row | column |
+**                        ——————————              ——————————————
+**                       | block #2 |    ———>    | row | column |
+**                        ——————————              ——————————————
+**                       | block #3 |    ———>    | row | column |
+**                        ——————————              ——————————————
+**                       | block #4 |    ———>    | row | column |
+**                        ——————————              ——————————————
 **
-**         If a piece fails one of the checks, the program prints 'error'
+**         If a piece fails either of the checks, the program prints 'error'
 **         to screen and terminates the program calling the exit(2) function
 **         with EXIT_FAILURE.
 **
 **    RETURN VALUES
-**         If successful, returns a tetromino game (t_game) with pieces;
-**         otherwise calls the exit(2) function with EXIT_FAILURE.
+**         If successful, returns a tetromino game structure (a t_game, defined
+**         in 'fillit.h') with pieces from the file stored in the structure;
+**         otherwise a call to exit(2) is made with EXIT_FAILURE passed as
+**         argument
 */
 
 #include "fillit.h"
