@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 23:06:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/14 23:12:10 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@
 **
 **           - the first validates the characters of a piece, i.e that there
 **             are exactly 4 hashtag characters '#', 12 dot characters '.' and
-**             4 return line characters '\n'.
-**
-**             It also makes sure that there is is exactly 5 characters per
-**             line. 4 of which must either be hashtags ('#') or dots ('.')
-**             and the fifth being strictly a return line ('\n').
+**             4 return line characters '\n'. It also makes sure that there is
+**             is exactly 5 characters per line. 4 of which must either be
+**             hashtags ('#') or dots ('.') and the fifth being strictly a
+**             return line ('\n').
 **
 **           - the second test, checks the legality of each piece, i.e that
 **             each piece has its 4 blocks interlinked.
@@ -93,7 +92,7 @@ static void		sort_coordinates(t_int8 (*cord)[BLOCK_CHARS_PER_PIECE][2])
 	}
 }
 
-static t_bool	legal(t_piece piece)
+static t_bool	legal_piece(t_piece piece)
 {
 	t_bool		neighbor;
 
@@ -131,7 +130,7 @@ static t_bool	legal(t_piece piece)
 ** By the end of the process, 'checksum' should be equal to precisely 0.
 */
 
-static t_bool	valid_chars(t_char buf[PIECE_SIZE])
+static t_bool	legal_characters(t_char buf[PIECE_SIZE])
 {
 	t_uint8		checksum;
 	t_uint8		row;
@@ -162,7 +161,7 @@ static t_piece	create_piece(t_char id, t_char buf[PIECE_SIZE])
 	t_int8		first;
 	t_uint8 	block_count;
 	t_uint8 	offset[2];
-	t_uint8 	i;
+	t_int8		i;
 
 	i = -1;
 	first = 1;
@@ -178,7 +177,7 @@ static t_piece	create_piece(t_char id, t_char buf[PIECE_SIZE])
 			++block_count;
 		}
 	}
-	if (!legal(piece))
+	if (!legal_piece(piece))
 		EXIT(INVALID_INPUT);
 	piece.id = id;
 	return (piece);
@@ -190,14 +189,14 @@ t_game			read_pieces(ssize_t fd)
 	t_char		buf[PIECE_SIZE];
 	t_char		piece_id;
 	ssize_t		ret;
-	t_uint8		i;
+	t_int8		i;
 
 	i = -1;
 	piece_id = 'A';
 	while (MAX_NUM_PIECES > ++i)
 	{
 		ret = read(fd, buf, PIECE_SIZE);
-		if (ret == PIECE_SIZE && valid_chars(buf))
+		if (ret == PIECE_SIZE && legal_characters(buf))
 			tetromino.piece[i] = create_piece(piece_id++, buf);
 		else
 			EXIT(INVALID_INPUT);
