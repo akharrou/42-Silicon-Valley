@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 22:47:04 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/14 23:06:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@
 **
 **           - the first validates the characters of a piece, i.e that there
 **             are exactly 4 hashtag characters '#', 12 dot characters '.' and
-**             4 return line characters '\n'. It also makes sure that there is
-**             is exactly for characters, '#' or '.', and a single return line
-**             per line.
+**             4 return line characters '\n'.
 **
-**           - the second checks the legality of each piece, that is to say
-**             that each piece has its 4 blocks interlinked.
+**             It also makes sure that there is is exactly 5 characters per
+**             line. 4 of which must either be hashtags ('#') or dots ('.')
+**             and the fifth being strictly a return line ('\n').
+**
+**           - the second test, checks the legality of each piece, i.e that
+**             each piece has its 4 blocks interlinked.
 **
 **         If a piece passes both checks, then the relative coordinates of
 **         each of its blocks are stored in a 2 dimensional (4 x 2) array as
