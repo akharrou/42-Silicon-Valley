@@ -10,4 +10,4 @@
 
 ----
 
-###### _API Documentation —> [here!](https://api.intra.42.fr/apidoc)_
+###### _API Documentation can be found [here!](https://api.intra.42.fr/apidoc)_
