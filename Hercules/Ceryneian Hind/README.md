@@ -7,8 +7,9 @@
 
 ## Goals
 ----
-###### This project aims to give us a basic understanding of REST APIs, how they work and potentially give us a brief understanding of how web APIs are made.
+###### This project aims to give us a basic understanding of REST APIs, how they work and potentially give us a brief understanding
+###### of how web APIs are made.
 
 ----
 
-_API Documentation —> [here!](https://api.intra.42.fr/apidoc)
+_API Documentation —> [here!](https://api.intra.42.fr/apidoc)_
