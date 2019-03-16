@@ -14,6 +14,7 @@
 
 import json
 import requests
+import os
 import sys
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
@@ -27,9 +28,8 @@ except Exception:
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 # Get an access token with which to call the API.
 
-with open('/nfs/2018/a/akharrou/.bash_profile', 'r') as fd:
-	UID = fd.readline().strip('\n')
-	SECRET = fd.readline().strip('\n')
+UID = os.environ.get('APP_UID')
+SECRET = os.environ.get('APP_SECRET')
 ACCESS_TOKEN_URL = 'https://api.intra.42.fr/oauth/token'
 
 response = requests.post(ACCESS_TOKEN_URL, data = { 'grant_type': 'client_credentials',
