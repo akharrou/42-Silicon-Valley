@@ -9,4 +9,4 @@
 
 ----
 
-###### _API Documentation can be found [here!](https://api.intra.42.fr/apidoc)_
+###### _42's API Documentation can be found [here!](https://api.intra.42.fr/apidoc)_
