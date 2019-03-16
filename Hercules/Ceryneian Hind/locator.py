@@ -55,15 +55,17 @@ with open(infile, 'rt') as fd:
 
 		# Call the API for that Intra
 		response = requests.get(api_url)
+		response_num = int(str(requests.get(api_url)).strip('Response<> []'))
 
 		# Keep trying again if API isn't responding
-		while (response == 500):
+		while (response_num == 500):
 			response = requests.get(api_url)
+			response_num = int(str(requests.get(api_url)).strip('Response<> []'))
 			print('API not responding...')
 
 		# If we make a bad API call
-		if (response != 200):
-			print(f'Error: API {response}')
+		if (response_num != 200):
+			print(f'Error: API Response {response_num}')
 			sys.exit()
 
 		# Parse the Received Data and Store it in a Structure
@@ -84,4 +86,3 @@ with open(infile, 'rt') as fd:
 
 # Done
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
-
