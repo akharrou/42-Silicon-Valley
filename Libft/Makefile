@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/16 22:28:56 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/16 23:35:45 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -172,6 +172,7 @@ MATH        =   Math/ft_sqrt.c                                               \
                 Math/ft_sum_d.c                                              \
                 Math/ft_sum_l.c                                              \
                 Math/ft_sum_ld.c                                             \
+                Math/ft_sum_generic.c                                        \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

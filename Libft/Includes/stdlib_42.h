@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 15:53:53 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 23:23:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ char			*ft_itoa(int n);
 int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa_base(long nbr, char *base);
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
-long double		ft_pow(int nb, int power);
 int				ft_wcount(const char *s, const char *charset);
 void			ft_swap_int(int *a, int *b);
 void			ft_swap_char(char *a, char *b);

@@ -6,12 +6,13 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 23:24:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
+#include "../Includes/math_42.h"
 #include "../Includes/macros.h"
 
 char		*ft_itoa(int n)

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 21:28:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/16 22:36:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 23:31:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@
 **         unsigned int       Size of the vector.
 **
 **    DESCRIPTION
-**         Iterates through vector and adding them up along the way.
+**         Iterates through the vector summing up the numbers contained in it
+**         along the way.
 **
 **    RETURN VALUES
-**         Returns the sum of the summation.
+**         Returns the sum of all the numbers in the vector.
 */
 
 int		ft_sum(int *vector, unsigned int size)

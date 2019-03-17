@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/12 12:22:11 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 23:23:19 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "string_42.h"
 # include "ctype_42.h"
 # include "stdint_42.h"
+# include "math_42.h"
 
 # include "list.h"
 # include "btree.h"
