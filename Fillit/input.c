@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 23:12:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 17:10:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 
 #include "fillit.h"
 
-static void		sort_coordinates(t_int8 (*cord)[BLOCK_CHARS_PER_PIECE][2])
+static void		sort_coordinates(t_int8 (*cord)[BLOCKS_PER_PIECE][2])
 {
 	t_uint8		out_of_order;
 	t_uint8		n;
@@ -80,7 +80,7 @@ static void		sort_coordinates(t_int8 (*cord)[BLOCK_CHARS_PER_PIECE][2])
 	{
 		n = 1;
 		out_of_order = FALSE;
-		while (BLOCK_CHARS_PER_PIECE > n + 1)
+		while (BLOCKS_PER_PIECE > n + 1)
 		{
 			if (SAME_ROW && ABS(BLOCK_COL(n)) > ABS(BLOCK_COL(n + 1)))
 			{
@@ -103,7 +103,7 @@ static t_bool	legal_piece(t_piece piece)
 
 	sort_coordinates(&piece.coordinates);
 	block_n = 0;
-	while (BLOCK_CHARS_PER_PIECE - 1 > block_n)
+	while (BLOCKS_PER_PIECE - 1 > block_n)
 	{
 		i = block_n;
 		++block_n;
@@ -157,7 +157,6 @@ static t_bool	legal_characters(t_char buf[PIECE_SIZE])
 static t_piece	create_piece(t_char id, t_char buf[PIECE_SIZE])
 {
 	t_piece 	piece;
-
 	t_int8		first;
 	t_uint8 	block_count;
 	t_uint8 	offset[2];
@@ -166,8 +165,7 @@ static t_piece	create_piece(t_char id, t_char buf[PIECE_SIZE])
 	i = -1;
 	first = 1;
 	block_count = 0;
-	while (PIECE_SIZE > ++i && BLOCK_CHARS_PER_PIECE > block_count)
-	{
+	while (PIECE_SIZE > ++i && BLOCKS_PER_PIECE > block_count)
 		if (buf[i] == '#')
 		{
 			if (first-- > 0)
@@ -176,10 +174,12 @@ static t_piece	create_piece(t_char id, t_char buf[PIECE_SIZE])
 			piece.coordinates[block_count][1] = CUR_COL(i) - offset[1];
 			++block_count;
 		}
-	}
 	if (!legal_piece(piece))
 		EXIT(INVALID_INPUT);
+	piece.vertical_length = GET_VERTICAL_LENGTH(piece);
+	piece.horizontal_length = GET_HORIZONTAL_LENGTH(piece);
 	piece.id = id;
+	piece.used = FALSE;
 	return (piece);
 }
 
@@ -206,6 +206,6 @@ t_game			read_pieces(ssize_t fd)
 		else if (ret == -1 || buf[0] != '\n')
 			EXIT(INVALID_INPUT);
 	}
-	tetromino.num_pieces = i;
+	tetromino.num_pieces = i + 1;
 	return (tetromino);
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/11 18:14:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/12 11:15:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 # define MACROS_H
 
 /*
-** Conveniance Macros
+** Constants
 */
-
-# ifndef EVEN
-#  define EVEN(n) (n % 2 == 0)
-# endif
-
-# ifndef ODD
-#  define ODD(n) (n % 2 == 1)
-# endif
 
 # ifndef INT_MAX
 #  define INT_MAX 2147483647
@@ -33,12 +25,24 @@
 #  define INT_MIN -2147483648
 # endif
 
+/*
+** Useful Macros
+*/
+
+# ifndef BUFF_SIZE
+#  define BUFF_SIZE 256
+# endif
+
 # ifndef TRUE
 #  define TRUE 1
 # endif
 
 # ifndef FALSE
 #  define FALSE 0
+# endif
+
+# ifndef _NULL
+#  define _NULL (void *)0
 # endif
 
 # ifndef SUCCESS
@@ -59,21 +63,17 @@
 #  define EXIT_FAILURE 1
 # endif
 
-# ifndef _NULL
-#  define _NULL (void *)0
-# endif
-
-/*
-** Utility Macros
-*/
-
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 256
+# ifndef EXIT
+#  define EXIT(error_msg) ft_putendl(error_msg); exit(EXIT_FAILURE);
 # endif
 
 /*
 ** Error Checking Macros
 */
+
+# ifndef ASSERT
+#  define ASSERT(expr) (expr != false)
+#endif
 
 # ifndef MALLOC_GUARD
 #  define MALLOC_GUARD(expr, val) if (!(expr)) return (val)
@@ -88,7 +88,6 @@
 # endif
 
 # ifndef CHECK
-#  define EXIT(error_msg) ft_putendl(error_msg); exit(EXIT_FAILURE);
 #  define CHECK(expr, err, errmsg) if (expr == err) { EXIT(errmsg) }
 # endif
 

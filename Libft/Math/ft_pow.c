@@ -6,30 +6,54 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:42:20 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 10:35:02 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 22:24:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long double		ft_pow(int nb, int power)
-{
-	int				sign;
-	long double		val;
+/*
+**    NAME
+**         ft_pow -- power function.
+**
+**    SYNOPSIS
+**         #include "math_42.h"
+**
+**         double
+**         ft_pow(double x, double y);
+**
+**    PARAMETERS
+**
+**         double x         Number, of type double, that is to be raised
+**                          to the power of 'y'.
+**
+**         double y         Number, of type double, used to raise 'x'.
+**
+**    DESCRIPTION
+**         The ft_pow() functions computes 'x' raised to the power 'y'.
+**
+**    RETURN VALUES
+**         Returns 'x' raised to the power 'y'.
+*/
 
-	if (power == 0)
-		return (1);
-	sign = (nb < 0) ? -1 : 1;
-	nb = (nb < 0) ? -nb : nb;
-	val = nb;
-	if (power < 0)
+double	ft_pow(double x, double y)
+{
+	double	val;
+	double	sign;
+
+	if (y == 0)
+		return (1.0);
+	sign = (x < 0) ? -1.0 : 1.0;
+	x = (x < 0) ? (-x) : (x);
+	val = x;
+	if (y < 0)
 	{
-		power = -power + 1;
-		while (power--)
-			val /= nb;
+		y = -y;
+		while (--y > -2)
+			val /= x;
 	}
 	else
 	{
-		while (--power)
-			val *= nb;
+		while (--y > 0)
+			val *= x;
 	}
 	return (val * sign);
 }

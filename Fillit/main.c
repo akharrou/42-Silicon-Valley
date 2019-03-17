@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 09:43:08 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 22:40:18 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/15 10:19:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int		main(int ac, char *av[])
 		EXIT(ERROR);
 	tetromino = read_pieces(fd);
 	tetromino.board = initialize_board(tetromino);
-	tetromino = fill_board(tetromino);
-	print_board(tetromino);
+	fill_board(tetromino);
 	return (0);
 }
 

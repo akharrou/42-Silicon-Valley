@@ -1,40 +1,50 @@
 # **************************************************************************** #
 #                                                                              #
-#                              MAKEFILE FRAMEWORK                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/03/16 13:27:10 by akharrou          #+#    #+#              #
+#    Updated: 2019/03/16 17:30:21 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
-
 CC          =   gcc
-CFLAGS      =   -Wall -Wextra -Werror
+CFLAGS      =   -Wall -Wextra -Werror -O0 -g
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 NAME        =   fillit
 
-LIBRARIES   =   libft/libft.a
+LIBRARY     =   libft/libft.a
 
-SOURCES     =   main.c \
+SOURCES     =   main.c      \
+                input.c     \
+                solver.c    \
+                utils.c     \
 
 OBJECTS     =   $(SOURCES:.c=.o)
 
-# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #
 #                                                                             #
 #                            DO NOT TOUCH THE REST                            #
 #                                                                             #
-# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #
+
 
 all: $(NAME)
 
-$(NAME): $(LIBRARIES) $(OBJECTS)
-	@$(CC) $(OBJECTS) $(LIBRARIES) -o $@
+$(NAME): $(LIBRARY) $(OBJECTS)
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo && echo $(GREEN) "[√]   ['$(NAME)' Successfully Compiled!]" && echo
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiling => " $<
+	@echo $(WHITE) "Compiling => " $<
 
-$(LIBRARIES):
+$(LIBRARY):
 	@make -C libft/
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
@@ -42,14 +52,19 @@ $(LIBRARIES):
 DEL  =  /bin/rm -rf
 
 clean:
-	@$(DEL) $(shell find . -name '*.o')
+	@$(DEL) $(shell find . -name '*.[o]')
 
 fclean: clean
 	@$(DEL) $(NAME)
 
 re: fclean all
 
-# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #
+#                                                                             #
+#                                    EXTRA                                    #
+#                                                                             #
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — #
+
 
 nc:
 	@echo && echo $(GREEN) "Checking Norme -- Source Files:" && echo $(WHITE);

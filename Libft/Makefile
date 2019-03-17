@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/09 17:34:05 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/16 22:28:56 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,26 @@ OBJECTS     =   $(SOURCES:.c=.o)
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
+HEADERS     =   Includes/libft.h                                              \
+                                                                              \
+                Includes/stdio_42.h                                           \
+                Includes/stdlib_42.h                                          \
+                Includes/string_42.h                                          \
+                Includes/stdint_42.h                                          \
+                Includes/ctype_42.h                                           \
+                Includes/math_42.h                                            \
+                                                                              \
+                Includes/list.h                                               \
+                Includes/btree.h                                              \
+                Includes/trie.h                                               \
+                Includes/hashtable.h                                          \
+                Includes/dict.h                                               \
+                                                                              \
+                Includes/macros.h                                             \
+                Includes/ft_getline.h                                         \
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
 SOURCES     =   $(STDIO)                                                      \
                 $(STDLIB)                                                     \
                 $(STRING)                                                     \
@@ -34,7 +54,7 @@ SOURCES     =   $(STDIO)                                                      \
                 $(BTREE)                                                      \
                 $(TRIE)                                                       \
                 $(HASHTABLE)                                                  \
-                $(DICT)
+                $(DICT)                                                       \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -139,7 +159,19 @@ CTYPE       =   Ctype/ft_isupper.c                                            \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-MATH        =   Math/ft_pow.c                                                 \
+MATH        =   Math/ft_sqrt.c                                               \
+                Math/ft_pow.c                                                \
+                Math/ft_powl.c                                               \
+                Math/ft_max.c                                                \
+                Math/ft_max_d.c                                              \
+                Math/ft_max_l.c                                              \
+                Math/ft_min.c                                                \
+                Math/ft_min_d.c                                              \
+                Math/ft_min_l.c                                              \
+                Math/ft_sum.c                                                \
+                Math/ft_sum_d.c                                              \
+                Math/ft_sum_l.c                                              \
+                Math/ft_sum_ld.c                                             \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -232,7 +264,7 @@ $(NAME): $(OBJECTS)
 	@ar -rcs $(NAME) $(OBJECTS)
 	@echo && echo $(GREEN) "[√]     [Library Successfully Compiled!]" && echo
 
-%.o: %.c
+%.o: %.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiling => " $<
 

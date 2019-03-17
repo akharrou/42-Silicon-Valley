@@ -6,58 +6,94 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 17:55:07 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/14 22:56:40 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/16 14:13:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_board			initialize_board(t_game tetromino)
-{
-	t_int8		row;
-	t_int8		col;
-
-	tetromino.board.rootsize = tetromino.num_pieces + 1;
-	row = -1;
-	while (tetromino.board.rootsize > ++row)
-	{
-		col = -1;
-		while (tetromino.board.rootsize > ++col)
-			tetromino.board.matrix[row][col] = '.';
-	}
-	return (tetromino.board);
-}
-
-static	t_bool	check(t_piece piece, t_board board, t_uint8 row, t_uint8 col)
-{
-
-}
-
-t_board			place_piece(t_game tetromino, t_uint8 index)
-{
-
-}
-
-t_bool			place_next_piece(t_game tetromino)
+static	t_bool	end_state(t_game tetromino)
 {
 	t_int8		i;
-	t_int8		j;
-	t_game		tetromino_copy;
 
 	i = -1;
 	while (tetromino.num_pieces > ++i)
 		if (tetromino.piece[i].used == FALSE)
-		{
-			// ...
-		}
-	return ();
+			return (FALSE);
+	return (TRUE);
 }
 
-t_game			fill_board(t_game tetromino)
+static	t_bool	check(t_piece piece, t_board board, t_uint8 row, t_uint8 col)
 {
 	t_int8		i;
+	t_uint8		r;
+	t_uint8		c;
+
+	i = 0;
+	while (BLOCKS_PER_PIECE > ++i)
+	{
+		r = row + piece.coordinates[i][0];
+		c = col + piece.coordinates[i][1];
+		if (r >= board.rootsize || c >= board.rootsize ||
+			board.matrix[r][c] != EMPTY)
+		{
+			return (FALSE);
+		}
+	}
+	return (TRUE);
+}
+
+t_game			place_piece(t_game tetromino, t_uint8 i, t_uint8 row,
+					t_uint8 col)
+{
 	t_int8		j;
-	t_game		tetromino_copy;
+	t_uint8		r;
+	t_uint8		c;
+
+	j = -1;
+	while (BLOCKS_PER_PIECE > ++j)
+	{
+		r = row + PIECE(i).coordinates[j][0];
+		c = col + PIECE(i).coordinates[j][1];
+		tetromino.board.matrix[r][c] = PIECE(i).id;
+	}
+	tetromino.piece[i].used = TRUE;
+	return (tetromino);
+}
+
+void			place_next_pieces(t_game tetromino)
+{
+	t_int8		i;
+	t_uint8		j;
+	t_game		new_state;
+
+	if (end_state(tetromino))
+	{
+		print_board(tetromino.board);
+		exit(EXIT_SUCCESS);
+	}
+	i = -1;
+	while (tetromino.num_pieces > ++i)
+		if (tetromino.piece[i].used == FALSE)
+		{
+			j = 0;
+			while (BOARD_ROWS > CUR_BOARD_ROW)
+			{
+				if (PIECE_PLACEMENT_POSSIBLE)
+				{
+					new_state = place_piece(tetromino, i, CBR, CBC);
+					place_next_pieces(new_state);
+				}
+				++j;
+			}
+		}
+}
+
+void			fill_board(t_game tetromino)
+{
+	t_int8		i;
+	t_uint8		j;
+	t_game		new_state;
 
 	while (1)
 	{
@@ -66,30 +102,15 @@ t_game			fill_board(t_game tetromino)
 		{
 			j = 0;
 			while (BOARD_ROWS > CUR_BOARD_ROW)
-				while (BOARD_COLS > CUR_BOARD_COL)
+			{
+				if (PIECE_PLACEMENT_POSSIBLE)
 				{
-					if (PIECE_PLACEMENT_POSSIBLE)
-					{
-						tetromino_copy = place_piece(PIECE(i), tetromino);
-						if (find_next_piece(tetromino_copy) == SUCCESS)
-							return (tetromino);
-						backtrack();
-					}
-					++j;
+					new_state = place_piece(tetromino, i, CBR, CBC);
+					place_next_pieces(new_state);
 				}
+				++j;
+			}
 		}
 		++tetromino.board.rootsize;
 	}
 }
-
-
-						tetromino.piece[i].used = TRUE;
-						saved_board = tetromino.board;
-						tetromino.board = place_piece(tetromino, i);
-						if (find_next_piece(tetromino) == SUCCESS)
-							return (tetromino);
-						tetromino.board = saved_board;
-						tetromino.piece[i].used = FALSE;
-
-
-
