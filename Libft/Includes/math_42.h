@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 11:09:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/17 11:06:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/18 10:15:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ double					ft_sqrt(double x);
 
 double					ft_pow(double x, double y);
 long double				ft_powl(long double x, long double y);
+unsigned long long		ft_powll(long x, int y);
 
 int						ft_sum(int *vector, unsigned int size);
 long					ft_sum_l(long *vector, unsigned int size);

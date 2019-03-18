@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/16 23:35:45 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/18 10:21:00 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ SOURCES     =   $(STDIO)                                                      \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-STDIO       =   Stdio/ft_putbyte.c                                            \
+STDIO       =   Stdio/ft_putbits.c                                            \
+                Stdio/ft_putbyte.c                                            \
                 Stdio/ft_putbyte_fd.c                                         \
                 Stdio/ft_putbytes.c                                           \
                 Stdio/ft_putbytes_fd.c                                        \
@@ -162,6 +163,7 @@ CTYPE       =   Ctype/ft_isupper.c                                            \
 MATH        =   Math/ft_sqrt.c                                               \
                 Math/ft_pow.c                                                \
                 Math/ft_powl.c                                               \
+                Math/ft_powll.c                                              \
                 Math/ft_max.c                                                \
                 Math/ft_max_d.c                                              \
                 Math/ft_max_l.c                                              \

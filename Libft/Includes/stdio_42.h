@@ -6,13 +6,14 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:39:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 12:03:32 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/18 10:19:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STDIO_42_H
 # define STDIO_42_H
 
+void	ft_putbits(unsigned long long num, int n_bits);
 void	ft_putbyte(int c);
 void	ft_putbyte_fd(int c, int fd);
 void	ft_putbytes(const char *byte_str);
