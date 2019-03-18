@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 13:27:10 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/18 08:33:37 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/18 09:11:51 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,6 @@ $(NAME): $(LIBRARY) $(OBJECTS)
 
 $(LIBRARY):
 	@make -C Libft/
-
-test:
-	make re
-	mv fillit tests_fillit
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
