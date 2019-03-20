@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/19 00:04:50 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 16:46:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 static t_bool	legal_connections(t_char buf[PIECE_SIZE])
 {
-	int block;
-	int i;
+	t_uint8		block_connections;
+	t_uint8		i;
 
 	i = 0;
-	block = 0;
-	while (i < 20)
+	block_connections = 0;
+	while (PIECE_SIZE > i)
 	{
 		if (buf[i] == '#')
 		{
-			if ((i + 1) < 20 && buf[i + 1] == '#')
-				block++;
+			if ((i + 1) < PIECE_SIZE && buf[i + 1] == '#')
+				block_connections++;
 			if ((i - 1) >= 0 && buf[i - 1] == '#')
-				block++;
-			if ((i + 5) < 20 && buf[i + 5] == '#')
-				block++;
+				block_connections++;
+			if ((i + 5) < PIECE_SIZE && buf[i + 5] == '#')
+				block_connections++;
 			if ((i - 5) >= 0 && buf[i - 5] == '#')
-				block++;
+				block_connections++;
 		}
 		i++;
 	}
-	return (block == 6 || block == 8);
+	return (block_connections == 6 || block_connections == 8);
 }
 
 
@@ -73,6 +73,7 @@ static t_bool	legal_characters(t_char buf[PIECE_SIZE])
 t_game			read_pieces(ssize_t fd)
 {
 	t_game		tetromino;
+
 	t_char		buf[PIECE_SIZE];
 	t_char		piece_id;
 	t_int8		i;
@@ -82,18 +83,17 @@ t_game			read_pieces(ssize_t fd)
 	while (MAX_PIECES > ++i)
 	{
 		read(fd, buf, PIECE_SIZE);
-		if (legal_characters(buf) && legal_connections(buf))
-		{
-			PIECE(i).id = piece_id++;
-			PIECE(i).mask = get_piece_mask(0, buf);
-			PIECE(i).width = get_piece_width(buf);
-			PIECE(i).height = get_piece_height(buf);
-		}
+		if (!(legal_characters(buf) && legal_connections(buf)))
+			EXIT(INVALID_INPUT);
+		PIECE(i).id = piece_id++;
+		PIECE(i).mask = get_piece_mask(0, buf);
+		PIECE(i).width = get_piece_width(buf);
+		PIECE(i).height = get_piece_height(buf);
 		if (read(fd, buf, 1) == 0)
 			break ;
 		else if (buf[0] != '\n')
 			EXIT(INVALID_INPUT);
 	}
-	tetromino.num_pieces = i;
+	tetromino.num_pieces = i + 1;
 	return (tetromino);
 }

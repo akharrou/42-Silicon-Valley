@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 13:27:10 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/17 10:07:10 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/19 08:32:28 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ LIBRARY     =   libft/libft.a
 
 SOURCES     =   main.c      \
                 input.c     \
-                solver.c    \
                 utils.c     \
+                # solver.c    \
 
 OBJECTS     =   $(SOURCES:.c=.o)
 

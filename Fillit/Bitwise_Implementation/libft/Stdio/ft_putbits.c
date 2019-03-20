@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 10:07:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:09:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	ft_putbits(unsigned long long num, int n_bits)
 	temp = ft_powll(2, n_bits - 1);
 	while (i < n_bits)
 	{
-		ft_putchar(((num & temp) == 0) ? '0' : '1');
+		ft_putchar(((num & temp) == 0) ? '.' : '1');
 		if ((++i % 4) == 0)
-			ft_putchar(' ');
+			ft_putstr(" | ");
 		num = num << 1;
 	}
 	ft_putchar('\n');

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 09:33:11 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/18 23:16:59 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 17:05:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define MAX_PIECES         26
 
 # define PIECE_SIZE         20
-# define BLOCKS_PER_PIECE   4
 # define PIECE_ROWS         4
 # define PIECE_COLS         4
 
@@ -69,13 +68,7 @@ typedef struct	s_tetromino_game
 */
 
 # define PIECE(n) (tetromino.pieces[n])
-# define FOUR_DOTS 184
-
-
-/*
-** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-*/
-
+# define FOUR_DOTS 774778414
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
