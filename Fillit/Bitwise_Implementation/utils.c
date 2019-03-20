@@ -6,36 +6,11 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 17:51:27 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/19 17:06:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 20:07:11 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-**    NAME
-**         func_name -- brief.
-**
-**    SYNOPSIS
-**         #include <libft.h>
-**
-**         int
-**         func_name(args);
-**
-**    PARAMETERS
-**
-**         PARAM 1                 Brief
-**
-**         PARAM 2                 Brief
-**
-**         PARAM 3                 Brief
-**
-**    DESCRIPTION
-**         Description.
-**
-**    RETURN VALUES
-**         If successful returns 0; otherwise -1.
-*/
 
 t_uint8			get_piece_height(t_char buf[PIECE_SIZE])
 {
@@ -52,31 +27,6 @@ t_uint8			get_piece_height(t_char buf[PIECE_SIZE])
 	}
 	return (height);
 }
-
-/*
-**    NAME
-**         func_name -- brief.
-**
-**    SYNOPSIS
-**         #include <libft.h>
-**
-**         int
-**         func_name(args);
-**
-**    PARAMETERS
-**
-**         PARAM 1                 Brief
-**
-**         PARAM 2                 Brief
-**
-**         PARAM 3                 Brief
-**
-**    DESCRIPTION
-**         Description.
-**
-**    RETURN VALUES
-**         If successful returns 0; otherwise -1.
-*/
 
 t_uint8			get_piece_width(t_char buf[PIECE_SIZE])
 {
@@ -99,32 +49,7 @@ t_uint8			get_piece_width(t_char buf[PIECE_SIZE])
 	return (width);
 }
 
-/*
-**    NAME
-**         func_name -- brief.
-**
-**    SYNOPSIS
-**         #include <libft.h>
-**
-**         int
-**         func_name(args);
-**
-**    PARAMETERS
-**
-**         PARAM 1                 Brief
-**
-**         PARAM 2                 Brief
-**
-**         PARAM 3                 Brief
-**
-**    DESCRIPTION
-**         Description.
-**
-**    RETURN VALUES
-**         If successful returns 0; otherwise -1.
-*/
-
-t_uint64	get_piece_mask(t_uint64 piece_mask, t_char buf[PIECE_SIZE])
+t_uint64		get_piece_mask(t_uint64 piece_mask, t_char buf[PIECE_SIZE])
 {
 	t_uint8		min_leading_dots;
 	t_uint8		leading_dots;
@@ -152,11 +77,3 @@ t_uint64	get_piece_mask(t_uint64 piece_mask, t_char buf[PIECE_SIZE])
 	}
 	return (piece_mask << min_leading_dots);
 }
-
-// TODAY:
-
-// 	- test piece legality checkers
-// 	- fix main backtracking function
-// 	- print the board
-
-// 	- have fun with debugging

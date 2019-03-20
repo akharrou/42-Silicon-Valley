@@ -6,23 +6,22 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 13:27:10 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/19 08:32:28 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/19 21:20:32 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          =   gcc
-CFLAGS      =   -Wall -Wextra -Werror -O0 -g
-
+CFLAGS      =   -Wall -Wextra -Werror -O2
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-NAME        =   fillit
+NAME        =   a
 
 LIBRARY     =   libft/libft.a
 
 SOURCES     =   main.c      \
                 input.c     \
                 utils.c     \
-                # solver.c    \
+                solver.c    \
 
 OBJECTS     =   $(SOURCES:.c=.o)
 

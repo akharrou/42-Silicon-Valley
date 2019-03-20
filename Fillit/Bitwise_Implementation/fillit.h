@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 09:33:11 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/19 17:05:13 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 20:28:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,14 @@ t_uint8			get_piece_height(t_char buf[PIECE_SIZE]);
 void			fill_board(t_game tetromino);
 void			place_next_pieces(t_game tetromino);
 
-void			print_board(t_board board);
+void			print_board(t_game tetromino);
+void			print_bit_board(uint16_t *matrix, int size);
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
 
 #endif
-
-
-
-
-
 
 /* BIT IMPLEMENTATION HEADER FILE */
 

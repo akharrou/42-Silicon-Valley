@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:56:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/19 16:46:36 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/19 19:13:48 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static t_bool	legal_connections(t_char buf[PIECE_SIZE])
 	}
 	return (block_connections == 6 || block_connections == 8);
 }
-
 
 /*
 ** The checksum starts with the number of times the conditions should
@@ -73,7 +72,6 @@ static t_bool	legal_characters(t_char buf[PIECE_SIZE])
 t_game			read_pieces(ssize_t fd)
 {
 	t_game		tetromino;
-
 	t_char		buf[PIECE_SIZE];
 	t_char		piece_id;
 	t_int8		i;
