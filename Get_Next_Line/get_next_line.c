@@ -41,7 +41,7 @@
 
 #include "get_next_line.h"
 
-int		ft_getline(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
 	static t_file		file[MAX_FDS];
 	char				tmp[BUFF_SIZE + 1];
