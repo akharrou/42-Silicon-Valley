@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 20:55:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/21 19:24:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/21 21:25:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int		ft_getline(const int fd, char **line)
 
 	if (!line || fd < 0 || fd > MAX_FDS || read(fd, tmp, 0) == -1)
 		return (-1);
-	while ((ret = read(fd, tmp, BUFF_SIZE)) > 0)
+	while (!(newline = ft_strchr(file[fd].cur_pos, '\n')) &&
+	(ret = read(fd, tmp, BUFF_SIZE)) > 0)
 	{
 		tmp[ret] = '\0';
 		file[fd].cur_pos = ft_strjoin(file[fd].cur_pos, tmp);
@@ -59,7 +60,6 @@ int		ft_getline(const int fd, char **line)
 	}
 	if ((ret == 0 && !file[fd].buffer) || ret == -1)
 		return (ret);
-	newline = ft_strchr(file[fd].cur_pos, '\n');
 	if (newline)
 		(*newline) = '\0';
 	(*line) = (file[fd].buffer) ? ft_strdup(file[fd].cur_pos) : NULL;
