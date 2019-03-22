@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 14:59:06 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/21 18:34:40 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:18:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 
 #include "get_next_line.h"
 
-int		get_next_line(const int fd, char **line)
+int		ft_getline(const int fd, char **line)
 {
 	static t_file		file[MAX_FDS];
 	char				tmp[BUFF_SIZE + 1];
@@ -50,7 +50,8 @@ int		get_next_line(const int fd, char **line)
 
 	if (!line || fd < 0 || fd > MAX_FDS || read(fd, tmp, 0) == -1)
 		return (-1);
-	while ((ret = read(fd, tmp, BUFF_SIZE)) > 0)
+	while (!(newline = ft_strchr(file[fd].cur_pos, '\n')) &&
+	(ret = read(fd, tmp, BUFF_SIZE)) > 0)
 	{
 		tmp[ret] = '\0';
 		file[fd].cur_pos = ft_strjoin(file[fd].cur_pos, tmp);
@@ -59,7 +60,6 @@ int		get_next_line(const int fd, char **line)
 	}
 	if ((ret == 0 && !file[fd].buffer) || ret == -1)
 		return (ret);
-	newline = ft_strchr(file[fd].cur_pos, '\n');
 	if (newline)
 		(*newline) = '\0';
 	(*line) = (file[fd].buffer) ? ft_strdup(file[fd].cur_pos) : NULL;
