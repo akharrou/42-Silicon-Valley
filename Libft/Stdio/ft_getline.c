@@ -6,121 +6,66 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 20:55:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/07 15:54:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/21 19:24:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**    NAME
+**         ft_getline -- get a line from a file
+**
+**    SYNOPSIS
+**         #include "stdio_42.h"
+**
+**         int
+**         ft_getline(const int fd, char **line);
+**
+**    PARAMETERS
+**
+**         const int fd        A file descriptor.
+**
+**         char **line         A pointer to a pointer to a buffer.
+**
+**    DESCRIPTION
+**         Reads a line from a file (delimited by a return line), allocates
+**         a buffer the size of the line, copies the line into the buffer
+**         and makes 'line' point to it.
+**
+**         NOTE: free'ing of what 'line' points to is not taken care of.
+**
+**    RETURN VALUES
+**         If a line was successfully read, 1 is returned.
+**         If the reading of the file is completed, 0 is returned.
+**         If an error occurs, -1 is returned.
+*/
+
 #include "../Includes/ft_getline.h"
 
-static int	tt_btyes(t_fdentry *fdentry)
+int		ft_getline(const int fd, char **line)
 {
-	int		tt_bytes;
-	int		list_size;
-	char	*cur_buf;
+	static t_file		file[MAX_FDS];
+	char				tmp[BUFF_SIZE + 1];
+	char				*newline;
+	ssize_t				ret;
 
-	tt_bytes = 0;
-	cur_buf = ((t_buf *)(fdentry)->buf_list->item)->cur_p;
-	while (*cur_buf != '\n' && *cur_buf != '\0')
+	if (!line || fd < 0 || fd > MAX_FDS || read(fd, tmp, 0) == -1)
+		return (-1);
+	while ((ret = read(fd, tmp, BUFF_SIZE)) > 0)
 	{
-		++cur_buf;
-		++tt_bytes;
+		tmp[ret] = '\0';
+		file[fd].cur_pos = ft_strjoin(file[fd].cur_pos, tmp);
+		FLUSH(file[fd].buffer);
+		file[fd].buffer = file[fd].cur_pos;
 	}
-	list_size = list_count((fdentry)->buf_list) - 2;
-	if (list_size > 0)
-		tt_bytes += list_size * GETLINE_BUFF_SIZE;
-	if ((fdentry)->buf_tail != (fdentry)->buf_list)
-	{
-		cur_buf = ((t_buf *)(fdentry)->buf_tail->item)->cur_p;
-		while (*cur_buf != '\n' && *cur_buf != '\0')
-		{
-			++cur_buf;
-			++tt_bytes;
-		}
-	}
-	return (tt_bytes);
-}
-
-int			ft_copy_line(char **dest, t_fdentry **fd_entry)
-{
-	int		j;
-	int		tt_line_bytes;
-	t_buf	*tmp;
-
-	tt_line_bytes = tt_btyes(*fd_entry);
-	MALLOC_GUARD((*dest) = (char *)malloc(tt_line_bytes + 1), -1);
-	(*dest)[tt_line_bytes] = '\0';
-	j = 0;
-	while ((*fd_entry)->buf_list)
-	{
-		tmp = (t_buf *)list_popleft(&((*fd_entry)->buf_list));
-		while (*(tmp->cur_p) != '\0' && *(tmp->cur_p) != '\n')
-			(*dest)[j++] = *(tmp->cur_p)++;
-		if (!(*(tmp->cur_p) == '\n' && *(tmp->cur_p + 1) == '\0') &&
-		*(tmp->cur_p++) != '\0')
-		{
-			list_append(&(*fd_entry)->buf_list, tmp);
-			break ;
-		}
-		free(tmp->init_p);
-		free(tmp);
-	}
-	(*fd_entry)->buf_tail = (*fd_entry)->buf_list;
-	return (1);
-}
-
-int			ft_read_line(int fd, char **line, t_fdentry **fd_entry)
-{
-	int		res;
-	t_buf	*buf;
-
-	res = -1;
-	buf = NULL;
-	if ((*fd_entry)->buf_list)
-		buf = (t_buf *)((*fd_entry)->buf_list->item);
-	while (1)
-	{
-		if (buf && ft_strchr(buf->cur_p, '\n'))
-			return (ft_copy_line(line, fd_entry));
-		MALLOC_GUARD(buf = (t_buf *)malloc(sizeof(t_buf)), -1);
-		BREAK_CHECK(!(buf->init_p = (char *)malloc(GETLINE_BUFF_SIZE + 1)));
-		res = read(fd, buf->init_p, GETLINE_BUFF_SIZE);
-		BREAK_CHECK(res < 1);
-		buf->init_p[res] = '\0';
-		buf->cur_p = buf->init_p;
-		list_append_both(&(*fd_entry)->buf_list, &(*fd_entry)->buf_tail, buf);
-	}
-	if (buf->init_p)
-		free(buf->init_p);
-	free(buf);
-	if (res == 0 && (*fd_entry)->buf_list)
-		return (ft_copy_line(line, fd_entry));
-	return (res);
-}
-
-int			ft_getline(const int fd, char **line)
-{
-	static t_dict	*filedes_table = NULL;
-	t_fdentry		*fd_entry;
-	int				ret;
-
-	if (fd > -1 && line)
-	{
-		if ((ret = dict_getindex(filedes_table, (char *)&fd)) == -1)
-		{
-			MALLOC_GUARD(fd_entry = (t_fdentry *)malloc(sizeof(t_fdentry)), -1);
-			fd_entry->buf_list = NULL;
-			fd_entry->buf_tail = NULL;
-			ret = dict_insert(&filedes_table, (char *)&fd, fd_entry);
-		}
-		if ((fd_entry = dict_getitem_fast(filedes_table, (char *)&fd, ret)))
-		{
-			if ((ret = ft_read_line(fd, line, &fd_entry)) == 1)
-				return (1);
-			dict_remove(&filedes_table, (char *)&fd);
-			if (filedes_table->entries == 0)
-				dict_clear(&filedes_table);
-			return (ret);
-		}
-	}
-	return (-1);
+	if ((ret == 0 && !file[fd].buffer) || ret == -1)
+		return (ret);
+	newline = ft_strchr(file[fd].cur_pos, '\n');
+	if (newline)
+		(*newline) = '\0';
+	(*line) = (file[fd].buffer) ? ft_strdup(file[fd].cur_pos) : NULL;
+	if (newline && *(newline + 1) != '\0')
+		file[fd].cur_pos = newline + 1;
+	else
+		FLUSH(file[fd].buffer);
+	return (*line != NULL);
 }

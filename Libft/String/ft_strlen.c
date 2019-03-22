@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 15:04:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/20 17:00:06 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ size_t		ft_strlen(const char *s)
 	size_t i;
 
 	i = 0;
-	while (s[i])
-		++i;
+	if (s)
+		while (s[i])
+			++i;
 	return (i);
 }

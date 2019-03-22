@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/17 08:38:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/21 19:19:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
+# endif
+
+# ifndef MAX_FDS
+#  define MAX_FDS 65536
 # endif
 
 /*
@@ -67,12 +71,16 @@
 #  define EXIT(error_msg) { ft_putendl(error_msg); exit(EXIT_FAILURE); }
 # endif
 
+# ifndef FLUSH
+#  define FLUSH(buffer) if (buffer != NULL) { free(buffer); buffer = NULL; }
+# endif
+
 /*
 ** Error Checking Macros
 */
 
 # ifndef ASSERT
-#  define ASSERT(expr) (expr != false)
+#  define ASSERT(expr) (expr != FALSE)
 #endif
 
 # ifndef MALLOC_GUARD
