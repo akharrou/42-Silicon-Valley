@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 15:04:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/20 17:00:29 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/20 09:14:33 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/20 09:17:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-size_t		ft_strlen(const char *s)
+void	ft_lstiteri(t_list *lst, void (*f)(unsigned int i, t_list *elem))
 {
-	size_t i;
+	unsigned int i;
 
 	i = 0;
-	if (s)
-		while (s[i])
-			++i;
-	return (i);
+	while (lst)
+	{
+		(*f)(i, lst);
+		lst = lst->next;
+		i++;
+	}
 }

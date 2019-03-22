@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/06 11:57:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/21 18:24:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 # define LIBFT_H
 
 # include <string.h>
-# include <stdlib.h>
-
-# include "list.h"
-# include "hashtable.h"
-# include "dict.h"
 
 # ifndef INT_MAX
 #  define INT_MAX 2147483647
@@ -28,7 +23,14 @@
 #  define INT_MIN -2147483648
 # endif
 
-# define INIT_DICT_SIZE 500
+# define FLUSH(buffer) if (buffer != NULL) { free(buffer); buffer = NULL; }
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 void				*ft_memset(void *dst, int c, size_t n);
 void				ft_bzero(void *str, size_t n);
@@ -59,10 +61,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-int					ft_find_next_prime(int n);
-int					ft_isprime(int n);
 
-unsigned int		ft_hash(const char *str);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
@@ -87,6 +86,15 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *new_elem);
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstiteri(t_list *lst,
+								void (*f)(unsigned int i, t_list *elem));
 
 int					ft_isupper(int c);
 int					ft_islower(int c);

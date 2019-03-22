@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:25:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/20 17:07:51 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/19 19:31:40 by akharrou          #+#    #+#             */
+/*   Updated: 2019/02/20 17:30:06 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char *new_str;
+	t_list *new;
 
-	if (s1 || s2)
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content)
 	{
-		if (!(new_str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
-			return (NULL);
-		return (ft_strcat(ft_strcat(new_str, s1), s2));
+		new->content = ft_memalloc(content_size);
+		ft_memcpy((void *)(new->content), (const void *)content, content_size);
+		new->content_size = content_size;
 	}
-	return (NULL);
+	else
+	{
+		new->content = NULL;
+		new->content_size = 0;
+	}
+	new->next = NULL;
+	return (new);
 }
