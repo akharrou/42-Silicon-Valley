@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 22:23:39 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/16 22:33:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/03/23 18:00:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 long		ft_min_l(long *vector, unsigned int size)
 {
 	unsigned int	i;
-	long 			min;
+	long			min;
 
 	if (vector && size > 0)
 	{

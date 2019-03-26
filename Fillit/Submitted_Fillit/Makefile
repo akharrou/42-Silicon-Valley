@@ -6,22 +6,24 @@
 #    By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/16 13:27:10 by akharrou          #+#    #+#              #
-#    Updated: 2019/03/23 11:26:05 by akharrou         ###   ########.fr        #
+#    Updated: 2019/03/23 18:38:07 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          =   gcc
-CFLAGS      =   -Wall -Wextra -Werror -O3 -march=native -pipe
+CFLAGS      =   -Wall -Wextra -Werror
+
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-NAME        =   a
+NAME        =   fillit
 
 LIBRARY     =   libft/libft.a
 
 SOURCES     =   main.c      \
                 input.c     \
-                utils.c     \
                 solver.c    \
+                utils.c     \
+                output.c    \
 
 OBJECTS     =   $(SOURCES:.c=.o)
 
@@ -37,7 +39,7 @@ all: $(NAME)
 
 $(NAME): $(LIBRARY) $(OBJECTS)
 	@$(CC) $(CFLAGS) $^ -o $@
-	@echo && echo $(GREEN) "[√]   [Program Successfully Compiled!]" && echo
+	@echo && echo $(GREEN) "[√]     [Program Successfully Compiled!]" && echo
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -46,16 +48,12 @@ $(NAME): $(LIBRARY) $(OBJECTS)
 $(LIBRARY):
 	@make -C libft/
 
-test:
-	make re
-	mv fillit tests_fillit
-
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 DEL  =  /bin/rm -rf
 
 clean:
-	@$(DEL) $(shell find . -name '*.[o]')
+	@$(DEL) $(shell find . -name '*.[oa]')
 
 fclean: clean
 	@$(DEL) $(NAME)
