@@ -1,0 +1,15 @@
+/*
+*
+*	FUNCTION FRAMEWORK.
+*
+*/
+
+#include <>
+#include <>
+
+
+{
+
+
+
+}
