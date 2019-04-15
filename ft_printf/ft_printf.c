@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 04:30:31 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 04:51:16 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,15 +168,36 @@
 
 int		ft_printf(const char *format, ...)
 {
-	va_list ap;
+	va_list		ap;
+	t_uint32	params_count;
 
-	va_start(ap, param_count(format));
+	params_count = printf_params_count(format);
+	va_start(ap, params_count);
 
 	/* Develop the function */
 
 	va_end(ap);
 	return (/* number of characters written to stream */);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * TODO:

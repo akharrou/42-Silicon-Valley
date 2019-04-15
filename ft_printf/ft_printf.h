@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 01:29:31 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 04:50:31 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ typedef struct	s_
 }				t_;
 
 int		printf(const char *format, ...);
+
+int		printf_params_count(const char *str);
 
 #endif
