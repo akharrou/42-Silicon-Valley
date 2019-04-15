@@ -4,10 +4,10 @@
  *
  */
 
-#include "ft_printf.h"
+// #include "ft_printf.h"
 
-#include "utils.c"
-#include "ft_printf.c"
+// #include "utils.c"
+// #include "ft_printf.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,14 +17,16 @@
 
 int		main(int ac, char *av[])
 {
-	if (ac < 2)
-	{
-		printf("Usage: ./a format ...\n");
-		return (1);
-	}
+	// if (ac < 2)
+	// {
+	// 	printf("Usage: ./a format ...\n");
+	// 	return (1);
+	// }
 
-	ft_putnbr(ft_printf("%s\n"));
-	ft_putnbr(ft_printf("%rmncds%yhsd%mq%%wd\n"));
+	// ft_putnbr(ft_printf("%s\n"));
+	// ft_putnbr(ft_printf("%rmncds%dyhsd%mq%%wd\n", 4));
+
+	printf("%lu\n", -10);
 
 	(void)ac;
 	(void)av;
