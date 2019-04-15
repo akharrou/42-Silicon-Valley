@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   stdio_42.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:39:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/18 10:19:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 08:04:21 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STDIO_42_H
 # define STDIO_42_H
+
+# include <unistd.h>
 
 void	ft_putbits(unsigned long long num, int n_bits);
 void	ft_putbyte(int c);

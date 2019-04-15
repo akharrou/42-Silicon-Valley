@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stdlib_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/16 23:23:26 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 04:42:02 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa_base(long nbr, char *base);
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
 int				ft_wcount(const char *s, const char *charset);
+int				ft_chrcount(const char *s, const char c);
 void			ft_swap_int(int *a, int *b);
 void			ft_swap_char(char *a, char *b);
 void			ft_swap_str(char **a, char **b);

@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/15 00:59:56 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/15 04:42:43 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_convert_base.c                                      \
                 Stdlib/ft_find_next_prime.c                                   \
                 Stdlib/ft_wcount.c                                            \
+                Stdlib/ft_chrcount.c                                          \
                 Stdlib/ft_swap_int.c                                          \
                 Stdlib/ft_swap_char.c                                         \
                 Stdlib/ft_swap_str.c                                          \
@@ -265,6 +266,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@ar -rcs $(NAME) $(OBJECTS)
+	@echo && echo $(GREEN) "[√]     [Library Successfully Compiled!]" && echo
 
 %.o: %.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $@

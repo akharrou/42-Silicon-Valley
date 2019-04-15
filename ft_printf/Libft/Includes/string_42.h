@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   string_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 12:06:46 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 07:51:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_strncat(char *dst, const char *src, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
-int			ft_strchrs(char *str, char *substr);
+char		*ft_strchrs(const char *str, const char *charset);
 char		*ft_strstr(const char *str, const char *find);
 char		*ft_strnstr(const char *str, const char *find, size_t len);
 char		*ft_strdup(const char *str);

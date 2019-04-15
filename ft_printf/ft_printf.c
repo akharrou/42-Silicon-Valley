@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 04:51:16 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 08:11:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,60 +168,28 @@
 
 int		ft_printf(const char *format, ...)
 {
-	va_list		ap;
-	t_uint32	params_count;
+	va_list		args;
+	t_uint32	bytes_written;
+	t_uint32	tt_bytes_written;
 
-	params_count = printf_params_count(format);
-	va_start(ap, params_count);
-
-	/* Develop the function */
-
-	va_end(ap);
-	return (/* number of characters written to stream */);
+	format = (char *)format;
+	if (!format)
+		return (0);
+	tt_bytes_written = 0;
+	va_start(args, format);
+	while (*format)
+	{
+		if (*format == '%' && *(format + 1) != '%')
+			bytes_written = handle_specifier(&format);
+		else if (*format == '%' && *(format + 1) == '%')
+		{
+			bytes_written = write(1, "%", 1);
+			format += 2;
+		}
+		else
+			bytes_written = write(1, format++, 1);
+		tt_bytes_written += bytes_written;
+	}
+	va_end(args);
+	return (tt_bytes_written);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * TODO:
- *
- *
- *        A format specifier follows this prototype:
- *
- *            %[flags][width][.precision][length]specifier
- *
- *
- *
- *
- * 	I) Handle a specifier
- *
- *
- * 	II)
- *
- *
- * 	III)
- *
- *
- * 	IV)
- *
- *
- * 	V)
- *
- */
