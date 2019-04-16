@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 02:59:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 09:49:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Libft/Includes/libft.h"
 # include <stdarg.h>
 
-# define SPECIFIERS  "cspdifouxX%"
+# define SPECIFIERS  "cspdifouxX%%"
 # define FLAGS       "-+#0 "
 
 # define NONE -1
@@ -65,18 +65,18 @@ t_int8		parse_specifier(const char *format, t_uint32 *i);
 
 t_format	parse_format(const char *format);
 
-void		c_flag_handler();
-void		s_flag_handler();
-void		p_flag_handler();
-void		d_flag_handler();
-void		i_flag_handler();
-void		f_flag_handler();
-void		o_flag_handler();
-void		u_flag_handler();
-void		x_flag_handler();
-void		X_flag_handler();
+// void		c_specifier_handler();
+// void		s_specifier_handler();
+// void		p_specifier_handler();
+// void		d_specifier_handler();
+// void		i_specifier_handler();
+// void		f_specifier_handler();
+// void		o_specifier_handler();
+// void		u_specifier_handler();
+// void		x_specifier_handler();
+// void		X_specifier_handler();
 
-t_format	handle_format(const char *format);
+// t_format	handle_format(const char *format);
 
 size_t		write_argument(int filedes, const char **buf, va_list *args);
 

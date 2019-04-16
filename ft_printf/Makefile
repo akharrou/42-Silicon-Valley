@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/15 00:49:17 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/15 01:19:48 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/16 09:38:59 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,22 @@ NAME        =   libftprintf.a
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 SOURCES     =   ft_printf.c                                                   \
-                # utils.c                                                       \
+                parsers.c                                                     \
+                utils.c                                                       \
+                $(HANDLERS)                                                   \
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+HANDLERS    =   Handlers/c_specifier_handler.c                                 \
+                Handlers/s_specifier_handler.c                                 \
+                Handlers/p_specifier_handler.c                                 \
+                Handlers/d_specifier_handler.c                                 \
+                Handlers/i_specifier_handler.c                                 \
+                Handlers/f_specifier_handler.c                                 \
+                Handlers/o_specifier_handler.c                                 \
+                Handlers/u_specifier_handler.c                                 \
+                Handlers/x_specifier_handler.c                                 \
+                Handlers/X_specifier_handler.c                                 \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
