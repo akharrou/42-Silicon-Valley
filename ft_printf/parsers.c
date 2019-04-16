@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 02:56:27 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 03:09:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@
 **    DESCRIPTION
 **         Parses for the 'flags' field in the formatted string.
 **
-**         Using a zero'ed out integer, we iterate through the formatted string
-**         turning on flags (bits) that are encountered along the way.
-**
-**         Bits are mapped with by 'e_flags' enum (defined in ft_printf.h).
+**         We iterate through the formatted string turning on bits in an
+**         integer. Each bit in the integer is mapped to a certain flag,
+**         the mapping is found in the 'e_flags' enum (defined in ft_printf.h).
 **
 **         At the end we end up with a mask that corresponds to the activated
 **         flags.
@@ -261,6 +260,6 @@ t_int8	parse_length(const char *format, t_uint32 *i)
 t_int8	parse_specifier(const char *format, t_uint32 *i)
 {
 	return (
-		ft_ischarset(format[*i], SPECIFIERS) ? format[*i++] : NONE)
+		(ft_ischarset(format[*i], SPECIFIERS) ? format[*i++] : NONE)
 	);
 }
