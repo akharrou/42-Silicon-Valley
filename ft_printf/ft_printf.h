@@ -6,20 +6,52 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:35:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:47:16 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
+
 # include "Libft/Includes/libft.h"
 # include <stdarg.h>
+
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
 
 # define SPECIFIERS  "cspdifouxX%"
 # define FLAGS       "-+#0 "
 
 # define NONE -1
+
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
+
+typedef struct	s_format_info
+{
+	t_int8		flags;
+	t_int8		width;
+	t_int8		precision;
+	t_int8		length;
+	t_int8		specifier;
+	t_uint32	format_length;
+}				t_format;
+
+typedef struct	s_dispatch
+{
+	char		specifier;
+	int			(*flag_handler)(t_format format, va_list *args);
+}				t_dispatch;
+
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
 
 enum e_flags
 {
@@ -39,21 +71,9 @@ enum e_lengths
 	LLL
 };
 
-typedef struct	s_format_info
-{
-	t_int8		flags;
-	t_int8		width;
-	t_int8		precision;
-	t_int8		length;
-	t_int8		specifier;
-	t_uint32	format_length;
-}				t_format;
-
-typedef struct	s_dispatch
-{
-	char		specifier;
-	int			(*flag_handler)(t_format format, va_list *args);
-}				t_dispatch;
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
 
 int			ft_printf(const char *format, ...);
 
@@ -79,5 +99,9 @@ void		X_specifier_handler();
 // t_format	handle_format(const char *format);
 
 t_char		*get_formatted_string(const char **buf, va_list *args);
+
+/*
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+*/
 
 #endif

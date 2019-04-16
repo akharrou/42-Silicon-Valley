@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:35:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:44:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,6 @@ int		ft_printf(const char *format, ...)
 	va_list		args;
 	t_int32		tt_bytes_written;
 	t_char		*formatted_string;
-	t_uint32	formatted_string_length;
 
 	if (!format)
 		return (0);
@@ -182,9 +181,8 @@ int		ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			formatted_string = get_formatted_string(&format, &args);
-			formatted_string_length = ft_strlen(formatted_string);
-			write(STDOUT, formatted_string, formatted_string_length);
-			tt_bytes_written += formatted_string_length;
+			tt_bytes_written += write(
+				STDOUT, formatted_string, ft_strlen(formatted_string));
 		}
 		else
 			tt_bytes_written += write(STDOUT, format++, 1);
@@ -231,7 +229,6 @@ int		ft_fprintf(int filedes, const char *format, ...)
 	va_list		args;
 	t_int32		tt_bytes_written;
 	t_char		*formatted_string;
-	t_uint32	formatted_string_length;
 
 	if (!format)
 		return (0);
@@ -242,9 +239,8 @@ int		ft_fprintf(int filedes, const char *format, ...)
 		if (*format == '%')
 		{
 			formatted_string = get_formatted_string(&format, &args);
-			formatted_string_length = ft_strlen(formatted_string);
-			write(filedes, formatted_string, formatted_string_length);
-			tt_bytes_written += formatted_string_length;
+			tt_bytes_written += write(
+				filedes, formatted_string, ft_strlen(formatted_string));
 		}
 		else
 			tt_bytes_written += write(filedes, format++, 1);
@@ -289,14 +285,10 @@ int		ft_fprintf(int filedes, const char *format, ...)
 int		ft_sprintf(char *str, const char *format, ...)
 {
 	va_list		args;
-	t_int32		tt_bytes_written;
-	t_char		*formatted_string;
-	t_uint32	formatted_string_length;
 	t_char		*complete_string;
 
 	if (!format)
 		return (0);
-	tt_bytes_written = 0;
 	va_start(args, format);
 	while (*format)
 		(*format == '%') ?
