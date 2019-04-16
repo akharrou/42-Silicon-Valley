@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 13:02:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 13:03:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,7 +302,7 @@ int		ft_sprintf(char *str, const char *format, ...)
 		if (fstr)
 			tmp = fstr;
 		fstr = (*format == '%') ?
-			ft_strjoin(fstr, fstr(&format, &args)) :
+			ft_strjoin(fstr, formatted_string(&format, &args)) :
 			ft_strjoin(fstr, &(*format++));
 		free(tmp);
 		if (!fstr)
