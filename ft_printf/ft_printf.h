@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 02:47:04 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 02:59:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,19 @@ t_int8		parse_specifier(const char *format, t_uint32 *i);
 
 t_format	parse_format(const char *format);
 
+void		c_flag_handler();
+void		s_flag_handler();
+void		p_flag_handler();
+void		d_flag_handler();
+void		i_flag_handler();
+void		f_flag_handler();
+void		o_flag_handler();
+void		u_flag_handler();
+void		x_flag_handler();
+void		X_flag_handler();
 
-// size_t		write_argument(int filedes, const char **buf, va_list *args);
+t_format	handle_format(const char *format);
+
+size_t		write_argument(int filedes, const char **buf, va_list *args);
 
 #endif
