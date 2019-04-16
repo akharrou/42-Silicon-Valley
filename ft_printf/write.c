@@ -6,26 +6,26 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 10:41:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 10:58:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "ft_printf.h"
 
-// t_dispatch specifier_table[] =
-// {
-// 	{'c', &c_flag_handler},
-// 	{'s', &s_flag_handler},
-// 	{'p', &p_flag_handler},
-// 	{'d', &d_flag_handler},
-// 	{'i', &i_flag_handler},
-// 	{'f', &f_flag_handler},
-// 	{'o', &o_flag_handler},
-// 	{'u', &u_flag_handler},
-// 	{'x', &x_flag_handler},
-// 	{'X', &X_flag_handler}
-// };
+t_dispatch table[] =
+{
+	{'c', &c_specifier_handler},
+	{'s', &s_specifier_handler},
+	{'p', &p_specifier_handler},
+	{'d', &d_specifier_handler},
+	{'i', &i_specifier_handler},
+	{'f', &f_specifier_handler},
+	{'o', &o_specifier_handler},
+	{'u', &u_specifier_handler},
+	{'x', &x_specifier_handler},
+	{'X', &X_specifier_handler}
+};
 
 /*
 **    NAME
@@ -72,24 +72,26 @@ size_t		write_argument(int filedes, const char **buf, va_list *args)
 {
 	t_uint32 i;
 	t_format info;
+	t_uint32 bytes_written;
+	t_uint32 num_specifiers;
 
 	info = parse_format(++(*buf));
-	(*buf) += info.format_length;
+	if (!info.specifier)
+		bytes_written = write(filedes, (*buf), info.format_length);
 
-
-	// if (!info.specifier)
-	// 	return (write(filedes, (*buf)++, 1));
-	// (*buf) += info.options;
-	// i = ft_strlen(SPECIFIERS);
-	// while (--i > -1)
-	// 	if (info.specifier == specifier_table[i][0])
-	// return (/* total bytes written */);
+	i = 0;
+	num_specifiers = ft_strlen(SPECIFIERS);
+	while (num_specifiers > i)
+		if (info.specifier == table[i].specifier)
+			bytes_written = table[i].flag_handler(info, args);
+	return (bytes_written);
 
 	(void)i;
 	(void)filedes;
 	(void)args;
 
-	return (1);
+	(*buf) += info.format_length;
+	return (bytes_written);
 }
 
 /* HANDLER FUNCTION */
