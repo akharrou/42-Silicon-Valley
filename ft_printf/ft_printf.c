@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 16:19:46 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 19:03:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,45 +166,19 @@
 
 #include "ft_printf.h"
 
-t_dispatch specifier_table[] =
-{
-	{'c', &c_flag_handler},
-	{'s', &s_flag_handler},
-	{'p', &p_flag_handler},
-	{'d', &d_flag_handler},
-	{'i', &i_flag_handler},
-	{'f', &f_flag_handler},
-	{'o', &o_flag_handler},
-	{'u', &u_flag_handler},
-	{'x', &x_flag_handler},
-	{'X', &X_flag_handler}
-};
-
 int		ft_printf(const char *format, ...)
 {
 	va_list		args;
-	t_uint32	bytes_written;
 	t_uint32	tt_bytes_written;
 
-	format = (char *)format;
 	if (!format)
 		return (0);
-	tt_bytes_written = 0;
 	va_start(args, format);
+	tt_bytes_written = 0;
 	while (*format)
-	{
-		if (*format == '%' && valid_format(format))
-			bytes_written = handle_format(parse_format(&format), &args);
-		else
-			bytes_written = write(1, format++, 1);
-		tt_bytes_written += bytes_written;
-	}
+		tt_bytes_written += (*format == '%') ?
+			write_argument(STDOUT, &format, &args) :
+			write(STDOUT, format++, 1);
 	va_end(args);
 	return (tt_bytes_written);
 }
-
-		// if (*format == '%' && *(format + 1) == '%')
-		// {
-		// 	bytes_written = write(1, "%", 1);
-		// 	format += 2;
-		// }

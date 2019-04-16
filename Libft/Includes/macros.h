@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/23 18:00:36 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/15 17:41:41 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@
 /*
 ** Useful Macros
 */
+
+#define STDIN  0
+#define STDOUT 1
+#define STDERR 2
+
+#define DIGITS "0123456789"
+#define ALPHABET_LOWER "abcdefghijklmnopqrstuvwxyz"
+#define ALPHABET_UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 256

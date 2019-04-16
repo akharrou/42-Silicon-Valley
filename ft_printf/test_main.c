@@ -26,7 +26,8 @@ int		main(int ac, char *av[])
 	// ft_putnbr(ft_printf("%s\n"));
 	// ft_putnbr(ft_printf("%rmncds%dyhsd%mq%%wd\n", 4));
 
-	printf("%lu\n", -10);
+	// printf("%.0f\n", 283.0);
+	printf("%.1i\n", 2);
 
 	(void)ac;
 	(void)av;
