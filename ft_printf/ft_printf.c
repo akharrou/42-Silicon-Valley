@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:44:36 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:55:50 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,7 +288,10 @@ int		ft_sprintf(char *str, const char *format, ...)
 	t_char		*complete_string;
 
 	if (!format)
+	{
+		(str) = NULL;
 		return (0);
+	}
 	va_start(args, format);
 	while (*format)
 		(*format == '%') ?
