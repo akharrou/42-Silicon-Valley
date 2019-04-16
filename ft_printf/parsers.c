@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 02:55:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 02:56:27 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 **         Returns a mask representing the specified flags.
 */
 
-t_int8			parse_flags(const char *format, t_uint32 *i)
+t_int8	parse_flags(const char *format, t_uint32 *i)
 {
 	t_uint8		flags;
 
@@ -98,7 +98,7 @@ t_int8			parse_flags(const char *format, t_uint32 *i)
 **         specified.
 */
 
-t_int8			parse_width(const char *format, t_uint32 *i)
+t_int8	parse_width(const char *format, t_uint32 *i)
 {
 	t_uint8		width;
 
@@ -148,7 +148,7 @@ t_int8			parse_width(const char *format, t_uint32 *i)
 **         indicate that no precision was specified.
 */
 
-t_int8			parse_precison(const char *format, t_uint32 *i)
+t_int8	parse_precison(const char *format, t_uint32 *i)
 {
 	t_uint8		precision;
 
@@ -199,7 +199,7 @@ t_int8			parse_precison(const char *format, t_uint32 *i)
 **         that the defaults should be use.
 */
 
-t_int8			parse_length(const char *format, t_uint32 *i)
+t_int8	parse_length(const char *format, t_uint32 *i)
 {
 	(*i) +=1;
 	if (format[(*i) - 1] == 'h'  && format[*i] != 'h')
@@ -258,7 +258,7 @@ t_int8			parse_length(const char *format, t_uint32 *i)
 **         was specified.
 */
 
-t_int8			parse_specifier(const char *format, t_uint32 *i)
+t_int8	parse_specifier(const char *format, t_uint32 *i)
 {
 	return (
 		ft_ischarset(format[*i], SPECIFIERS) ? format[*i++] : NONE)
