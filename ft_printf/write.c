@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 09:45:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 10:41:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,9 @@ size_t		write_argument(int filedes, const char **buf, va_list *args)
 	t_uint32 i;
 	t_format info;
 
-	info = parse_format(*buf);
-
-	printf("        flags:	%i\n",  info.flags);
-	printf("        width:	%i\n",  info.width);
-	printf("    precision:	%i\n",  info.precision);
-	printf("       length:	%i\n",  info.length);
-	printf("    specifier:	%i\n",  info.specifier);
-	printf("format_length:	%lu\n", info.format_length);
-
+	info = parse_format(++(*buf));
 	(*buf) += info.format_length;
+
 
 	// if (!info.specifier)
 	// 	return (write(filedes, (*buf)++, 1));

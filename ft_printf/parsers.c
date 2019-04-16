@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 03:09:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 10:42:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,7 @@ t_int8	parse_length(const char *format, t_uint32 *i)
 		return (H);
 	else if (format[(*i) - 1] == 'l'  && format[*i] != 'l')
 		return (L);
-	else if (format[*i] == 'L')
+	else if (format[(*i) - 1] == 'L')
 		return (LLL);
 	else if (format[(*i) - 1] == 'h' && format[*i] == 'h')
 	{
@@ -260,6 +260,6 @@ t_int8	parse_length(const char *format, t_uint32 *i)
 t_int8	parse_specifier(const char *format, t_uint32 *i)
 {
 	return (
-		(ft_ischarset(format[*i], SPECIFIERS) ? format[*i++] : NONE)
+		(ft_ischarset(format[*i], SPECIFIERS) ? format[(*i)++] : NONE)
 	);
 }

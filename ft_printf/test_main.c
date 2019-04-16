@@ -35,7 +35,15 @@ int		main(int ac, char *av[])
 
 	// ft_printf("Hello world! This is Johnathan !\n");
 
-	ft_printf("Hello world! This is %Johnathan !\n");
+	// ft_printf("Hello world! This is %Johnathan !\n");
+
+	// ft_printf("%-#20.5hhs"); // [√]
+	// ft_printf("%+042Lp"); // [√]
+	// ft_printf("% -85lX"); // [√]
+	// ft_printf("%+#0000#20.5hu"); // [√]
+	// ft_printf("%-#20.5hh"); // [√]
+	// ft_printf("%s"); // [√]
+	ft_printf("%%"); // [√]
 
 	(void)ac;
 	(void)av;

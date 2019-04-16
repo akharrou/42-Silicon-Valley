@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 19:03:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 10:42:32 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,12 +169,12 @@
 int		ft_printf(const char *format, ...)
 {
 	va_list		args;
-	t_uint32	tt_bytes_written;
+	t_int32		tt_bytes_written;
 
 	if (!format)
 		return (0);
-	va_start(args, format);
 	tt_bytes_written = 0;
+	va_start(args, format);
 	while (*format)
 		tt_bytes_written += (*format == '%') ?
 			write_argument(STDOUT, &format, &args) :

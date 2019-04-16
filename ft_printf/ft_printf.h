@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 09:49:24 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 10:39:27 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Libft/Includes/libft.h"
 # include <stdarg.h>
 
-# define SPECIFIERS  "cspdifouxX%%"
+# define SPECIFIERS  "cspdifouxX%"
 # define FLAGS       "-+#0 "
 
 # define NONE -1
@@ -47,7 +47,7 @@ typedef struct	s_dispatch
 
 typedef struct	s_format_info
 {
-	t_int8		flags : 5;
+	t_int8		flags;
 	t_int8		width;
 	t_int8		precision;
 	t_int8		length;
