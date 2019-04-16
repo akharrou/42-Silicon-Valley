@@ -6,8 +6,6 @@
 
 #include "ft_printf.h"
 
-#include "Libft/Ctype/ft_ischarset.c"
-
 #include "utils.c"
 #include "parsers.c"
 #include "write.c"
@@ -43,7 +41,8 @@ int		main(int ac, char *av[])
 	// ft_printf("%+#0000#20.5hu"); // [√]
 	// ft_printf("%-#20.5hh"); // [√]
 	// ft_printf("%s"); // [√]
-	ft_printf("%%"); // [√]
+	// ft_printf("%%"); // [√]
+	printf("");
 
 	(void)ac;
 	(void)av;

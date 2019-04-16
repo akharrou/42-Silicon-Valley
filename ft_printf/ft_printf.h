@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:47:16 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 12:58:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ enum e_lengths
 */
 
 int			ft_printf(const char *format, ...);
+int			ft_fprintf(int filedes, const char *format, ...);
+int			ft_sprintf(char *str, const char *format, ...);
 
 t_int8		parse_flags(const char *format, t_uint32 *i);
 t_int8		parse_width(const char *format, t_uint32 *i);
@@ -98,7 +100,7 @@ void		X_specifier_handler();
 
 // t_format	handle_format(const char *format);
 
-t_char		*get_formatted_string(const char **buf, va_list *args);
+t_char		*formatted_string(const char **buf, va_list *args);
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **

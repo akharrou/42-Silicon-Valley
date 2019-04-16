@@ -6,26 +6,26 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:35:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 12:58:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "ft_printf.h"
 
-t_dispatch table[] =
-{
-	{'c', &c_specifier_handler},
-	{'s', &s_specifier_handler},
-	{'p', &p_specifier_handler},
-	{'d', &d_specifier_handler},
-	{'i', &i_specifier_handler},
-	{'f', &f_specifier_handler},
-	{'o', &o_specifier_handler},
-	{'u', &u_specifier_handler},
-	{'x', &x_specifier_handler},
-	{'X', &X_specifier_handler}
-};
+// t_dispatch table[] =
+// {
+// 	{'c', &c_specifier_handler},
+// 	{'s', &s_specifier_handler},
+// 	{'p', &p_specifier_handler},
+// 	{'d', &d_specifier_handler},
+// 	{'i', &i_specifier_handler},
+// 	{'f', &f_specifier_handler},
+// 	{'o', &o_specifier_handler},
+// 	{'u', &u_specifier_handler},
+// 	{'x', &x_specifier_handler},
+// 	{'X', &X_specifier_handler}
+// };
 
 /*
 **    NAME
@@ -51,10 +51,10 @@ t_dispatch table[] =
 **         information about the parsed out format specifier.
 */
 
-t_format	parse_format(const char *format)
+t_format		parse_format(const char *format)
 {
-	t_uint32 i;
-	t_format info;
+	t_uint32	i;
+	t_format	info;
 
 	i = 0;
 	info = (t_format) {
@@ -68,30 +68,33 @@ t_format	parse_format(const char *format)
 	return (info);
 }
 
-t_char		*get_formatted_string(const char **buf, va_list *args)
+t_char			*formatted_string(const char **buf, va_list *args)
 {
-	t_uint32 i;
-	t_format info;
-	t_uint32 bytes_written;
-	t_uint32 num_specifiers;
+	t_uint32	i;
+	t_format	info;
+	t_uint32	num_specifiers;
+	t_char		formatted_string;
 
-	info = parse_format(++(*buf));
-	if (!info.specifier)
-		bytes_written = write(filedes, (*buf), info.format_length);
-
-	i = 0;
-	num_specifiers = ft_strlen(SPECIFIERS);
-	while (num_specifiers > i)
-		if (info.specifier == table[i].specifier)
-			bytes_written = table[i].flag_handler(info, args);
-	return (bytes_written);
+	info = parse_format((*buf) + 1);
+	if (info.specifier == NONE)
+		return (ft_strndup(*buf, info.format_length + 1));
+	return (NULL);
 
 	(void)i;
-	(void)filedes;
+	(void)info;
+	(void)num_specifiers;
+	(void)formatted_string;
 	(void)args;
 
-	(*buf) += info.format_length;
-	return (bytes_written);
+	// i = 0;
+	// num_specifiers = ft_strlen(SPECIFIERS);
+	// while (num_specifiers > i)
+	// 	if (info.specifier == table[i].specifier)
+	// 		bytes_written = table[i].flag_handler(info, args);
+	// return (bytes_written);
+
+	// (*buf) += info.format_length;
+	// return (/* formatted string */);
 }
 
 /* HANDLER FUNCTION */

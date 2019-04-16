@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:55:50 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 13:02:43 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,8 +169,8 @@
 int		ft_printf(const char *format, ...)
 {
 	va_list		args;
+	t_char		*fstr;
 	t_int32		tt_bytes_written;
-	t_char		*formatted_string;
 
 	if (!format)
 		return (0);
@@ -180,9 +180,10 @@ int		ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			formatted_string = get_formatted_string(&format, &args);
+			fstr = formatted_string(&format, &args);
 			tt_bytes_written += write(
-				STDOUT, formatted_string, ft_strlen(formatted_string));
+				STDOUT, fstr, ft_strlen(fstr));
+			free(fstr);
 		}
 		else
 			tt_bytes_written += write(STDOUT, format++, 1);
@@ -227,8 +228,8 @@ int		ft_printf(const char *format, ...)
 int		ft_fprintf(int filedes, const char *format, ...)
 {
 	va_list		args;
+	t_char		*fstr;
 	t_int32		tt_bytes_written;
-	t_char		*formatted_string;
 
 	if (!format)
 		return (0);
@@ -238,9 +239,10 @@ int		ft_fprintf(int filedes, const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			formatted_string = get_formatted_string(&format, &args);
+			fstr = formatted_string(&format, &args);
 			tt_bytes_written += write(
-				filedes, formatted_string, ft_strlen(formatted_string));
+				filedes, fstr, ft_strlen(fstr));
+			free(fstr);
 		}
 		else
 			tt_bytes_written += write(filedes, format++, 1);
@@ -285,19 +287,28 @@ int		ft_fprintf(int filedes, const char *format, ...)
 int		ft_sprintf(char *str, const char *format, ...)
 {
 	va_list		args;
-	t_char		*complete_string;
+	t_char		*fstr;
+	t_char		*tmp;
 
+	(str) = NULL;
 	if (!format)
-	{
-		(str) = NULL;
-		return (0);
-	}
+		return (-1);
+	fstr = ft_strdup("");
+	if (!fstr)
+		return (-1);
 	va_start(args, format);
 	while (*format)
-		(*format == '%') ?
-			ft_strjoin(complete_string, get_formatted_string(&format, &args)) :
-			ft_strjoin(complete_string, &(*format++));
+	{
+		if (fstr)
+			tmp = fstr;
+		fstr = (*format == '%') ?
+			ft_strjoin(fstr, fstr(&format, &args)) :
+			ft_strjoin(fstr, &(*format++));
+		free(tmp);
+		if (!fstr)
+			return (-1);
+	}
 	va_end(args);
-	(str) = (char *)complete_string;
-	return (ft_strlen(complete_string));
+	(str) = (char *)fstr;
+	return (ft_strlen(fstr));
 }

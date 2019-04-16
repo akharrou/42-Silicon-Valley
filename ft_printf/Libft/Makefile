@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/15 04:42:43 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/16 12:34:59 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,6 +127,7 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strstr.c                                            \
                 String/ft_strnstr.c                                           \
                 String/ft_strdup.c                                            \
+                String/ft_strndup.c                                           \
                 String/ft_strdup_range.c                                      \
                 String/ft_strnew.c                                            \
                 String/ft_strdel.c                                            \

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 07:51:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 12:34:02 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ char		*ft_strchrs(const char *str, const char *charset);
 char		*ft_strstr(const char *str, const char *find);
 char		*ft_strnstr(const char *str, const char *find, size_t len);
 char		*ft_strdup(const char *str);
+char		*ft_strndup(const char *src, size_t n);
 char		*ft_strdup_range(const char *str, int index, int end);
 char		*ft_strnew(size_t size);
 void		ft_strdel(char **as);
