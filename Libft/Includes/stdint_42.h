@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stdint_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:03:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/12 12:29:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:11:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define STDINT_42_H
 
 typedef unsigned char		t_bool;
-typedef unsigned char		t_char;
+typedef char				t_char;
 
 typedef unsigned char		t_uint8;
 typedef unsigned short		t_uint16;

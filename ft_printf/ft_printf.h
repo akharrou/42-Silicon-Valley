@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 10:56:42 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:35:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void		X_specifier_handler();
 
 // t_format	handle_format(const char *format);
 
-size_t		write_argument(int filedes, const char **buf, va_list *args);
+t_char		*get_formatted_string(const char **buf, va_list *args);
 
 #endif

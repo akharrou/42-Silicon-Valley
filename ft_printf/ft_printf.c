@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 10:42:32 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:35:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,15 +170,139 @@ int		ft_printf(const char *format, ...)
 {
 	va_list		args;
 	t_int32		tt_bytes_written;
+	t_char		*formatted_string;
+	t_uint32	formatted_string_length;
 
 	if (!format)
 		return (0);
 	tt_bytes_written = 0;
 	va_start(args, format);
 	while (*format)
-		tt_bytes_written += (*format == '%') ?
-			write_argument(STDOUT, &format, &args) :
-			write(STDOUT, format++, 1);
+	{
+		if (*format == '%')
+		{
+			formatted_string = get_formatted_string(&format, &args);
+			formatted_string_length = ft_strlen(formatted_string);
+			write(STDOUT, formatted_string, formatted_string_length);
+			tt_bytes_written += formatted_string_length;
+		}
+		else
+			tt_bytes_written += write(STDOUT, format++, 1);
+	}
 	va_end(args);
 	return (tt_bytes_written);
+}
+
+/*
+**    NAME
+**         ft_fprintf -- formatted output conversion
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         int
+**         ft_fprintf(int filedes, const char *format, ...);
+**
+**    PARAMETERS
+**
+**         int filedes               File descriptor to which the formatted
+**                                   string will be written.
+**
+**         const char *format        C string that contains the text to be
+**                                   written to stdout.
+**
+**                                   It can optionally contain embedded
+**                                   format specifiers that are replaced by
+**                                   the values specified in subsequent
+**                                   additional arguments and formatted as
+**                                   requested.
+**
+**         ...                       (Additional arguments)
+**
+**    DESCRIPTION
+**         Reproduction of the libc fprintf() function.
+**
+**    RETURN VALUES
+**         The total number of characters written is returned.
+*/
+
+int		ft_fprintf(int filedes, const char *format, ...)
+{
+	va_list		args;
+	t_int32		tt_bytes_written;
+	t_char		*formatted_string;
+	t_uint32	formatted_string_length;
+
+	if (!format)
+		return (0);
+	tt_bytes_written = 0;
+	va_start(args, format);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			formatted_string = get_formatted_string(&format, &args);
+			formatted_string_length = ft_strlen(formatted_string);
+			write(filedes, formatted_string, formatted_string_length);
+			tt_bytes_written += formatted_string_length;
+		}
+		else
+			tt_bytes_written += write(filedes, format++, 1);
+	}
+	va_end(args);
+	return (tt_bytes_written);
+}
+
+/*
+**    NAME
+**         ft_sprintf -- formatted output conversion
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         int
+**         ft_sprintf(char *str, const char *format, ...);
+**
+**    PARAMETERS
+**
+**         char *str                 String in which to store the complete
+**                                   formatted string.
+**
+**         const char *format        C string that contains the text to be
+**                                   written to stdout.
+**
+**                                   It can optionally contain embedded
+**                                   format specifiers that are replaced by
+**                                   the values specified in subsequent
+**                                   additional arguments and formatted as
+**                                   requested.
+**
+**         ...                       (Additional arguments)
+**
+**    DESCRIPTION
+**         Reproduction of the libc sprintf() function.
+**
+**    RETURN VALUES
+**         The total number of characters stored is returned.
+*/
+
+int		ft_sprintf(char *str, const char *format, ...)
+{
+	va_list		args;
+	t_int32		tt_bytes_written;
+	t_char		*formatted_string;
+	t_uint32	formatted_string_length;
+	t_char		*complete_string;
+
+	if (!format)
+		return (0);
+	tt_bytes_written = 0;
+	va_start(args, format);
+	while (*format)
+		(*format == '%') ?
+			ft_strjoin(complete_string, get_formatted_string(&format, &args)) :
+			ft_strjoin(complete_string, &(*format++));
+	va_end(args);
+	(str) = (char *)complete_string;
+	return (ft_strlen(complete_string));
 }

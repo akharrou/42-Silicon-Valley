@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 10:58:52 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 11:35:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_dispatch table[] =
 **         information about the parsed out format specifier.
 */
 
-t_format		parse_format(const char *format)
+t_format	parse_format(const char *format)
 {
 	t_uint32 i;
 	t_format info;
@@ -68,7 +68,7 @@ t_format		parse_format(const char *format)
 	return (info);
 }
 
-size_t		write_argument(int filedes, const char **buf, va_list *args)
+t_char		*get_formatted_string(const char **buf, va_list *args)
 {
 	t_uint32 i;
 	t_format info;
