@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:12:09 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:26:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_char			*formatted_string(const char **buf, va_list *args)
 	t_format	info;
 	t_uint32	num_specifiers;
 	t_char		*fstr;
+	void		*argument;
 
 	info = parse_format((*buf) + 1);
 	if (!(fstr = ft_strdup("")))
@@ -102,7 +103,13 @@ t_char			*formatted_string(const char **buf, va_list *args)
 	num_specifiers = ft_strlen(SPECIFIERS);
 	while (num_specifiers > i)
 		if (info.specifier == table[i].specifier)
-			fstr = table[i].handler(info, va_arg(*args, info.length));
+		{
+			argument = (void *)(va_arg(args, info.length));
+			printf("%p\n", argument);
+			write(1, "\n", 1);
+			printf("%i\n", (int)((int *)argument));
+			// fstr = table[i].handler(info, argument);
+		}
 	(*buf) += info.format_length + 1;
 	return (fstr);
 }

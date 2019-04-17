@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:12:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:23:20 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #  undef va_arg
 # endif
 
-# define va_arg(list, size) ((void *)((list += size) - size))
+# define va_arg(list, size) (((list += size) - size))
 
 # define SPECIFIERS  ("cspdifouxX%")
 # define FLAGS       ("-+#0 ")
@@ -104,8 +104,6 @@ t_char		*o_specifier_handler(t_format format, void *arg);
 t_char		*u_specifier_handler(t_format format, void *arg);
 t_char		*x_specifier_handler(t_format format, void *arg);
 t_char		*X_specifier_handler(t_format format, void *arg);
-
-// t_format	handle_format(const char *format);
 
 t_char		*formatted_string(const char **buf, va_list *args);
 
