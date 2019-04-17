@@ -6,12 +6,17 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 22:24:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 00:00:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "ft_printf.h"
+
+/*
+**    DESCRIPTION
+**         TODO.
+*/
 
 t_dispatch table[] =
 {
@@ -23,7 +28,7 @@ t_dispatch table[] =
 	{  'o',  &o_specifier_handler,    sizeof(unsigned int)  },
 	{  'u',  &u_specifier_handler,    sizeof(unsigned int)  },
 	{  'x',  &x_specifier_handler,    sizeof(unsigned int)  },
-	{  'X',  &xx_specifier_handler,   sizeof(unsigned int)  },
+	{  'X',  &x_specifier_handler,    sizeof(unsigned int)  },
 	{  's',  &c_specifier_handler,    sizeof(char *)        },
 	{  'p',  &p_specifier_handler,    sizeof(void *)        }
 };
@@ -73,8 +78,7 @@ t_format		parse_format(const char *format)
 	if (info.length == NONE && info.specifier != NONE)
 	{
 		i = -1;
-		num_specifiers = ft_strlen(SPECIFIERS);
-		while (num_specifiers > ++i)
+		while (N_SPECIFIERS > ++i)
 			if (info.specifier == table[i].specifier)
 			{
 				info.length = table[i].default_size;
@@ -99,16 +103,10 @@ t_format		parse_format(const char *format)
 **         const char *format        A formatted string.
 **
 **    DESCRIPTION
-**         Parses out a format specifier and stores all related
-**         information in a (t_format) structure that will be used
-**         later on.
-**
-**         If the 'length' field is not specified, then the
-**         corresponding default size is assigned to the field.
+**         TODO.
 **
 **    RETURN VALUES
-**         A (t_format) structure containing all the related
-**         information about the parsed out format specifier.
+**         TODO.
 */
 
 t_char			*formatted_string(const char **buf, va_list *args)
@@ -119,18 +117,16 @@ t_char			*formatted_string(const char **buf, va_list *args)
 	t_int32		num_specifiers;
 
 	info = parse_format((*buf) + 1);
-	if (!(fstr = ft_strdup("")))
-		exit(-1);
 	if (info.specifier == NONE)
-		return (
-			ft_strjoin(fstr,
-				ft_strncpy((char *)(*buf), *buf, info.format_length + 1))
-		);
-	i = -1;
-	num_specifiers = ft_strlen(SPECIFIERS);
-	while (num_specifiers > ++i)
-		if (info.specifier == table[i].specifier)
-			fstr = table[i].handler(info, args);
+		fstr = ft_strndup(*buf, info.format_length + 1);
+	else
+	{
+		i = -1;
+		while (N_SPECIFIERS > ++i)
+			if (info.specifier == table[i].specifier)
+				fstr = table[i].handler(info, args);
+		// handle_width();
+	}
 	(*buf) += info.format_length + 1;
 	return (fstr);
 }
