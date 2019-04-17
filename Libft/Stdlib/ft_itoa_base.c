@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 01:50:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 03:43:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,32 @@ char	*ft_itoa_base(int value, char *base)
 		buf[0] = '-';
 	num = (sign) ? -value : value;
 	buf = ft_itoa_rec(num, base, base_str, buf, intlen + sign - 1);
+	return (buf);
+}
+
+
+
+char	*ft_itoa_base(int n, char *base, int padding, char pad)
+{
+	unsigned int	val;
+	unsigned short	col;
+	char			*buf;
+
+	if (!valid_base(base))
+		return (NULL);
+	col = ft_intlen_base(n, base);
+	col += padding - col;
+	if (!(buf = malloc(col + 1)))
+		return (NULL);
+	buf[col] = '\0';
+	ft_memset(buf, pad, col);
+	if (n < 0)
+		(*buf) = '-';
+	val = n * -(n < 0);
+	while (col)
+	// place the negative sign if number is negative
+	// turn number to positive if negative
+	// start grabbing values individually and storing them
+	// return buf
 	return (buf);
 }
