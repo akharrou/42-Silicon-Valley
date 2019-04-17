@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 17:41:41 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 00:42:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@
 #define DIGITS "0123456789"
 #define ALPHABET_LOWER "abcdefghijklmnopqrstuvwxyz"
 #define ALPHABET_UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+#define BINARY_BASE "01"
+#define OCT_BASE "01234567"
+#define DECIMAL_BASE "0123456789"
+#define HEX_BASE_LOWER "0123456789abcdef"
+#define HEX_BASE_UPPER "0123456789ABCDEF"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 256

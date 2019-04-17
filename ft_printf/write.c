@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:00:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 00:34:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_dispatch table[] =
 {
 	{  '%',  &mod_specifier_handler,  sizeof(int)           },
 	{  'c',  &s_specifier_handler,    sizeof(int)           },
-	{  'd',  &d_specifier_handler,    sizeof(int)           },
+	{  'd',  &i_specifier_handler,    sizeof(int)           },
 	{  'i',  &i_specifier_handler,    sizeof(int)           },
 	{  'f',  &f_specifier_handler,    sizeof(double)        },
 	{  'o',  &o_specifier_handler,    sizeof(unsigned int)  },
@@ -109,24 +109,29 @@ t_format		parse_format(const char *format)
 **         TODO.
 */
 
-t_char			*formatted_string(const char **buf, va_list *args)
+t_char			*formatted_string(const char **format, va_list *args)
 {
 	t_int32		i;
 	t_format	info;
 	t_char		*fstr;
 	t_int32		num_specifiers;
 
-	info = parse_format((*buf) + 1);
+	info = parse_format((*format) + 1);
 	if (info.specifier == NONE)
-		fstr = ft_strndup(*buf, info.format_length + 1);
+		fstr = ft_strndup(*format, info.format_length + 1);
 	else
 	{
 		i = -1;
 		while (N_SPECIFIERS > ++i)
 			if (info.specifier == table[i].specifier)
+			{
 				fstr = table[i].handler(info, args);
+				break ;
+			}
+		if (!fstr)
+			exit(-1);
 		// handle_width();
 	}
-	(*buf) += info.format_length + 1;
+	(*format) += info.format_length + 1;
 	return (fstr);
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:05:43 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 00:41:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,12 @@ t_format	parse_format(const char *format);
 
 t_char		*i_specifier_handler(t_format format, va_list *args);     // [√]
 t_char		*u_specifier_handler(t_format format, va_list *args);     // [√]
-t_char		*d_specifier_handler(t_format format, va_list *args);
 t_char		*f_specifier_handler(t_format format, va_list *args);
-t_char		*o_specifier_handler(t_format format, va_list *args);
+t_char		*o_specifier_handler(t_format format, va_list *args);     // [√]
 t_char		*x_specifier_handler(t_format format, va_list *args);     // [√]
-t_char		*c_specifier_handler(t_format format, va_list *args);
-t_char		*s_specifier_handler(t_format format, va_list *args);
-t_char		*p_specifier_handler(t_format format, va_list *args);
+t_char		*c_specifier_handler(t_format format, va_list *args);     // [√]
+t_char		*s_specifier_handler(t_format format, va_list *args);     // [√]
+t_char		*p_specifier_handler(t_format format, va_list *args);     // [√]
 t_char		*mod_specifier_handler(t_format format, va_list *args);   // [√]
 
 t_char		*formatted_string(const char **buf, va_list *args);
