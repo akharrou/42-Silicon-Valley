@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:27:19 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 21:51:44 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 t_char	*u_specifier_handler(t_format format, void *arg)
 {
-	return(NULL);
+	(void)format; (void)arg; return(NULL);
 }

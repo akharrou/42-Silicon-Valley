@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 20:02:12 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 21:42:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,8 +165,6 @@
 */
 
 #include "ft_printf.h"
-
-void		*ptr;
 
 int		ft_printf(const char *format, ...)
 {

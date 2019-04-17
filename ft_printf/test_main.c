@@ -58,8 +58,6 @@ int		main(int ac, char *av[])
 	ft_printf("%i", (int)12);
 	ft_printf("%i", (int)13);
 
-
-
 	(void)ac;
 	(void)av;
 	return (0);

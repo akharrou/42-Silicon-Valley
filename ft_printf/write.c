@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:59:11 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 22:24:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 t_dispatch table[] =
 {
-	{  's',  NULL,  sizeof(char *)        },
-	{  'c',  NULL,  sizeof(int)           },
-	{  'p',  NULL,  sizeof(void *)        },
-	{  'd',  NULL,  sizeof(int)           },
-	{  'i',  NULL,  sizeof(int)           },
-	{  'f',  NULL,  sizeof(double)        },
-	{  'o',  NULL,  sizeof(unsigned int)  },
-	{  'u',  NULL,  sizeof(unsigned int)  },
-	{  'x',  NULL,  sizeof(unsigned int)  },
-	{  'X',  NULL,  sizeof(unsigned int)  },
-	{  '%',  NULL,  sizeof(int)           }
+	{  '%',  &mod_specifier_handler,  sizeof(int)           },
+	{  'c',  &s_specifier_handler,    sizeof(int)           },
+	{  'd',  &d_specifier_handler,    sizeof(int)           },
+	{  'i',  &i_specifier_handler,    sizeof(int)           },
+	{  'f',  &f_specifier_handler,    sizeof(double)        },
+	{  'o',  &o_specifier_handler,    sizeof(unsigned int)  },
+	{  'u',  &u_specifier_handler,    sizeof(unsigned int)  },
+	{  'x',  &x_specifier_handler,    sizeof(unsigned int)  },
+	{  'X',  &xx_specifier_handler,   sizeof(unsigned int)  },
+	{  's',  &c_specifier_handler,    sizeof(char *)        },
+	{  'p',  &p_specifier_handler,    sizeof(void *)        }
 };
 
 /*
@@ -58,8 +58,8 @@ t_dispatch table[] =
 t_format		parse_format(const char *format)
 {
 	t_int8		i;
+	t_int8		num_specifiers;
 	t_format	info;
-	t_uint8		num_specifiers;
 
 	i = 0;
 	info = (t_format) {
@@ -84,13 +84,39 @@ t_format		parse_format(const char *format)
 	return (info);
 }
 
+/*
+**    NAME
+**         formatted_string -- TODO
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         t_char *
+**         formatted_string(const char **buf, va_list *args);
+**
+**    PARAMETERS
+**
+**         const char *format        A formatted string.
+**
+**    DESCRIPTION
+**         Parses out a format specifier and stores all related
+**         information in a (t_format) structure that will be used
+**         later on.
+**
+**         If the 'length' field is not specified, then the
+**         corresponding default size is assigned to the field.
+**
+**    RETURN VALUES
+**         A (t_format) structure containing all the related
+**         information about the parsed out format specifier.
+*/
+
 t_char			*formatted_string(const char **buf, va_list *args)
 {
 	t_int32		i;
-	t_int32		num_specifiers;
-	t_char		*fstr;
 	t_format	info;
-	void		*argument;
+	t_char		*fstr;
+	t_int32		num_specifiers;
 
 	info = parse_format((*buf) + 1);
 	if (!(fstr = ft_strdup("")))
@@ -104,28 +130,7 @@ t_char			*formatted_string(const char **buf, va_list *args)
 	num_specifiers = ft_strlen(SPECIFIERS);
 	while (num_specifiers > ++i)
 		if (info.specifier == table[i].specifier)
-		{
-			argument = (void *)(va_arg(args, info.length));
-			printf("%p\n", argument);
-			write(1, "\n", 1);
-			printf("%i\n", (int)(*(int *)argument));
-			// fstr = table[i].handler(info, argument);
-		}
+			fstr = table[i].handler(info, args);
 	(*buf) += info.format_length + 1;
 	return (fstr);
 }
-
-/* HANDLER FUNCTION */
-	/* GET ARG HERE */
-	/* GET LENGTH OF ARG HERE */
-	/* DO MODIFIER STUFF HERE */
-	/* DO HANDLER STUFF HERE*/
-	/* DO MODIFIER STUFF HERE */
-
-
-/**
- * HANDLERS:
- * do actions corresponding to options
- * print variable
- * return tt_bytes_written
- */
