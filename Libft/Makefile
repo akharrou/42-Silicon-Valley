@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/17 04:31:59 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/17 06:33:28 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memalloc.c                                          \
                 Stdlib/ft_realloc.c                                           \
                 Stdlib/ft_matrix_new.c                                        \
+                Stdlib/valid_base.c                                           \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_intlen_base.c                                       \
                 Stdlib/ft_longlen_base.c                                      \
@@ -101,6 +102,9 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_itoa_base.c                                         \
                 Stdlib/ft_ltoa_base.c                                         \
                 Stdlib/ft_lltoa_base.c                                        \
+                Stdlib/ft_uitoa_base.c                                        \
+                Stdlib/ft_ultoa_base.c                                        \
+                Stdlib/ft_ulltoa_base.c                                       \
                 Stdlib/ft_convert_base.c                                      \
                 Stdlib/ft_find_next_prime.c                                   \
                 Stdlib/ft_wcount.c                                            \

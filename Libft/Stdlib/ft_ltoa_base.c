@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:31:56 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/17 06:28:59 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/17 06:32:09 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_itoa_base(int n, char *base, int padding, char pad)
+char	*ft_ltoa_base(long n, char *base, int padding, char pad)
 {
 	unsigned short	intbase;
 	unsigned short	col;
-	unsigned int	val;
+	unsigned long	val;
 	char			*buf;
 
 	if (!valid_base(base))
