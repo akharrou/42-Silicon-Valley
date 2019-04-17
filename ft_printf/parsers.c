@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 13:04:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:49:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_int8	parse_flags(const char *format, t_uint32 *i)
 	t_uint8		flags;
 
 	flags = 0;
-	while (ft_ischarset(format[*i], FLAGS))
+	while (1)
 	{
 		if (format[*i] == '+')
 			flags |= PLUS;
@@ -60,6 +60,8 @@ t_int8	parse_flags(const char *format, t_uint32 *i)
 			flags |= HASH;
 		else if (format[*i] == '0')
 			flags |= ZERO;
+		else
+			break;
 		++(*i);
 	}
 	return (flags);

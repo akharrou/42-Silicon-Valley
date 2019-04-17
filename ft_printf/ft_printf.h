@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 13:04:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 18:41:50 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,14 @@
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
 
-# define SPECIFIERS  "cspdifouxX%"
-# define FLAGS       "-+#0 "
+# ifdef va_arg
+#  undef va_arg
+# endif
 
-# define NONE -1
+# define va_arg(list, size) ((void *)((list += size) - size))
+
+# define SPECIFIERS  ("cspdifouxX%")
+# define FLAGS       ("-+#0 ")
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -46,12 +50,15 @@ typedef struct	s_format_info
 typedef struct	s_dispatch
 {
 	char		specifier;
-	int			(*flag_handler)(t_format format, va_list *args);
+	int			(*handler)(t_format format, void *arg);
+	size_t		default_size;
 }				t_dispatch;
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
+
+# define NONE (-1)
 
 enum e_flags
 {
@@ -64,11 +71,11 @@ enum e_flags
 
 enum e_lengths
 {
-	H,
-	HH,
-	L,
-	LL,
-	LLL
+    H   = sizeof(int),
+    HH  = sizeof(char),
+    L   = sizeof(long int),
+    LL  = sizeof(long long int),
+    LLL = sizeof(long double)
 };
 
 /*
@@ -87,16 +94,16 @@ t_int8		parse_specifier(const char *format, t_uint32 *i);
 
 t_format	parse_format(const char *format);
 
-void		c_specifier_handler();
-void		s_specifier_handler();
-void		p_specifier_handler();
-void		d_specifier_handler();
-void		i_specifier_handler();
-void		f_specifier_handler();
-void		o_specifier_handler();
-void		u_specifier_handler();
-void		x_specifier_handler();
-void		X_specifier_handler();
+// void		c_specifier_handler();
+// void		s_specifier_handler();
+// void		p_specifier_handler();
+// void		d_specifier_handler();
+// void		i_specifier_handler();
+// void		f_specifier_handler();
+// void		o_specifier_handler();
+// void		u_specifier_handler();
+// void		x_specifier_handler();
+// void		X_specifier_handler();
 
 // t_format	handle_format(const char *format);
 

@@ -4,12 +4,12 @@
  *
  */
 
-#include "ft_printf.h"
+// #include "ft_printf.h"
 
-#include "utils.c"
-#include "parsers.c"
-#include "write.c"
-#include "ft_printf.c"
+// #include "utils.c"
+// #include "parsers.c"
+// #include "write.c"
+// #include "ft_printf.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +42,15 @@ int		main(int ac, char *av[])
 	// ft_printf("%-#20.5hh"); // [√]
 	// ft_printf("%s"); // [√]
 	// ft_printf("%%"); // [√]
-	printf("");
+	// ft_printf("% %"); // [√]
+	// ft_printf("%%%%%%%"); // [√]
+
+	// ft_printf(""); 						write(1, "\n", 1);
+	// ft_printf("This is a string");      write(1, "\n", 1);
+	// ft_printf("This is %a string");     write(1, "\n", 1);
+	// ft_printf("%This is a string");     write(1, "\n", 1);
+
+	printf("%lli", (long long)10);
 
 	(void)ac;
 	(void)av;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 13:03:13 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:47:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ int		ft_printf(const char *format, ...)
 			tt_bytes_written += write(STDOUT, format++, 1);
 	}
 	va_end(args);
-	return (tt_bytes_written);
+	return ((int)tt_bytes_written);
 }
 
 /*
@@ -248,7 +248,7 @@ int		ft_fprintf(int filedes, const char *format, ...)
 			tt_bytes_written += write(filedes, format++, 1);
 	}
 	va_end(args);
-	return (tt_bytes_written);
+	return ((int)tt_bytes_written);
 }
 
 /*
@@ -310,5 +310,5 @@ int		ft_sprintf(char *str, const char *format, ...)
 	}
 	va_end(args);
 	(str) = (char *)fstr;
-	return (ft_strlen(fstr));
+	return ((int)ft_strlen(fstr));
 }
