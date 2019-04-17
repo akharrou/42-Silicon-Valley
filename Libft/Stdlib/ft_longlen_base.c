@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_specifier_handler.c                              :+:      :+:    :+:   */
+/*   ft_longlen_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:52:39 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 01:32:03 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/17 02:12:56 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/17 02:13:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../Includes/string_42.h"
 
-t_char	*p_specifier_handler(t_format format, va_list *args)
+size_t	ft_longlen_base(long n, unsigned int base)
 {
-	return (ft_itoa_base((int)va_arg(*args, void *), HEX_BASE_LOWER));
+	unsigned long	num;
+	size_t			length;
+
+	length = 1 + (n < 0);
+	num = (n < 0) ? -n : n;
+	while (num >= base)
+	{
+		num /= base;
+		++length;
+	}
+	return (length);
 }

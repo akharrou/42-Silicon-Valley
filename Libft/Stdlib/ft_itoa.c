@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/16 23:24:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 01:47:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,33 @@ char		*ft_itoa(int n)
 	}
 	buf[i] = '\0';
 	return (buf);
+}
+
+
+char	*ft_itoa(long long n)
+{
+	char	*head;
+	char	*buf;
+	int		col;
+
+	col = ft_intlen(n) + ((n <= 0) ? 1 : 0);
+	buf = malloc(col + 1);
+	if (!buf)
+		return (NULL);
+	head = buf;
+	if (n >= 0)
+		n = n * -1;
+	else
+	{
+		*buf++ = '-';
+		col--;
+	}
+	*(buf + col) = '\0';
+	while (col > 0)
+	{
+		*(buf + col - 1) = ((n % 10) * -1) + '0';
+		n = n / 10;
+		col--;
+	}
+	return (head);
 }

@@ -6,36 +6,11 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:52:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:35:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 01:33:01 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-/*
-**    NAME
-**         func_name -- brief.
-**
-**    SYNOPSIS
-**         #include <libft.h>
-**
-**         int
-**         func_name(args);
-**
-**    PARAMETERS
-**
-**         PARAM 1                 Brief
-**
-**         PARAM 2                 Brief
-**
-**         PARAM 3                 Brief
-**
-**    DESCRIPTION
-**         Description.
-**
-**    RETURN VALUES
-**         If successful returns 0; otherwise -1.
-*/
 
 t_char	*i_specifier_handler(t_format format, va_list *args)
 {

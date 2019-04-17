@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 01:50:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,50 @@ char		*ft_itoa_base(long nbr, char *base)
 		nbr -= (quotient * col);
 	}
 	buf[i] = '\0';
+	return (buf);
+}
+
+
+int		ft_intlen_base(int n, unsigned int base)
+{
+	unsigned int num;
+	unsigned int length;
+
+	length = 1;
+	num = (n < 0) ? -n : n;
+	while (num >= base)
+	{
+		num /= base;
+		++length;
+	}
+	return (length);
+}
+
+char	*ft_itoa_rec(unsigned int num, int base, char *base_str, char *buf, int i)
+{
+	if (num >= (unsigned int)base)
+		buf = ft_itoa_rec(num / base, base, base_str, buf, i - 1);
+	buf[i] = base_str[num % base];
+	return (buf);
+}
+
+char	*ft_itoa_base(int value, char *base)
+{
+	int				sign;
+	char			*buf;
+	unsigned int	num;
+	unsigned int    intlen;
+
+	if (!ft_validate_base_system(base))
+		return (NULL);
+	intlen = ft_intlen_base(value, (unsigned int)base);
+	sign = (value < 0 && base == 10) ? 1 : 0;
+	if (!(buf = (char *)malloc(intlen + sign + 1)))
+		return (NULL);
+	buf[intlen + sign] = '\0';
+	if (sign)
+		buf[0] = '-';
+	num = (sign) ? -value : value;
+	buf = ft_itoa_rec(num, base, base_str, buf, intlen + sign - 1);
 	return (buf);
 }

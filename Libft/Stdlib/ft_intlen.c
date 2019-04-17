@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 09:11:01 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 02:12:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../Includes/string_42.h"
 
-size_t	ft_intlen(long n)
+size_t	ft_intlen_base(int n, unsigned int base)
 {
-	size_t i;
+	unsigned int	num;
+	size_t			length;
 
-	i = 0;
-	if (n <= 0)
-		n = -n;
-	while (n > 0)
+	length = 1;
+	num = (n < 0) ? -n : n;
+	while (num >= base)
 	{
-		i++;
-		n /= 10;
+		num /= base;
+		++length;
 	}
-	return (i);
+	return (length);
 }

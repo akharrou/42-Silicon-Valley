@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 04:42:02 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 01:57:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void			*ft_memalloc(size_t size);
 char			*ft_realloc(char *buffer, int init_size);
 void			**ft_matrix_new(void **matrix, size_t height, size_t width,
 				size_t typesize);
-size_t			ft_intlen(long n);
+size_t			ft_intlen(long long n);
+size_t			ft_longlonglen_base(long long n, unsigned int base);
 int				ft_find_next_prime(int n);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
