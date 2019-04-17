@@ -52,7 +52,13 @@ int		main(int ac, char *av[])
 
 	// printf("%lli", (long long)10);
 
-	ft_printf("%i", (int)10);     write(1, "\n", 1);
+	// ft_printf("%i", (int)10);     write(1, "\n", 1);
+
+	ft_printf("%i", (int)11);
+	ft_printf("%i", (int)12);
+	ft_printf("%i", (int)13);
+
+
 
 	(void)ac;
 	(void)av;

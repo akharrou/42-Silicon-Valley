@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:23:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:57:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 */
 
 # ifdef va_arg
-#  undef va_arg
+# undef va_arg
+#  define va_arg(list, size) ((void *)((list += size) - size))
 # endif
 
-# define va_arg(list, size) (((list += size) - size))
 
 # define SPECIFIERS  ("cspdifouxX%")
 # define FLAGS       ("-+#0 ")
@@ -44,7 +44,7 @@ typedef struct	s_format_info
 	t_int8		precision;
 	t_int8		length;
 	t_int8		specifier;
-	t_uint32	format_length;
+	t_int8		format_length;
 }				t_format;
 
 typedef struct	s_dispatch
@@ -86,11 +86,11 @@ int			ft_printf(const char *format, ...);
 int			ft_fprintf(int filedes, const char *format, ...);
 int			ft_sprintf(char *str, const char *format, ...);
 
-t_int8		parse_flags(const char *format, t_uint32 *i);
-t_int8		parse_width(const char *format, t_uint32 *i);
-t_int8		parse_precison(const char *format, t_uint32 *i);
-t_int8		parse_length(const char *format, t_uint32 *i);
-t_int8		parse_specifier(const char *format, t_uint32 *i);
+t_int8		parse_flags(const char *format, t_int8 *i);
+t_int8		parse_width(const char *format, t_int8 *i);
+t_int8		parse_precison(const char *format, t_int8 *i);
+t_int8		parse_length(const char *format, t_int8 *i);
+t_int8		parse_specifier(const char *format, t_int8 *i);
 
 t_format	parse_format(const char *format);
 
@@ -103,7 +103,7 @@ t_char		*f_specifier_handler(t_format format, void *arg);
 t_char		*o_specifier_handler(t_format format, void *arg);
 t_char		*u_specifier_handler(t_format format, void *arg);
 t_char		*x_specifier_handler(t_format format, void *arg);
-t_char		*X_specifier_handler(t_format format, void *arg);
+t_char		*xx_specifier_handler(t_format format, void *arg);
 
 t_char		*formatted_string(const char **buf, va_list *args);
 

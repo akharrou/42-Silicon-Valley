@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:26:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:59:11 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 t_dispatch table[] =
 {
-	{  's',  &s_specifier_handler,  sizeof(char *)        },
-	{  'c',  &c_specifier_handler,  sizeof(int)           },
-	{  'p',  &p_specifier_handler,  sizeof(void *)        },
-	{  'd',  &d_specifier_handler,  sizeof(int)           },
-	{  'i',  &i_specifier_handler,  sizeof(int)           },
-	{  'f',  &f_specifier_handler,  sizeof(double)        },
-	{  'o',  &o_specifier_handler,  sizeof(unsigned int)  },
-	{  'u',  &u_specifier_handler,  sizeof(unsigned int)  },
-	{  'x',  &x_specifier_handler,  sizeof(unsigned int)  },
-	{  'X',  &X_specifier_handler,  sizeof(unsigned int)  }
+	{  's',  NULL,  sizeof(char *)        },
+	{  'c',  NULL,  sizeof(int)           },
+	{  'p',  NULL,  sizeof(void *)        },
+	{  'd',  NULL,  sizeof(int)           },
+	{  'i',  NULL,  sizeof(int)           },
+	{  'f',  NULL,  sizeof(double)        },
+	{  'o',  NULL,  sizeof(unsigned int)  },
+	{  'u',  NULL,  sizeof(unsigned int)  },
+	{  'x',  NULL,  sizeof(unsigned int)  },
+	{  'X',  NULL,  sizeof(unsigned int)  },
+	{  '%',  NULL,  sizeof(int)           }
 };
 
 /*
@@ -56,7 +57,7 @@ t_dispatch table[] =
 
 t_format		parse_format(const char *format)
 {
-	t_uint32	i;
+	t_int8		i;
 	t_format	info;
 	t_uint8		num_specifiers;
 
@@ -71,9 +72,9 @@ t_format		parse_format(const char *format)
 	};
 	if (info.length == NONE && info.specifier != NONE)
 	{
-		i = 0;
+		i = -1;
 		num_specifiers = ft_strlen(SPECIFIERS);
-		while (num_specifiers > i)
+		while (num_specifiers > ++i)
 			if (info.specifier == table[i].specifier)
 			{
 				info.length = table[i].default_size;
@@ -85,10 +86,10 @@ t_format		parse_format(const char *format)
 
 t_char			*formatted_string(const char **buf, va_list *args)
 {
-	t_uint32	i;
-	t_format	info;
-	t_uint32	num_specifiers;
+	t_int32		i;
+	t_int32		num_specifiers;
 	t_char		*fstr;
+	t_format	info;
 	void		*argument;
 
 	info = parse_format((*buf) + 1);
@@ -99,15 +100,15 @@ t_char			*formatted_string(const char **buf, va_list *args)
 			ft_strjoin(fstr,
 				ft_strncpy((char *)(*buf), *buf, info.format_length + 1))
 		);
-	i = 0;
+	i = -1;
 	num_specifiers = ft_strlen(SPECIFIERS);
-	while (num_specifiers > i)
+	while (num_specifiers > ++i)
 		if (info.specifier == table[i].specifier)
 		{
 			argument = (void *)(va_arg(args, info.length));
 			printf("%p\n", argument);
 			write(1, "\n", 1);
-			printf("%i\n", (int)((int *)argument));
+			printf("%i\n", (int)(*(int *)argument));
 			// fstr = table[i].handler(info, argument);
 		}
 	(*buf) += info.format_length + 1;
