@@ -6,13 +6,13 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 06:11:07 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:12:11 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 06:34:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ctype_42.h"
 
-static int	valid_base(char *base_str)
+int			valid_base(char *base_str)
 {
 	short	i;
 	short	j;
