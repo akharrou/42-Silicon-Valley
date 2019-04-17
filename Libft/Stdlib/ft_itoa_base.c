@@ -6,9 +6,15 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:32:31 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:54:17 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <math.h>
 
 #include "../Includes/ctype_42.h"
 #include "../Includes/stdlib_42.h"
@@ -52,7 +58,7 @@ char	*ft_itoa_base(int n, char *base, int padding, char pad)
 	if (!valid_base(base))
 		return (NULL);
 	col = ft_intlen_base(n, ft_strlen(base)) + (n < 0);
-	col += padding - col;
+	col += (padding - col > 0) ? padding - col : 0;
 	if (!(buf = malloc(col + 1)))
 		return (NULL);
 	cur = buf;
@@ -61,11 +67,31 @@ char	*ft_itoa_base(int n, char *base, int padding, char pad)
 	if (n < 0)
 		(*cur++) = '-';
 	intbase = ft_strlen(base);
-	val = n * -(n < 0);
-	while (cur - buf < col)
+	val = (n < 0) ? -n : n;
+	while (cur - buf <= col)
 	{
 		(*cur++) = base[val % intbase];
 		val /= intbase;
 	}
 	return (buf);
+}
+
+
+/*
+ *
+ * TEST MAIN
+ *
+ */
+
+int		main(int ac, char *av[])
+{
+	if (ac != 5)
+	{
+		printf("Usage: ./a integer base_system padding pad\n");
+		return (1);
+	}
+
+	printf("%s\n", ft_itoa_base(atoi(av[1]), av[2], atoi(av[3]), av[4][0]));
+
+	return (0);
 }

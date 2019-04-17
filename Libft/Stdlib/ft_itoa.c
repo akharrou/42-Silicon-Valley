@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:53 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:26:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:35:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/macros.h"
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	return (ft_itoa_base(n, DECIMAL_BASE, 0, 0));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trie.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:46:23 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 10:10:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:35:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ unsigned int	ft_alpha_to_index(char c);
 unsigned int	ft_char_to_index(char c);
 
 t_trie			*trie_newnode(void);
+
 int				trie_insert(t_trie **root, char *hash, void *item,
 				unsigned int (*char_to_index)(char c));
+
 void			trie_remove(t_trie **root, char *hash,
 				unsigned int (*char_to_index)(char c));
+
 int				trie_clear(t_trie **root);
+
 void			*trie_getitem(t_trie *root, char *hash,
 				unsigned int (*char_to_index)(char c));
+
 unsigned int	trie_count(t_trie *root);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 02:12:56 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:29:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:43:48 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_longlen_base(long n, unsigned int base)
 	size_t			length;
 
 	length = 1;
-	num = n * -(n < 0);
+	num = (n < 0) ? -n : n;
 	while (num >= base)
 	{
 		num /= base;
