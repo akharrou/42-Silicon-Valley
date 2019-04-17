@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:52:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 01:33:01 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 06:55:48 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,28 @@
 t_char	*i_specifier_handler(t_format format, va_list *args)
 {
 	if (format.length == H)
-	{
-		return (ft_itoa((signed short int)va_arg(*args, int)));
-	}
+		return ((t_char *)ft_itoa_base(
+			(signed short int)va_arg(*args, signed int),
+			DECIMAL_BASE, format.width,
+			(((format.flags & ZERO) > 0) ? '0' : ' ')));
 	if (format.length == HH)
-	{
-		return (ft_itoa((signed char)va_arg(*args, int)));
-	}
+		return ((t_char *)ft_itoa_base(
+			(signed char)va_arg(*args, signed int),
+			DECIMAL_BASE, format.width,
+			(((format.flags & ZERO) > 0) ? '0' : ' ')));
 	if (format.length == L)
-	{
-		return (ft_itoa((signed long int)va_arg(*args, long)));
-	}
+		return ((t_char *)ft_ltoa_base(
+			(signed long int)va_arg(*args, signed long),
+			DECIMAL_BASE, format.width,
+			(((format.flags & ZERO) > 0) ? '0' : ' ')));
 	if (format.length == LL)
-	{
-		return (ft_itoa((signed long long int)va_arg(*args, long long)));
-	}
+		return ((t_char *)ft_lltoa_base(
+			(signed long long)va_arg(*args, signed long long),
+			DECIMAL_BASE, format.width,
+			(((format.flags & ZERO) > 0) ? '0' : ' ')));
 	else
-	{
-		return (ft_itoa((signed int)va_arg(*args, int)));
-	}
+		return ((t_char *)ft_itoa_base(
+			(signed int)va_arg(*args, signed int),
+			DECIMAL_BASE, format.width,
+			(((format.flags & ZERO) > 0) ? '0' : ' ')));
 }
