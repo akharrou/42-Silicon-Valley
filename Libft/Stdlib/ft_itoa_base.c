@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:54:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:57:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*ft_itoa_base(int n, char *base, int padding, char pad)
 		(*cur++) = base[val % intbase];
 		val /= intbase;
 	}
-	return (buf);
+	return (ft_strrev(buf));
 }
 
 
