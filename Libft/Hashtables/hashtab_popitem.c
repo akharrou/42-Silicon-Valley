@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hashtab_popitem.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:17:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/09 11:07:29 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 06:37:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void		*hashtab_popitem(t_hashtable **table, char *key)
 	{
 		index = HASHCODE(key, (*table)->num_buckets);
 		return (
-			popitem_util(table, ((*table)->buckets)[index], index, key) );
+			popitem_util(table, ((*table)->buckets)[index], index, key));
 	}
 	return (NULL);
 }
