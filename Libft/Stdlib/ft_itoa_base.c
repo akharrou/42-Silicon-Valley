@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:57:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 06:04:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,26 @@ char	*ft_itoa_base(int n, char *base, int padding, char pad)
 	unsigned short	col;
 	unsigned int	val;
 	char			*buf;
-	char			*cur;
 
 	if (!valid_base(base))
 		return (NULL);
 	col = ft_intlen_base(n, ft_strlen(base)) + (n < 0);
-	col += (padding - col > 0) ? padding - col : 0;
+	padding = (padding - col > 0) ? padding - col : 0;
+	col += padding;
 	if (!(buf = malloc(col + 1)))
 		return (NULL);
-	cur = buf;
-	cur[col--] = '\0';
-	ft_memset(cur, pad, col);
-	if (n < 0)
-		(*cur++) = '-';
+	buf = ft_memset(buf, pad, col);
+	buf[col] = '\0';
 	intbase = ft_strlen(base);
 	val = (n < 0) ? -n : n;
-	while (cur - buf <= col)
+	while (col - padding > 0)
 	{
-		(*cur++) = base[val % intbase];
+		buf[--col] = base[val % intbase];
 		val /= intbase;
 	}
-	return (ft_strrev(buf));
+	if (n < 0)
+		(*buf) = '-';
+	return (buf);
 }
 
 
@@ -92,6 +91,36 @@ int		main(int ac, char *av[])
 	}
 
 	printf("%s\n", ft_itoa_base(atoi(av[1]), av[2], atoi(av[3]), av[4][0]));
+
+	// printf("%s\n", ft_itoa_base(2147483647, "01", 0, 0));
+	// printf("%s\n", ft_itoa_base(2147483647, "01234567", 0, 0));
+	// printf("%s\n", ft_itoa_base(2147483647, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(2147483647, "0123456789ABCDEF", 0, 0));
+
+	// printf("%s\n", ft_itoa_base(-2147483648, "01", 0, 0));
+	// printf("%s\n", ft_itoa_base(-2147483648, "01234567", 0, 0));
+	// printf("%s\n", ft_itoa_base(-2147483648, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(-2147483648, "0123456789ABCDEF", 0, 0));
+
+	// printf("%s\n", ft_itoa_base(90, "01", 5, '0'));
+	// printf("%s\n", ft_itoa_base(90, "01234567", 5, '0'));
+	// printf("%s\n", ft_itoa_base(90, "0123456789", 5, '0'));
+	// printf("%s\n", ft_itoa_base(90, "0123456789ABCDEF", 5, '0'));
+
+	// printf("%s\n", ft_itoa_base(-0, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(+0, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(+1, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(-1, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(+2, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(-2, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(+3, "0123456789", 0, 0));
+	// printf("%s\n", ft_itoa_base(-3, "0123456789", 0, 0));
+
+	// printf("%s\n", ft_itoa_base(+1000, "0123456789", 5, '_'));
+	// printf("%s\n", ft_itoa_base(-1000, "0123456789", 5, '_'));
+
+	(void)ac;
+	(void)av;
 
 	return (0);
 }
