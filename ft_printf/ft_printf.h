@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:41:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 04:03:19 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
 
-# define N_SPECIFIERS 11
+# define N_SPECIFIERS (11)
 # define SPECIFIERS   ("cspdifouxX%")
 # define FLAGS        ("-+#0 ")
 
