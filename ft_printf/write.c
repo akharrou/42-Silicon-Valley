@@ -6,14 +6,12 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:10:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:12:09 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "ft_printf.h"
-
-
 
 t_dispatch table[] =
 {

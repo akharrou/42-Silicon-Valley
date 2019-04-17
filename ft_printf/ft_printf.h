@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 18:54:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:12:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,16 @@ t_int8		parse_specifier(const char *format, t_uint32 *i);
 
 t_format	parse_format(const char *format);
 
-// void		c_specifier_handler();
-// void		s_specifier_handler();
-// void		p_specifier_handler();
-// void		d_specifier_handler();
-// void		i_specifier_handler();
-// void		f_specifier_handler();
-// void		o_specifier_handler();
-// void		u_specifier_handler();
-// void		x_specifier_handler();
-// void		X_specifier_handler();
+t_char		*c_specifier_handler(t_format format, void *arg);
+t_char		*s_specifier_handler(t_format format, void *arg);
+t_char		*p_specifier_handler(t_format format, void *arg);
+t_char		*d_specifier_handler(t_format format, void *arg);
+t_char		*i_specifier_handler(t_format format, void *arg);
+t_char		*f_specifier_handler(t_format format, void *arg);
+t_char		*o_specifier_handler(t_format format, void *arg);
+t_char		*u_specifier_handler(t_format format, void *arg);
+t_char		*x_specifier_handler(t_format format, void *arg);
+t_char		*X_specifier_handler(t_format format, void *arg);
 
 // t_format	handle_format(const char *format);
 
