@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 18:41:50 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 18:54:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct	s_format_info
 typedef struct	s_dispatch
 {
 	char		specifier;
-	int			(*handler)(t_format format, void *arg);
+	char		*(*handler)(t_format format, void *arg);
 	size_t		default_size;
 }				t_dispatch;
 

@@ -6,62 +6,14 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 18:51:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/16 19:10:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "ft_printf.h"
 
-int s_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
 
-int c_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int p_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int d_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int i_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int f_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int o_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int u_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int x_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
-
-int X_specifier_handler(t_format format, void *arg)
-{
-	return (0);
-}
 
 t_dispatch table[] =
 {
@@ -138,22 +90,23 @@ t_char			*formatted_string(const char **buf, va_list *args)
 	t_uint32	i;
 	t_format	info;
 	t_uint32	num_specifiers;
-	t_char		*formatted_string;
+	t_char		*fstr;
 
 	info = parse_format((*buf) + 1);
-	if (!(formatted_string = ft_strdup("")))
+	if (!(fstr = ft_strdup("")))
 		exit(-1);
 	if (info.specifier == NONE)
 		return (
-			ft_strjoin(formatted_string,
-				ft_strncpy((char *)*buf, *buf, info.format_length + 1)));
+			ft_strjoin(fstr,
+				ft_strncpy((char *)(*buf), *buf, info.format_length + 1))
+		);
 	i = 0;
 	num_specifiers = ft_strlen(SPECIFIERS);
 	while (num_specifiers > i)
 		if (info.specifier == table[i].specifier)
-			bytes_written = table[i].handler(info, va_arg(*args, info.length));
+			fstr = table[i].handler(info, va_arg(*args, info.length));
 	(*buf) += info.format_length + 1;
-	return (bytes_written);
+	return (fstr);
 }
 
 /* HANDLER FUNCTION */
