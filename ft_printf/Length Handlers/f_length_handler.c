@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:52:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 18:11:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 21:39:06 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,5 @@ t_char	*f_specifier_handler(t_format format, void *arg)
 	return(f_flag_handler((t_char *)ft_ftoa(
 		va_arg(*args, double), format.precision)));
 }
+
+

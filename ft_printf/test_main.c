@@ -63,14 +63,19 @@ int		main(int ac, char *av[])
 	// printf("|%-+20.5f|\n", 13.23);
 	// printf("|% +20.5f|", 13.23);
 
-	printf("%f\n", -340282346638528859811704183484516925441.000000);
-	printf("%f\n", 4294967296.1);
-	printf("%f\n", FLT_MIN);
-	printf("%f\n", FLT_MAX);
-	printf("%f\n", FLT_EPSILON);
+	// printf("%f\n", -340282346638528859811704183484516925441.000000);
+	// printf("%f\n", 4294967296.1);
+	// printf("%f\n", FLT_MIN);
+	// printf("%f\n", FLT_MAX);
+	// printf("%f\n", FLT_EPSILON);
+
+	// printf("%f\n", FLT_MAX);
+	// printf("%Lf\n", LDBL_MAX);
+	printf("%.30Lf\n", (long double)-18131231244674417236523842376892354236872735.0);
 
 	(void)ac;
 	(void)av;
+
 	return (0);
 }
 
