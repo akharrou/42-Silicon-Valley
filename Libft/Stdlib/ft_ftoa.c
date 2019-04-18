@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 16:20:16 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 20:38:11 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 21:50:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_ftoa(double n, int precision)
 	char	*second_half;
 	short int i
 
-	first_half = ft_itoa_base((int)n, first_half, -1);
+	first_half = ft_lltoa_base((int)n, first_half, -1);
 	ft_strjoin(first_half, ".");
 	uint16_t i = (n – ((int)n)) * (precision == -1) ? 6 : precision;
 	second_half = ft_itoa_base(n, first_half, -1);
