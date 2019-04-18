@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 11:09:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 07:48:26 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 12:11:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,8 @@ double					ft_max_d(double *vector, unsigned int size);
 long double				ft_min(int *vector);
 long					ft_min_l(long *vector, unsigned int size);
 double					ft_min_d(double *vector, unsigned int size);
+
+long double				ft_round(long double n);
+long double				ft_round_with_prior(long double n);
 
 #endif

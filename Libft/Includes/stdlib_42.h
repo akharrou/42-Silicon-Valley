@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 07:41:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 12:42:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ char			*ft_lltoa_base(long long n, char *base, int precision);
 char			*ft_uitoa_base(unsigned int n, char *base, int precision);
 char			*ft_ultoa_base(unsigned long n, char *base, int precision);
 char			*ft_ulltoa_base(unsigned long long n, char *base,
+				int precision);
+
+char			*ft_ftoa(long double n, int width, int precision);
+char			*ft_ftoa_base(long double n, char *base, int width,
 				int precision);
 
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);

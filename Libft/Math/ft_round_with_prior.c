@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_specifier_handler.c                              :+:      :+:    :+:   */
+/*   ft_round_with_prior.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:52:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 16:49:27 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/18 12:10:56 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/18 12:10:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-
-#include <math.h>
-
-t_char	*f_specifier_handler(t_format format, void *arg)
+long double		ft_round_with_prior(long double n)
 {
-	if (format.length == LLL)
-	{
-		return ((t_char *)ft_lftoa(
-			va_arg(*args, long double), format.precision));
-	}
-	return(f_flag_handler((t_char *)ft_ftoa(
-		va_arg(*args, double), format.precision)));
+	n = (n < 0) ? -n : n;
+	if ((unsigned long long)n % 10 >= 5)
+		return ((n / 10) + 1);
+	return (n / 10);
 }

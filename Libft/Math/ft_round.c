@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mod_specifier_handler.c                            :+:      :+:    :+:   */
+/*   ft_round.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:52:31 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:35:36 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/18 12:13:05 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/18 12:13:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-
-t_char	*mod_specifier_handler(t_format format, va_list *args)
+long double		ft_round(long double n)
 {
-	return ((t_char *)ft_strdup("%"));
+	long double tmp;
+
+	n = (n < 0) ? -n : n;
+	tmp = n / 10;
+	tmp -= (unsigned long long)tmp;
+	tmp = (tmp < 0) ? -tmp : tmp;
+	if (tmp >= 0.5)
+		return (n + 1);
+	return (n);
 }
