@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 18:48:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 07:41:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void			ft_swap_int(int *a, int *b);
 void			ft_swap_char(char *a, char *b);
 void			ft_swap_str(char **a, char **b);
 void			ft_swap_item(void **a, void **b);
+
+char			*ft_padding(int padding, char pad);
 
 size_t			ft_intlen(int n);
 size_t			ft_intlen_base(int n, unsigned int base);

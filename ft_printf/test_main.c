@@ -71,50 +71,12 @@ int		main(int ac, char *av[])
 
 	// printf("%f\n", FLT_MAX);
 	// printf("%Lf\n", LDBL_MAX);
-	printf("%.30Lf\n", (long double)-18131231244674417236523842376892354236872735.0);
+	// printf("%.30Lf\n", (long double)-18131231244674417236523842376892354236872735.0);
+
+	printf("%020.8f\n", 10.12345);
 
 	(void)ac;
 	(void)av;
 
 	return (0);
 }
-
-
-
-// /** PRECISION
-//  *
-
-
-
-
-// */
-
-
-
-// /* FLAGS */
-
-
-
-// /* WIDTH */
-
-
-
-// SPACE & + : conflict
-
-
-
-
-
-
-
-// if (format.specifier == 'f')
-// {
-
-// }
-// else
-// {
-
-// }
-
-
-

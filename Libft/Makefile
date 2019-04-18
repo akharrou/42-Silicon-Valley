@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/17 18:36:25 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/18 07:42:21 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_realloc.c                                           \
                 Stdlib/ft_matrix_new.c                                        \
                 Stdlib/valid_base.c                                           \
+                Stdlib/ft_padding.c                                           \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_intlen_base.c                                       \
                 Stdlib/ft_longlen_base.c                                      \

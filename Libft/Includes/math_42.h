@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_42.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 11:09:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/18 19:58:14 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 07:48:26 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define MAX(x, y)      ((x > y) ? (x) : (y))
 # define MIN(x, y)      ((x < y) ? (x) : (y))
 
-# define CEIL(x)        (((double)x > (int)x) ? ((int)x + 1) : (x))
+# define CEIL(x)        (((float)x > (int)x) ? ((int)x + 1) : (x))
 # define FLOOR(x)       ((int)x)
 
 double					ft_sqrt(double x);
