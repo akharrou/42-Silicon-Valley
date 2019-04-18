@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:38:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:51:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
+# endif
+
+# ifndef FLT_MAX
+#  define FLT_MAX 340282346638528859811704183484516925440.000000
+# endif
+
+# ifndef FLT_MIN
+#  define FLT_MIN 0.000000
 # endif
 
 # ifndef MAX_FDS

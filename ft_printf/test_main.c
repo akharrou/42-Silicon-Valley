@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <float.h>
 #include <math.h>
 
 int		main(int ac, char *av[])
@@ -59,8 +60,14 @@ int		main(int ac, char *av[])
 
 	// printf("%+10.5f", 13.456);
 	// printf("%-+20.5d", 13);
-	printf("|%-+20.5f|\n", 13.23);
-	printf("|% +20.5f|", 13.23);
+	// printf("|%-+20.5f|\n", 13.23);
+	// printf("|% +20.5f|", 13.23);
+
+	printf("%f\n", -340282346638528859811704183484516925441.000000);
+	printf("%f\n", 4294967296.1);
+	printf("%f\n", FLT_MIN);
+	printf("%f\n", FLT_MAX);
+	printf("%f\n", FLT_EPSILON);
 
 	(void)ac;
 	(void)av;
@@ -69,25 +76,25 @@ int		main(int ac, char *av[])
 
 
 
-/** PRECISION
- *
+// /** PRECISION
+//  *
 
 
 
 
-*/
+// */
 
 
 
-/* FLAGS */
+// /* FLAGS */
 
 
 
-/* WIDTH */
+// /* WIDTH */
 
 
 
-SPACE & + : conflict
+// SPACE & + : conflict
 
 
 
@@ -95,14 +102,14 @@ SPACE & + : conflict
 
 
 
-if (format.specifier == 'f')
-{
+// if (format.specifier == 'f')
+// {
 
-}
-else
-{
+// }
+// else
+// {
 
-}
+// }
 
 
 

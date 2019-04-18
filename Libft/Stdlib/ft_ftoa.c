@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 16:20:16 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 18:51:07 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:46:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,50 +15,23 @@
 
 char	*ft_ftoa(double n, int precision)
 {
-	unsigned short	col;
-	double			val;
-	char			*buf;
+	int
 
-	col = ft_floatlen(n) + (n < 0);
-	precision = (precision - col > 0) ? precision - col : 0;
-	col += precision;
-	if (!(buf = malloc(col + 1)))
-		return (NULL);
-	buf = ft_memset(buf, '0', col);
-	buf[col] = '\0';
-	intbase = ft_strlen(base);
-	val = (n < 0) ? -n : n;
-	while (col - precision > 0)
-	{
-		buf[--col] = base[val % intbase];
-		val /= intbase;
-	}
-	if (n < 0)
-		(*buf) = '-';
-	return (buf);
+
+	ft_itoa(f, string, 10);
+	ft_strcat(string, “.”);
+	uint16_t i = (f – (int)f) * 100000;
+	ft_itoa(i, string2, 10);
+	ft_strcat(string, string2);
 }
 
 char	*ft_lftoa(long double n, int precision)
 {
-	unsigned short	col;
-	long double		val;
-	char			*buf;
+	short int i;
 
-	col = ft_floatlen(n) + (n < 0);
-	precision = (precision - col > 0) ? precision - col : 0;
-	col += precision;
-	if (!(buf = malloc(col + 1)))
-		return (NULL);
-	buf = ft_memset(buf, '0', col);
-	buf[col] = '\0';
-	intbase = ft_strlen(base);
-	val = (n < 0) ? -n : n;
-	while (col - precision > 0)
-	{
-		buf[--col] = base[val % intbase];
-		val /= intbase;
-	}
-	if (n < 0)
-		(*buf) = '-';
-	return (buf);
+	ft_itoa_base(f, string, 10);
+	ft_strcat(string, “.”);
+	i = (f – (int)f) * precision;
+	ft_itoa(i, string2, 10);
+	strcat(string, string2);
 }
