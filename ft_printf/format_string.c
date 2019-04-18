@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write.c                                            :+:      :+:    :+:   */
+/*   format_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:34:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 17:59:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,12 +125,14 @@ t_char			*formatted_string(const char **format, va_list *args)
 		while (N_SPECIFIERS > ++i)
 			if (info.specifier == table[i].specifier)
 			{
-				fstr = table[i].handler(info, args);
+				fstr = table[i].width_handler(
+						info, table[i].flags_handler(
+							info, table[i].precision_handler(
+								info, table[i].length_handler(info, args))));
 				break ;
 			}
 		if (!fstr)
 			exit(-1);
-		// handle_width();
 	}
 	(*format) += info.format_length + 1;
 	return (fstr);

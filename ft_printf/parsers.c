@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 19:38:19 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:52:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,11 +219,8 @@ t_int8	parse_length(const char *format, t_int8 *i)
 		(*i) += 1;
 		return (LL);
 	}
-	else
-	{
-		(*i) -= 1;
-		return (NONE);
-	}
+	(*i) -= 1;
+	return (NONE);
 }
 
 /*

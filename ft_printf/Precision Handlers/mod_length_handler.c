@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_specifier_handler.c                              :+:      :+:    :+:   */
+/*   mod_specifier_handler.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:52:28 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 07:14:55 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/16 18:52:31 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/17 00:35:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-t_char	*f_specifier_handler(t_format format, void *arg)
+t_char	*mod_specifier_handler(t_format format, va_list *args)
 {
-	/* TODO */
-	return((t_char *)/* string */);
+	return ((t_char *)ft_strdup("%"));
 }

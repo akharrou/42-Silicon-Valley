@@ -4,12 +4,11 @@
  *
  */
 
-#include "ft_printf.h"
+// #include "ft_printf.h"
 
-#include "utils.c"
-#include "parsers.c"
-#include "write.c"
-#include "ft_printf.c"
+// #include "parsers.c"
+// #include "format_string.c"
+// #include "ft_printf.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,11 +53,56 @@ int		main(int ac, char *av[])
 
 	// ft_printf("%i", (int)10);     write(1, "\n", 1);
 
-	ft_printf("%i", (int)11);
-	ft_printf("%i", (int)12);
-	ft_printf("%i", (int)13);
+	// ft_printf("%i", (int)11);
+	// ft_printf("%i", (int)12);
+	// ft_printf("%i", (int)13);
+
+	// printf("%+10.5f", 13.456);
+	// printf("%-+20.5d", 13);
+	printf("|%-+20.5f|\n", 13.23);
+	printf("|% +20.5f|", 13.23);
 
 	(void)ac;
 	(void)av;
 	return (0);
 }
+
+
+
+/** PRECISION
+ *
+
+
+
+
+*/
+
+
+
+/* FLAGS */
+
+
+
+/* WIDTH */
+
+
+
+SPACE & + : conflict
+
+
+
+
+
+
+
+if (format.specifier == 'f')
+{
+
+}
+else
+{
+
+}
+
+
+

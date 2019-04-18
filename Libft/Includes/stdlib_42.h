@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:30:45 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 18:48:37 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 void			ft_bzero(void *str, size_t n);
 
 void			*ft_memset(void *dst, int c, size_t n);
+void			ft_memset_addr(void **buf, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t n);
@@ -52,18 +53,13 @@ int				ft_atoi(const char *str);
 int				ft_atoi_base(char *str, char *base);
 
 char			*ft_itoa(int n);
-char			*ft_itoa_base(int n, char *base, int padding,
-				char pad);
-char			*ft_ltoa_base(long n, char *base, int padding,
-				char pad);
-char			*ft_lltoa_base(long long n, char *base, int padding,
-				char pad);
-char			*ft_uitoa_base(unsigned int n, char *base, int padding,
-				char pad);
-char			*ft_ultoa_base(unsigned long n, char *base, int padding,
-				char pad);
-char			*ft_ulltoa_base(unsigned long long n, char *base, int padding,
-				char pad);
+char			*ft_itoa_base(int n, char *base, int precision);
+char			*ft_ltoa_base(long n, char *base, int precision);
+char			*ft_lltoa_base(long long n, char *base, int precision);
+char			*ft_uitoa_base(unsigned int n, char *base, int precision);
+char			*ft_ultoa_base(unsigned long n, char *base, int precision);
+char			*ft_ulltoa_base(unsigned long long n, char *base,
+				int precision);
 
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
 

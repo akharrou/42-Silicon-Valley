@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/17 06:33:28 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/17 18:36:25 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ STDIO       =   Stdio/ft_putbits.c                                            \
 
 STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memset.c                                            \
+                Stdlib/ft_memset_addr.c                                       \
                 Stdlib/ft_memcpy.c                                            \
                 Stdlib/ft_memccpy.c                                           \
                 Stdlib/ft_memmove.c                                           \

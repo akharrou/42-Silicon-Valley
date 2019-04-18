@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 16:08:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:31:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/17 18:50:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_itoa_base(int n, char *base, int padding, char pad)
+char	*ft_itoa_base(int n, char *base, int precision)
 {
 	unsigned short	intbase;
 	unsigned short	col;
@@ -23,15 +23,15 @@ char	*ft_itoa_base(int n, char *base, int padding, char pad)
 	if (!valid_base(base))
 		return (NULL);
 	col = ft_intlen_base(n, ft_strlen(base)) + (n < 0);
-	padding = (padding - col > 0) ? padding - col : 0;
-	col += padding;
+	precision = (precision - col > 0) ? precision - col : 0;
+	col += precision;
 	if (!(buf = malloc(col + 1)))
 		return (NULL);
-	buf = ft_memset(buf, pad, col);
+	buf = ft_memset(buf, '0', col);
 	buf[col] = '\0';
 	intbase = ft_strlen(base);
 	val = (n < 0) ? -n : n;
-	while (col - padding > 0)
+	while (col - precision > 0)
 	{
 		buf[--col] = base[val % intbase];
 		val /= intbase;
