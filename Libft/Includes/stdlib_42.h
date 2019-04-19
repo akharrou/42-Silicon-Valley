@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 19:28:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 19:52:58 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_atoi(const char *str);
 int				ft_atoi_base(char *str, char *base);
 
 char			*ft_itoa(int n);
-char			*ft_itoa_base(int n, char *base, int precision);
+char			*ft_itoa_base(intmax_t n, char *base, int precision);
 char			*ft_ltoa_base(long n, char *base, int precision);
 char			*ft_lltoa_base(long long n, char *base, int precision);
 char			*ft_utoa_base(uintmax_t n, char *base, int precision);
