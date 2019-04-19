@@ -127,32 +127,32 @@ int		main(int ac, char *av[])
 //  *
 //  */
 
-	ft_printf("|%c|\n", 'a');
-	printf("|%c|\n\n", 'a');
+	// ft_printf("|%c|\n", 'a');
+	// printf("|%c|\n\n", 'a');
 
-	ft_printf("|%c|	|%c|	|%c|\n", 'a', 'b', 'c');
-	printf("|%c|	|%c|	|%c|\n\n", 'a', 'b', 'c');
+	// ft_printf("|%c|	|%c|	|%c|\n", 'a', 'b', 'c');
+	// printf("|%c|	|%c|	|%c|\n\n", 'a', 'b', 'c');
 
-	ft_printf("|%10c|\n", 'z');
-	printf("|%10c|\n\n", 'z');
+	// ft_printf("|%10c|\n", 'z');
+	// printf("|%10c|\n\n", 'z');
 
-	ft_printf("|%-*c|\n", 10, 'y');
-	printf("|%-*c|\n\n", 10, 'y');
+	// ft_printf("|%-*c|\n", 10, 'y');
+	// printf("|%-*c|\n\n", 10, 'y');
 
-	ft_printf("|%25c|\n", 'x');
-	printf("|%25c|\n\n", 'x');
+	// ft_printf("|%25c|\n", 'x');
+	// printf("|%25c|\n\n", 'x');
 
-	ft_printf("|%c%c%c%c%c!|\n", 'K', 'e', 'v', 'i', 'n');
-	printf("|%c%c%c%c%c|\n\n", 'K', 'e', 'v', 'i', 'n');
+	// ft_printf("|%c%c%c%c%c!|\n", 'K', 'e', 'v', 'i', 'n');
+	// printf("|%c%c%c%c%c!|\n\n", 'K', 'e', 'v', 'i', 'n');
 
-	ft_printf("|%c%c%c%c%c%c%c%c%c|\n",
-		'B', 'e', ' ', 'd', 'e', 'v', 'i', 'n', '\'');
-	printf("|%c%c%c%c%c%c%c%c%c|\n\n",
-		'B', 'e', ' ', 'd', 'e', 'v', 'i', 'n', '\'');
+	// ft_printf("|%c%c%c%c%c%c%c%c%c|\n",
+	// 	'B', 'e', ' ', 'd', 'e', 'v', 'i', 'n', '\'');
+	// printf("|%c%c%c%c%c%c%c%c%c|\n\n",
+	// 	'B', 'e', ' ', 'd', 'e', 'v', 'i', 'n', '\'');
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %c SPECIFIER TESTS */
+// /* %mod SPECIFIER TESTS */
 
 // /**
 //  * Only takes the following flags & fields:
@@ -162,26 +162,26 @@ int		main(int ac, char *av[])
 //  *
 //  */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("||\n", );
+	printf("||\n\n", );
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 

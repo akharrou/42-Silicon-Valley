@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/19 10:22:04 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 10:24:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 t_dispatch table[] =
 {
 	{  '%',   NULL,        },
-	{  'c',   &s_handler,  },
+	{  'c',   &c_handler,  },
 	{  'd',   NULL,        },
 	{  'i',   NULL,        },
 	{  'f',   NULL,        },
