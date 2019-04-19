@@ -14,17 +14,12 @@
 
 t_char	*p_handler(t_format format)
 {
-	void	*addr;
+	t_char	*addr;
 
-	// addr = ft_utoa_base((int)format.data, HEX_BASE_LOWER, format.precision);
-	// if (info.flags & MINUS)
-	// 	addr = ft_strprepend()
-	// return ();
+	addr = ft_utoa_base(
+		(uintmax_t)format.data.ptr, HEX_BASE_LOWER, format.precision);
+	addr = ft_strprepend(addr, "0x", 1, 0);
+	if (!addr)
+		exit (-1);
+	return (addr);
 }
-
-/* HANDLING ORDER */
-
-// 1 -  length_handler
-// 2 -  precision_handler
-// 3 -  flags_handler
-// 4 -  width_handler

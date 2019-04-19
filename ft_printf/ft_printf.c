@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 21:42:26 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 09:58:31 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,29 +166,31 @@
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_printf(const char *string, ...)
 {
 	va_list		args;
 	t_char		*fstr;
 	t_int32		tt_bytes_written;
 
-	if (!format)
-		return (0);
 	tt_bytes_written = 0;
-	va_start(args, format);
-	while (*format)
+	if (string != NULL)
 	{
-		if (*format == '%')
+		va_start(args, string);
+		while (*string != '\0')
 		{
-			fstr = formatted_string(&format, &args);
-			tt_bytes_written += write(
-				STDOUT, fstr, ft_strlen(fstr));
-			free(fstr);
+			if (*string == '%')
+			{
+				fstr = formatted_string(&string, &args);
+				if (!fstr)
+					exit(-1);
+				tt_bytes_written += write(STDOUT, fstr, ft_strlen(fstr));
+				free(fstr);
+			}
+			else
+				tt_bytes_written += write(STDOUT, string++, 1);
 		}
-		else
-			tt_bytes_written += write(STDOUT, format++, 1);
+		va_end(args);
 	}
-	va_end(args);
 	return ((int)tt_bytes_written);
 }
 

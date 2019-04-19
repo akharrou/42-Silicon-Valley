@@ -12,13 +12,45 @@
 
 #include "../ft_printf.h"
 
+/*
+**    NAME
+**         c_handler -- formatted character conversion
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         t_char	*
+**         c_handler(t_format format);
+**
+**    PARAMETERS
+**
+**         t_format format         Structure containing the variable
+**                                 and information about how it must
+**                                 be formatted.
+**
+**    DESCRIPTION
+**         Handles the '%c' specifier like the libc 'printf()' function.
+**
+**         Note: the only flags and fields that apply to this specifier
+**         are the following:
+**
+**             Flags: '-'
+**             Width: defined or '*'
+**
+**
+**    RETURN VALUES
+**         If successful, returns a formatted string that follows the
+**         specified format; otherwise exits with a -1 on error.
+*/
+
 t_char	*c_handler(t_format format)
 {
-	t_char	*str;
+	t_char	*character;
 
-	(void) format;
-	if (!(str = ft_strdup(" ")))
+	character = malloc(2);
+	if (!character)
 		exit(-1);
-	str[0] = (t_char)va_arg(*args, int);
-	return ((t_char *)str);
+	character[0] = format.data.chr;
+	character[1] = '\0';
+	return (character);
 }

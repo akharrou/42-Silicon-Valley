@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 23:23:33 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 10:22:04 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 
 t_dispatch table[] =
 {
-	{  '%',  NULL,        },
-	{  'c',  NULL,        },
-	{  'd',  NULL,        },
-	{  'i',  NULL,        },
-	{  'f',  NULL,        },
-	{  'o',  NULL,        },
-	{  'u',  NULL,        },
-	{  'x',  NULL,        },
-	{  'X',  NULL,        },
-	{  's',  &s_handler,  },
-	{  'p',  NULL,        },
-	{   0,   NULL,        }
+	{  '%',   NULL,        },
+	{  'c',   &s_handler,  },
+	{  'd',   NULL,        },
+	{  'i',   NULL,        },
+	{  'f',   NULL,        },
+	{  'o',   NULL,        },
+	{  'u',   NULL,        },
+	{  'x',   NULL,        },
+	{  'X',   NULL,        },
+	{  's',   &s_handler,  },
+	{  'p',   &p_handler,  },
+	{  '\0',  NULL,        }
 };
 
 /*
@@ -113,14 +113,17 @@ t_char			*formatted_string(const char **format, va_list *args)
 	else
 	{
 		i = -1;
-		while (table[++i].specifier)
+		while (table[++i].specifier != '\0')
 			if (info.specifier == table[i].specifier)
 			{
 				fstr = table[i].handler(info);
+				info.width = info.width - ft_strlen(fstr);
+				if (info.width > 0)
+					fstr = ((info.flags & MINUS) == 1) ?
+						ft_strappend(fstr, ft_padding(info.width, ' '), 1, 1) :
+						ft_strprepend(fstr, ft_padding(info.width, ' '), 1, 1);
 				break;
 			}
-		if (!fstr)
-			exit(-1);
 	}
 	(*format) += info.format_length + 1;
 	return (fstr);

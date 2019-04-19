@@ -16,3 +16,11 @@ t_char	*mod_handler(t_format format)
 {
 	return ((t_char *)ft_strdup("%"));
 }
+
+
+/* HANDLING ORDER */
+
+// 1 -  length_handler
+// 2 -  precision_handler
+// 3 -  flags_handler
+// 4 -  width_handler

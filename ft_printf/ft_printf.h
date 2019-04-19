@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 23:26:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 09:54:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef union			u_data
 	unsigned long long	ulnglng;
 	intmax_t			intmax;
 	uintmax_t			uintmax;
+	intptr_t			ptr;
 }						t_data;
 
 typedef struct	s_format_info
@@ -72,20 +73,20 @@ typedef struct	s_dispatch
 
 enum	e_flags
 {
-    MINUS = (1 << 0),
-    PLUS  = (1 << 1),
-    SPACE = (1 << 2),
-    HASH  = (1 << 3),
-    ZERO  = (1 << 4)
+	MINUS = (1 << 0),
+	PLUS = (1 << 1),
+	SPACE = (1 << 2),
+	HASH = (1 << 3),
+	ZERO = (1 << 4)
 };
 
 enum	e_lengths
 {
-    H   = sizeof(int),
-    HH  = sizeof(char),
-    L   = sizeof(long int),
-    LL  = sizeof(long long int),
-    LLL = sizeof(long double)
+	H = sizeof(int),
+	HH = sizeof(char),
+	L = sizeof(long int),
+	LL = sizeof(long long int),
+	LLL = sizeof(long double)
 };
 
 /*
