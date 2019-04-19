@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 00:42:48 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 14:35:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char		*ft_strmap(char const *s, char (*f)(char));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoinfre(char const *s1, char const *s2, int free_s1,
+			int free_s2);
 char		*ft_strtrim(char const *s);
 char		**ft_strsplit(char const *s, char c);
 

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 17:59:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 17:08:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_dispatch table[] =
 **         information about the parsed out format specifier.
 */
 
-t_format		parse_format(const char *format)
+t_format		parse_format(const char *format, va_list *args)
 {
 	t_int8		i;
 	t_int8		num_specifiers;
@@ -69,10 +69,11 @@ t_format		parse_format(const char *format)
 	i = 0;
 	info = (t_format) {
 		parse_flags(format, &i),
-		parse_width(format, &i),
-		parse_precison(format, &i),
+		parse_width(format, args, &i),
+		parse_precison(format, args, &i),
 		parse_length(format, &i),
 		parse_specifier(format, &i),
+		va_arg(*args, t_data),
 		i
 	};
 	if (info.length == NONE && info.specifier != NONE)

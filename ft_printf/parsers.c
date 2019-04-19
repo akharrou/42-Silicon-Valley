@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 16:52:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 17:21:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 **    SYNOPSIS
 **         #include <libft.h>
 **
-**         t_uint8
+**         t_int8
 **         parse_flags(const char *format, t_int8 *i);
 **
 **    PARAMETERS
 **
 **         const char *format      Formatted string.
 **
-**         t_uint32 *i             Current index in the formatted
+**         t_int8 *i               Current index in the formatted
 **                                 string.
 **
 **    DESCRIPTION
@@ -45,10 +45,10 @@
 
 t_int8	parse_flags(const char *format, t_int8 *i)
 {
-	t_uint8		flags;
+	t_int8		flags;
 
 	flags = 0;
-	while (1)
+	while (format[*i])
 	{
 		if (format[*i] == '+')
 			flags |= PLUS;
@@ -74,18 +74,23 @@ t_int8	parse_flags(const char *format, t_int8 *i)
 **    SYNOPSIS
 **         #include <libft.h>
 **
-**         t_uint8
-**         parse_width(const char *format, t_int8 *i);
+**         t_int32
+**         parse_width(const char *format, va_list *args, t_int8 *i);
 **
 **    PARAMETERS
 **
 **         const char *format      Formatted string.
 **
-**         t_uint32 *i             Current index in the formatted
+**         va_list *args           List of arguments.
+**
+**         t_int8 *i               Current index in the formatted
 **                                 string.
 **
 **    DESCRIPTION
 **         Parses for the 'width' field in the formatted string.
+**
+**         First we check if the '*' flag is present, this would indicate
+**         a variable sized
 **
 **         Starting from the first character after the flags field in
 **         the formatted string, we parse out digits until the first
@@ -99,13 +104,21 @@ t_int8	parse_flags(const char *format, t_int8 *i)
 **         specified.
 */
 
-t_int8	parse_width(const char *format, t_int8 *i)
+t_int32			parse_width(const char *format, va_list *args, t_int8 *i)
 {
-	t_uint8		width;
+	t_int32		width;
 
-	width = ft_atoi(format + (*i));
-	if (width)
-		(*i) += ft_intlen(width);
+	if (format[*i] == '*')
+	{
+		width = va_arg(*args, t_int32);
+		++(*i);
+	}
+	else
+	{
+		width = ft_atoi(format + (*i));
+		if (width)
+			(*i) += ft_intlen(width);
+	}
 	return (width);
 }
 
@@ -117,14 +130,16 @@ t_int8	parse_width(const char *format, t_int8 *i)
 **    SYNOPSIS
 **         #include <libft.h>
 **
-**         t_uint8
-**         parse_precison(const char *format, t_int8 *i);
+**         t_int32
+**         parse_precison(const char *format, va_list *args, t_int8 *i);
 **
 **    PARAMETERS
 **
 **         const char *format      Formatted string.
 **
-**         t_uint32 *i             Current index in the formatted
+**         va_list *args           List of arguments.
+**
+**         t_int8 *i               Current index in the formatted
 **                                 string.
 **
 **    DESCRIPTION
@@ -149,18 +164,26 @@ t_int8	parse_width(const char *format, t_int8 *i)
 **         indicate that no precision was specified.
 */
 
-t_int8	parse_precison(const char *format, t_int8 *i)
+t_int32			parse_precison(const char *format, va_list *args, t_int8 *i)
 {
 	t_uint8		precision;
 
 	if (format[*i] == '.')
 	{
-		++(*i);
-		while (format[*i] == '0')
+		if (format[*i] == '*')
+		{
+			width = va_arg(*args, t_int32);
 			++(*i);
-		precision = ft_atoi(format + (*i));
-		if (precision)
-			(*i) += ft_intlen(precision);
+		}
+		else
+		{
+			++(*i);
+			while (format[*i] == '0')
+				++(*i);
+			precision = ft_atoi(format + (*i));
+			if (precision)
+				(*i) += ft_intlen(precision);
+		}
 		return (precision);
 	}
 	return (NONE);
@@ -173,14 +196,14 @@ t_int8	parse_precison(const char *format, t_int8 *i)
 **    SYNOPSIS
 **         #include <libft.h>
 **
-**         t_uint8
+**         t_int8
 **         parse_length(const char *format, t_int8 *i);
 **
 **    PARAMETERS
 **
 **         const char *format      Formatted string.
 **
-**         t_uint32 *i             Current index in the formatted
+**         t_int8 *i               Current index in the formatted
 **                                 string.
 **
 **    DESCRIPTION
@@ -202,23 +225,18 @@ t_int8	parse_precison(const char *format, t_int8 *i)
 
 t_int8	parse_length(const char *format, t_int8 *i)
 {
-	(*i) +=1;
+	(*i) += 2;
+	if (format[(*i) - 2] == 'h' && format[(*i) - 1] == 'h')
+		return (HH);
+	else if (format[(*i) - 2] == 'l' && format[(*i) - 1] == 'l')
+		return (LL);
+	(*i) -= 1;
 	if (format[(*i) - 1] == 'h'  && format[*i] != 'h')
 		return (H);
 	else if (format[(*i) - 1] == 'l'  && format[*i] != 'l')
 		return (L);
 	else if (format[(*i) - 1] == 'L')
 		return (LLL);
-	else if (format[(*i) - 1] == 'h' && format[*i] == 'h')
-	{
-		(*i) += 1;
-		return (HH);
-	}
-	else if (format[(*i) - 1] == 'l' && format[*i] == 'l')
-	{
-		(*i) += 1;
-		return (LL);
-	}
 	(*i) -= 1;
 	return (NONE);
 }
@@ -231,22 +249,23 @@ t_int8	parse_length(const char *format, t_int8 *i)
 **    SYNOPSIS
 **         #include <libft.h>
 **
-**         t_uint8
+**         t_int8
 **         parse_specifier(const char *format, t_int8 *i);
 **
 **    PARAMETERS
 **
 **         const char *format      Formatted string.
 **
-**         t_uint32 *i             Current index in the formatted
+**         t_int8 *i               Current index in the formatted
 **                                 string.
 **
 **    DESCRIPTION
 **         Parses for the 'specifier' field in the formatted string.
 **
 **         We check if the character we are on is part of the (handled)
-**         specifiers. If the specifier is valid, it is returned (as an
-**         8 bit integer); otherwise NONE (-1) is returned.
+**         specifiers. If the specifier is indeed part of them, then it
+**         is returned (as an 8 bit integer); otherwise NONE (-1) is
+**         returned.
 **
 **         The index 'i' is incremented accordingly.
 **
@@ -258,7 +277,7 @@ t_int8	parse_length(const char *format, t_int8 *i)
 
 t_int8	parse_specifier(const char *format, t_int8 *i)
 {
-	return (
-		(ft_ischarset(format[*i], SPECIFIERS) ? format[(*i)++] : NONE)
-	);
+	if (ft_ischarset(format[*i], SPECIFIERS))
+		return(format[(*i)++]);
+	return (NONE);
 }

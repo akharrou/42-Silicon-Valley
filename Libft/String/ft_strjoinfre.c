@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_round.c                                         :+:      :+:    :+:   */
+/*   ft_strjoinfre.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 12:13:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 14:13:34 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/18 14:26:25 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/18 14:26:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long double		ft_round(long double n)
-{
-	int sign;
+#include "../Includes/string_42.h"
+#include "../Includes/stdlib_42.h"
 
-	sign = (n < 0);
-	n = (n < 0) ? -n : n;
-	if ((unsigned long long)n - n >= 0.5)
-	{
-		n = n - (unsigned long long)n;
-		if (sign)
-			return (-n - 1);
-		return (n + 1);
-	}
-	n = n - (unsigned long long)n;
-	if (sign)
-		return (-n);
-	return (n);
+char	*ft_strjoinfre(char const *s1, char const *s2, int free_s1, int free_s2)
+{
+	char *new_str;
+
+	new_str = ft_strjoin(s1, s2);
+	if (free_s1)
+		free((void *)s1);
+	if (free_s2)
+		free((void *)s2);
+	return (new_str);
 }

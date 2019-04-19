@@ -17,6 +17,27 @@
 #include <float.h>
 #include <math.h>
 
+typedef union			u_data
+{
+	char				c;
+	unsigned char		uc;
+	wchar_t				wc;
+	short				s;
+	unsigned short		us;
+	int					i;
+	unsigned			ui;
+	char				*str;
+	wchar_t				*wstr;
+	long				l;
+	unsigned long		ul;
+	long long			ll;
+	unsigned long long	ull;
+	intptr_t			p;
+	size_t				st;
+	intmax_t			im;
+	uintmax_t			um;
+}						t_data;
+
 int		main(int ac, char *av[])
 {
 	// if (ac < 2)
@@ -72,8 +93,6 @@ int		main(int ac, char *av[])
 	// printf("%f\n", FLT_MAX);
 	// printf("%Lf\n", LDBL_MAX);
 	// printf("%.30Lf\n", (long double)-18131231244674417236523842376892354236872735.0);
-
-	printf("%020.8f\n", 10.12345);
 
 	(void)ac;
 	(void)av;

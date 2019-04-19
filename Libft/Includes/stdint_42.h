@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:03:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 12:36:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 14:54:53 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,20 @@ typedef signed long long	t_int64;
 unsigned int				ft_hash(const char *str);
 
 #endif
+	char				c;
+	unsigned char		uc;
+	wchar_t				wc;
+	short				s;
+	unsigned short		us;
+	int					i;
+	unsigned			ui;
+	char				*str;
+	wchar_t				*wstr;
+	long				l;
+	unsigned long		ul;
+	long long			ll;
+	unsigned long long	ull;
+	intptr_t			p;
+	size_t				st;
+	intmax_t			im;
+	uintmax_t			um;

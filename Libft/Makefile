@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/18 12:12:50 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/18 14:36:14 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,6 +149,7 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strmap.c                                            \
                 String/ft_strmapi.c                                           \
                 String/ft_strjoin.c                                           \
+                String/ft_strjoinfre.c                                        \
                 String/ft_strtrim.c                                           \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
