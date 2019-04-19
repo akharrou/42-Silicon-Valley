@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/17 06:33:28 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/18 19:28:38 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ STDIO       =   Stdio/ft_putbits.c                                            \
 
 STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memset.c                                            \
+                Stdlib/ft_memset_addr.c                                       \
                 Stdlib/ft_memcpy.c                                            \
                 Stdlib/ft_memccpy.c                                           \
                 Stdlib/ft_memmove.c                                           \
@@ -91,10 +92,11 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_realloc.c                                           \
                 Stdlib/ft_matrix_new.c                                        \
                 Stdlib/valid_base.c                                           \
+                Stdlib/ft_padding.c                                           \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_intlen_base.c                                       \
-                Stdlib/ft_longlen_base.c                                      \
-                Stdlib/ft_longlonglen_base.c                                  \
+                Stdlib/ft_intmaxlen_base.c                                    \
+                Stdlib/ft_uintmaxlen_base.c                                   \
                 Stdlib/ft_atoi.c                                              \
                 Stdlib/ft_itoa.c                                              \
                 Stdlib/ft_atoi_base.c                                         \
@@ -147,6 +149,9 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strmap.c                                            \
                 String/ft_strmapi.c                                           \
                 String/ft_strjoin.c                                           \
+                String/ft_strjoinfre.c                                        \
+                String/ft_strappend.c                                         \
+                String/ft_strprepend.c                                        \
                 String/ft_strtrim.c                                           \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
@@ -187,6 +192,8 @@ MATH        =   Math/ft_sqrt.c                                               \
                 Math/ft_sum_l.c                                              \
                 Math/ft_sum_ld.c                                             \
                 Math/ft_sum_generic.c                                        \
+                Math/ft_round.c                                              \
+                Math/ft_round_with_prior.c                                   \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

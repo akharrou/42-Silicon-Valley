@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 17:08:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 23:23:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@
 
 t_dispatch table[] =
 {
-	{  '%',  &mod_specifier_handler,  sizeof(int)           },
-	{  'c',  &s_specifier_handler,    sizeof(int)           },
-	{  'd',  &i_specifier_handler,    sizeof(int)           },
-	{  'i',  &i_specifier_handler,    sizeof(int)           },
-	{  'f',  &f_specifier_handler,    sizeof(double)        },
-	{  'o',  &o_specifier_handler,    sizeof(unsigned int)  },
-	{  'u',  &u_specifier_handler,    sizeof(unsigned int)  },
-	{  'x',  &x_specifier_handler,    sizeof(unsigned int)  },
-	{  'X',  &x_specifier_handler,    sizeof(unsigned int)  },
-	{  's',  &c_specifier_handler,    sizeof(char *)        },
-	{  'p',  &p_specifier_handler,    sizeof(void *)        }
+	{  '%',  NULL,        },
+	{  'c',  NULL,        },
+	{  'd',  NULL,        },
+	{  'i',  NULL,        },
+	{  'f',  NULL,        },
+	{  'o',  NULL,        },
+	{  'u',  NULL,        },
+	{  'x',  NULL,        },
+	{  'X',  NULL,        },
+	{  's',  &s_handler,  },
+	{  'p',  NULL,        },
+	{   0,   NULL,        }
 };
 
 /*
@@ -63,7 +64,6 @@ t_dispatch table[] =
 t_format		parse_format(const char *format, va_list *args)
 {
 	t_int8		i;
-	t_int8		num_specifiers;
 	t_format	info;
 
 	i = 0;
@@ -73,19 +73,9 @@ t_format		parse_format(const char *format, va_list *args)
 		parse_precison(format, args, &i),
 		parse_length(format, &i),
 		parse_specifier(format, &i),
-		va_arg(*args, t_data),
-		i
+		i,
+		va_arg(*args, t_data)
 	};
-	if (info.length == NONE && info.specifier != NONE)
-	{
-		i = -1;
-		while (N_SPECIFIERS > ++i)
-			if (info.specifier == table[i].specifier)
-			{
-				info.length = table[i].default_size;
-				break ;
-			}
-	}
 	return (info);
 }
 
@@ -115,22 +105,19 @@ t_char			*formatted_string(const char **format, va_list *args)
 	t_int32		i;
 	t_format	info;
 	t_char		*fstr;
-	t_int32		num_specifiers;
 
-	info = parse_format((*format) + 1);
+	fstr = NULL;
+	info = parse_format((*format) + 1, args);
 	if (info.specifier == NONE)
 		fstr = ft_strndup(*format, info.format_length + 1);
 	else
 	{
 		i = -1;
-		while (N_SPECIFIERS > ++i)
+		while (table[++i].specifier)
 			if (info.specifier == table[i].specifier)
 			{
-				fstr = table[i].width_handler(
-						info, table[i].flags_handler(
-							info, table[i].precision_handler(
-								info, table[i].length_handler(info, args))));
-				break ;
+				fstr = table[i].handler(info);
+				break;
 			}
 		if (!fstr)
 			exit(-1);

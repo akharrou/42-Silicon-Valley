@@ -6,12 +6,12 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/15 00:49:17 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/16 09:38:59 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/18 21:57:14 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          =   gcc
-CFLAGS      =   -Wall -Wextra -Werror
+CFLAGS      =   -Wall -Wextra -Werror -g -fsanitize=address -fsanitize=undefined
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -21,21 +21,21 @@ NAME        =   libftprintf.a
 
 SOURCES     =   ft_printf.c                                                   \
                 parsers.c                                                     \
-                utils.c                                                       \
+                format_string.c                                               \
                 $(HANDLERS)                                                   \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-HANDLERS    =   Handlers/c_specifier_handler.c                                 \
-                Handlers/s_specifier_handler.c                                 \
-                Handlers/p_specifier_handler.c                                 \
-                Handlers/d_specifier_handler.c                                 \
-                Handlers/i_specifier_handler.c                                 \
-                Handlers/f_specifier_handler.c                                 \
-                Handlers/o_specifier_handler.c                                 \
-                Handlers/u_specifier_handler.c                                 \
-                Handlers/x_specifier_handler.c                                 \
-                Handlers/X_specifier_handler.c                                 \
+HANDLERS    =   Handlers/c_handler.c                                 \
+                Handlers/s_handler.c                                 \
+                Handlers/p_handler.c                                 \
+                Handlers/d_handler.c                                 \
+                Handlers/i_handler.c                                 \
+                Handlers/f_handler.c                                 \
+                Handlers/o_handler.c                                 \
+                Handlers/u_handler.c                                 \
+                Handlers/x_handler.c                                 \
+                Handlers/X_handler.c                                 \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

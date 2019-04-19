@@ -4,11 +4,11 @@
  *
  */
 
-// #include "ft_printf.h"
+#include "ft_printf.h"
 
-// #include "parsers.c"
-// #include "format_string.c"
-// #include "ft_printf.c"
+#include "ft_printf.c"
+#include "parsers.c"
+#include "format_string.c"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,27 +16,6 @@
 #include <unistd.h>
 #include <float.h>
 #include <math.h>
-
-typedef union			u_data
-{
-	char				c;
-	unsigned char		uc;
-	wchar_t				wc;
-	short				s;
-	unsigned short		us;
-	int					i;
-	unsigned			ui;
-	char				*str;
-	wchar_t				*wstr;
-	long				l;
-	unsigned long		ul;
-	long long			ll;
-	unsigned long long	ull;
-	intptr_t			p;
-	size_t				st;
-	intmax_t			im;
-	uintmax_t			um;
-}						t_data;
 
 int		main(int ac, char *av[])
 {
@@ -93,6 +72,31 @@ int		main(int ac, char *av[])
 	// printf("%f\n", FLT_MAX);
 	// printf("%Lf\n", LDBL_MAX);
 	// printf("%.30Lf\n", (long double)-18131231244674417236523842376892354236872735.0);
+
+	// ft_printf("%i, %i, %i, %i, %i", 10, 50, 100, 150, 1000);
+
+/* %S SPECIFIER TESTS */
+
+	ft_printf("|%-10.2s|\n", "hello");
+	printf("|%-10.2s|\n", "hello");
+
+	ft_printf("|%12.2s|\n", "hello");
+	printf("|%12.2s|\n", "hello");
+
+	ft_printf("|%-2.1223s|\n", "hello");
+	printf("|%-2.1223s|\n", "hello");
+
+	ft_printf("|%-200.12s|\n", "hello");
+	printf("|%-200.12s|\n", "hello");
+
+	ft_printf("|%*.12s|\n", 10, "hello");
+	printf("|%*.12s|\n", 10, "hello");
+
+	ft_printf("|%*.*s|\n", 40, 10, "hello");
+	printf("|%*.*s|\n", 40, 10, "hello");
+
+	ft_printf("|%*.*s|\n", 40, 2, "hello");
+	printf("|%*.*s|\n", 40, 2, "hello");
 
 	(void)ac;
 	(void)av;

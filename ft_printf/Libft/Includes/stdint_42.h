@@ -6,14 +6,14 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:03:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 11:11:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 18:48:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STDINT_42_H
 # define STDINT_42_H
 
-typedef unsigned char		t_bool;
+typedef char				t_bool;
 typedef char				t_char;
 
 typedef unsigned char		t_uint8;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 06:38:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 19:12:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,76 @@
 ** Constants
 */
 
-# ifndef INT_MAX
-#  define INT_MAX 2147483647
+# ifndef CHAR_MIN
+#  define CHAR_MIN -128
+# endif
+
+# ifndef CHAR_MAX
+#  define CHAR_MAX 127
+# endif
+
+# ifndef UCHAR_MAX
+#  define UCHAR_MAX 255
+# endif
+
+# ifndef SHORT_MIN
+#  define SHORT_MIN -32768
+# endif
+
+# ifndef SHORT_MAX
+#  define SHORT_MAX 32767
+# endif
+
+# ifndef USHORT_MAX
+#  define USHORT_MAX 65535
 # endif
 
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
+# endif
+
+# ifndef INT_MAX
+#  define INT_MAX 2147483647
+# endif
+
+# ifndef UINT_MAX
+#  define UINT_MAX 4294967295
+# endif
+
+# ifndef LONG_MIN
+#  define LONG_MIN -9223372036854775808
+# endif
+
+# ifndef LONG_MAX
+#  define LONG_MAX 9223372036854775807
+# endif
+
+# ifndef ULONG_MAX
+#  define ULONG_MAX 18446744073709551615
+# endif
+
+# ifndef LLONG_MIN
+#  define LLONG_MIN -9223372036854775808
+# endif
+
+# ifndef LLONG_MAX
+#  define LLONG_MAX 9223372036854775807
+# endif
+
+# ifndef ULLONG_MAX
+#  define ULLONG_MAX 18446744073709551615
+# endif
+
+# ifndef FLT_MAX
+#  define FLT_MAX 340282346638528859811704183484516925440.000000
+# endif
+
+# ifndef FLT_MIN
+#  define FLT_MIN -340282346638528859811704183484516925440.000000
+# endif
+
+# ifndef SIZE_MAX
+#  define SIZE_MAX 18446744073709551615
 # endif
 
 # ifndef MAX_FDS
@@ -97,8 +161,8 @@
 #  define ASSERT(expr) (expr != FALSE)
 # endif
 
-# ifndef MALLOC_GUARD
-#  define MALLOC_GUARD(expr, val) if (!(expr)) return (val)
+# ifndef NULL_GUARD
+#  define NULL_GUARD(expr, val) if (!(expr)) return (val)
 # endif
 
 # ifndef RETURN_CHECK

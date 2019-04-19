@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 17:21:59 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 23:36:29 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,9 @@ t_int8	parse_flags(const char *format, t_int8 *i)
 **    DESCRIPTION
 **         Parses for the 'width' field in the formatted string.
 **
-**         First we check if the '*' flag is present, this would indicate
-**         a variable sized
+**         First we check if the '*' flag is present, in which case it
+**         would indicate to us that this is variable sized 'width'.
+**         We then get it from the list of arguments and return.
 **
 **         Starting from the first character after the flags field in
 **         the formatted string, we parse out digits until the first
@@ -145,6 +146,10 @@ t_int32			parse_width(const char *format, va_list *args, t_int8 *i)
 **    DESCRIPTION
 **         Parses for the 'precision' field in the formatted string.
 **
+**         First we check if the '*' flag is present, in which case it
+**         would indicate to us that this is variable sized 'precision'.
+**         We then get it from the list of arguments and return.
+**
 **         First we check if a '.' dot is specified, if so then,
 **         parsing ensues; else the default precision is assumed.
 **
@@ -166,18 +171,18 @@ t_int32			parse_width(const char *format, va_list *args, t_int8 *i)
 
 t_int32			parse_precison(const char *format, va_list *args, t_int8 *i)
 {
-	t_uint8		precision;
+	t_int32		precision;
 
 	if (format[*i] == '.')
 	{
+		++(*i);
 		if (format[*i] == '*')
 		{
-			width = va_arg(*args, t_int32);
+			precision = va_arg(*args, t_int32);
 			++(*i);
 		}
 		else
 		{
-			++(*i);
 			while (format[*i] == '0')
 				++(*i);
 			precision = ft_atoi(format + (*i));
