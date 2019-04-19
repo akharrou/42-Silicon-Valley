@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 06:28:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 19:04:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 19:27:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_ltoa_base(long n, char *base, int precision)
 
 	if (!valid_base(base))
 		return (NULL);
-	col = ft_longlen_base(n, ft_strlen(base)) + (n < 0);
+	col = ft_intmaxlen_base(n, ft_strlen(base)) + (n < 0);
 	precision = (precision - col > 0) ? precision - col : 0;
 	col += precision;
 	if (!(buf = malloc(col + 1)))

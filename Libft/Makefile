@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/18 14:36:14 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/18 19:28:38 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,8 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_padding.c                                           \
                 Stdlib/ft_intlen.c                                            \
                 Stdlib/ft_intlen_base.c                                       \
-                Stdlib/ft_longlen_base.c                                      \
-                Stdlib/ft_longlonglen_base.c                                  \
+                Stdlib/ft_intmaxlen_base.c                                    \
+                Stdlib/ft_uintmaxlen_base.c                                   \
                 Stdlib/ft_atoi.c                                              \
                 Stdlib/ft_itoa.c                                              \
                 Stdlib/ft_atoi_base.c                                         \
@@ -150,6 +150,8 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strmapi.c                                           \
                 String/ft_strjoin.c                                           \
                 String/ft_strjoinfre.c                                        \
+                String/ft_strappend.c                                         \
+                String/ft_strprepend.c                                        \
                 String/ft_strtrim.c                                           \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \

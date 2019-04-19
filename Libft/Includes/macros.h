@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 21:07:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 19:12:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,8 +161,8 @@
 #  define ASSERT(expr) (expr != FALSE)
 # endif
 
-# ifndef MALLOC_GUARD
-#  define MALLOC_GUARD(expr, val) if (!(expr)) return (val)
+# ifndef NULL_GUARD
+#  define NULL_GUARD(expr, val) if (!(expr)) return (val)
 # endif
 
 # ifndef RETURN_CHECK

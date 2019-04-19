@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 12:42:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/18 19:28:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char			*ft_padding(int padding, char pad);
 
 size_t			ft_intlen(int n);
 size_t			ft_intlen_base(int n, unsigned int base);
-size_t			ft_longlen_base(long n, unsigned int base);
-size_t			ft_longlonglen_base(long long n, unsigned int base);
+size_t			ft_intmaxlen_base(intmax_t n, unsigned int base);
+size_t			ft_uintmaxlen_base(uintmax_t n, unsigned int base);
 
 int				valid_base(char *base_str);
 
@@ -58,6 +58,7 @@ char			*ft_itoa(int n);
 char			*ft_itoa_base(int n, char *base, int precision);
 char			*ft_ltoa_base(long n, char *base, int precision);
 char			*ft_lltoa_base(long long n, char *base, int precision);
+char			*ft_utoa_base(uintmax_t n, char *base, int precision);
 char			*ft_uitoa_base(unsigned int n, char *base, int precision);
 char			*ft_ultoa_base(unsigned long n, char *base, int precision);
 char			*ft_ulltoa_base(unsigned long long n, char *base,
