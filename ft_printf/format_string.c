@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 12:16:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 15:54:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,64 @@
 **         function as opposed to intertwined with it.
 */
 
-t_dispatch table[] =
+t_handler table[] =
 {
-	{   '%',    &mod_handler,   },
-	{   'c',    &c_handler,     },
-	{   'i',    &i_handler,     },
-	{   'd',    &d_handler,     },
-	{   'f',    &f_handler,     },
-	{   'o',    &o_handler,     },
-	{   'u',    &u_handler,     },
-	{   'x',    &x_handler,     },
-	{   'X',    &x_handler,     },
-	{   'b',    &b_handler,     },
-	{   's',    &s_handler,     },
-	{   'r',    &r_handler,     },
-	{   'p',    &p_handler,     },
-	{   '\0',   NULL,           }
+	{    '%',    &mod_handler,    },
+	{    'c',    &c_handler,      },
+	{    'i',    &i_handler,      },
+	{    'd',    &d_handler,      },
+	{    'f',    &f_handler,      },
+	{    'o',    &o_handler,      },
+	{    'u',    &u_handler,      },
+	{    'x',    &x_handler,      },
+	{    'X',    &x_handler,      },
+	{    'b',    &b_handler,      },
+	{    's',    &s_handler,      },
+	{    'r',    &r_handler,      },
+	{    'p',    &p_handler,      },
+	{    '\0',   NULL,            }
+};
+
+/*
+**    DESCRIPTION
+**         Dispatch table associating every style to it ANSI code.
+**         A style specification follows this format:
+**
+**              \033[<code1>;<code2>; ... <codeN>m
+**
+**         Note: light colors are preceded with an 'l'.
+**
+*/
+
+t_style styles[] =
+{
+	{    "default",     "0"       },
+	\
+	{    "underlined",  "4"       },
+	{    "bold",        "1"       },
+	{    "italic",      "3"       },
+	{    "inverted",    "7"       },
+	{    "dim",         "2"       },
+	{    "hidden",      "8"       },
+	\
+	{    "black",       "30",     },
+	{    "white",       "97",     },
+	\
+	{    "gray",        "90",     },
+	{    "red",         "31",     },
+	{    "green",       "32",     },
+	{    "yellow",      "33",     },
+	{    "blue",        "34",     },
+	{    "magenta",     "35",     },
+	{    "cyan",        "36",     },
+	\
+	{    "lgray",       "37",     },
+	{    "lred",        "91",     },
+	{    "lgreen",      "92",     },
+	{    "lyellow",     "93",     },
+	{    "lblue",       "94",     },
+	{    "lmagenta",    "95",     },
+	{    "lcyan",       "96"      }
 };
 
 /*
@@ -78,6 +120,7 @@ t_format		parse_format(const char *format, va_list *args)
 		parse_precison(format, args, &i),
 		parse_length(format, &i),
 		parse_specifier(format, &i),
+		parse_style(format, &i),
 		{(intmax_t)0},
 		' ',
 		i

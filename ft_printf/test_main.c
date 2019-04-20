@@ -127,6 +127,44 @@ int		main(int ac, char *av[])
 //  *
 //  * 		– Flag: '-'
 //  *       - Width
+//  *       - Precison
+//  *
+//  */
+
+	ft_printf("%r\n", NULL);
+	printf("%r\n", NULL);
+
+	ft_printf("|%-10.2s|\n", "\x08hello\x09");
+	printf("|%-10.2s|\n\n", "\x08hello\x09");
+
+	ft_printf("|%12.2s|\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
+	printf("|%12.2s|\n\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
+
+	ft_printf("|%-2.1223s|\n", "hello");
+	printf("|%-2.1223s|\n\n", "hello");
+
+	ft_printf("|%-200.12s|\n", "hello");
+	printf("|%-200.12s|\n\n", "hello");
+
+	ft_printf("|%*.12s|\n", 10, "hello");
+	printf("|%*.12s|\n\n", 10, "hello");
+
+	ft_printf("|%*.*s|\n", 40, 5, "hello");
+	printf("|%*.*s|\n\n", 40, 5, "hello");
+
+	ft_printf("|%*.*s|\n", 25, 2, "hello");
+	printf("|%*.*s|\n\n", 25, 2, "hello");
+
+
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+// /* %c SPECIFIER TESTS */
+
+// /**
+//  * Only takes the following flags & fields:
+//  *
+//  * 		– Flag: '-'
+//  *       - Width
 //  *
 //  */
 
@@ -1976,6 +2014,9 @@ int		main(int ac, char *av[])
  *
  */
 
+	// ft_printf("|%*p|\n", 40, (void *)NULL);
+	// printf("|%*p|\n\n", 40, (void *)NULL);
+
 	// ft_printf("|%p|\n", (void *)0);
 	// printf("|%p|\n\n", (void *)0);
 
@@ -1994,34 +2035,32 @@ int		main(int ac, char *av[])
 	// ft_printf("|%*p|\n", 25, &printf);
 	// printf("|%*p|\n\n", 60, &printf);
 
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+/* {styles} SPECIFIER TESTS */
+
 	// ft_printf("|%*p|\n", 40, (void *)NULL);
 	// printf("|%*p|\n\n", 40, (void *)NULL);
 
-	// intmax_t num = -2386;
+	// ft_printf("|%p|\n", (void *)0);
+	// printf("|%p|\n\n", (void *)0);
 
-	// ft_printf("%i\n", num);
-	// printf("%li\n\n", num);
+	// ft_printf("|%-p|\n", av);
+	// printf("|%-p|\n\n", av);
 
-	ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05\x7F");
-	ft_printf("|%20.7r\n", "string\x01\x02\x03\x04\x05\x7F");
+	// ft_printf("|%p|\n", &(av[0]));
+	// printf("|%p|\n\n", &(av[0]));
 
+	// ft_printf("|%-30p|\n", av[0]);
+	// printf("|%-30p|\n\n", av[0]);
 
+	// ft_printf("|%*p|\n", 10, &ft_printf);
+	// printf("|%*p|\n\n", 10, &ft_printf);
 
+	// ft_printf("|%*p|\n", 25, &printf);
+	// printf("|%*p|\n\n", 60, &printf);
 
-
-
-	ft_printf("|\033[92m%r\033[0m|\n", "string");
-
-
-
-	// /* UNDERLINED */ ft_printf("|\033[4m%r\033[0m|\n", "string");
-	// /* ITALIC */ ft_printf("|\033[3m%r\033[0m|\n", "string");
-
-	// /* HIDDEN */ ft_printf("|\033[8m%r\033[0m|\n", "string");
-	// /* INVERTED */ ft_printf("|\033[7m%r\033[0m|\n", "string");
-
-
-	/* INVERTED */ ft_printf("|\033[34m%r\033[0m|\n", "string");
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
 	(void)ac;
 	(void)av;

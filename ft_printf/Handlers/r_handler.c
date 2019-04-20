@@ -6,11 +6,9 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:51:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 13:44:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 15:37:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../ft_printf.h"
 
 /*
 **    NAME
@@ -45,15 +43,15 @@
 **         specified format; otherwise exits with a -1 on error.
 */
 
-#include "../Libft/String/ft_strndup.c"
-#include "../Libft/String/ft_strjoinfre.c"
-#include "../Libft/String/ft_strappend.c"
+#include "../ft_printf.h"
 
 t_char	*r_handler(t_format format)
 {
 	t_int32 i;
 	t_char	*fstr;
 
+	if (format.data.str == NULL)
+		return (ft_strdup("(null)"));
 	i = -1;
 	fstr = NULL;
 	if (format.precision == NONE)

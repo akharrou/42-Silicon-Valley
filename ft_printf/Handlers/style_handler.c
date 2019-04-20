@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_handler.c                                        :+:      :+:    :+:   */
+/*   style_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:51:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 15:26:45 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/20 15:28:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         s_handler -- formatted string conversion
+**         style_handler -- formatted style conversion
 **
 **    SYNOPSIS
 **         #include <libft.h>
 **
 **         t_char	*
-**         s_handler(t_format format);
+**         style_handler(t_format format);
 **
 **    PARAMETERS
 **
@@ -27,14 +27,15 @@
 **                                 be formatted.
 **
 **    DESCRIPTION
-**         Handles the '%s' specifier like the libc 'printf()' function.
+**         Handles the '%o' specifier like the libc 'printf()' function.
 **
 **         Note: the only flags and fields that apply to this specifier
 **         are the following:
 **
-**             Flags: '-'
+**             Flags: '-', '+', ' ', '0', '#'
 **             Width: defined or '*'
 **             Precision: defined or '*'
+**             Length: 'hh', 'h', 'l', 'll'
 **
 **
 **    RETURN VALUES
@@ -44,15 +45,18 @@
 
 #include "../ft_printf.h"
 
-t_char	*s_handler(t_format format)
+t_char	*style_handler(t_format format)
 {
-	t_char	*fstr;
+	t_char	*intstr;
 
-	fstr = (format.data.str != NULL) ?
-		ft_strdup(format.data.str):
-		ft_strdup("(null)");
-	if (format.precision != NONE)
-		if (0 < format.precision && format.precision < (long)ft_strlen(fstr))
-			fstr[format.precision] = '\0';
-	return (fstr);
+	intstr = (format.length < L) ?
+		ft_itoa_base(format.data.intgr, OCTAL_BASE, format.precision) :
+		ft_itoa_base(format.data.intmax_t, OCTAL_BASE, format.precision);
+	if (format.flags & PLUS && !ft_strchr(intstr, '-'))
+		intstr = ft_strprepend(intstr, "+", 1, 0);
+	if (format.flags & SPACE && !ft_strchr(intstr, '-'))
+		intstr = ft_strprepend(intstr, " ", 1, 0);
+	if (format.flags & HASH)
+		intstr = ft_strprepend(intstr, "0", 1, 0);
+	return (intstr);
 }
