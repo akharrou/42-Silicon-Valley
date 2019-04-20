@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/19 11:45:52 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 12:16:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
 
-# define SPECIFIERS "cspdifouxXb%"
+# define SPECIFIERS "cspdifouxXbr%"
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -117,6 +117,7 @@ t_char			*x_handler(t_format format);
 t_char			*b_handler(t_format format);
 t_char			*c_handler(t_format format);
 t_char			*s_handler(t_format format);
+t_char			*r_handler(t_format format);
 t_char			*p_handler(t_format format);
 t_char			*mod_handler(t_format format);
 

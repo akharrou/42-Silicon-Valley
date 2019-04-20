@@ -94,6 +94,9 @@ int		main(int ac, char *av[])
  *
  */
 
+	// ft_printf("%s\n", NULL);
+	// printf("%s\n", NULL);
+
 	// ft_printf("|%-10.2s|\n", "hello");
 	// printf("|%-10.2s|\n\n", "hello");
 
@@ -1807,14 +1810,14 @@ int		main(int ac, char *av[])
 
 // MAXs & MINs --------------------------------------------- */
 
-	ft_printf("|%f|\n",  (double)127.0);
-	printf("|%f|\n\n",   (double)127.0);
+	// ft_printf("|%f|\n",  (double)127.0);
+	// printf("|%f|\n\n",   (double)127.0);
 
-	ft_printf("|%f|\n",   (double)USHORT_MAX);
-	printf("|%f|\n\n",    (double)USHORT_MAX);
+	// ft_printf("|%f|\n",   (double)USHORT_MAX);
+	// printf("|%f|\n\n",    (double)USHORT_MAX);
 
-	ft_printf("|%f|\n",    (double)UINT_MAX);
-	printf("|%f|\n\n",     (double)UINT_MAX);
+	// ft_printf("|%f|\n",    (double)UINT_MAX);
+	// printf("|%f|\n\n",     (double)UINT_MAX);
 
 	// ft_printf("|%f|\n",   (double)ULONG_MAX);
 	// printf("|%f|\n\n",    (double)ULONG_MAX);
@@ -1822,14 +1825,14 @@ int		main(int ac, char *av[])
 	// ft_printf("|%f|\n",  (double)ULLONG_MAX);
 	// printf("|%f|\n\n",   (double)ULLONG_MAX);
 
-	ft_printf("|%f|\n",  (double)CHAR_MIN);
-	printf("|%f|\n\n",   (double)CHAR_MIN);
+	// ft_printf("|%f|\n",  (double)CHAR_MIN);
+	// printf("|%f|\n\n",   (double)CHAR_MIN);
 
-	ft_printf("|%f|\n",   (double)SHORT_MIN);
-	printf("|%f|\n\n",    (double)SHORT_MIN);
+	// ft_printf("|%f|\n",   (double)SHORT_MIN);
+	// printf("|%f|\n\n",    (double)SHORT_MIN);
 
-	ft_printf("|%f|\n",    (double)INT_MIN);
-	printf("|%f|\n\n",     (double)INT_MIN);
+	// ft_printf("|%f|\n",    (double)INT_MIN);
+	// printf("|%f|\n\n",     (double)INT_MIN);
 
 	// ft_printf("|%f|\n",   (double)LONG_MIN);
 	// printf("|%f|\n\n",    (double)LONG_MIN);
@@ -1839,14 +1842,14 @@ int		main(int ac, char *av[])
 
 // /* --------------------------------------------- */
 
-	ft_printf("|%f|\n", 0.2323);
-	printf("|%f|\n\n", 0.2323);
+	// ft_printf("|%f|\n", 0.2323);
+	// printf("|%f|\n\n", 0.2323);
 
-	ft_printf("|%f|\n", 0.2323);
-	printf("|%f|\n\n", 0.2323);
+	// ft_printf("|%f|\n", 0.2323);
+	// printf("|%f|\n\n", 0.2323);
 
-	ft_printf("|%f|\n", 0.2323);
-	printf("|%f|\n\n", 0.2323);
+	// ft_printf("|%f|\n", 0.2323);
+	// printf("|%f|\n\n", 0.2323);
 
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
@@ -1999,8 +2002,8 @@ int		main(int ac, char *av[])
 	// ft_printf("%i\n", num);
 	// printf("%li\n\n", num);
 
-	ft_printf("|%+-10i|\n", -12356);
-	printf("|%+-10i|\n\n", -12356);
+	// ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05");
+	// printf("|%s|\n\n", "string\x01\x02\x03\x04\x05");
 
 	(void)ac;
 	(void)av;
