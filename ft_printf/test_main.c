@@ -2002,8 +2002,26 @@ int		main(int ac, char *av[])
 	// ft_printf("%i\n", num);
 	// printf("%li\n\n", num);
 
-	ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05");
-	// printf("|%s|\n\n", "string\x01\x02\x03\x04\x05");
+	ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05\x7F");
+	ft_printf("|%20.7r\n", "string\x01\x02\x03\x04\x05\x7F");
+
+
+
+
+
+
+	ft_printf("|\033[92m%r\033[0m|\n", "string");
+
+
+
+	// /* UNDERLINED */ ft_printf("|\033[4m%r\033[0m|\n", "string");
+	// /* ITALIC */ ft_printf("|\033[3m%r\033[0m|\n", "string");
+
+	// /* HIDDEN */ ft_printf("|\033[8m%r\033[0m|\n", "string");
+	// /* INVERTED */ ft_printf("|\033[7m%r\033[0m|\n", "string");
+
+
+	/* INVERTED */ ft_printf("|\033[34m%r\033[0m|\n", "string");
 
 	(void)ac;
 	(void)av;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:51:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 13:12:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 13:44:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ t_char	*r_handler(t_format format)
 
 	i = -1;
 	fstr = NULL;
-	while (format.data.str[++i])
+	if (format.precision == NONE)
+		format.precision = ft_strlen(format.data.str);
+	while (format.data.str[++i] && i < format.precision)
 	{
 		if (ISPRINT(format.data.str[i]))
 			fstr = ft_strappend(
@@ -64,13 +66,11 @@ t_char	*r_handler(t_format format)
 		else
 			fstr = ft_strappend(
 				fstr,
-				ft_strappend(ft_itoa_base(
-					(int)format.data.str[i], HEX_LOWER_BASE, 2), 1, 1);, "\\x")
+				ft_strprepend(
+					ft_itoa_base(format.data.str[i], HEX_LOWER_BASE, 2),
+					"\\x",
+					1, 0),
+				1, 1);
 	}
-	if (!fstr)
-		exit(-1);
-	if (format.precision != NONE)
-		if (0 < format.precision && format.precision < (long)ft_strlen(fstr))
-			fstr[format.precision] = '\0';
 	return (fstr);
 }
