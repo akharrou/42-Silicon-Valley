@@ -58,6 +58,7 @@ char			*ft_itoa(int n);
 char			*ft_itoa_base(intmax_t n, char *base, int precision);
 char			*ft_ltoa_base(long n, char *base, int precision);
 char			*ft_lltoa_base(long long n, char *base, int precision);
+
 char			*ft_utoa_base(uintmax_t n, char *base, int precision);
 char			*ft_uitoa_base(unsigned int n, char *base, int precision);
 char			*ft_ultoa_base(unsigned long n, char *base, int precision);

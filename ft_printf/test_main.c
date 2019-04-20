@@ -2002,7 +2002,7 @@ int		main(int ac, char *av[])
 	// ft_printf("%i\n", num);
 	// printf("%li\n\n", num);
 
-	// ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05");
+	ft_printf("|%r|\n", "string\x01\x02\x03\x04\x05");
 	// printf("|%s|\n\n", "string\x01\x02\x03\x04\x05");
 
 	(void)ac;

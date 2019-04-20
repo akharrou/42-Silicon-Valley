@@ -39,6 +39,6 @@ char	*ft_ftoa_base(long double n, char *base, int width, int precision)
 	}
 	float_str = ft_strappend(
 		float_str, ft_padding(width - ft_strlen(float_str) - sign, '0'), 1, 1);
-	float_str = ft_strappend(float_str, ((sign) ? "-" : ""), 1, 0);
+	float_str = ft_strprepend(float_str, ((sign) ? "-" : ""), 1, 0);
 	return (float_str);
 }

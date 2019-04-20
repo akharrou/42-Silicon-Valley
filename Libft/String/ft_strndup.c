@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 12:23:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/16 12:33:28 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 15:14:55 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/20 13:11:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 char	*ft_strndup(const char *src, size_t n)
 {
-	size_t	len;
 	char	*dst;
+	size_t	i;
 
-	dst = NULL;
-	if (src)
+	if (!(dst = malloc(ft_strnlen(src, n) + 1)))
+		return (NULL);
+	i = 0;
+	while (i < n)
 	{
-		len = ft_strnlen(src, n);
-		dst = (char *)malloc(len + 1);
-		if (!dst)
-			return (NULL);
-		ft_memcpy(dst, src, len);
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
 	return (dst);
 }
