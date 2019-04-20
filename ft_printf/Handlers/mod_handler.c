@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mod_handler.c                            :+:      :+:    :+:   */
+/*   mod_handler.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**    NAME
+**         mod_handler -- formatted character conversion
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         t_char	*
+**         mod_handler(t_format format);
+**
+**    PARAMETERS
+**
+**         t_format format         Structure containing the variable
+**                                 and information about how it must
+**                                 be formatted.
+**
+**    DESCRIPTION
+**         Handles the '%%' specifier like the libc 'printf()' function.
+**
+**         Note: the only flags and fields that apply to this specifier
+**         are the following:
+**
+**             Flags: '-'
+**             Width: defined or '*'
+**
+**
+**    RETURN VALUES
+**         If successful, returns a formatted string that follows the
+**         specified format; otherwise exits with a -1 on error.
+*/
+
 #include "../ft_printf.h"
 
 t_char	*mod_handler(t_format format)
 {
-	return ((t_char *)ft_strdup("%"));
+	format.data.chr = '%';
+	return (c_handler(format));
 }
-
-
-/* HANDLING ORDER */
-
-// 1 -  length_handler
-// 2 -  precision_handler
-// 3 -  flags_handler
-// 4 -  width_handler

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_handler.c                                        :+:      :+:    :+:   */
+/*   r_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:56:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 22:08:51 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/16 18:51:50 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/20 12:13:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_printf.h"
+
 /*
 **    NAME
-**         u_handler -- formatted unsigned number conversion
+**         r_handler -- formatted printable string conversion
 **
 **    SYNOPSIS
 **         #include <libft.h>
 **
 **         t_char	*
-**         u_handler(t_format format);
+**         r_handler(t_format format);
 **
 **    PARAMETERS
 **
@@ -27,15 +29,15 @@
 **                                 be formatted.
 **
 **    DESCRIPTION
-**         Handles the '%u' specifier like the libc 'printf()' function.
+**         Handles the '%r' specifier; prints a string of non-printable.
+**         Non printable characters are printed as hexadecimal digits.
 **
 **         Note: the only flags and fields that apply to this specifier
 **         are the following:
 **
-**             Flags: '-', '0'
+**             Flags: '-'
 **             Width: defined or '*'
 **             Precision: defined or '*'
-**             Length: 'hh', 'h', 'l', 'll'
 **
 **
 **    RETURN VALUES
@@ -43,14 +45,19 @@
 **         specified format; otherwise exits with a -1 on error.
 */
 
-#include "../ft_printf.h"
-
-t_char	*u_handler(t_format format)
+t_char	*r_handler(t_format format)
 {
-	t_char	*intstr;
+	t_char	*fstr;
+	t_int32 i;
 
-	intstr = (format.length < L) ?
-		ft_utoa_base(format.data.uintgr, DECIMAL_BASE, format.precision) :
-		ft_utoa_base(format.data.uintmax_t, DECIMAL_BASE, format.precision);
-	return (intstr);
+	i = 0;
+
+	fstr = ft_strdup((t_char *)format.data.str);
+
+	if (!fstr)
+		exit(-1);
+	if (format.precision != NONE)
+		if (0 < format.precision && format.precision < (long)ft_strlen(fstr))
+			fstr[format.precision] = '\0';
+	return (fstr);
 }

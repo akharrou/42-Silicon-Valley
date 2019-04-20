@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 19:12:38 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:24:10 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@
 #  define LONG_MAX 9223372036854775807
 # endif
 
-# ifndef ULONG_MAX
-#  define ULONG_MAX 18446744073709551615
-# endif
-
 # ifndef LLONG_MIN
 #  define LLONG_MIN -9223372036854775808
 # endif
 
 # ifndef LLONG_MAX
 #  define LLONG_MAX 9223372036854775807
+# endif
+
+# ifndef ULONG_MAX
+#  define ULONG_MAX 18446744073709551615
 # endif
 
 # ifndef ULLONG_MAX
@@ -106,10 +106,10 @@
 # define ALPHABET_UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 # define BINARY_BASE "01"
-# define OCT_BASE "01234567"
+# define OCTAL_BASE "01234567"
 # define DECIMAL_BASE "0123456789"
-# define HEX_BASE_LOWER "0123456789abcdef"
-# define HEX_BASE_UPPER "0123456789ABCDEF"
+# define HEX_LOWER_BASE "0123456789abcdef"
+# define HEX_UPPER_BASE "0123456789ABCDEF"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 256

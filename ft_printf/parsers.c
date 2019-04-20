@@ -81,7 +81,7 @@ t_int8	parse_flags(const char *format, t_int8 *i)
 **
 **         const char *format      Formatted string.
 **
-**         va_list *args           List of arguments.
+**         va_list *args           Variable argument list.
 **
 **         t_int8 *i               Current index in the formatted
 **                                 string.
@@ -90,18 +90,19 @@ t_int8	parse_flags(const char *format, t_int8 *i)
 **         Parses for the 'width' field in the formatted string.
 **
 **         First we check if the '*' flag is present, in which case it
-**         would indicate to us that this is variable sized 'width'.
-**         We then get it from the list of arguments and return.
+**         would indicate to us that this is a variable sized 'width'.
+**         If the star is present, we extract a variable from the
+**         va_list assigning it to the format's 'width' field.
 **
-**         Starting from the first character after the flags field in
-**         the formatted string, we parse out digits until the first
-**         non-digit character (using ft_atoi).
+**         Otherwise, starting from the first character after the flags
+**         field in the formatted string, we parse out digits until the
+**         first non-digit character (using ft_atoi).
 **
 **         If 'width' is greater than 0, we increment the index by the
 **         length (in characters) of the obtained integer.
 **
 **    RETURN VALUES
-**         Returns an unsigned 8 bit integer representing the width
+**         Returns a signed 8 bit integer representing the width
 **         specified.
 */
 
@@ -138,7 +139,7 @@ t_int32			parse_width(const char *format, va_list *args, t_int8 *i)
 **
 **         const char *format      Formatted string.
 **
-**         va_list *args           List of arguments.
+**         va_list *args           Variable argument list.
 **
 **         t_int8 *i               Current index in the formatted
 **                                 string.
@@ -146,25 +147,24 @@ t_int32			parse_width(const char *format, va_list *args, t_int8 *i)
 **    DESCRIPTION
 **         Parses for the 'precision' field in the formatted string.
 **
-**         First we check if the '*' flag is present, in which case it
-**         would indicate to us that this is variable sized 'precision'.
-**         We then get it from the list of arguments and return.
-**
 **         First we check if a '.' dot is specified, if so then,
-**         parsing ensues; else the default precision is assumed.
+**         parsing ensues; otherwise NONE (i.e -1) is returned
+**         specifying that no precision was specified.
 **
-**         If a '.' was present, we first skip all '0's if any,
-**         then we parse out digits until the first non-digit
-**         character (using ft_atoi).
+**         If the '.' is present we then firstly check if the '*'
+**         flag is present, in which case it would indicate to us
+**         that this is a variable sized 'precision'. If the star
+**         is present, we extract a variable from the va_list
+**         assigning it to the format's 'precision' field.
+**
+**         Otherwise, we skip all '0's if any, then we parse out
+**         digits until the first non-digit character (using ft_atoi).
 **
 **         If 'precision' is greater than 0, we increment the index
 **         by the length (in characters) of the obtained integer.
 **
-**         If no 'precision' is specified, the index stays the same
-**         and NONE (-1) is returned.
-**
 **    RETURN VALUES
-**         Returns an unsigned 8 bit integer representing the precision
+**         Returns a signed 8 bit integer representing the precision
 **         specified or NONE (-1, macro defined in ft_printf.h) to
 **         indicate that no precision was specified.
 */
@@ -217,13 +217,16 @@ t_int32			parse_precison(const char *format, va_list *args, t_int8 *i)
 **         We check for an exact match of 'h', 'l', 'L', 'hh', or
 **         'll' with a series of if/else if statements.
 **
+**         (switch statements are not permitted with the school's
+**         'norminette').
+**
 **         The index 'i' is incremented accordingly.
 **
 **         If no 'length' is specified, the index stays the same
 **         and NONE (-1) is returned.
 **
 **    RETURN VALUES
-**         Returns an unsigned 8 bit integer representing the specified
+**         Returns a signed 8 bit integer representing the specified
 **         length or NONE (-1, macro defined in ft_printf.h) to indicate
 **         that the defaults should be use.
 */
@@ -236,9 +239,9 @@ t_int8	parse_length(const char *format, t_int8 *i)
 	else if (format[(*i) - 2] == 'l' && format[(*i) - 1] == 'l')
 		return (LL);
 	(*i) -= 1;
-	if (format[(*i) - 1] == 'h'  && format[*i] != 'h')
+	if (format[(*i) - 1] == 'h')
 		return (H);
-	else if (format[(*i) - 1] == 'l'  && format[*i] != 'l')
+	else if (format[(*i) - 1] == 'l')
 		return (L);
 	else if (format[(*i) - 1] == 'L')
 		return (LLL);
@@ -248,7 +251,7 @@ t_int8	parse_length(const char *format, t_int8 *i)
 
 /*
 **    NAME
-**         parse_specifier -- parse the 'specifier' field of the formatted
+**         parse_specifier -- parse the 'specifier' field in the formatted
 **                            string
 **
 **    SYNOPSIS

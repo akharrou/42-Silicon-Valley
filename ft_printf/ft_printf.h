@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/19 09:54:57 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:45:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 */
 
-# define SPECIFIERS "cspdifouxX%"
+# define SPECIFIERS "cspdifouxXb%"
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -43,8 +43,10 @@ typedef union			u_data
 	unsigned long		ulng;
 	long long			lnglng;
 	unsigned long long	ulnglng;
-	intmax_t			intmax;
-	uintmax_t			uintmax;
+	double				dble;
+	long double			ldble;
+	intmax_t			intmax_t;
+	uintmax_t			uintmax_t;
 	intptr_t			ptr;
 }						t_data;
 
@@ -55,8 +57,9 @@ typedef struct	s_format_info
 	t_int32		precision;
 	t_int8		length;
 	t_int8		specifier;
-	t_int8		format_length;
 	t_data		data;
+	t_char		pad;
+	t_int8		format_length;
 }				t_format;
 
 typedef struct	s_dispatch
@@ -106,10 +109,12 @@ t_int8			parse_length(const char *format, t_int8 *i);
 t_int8			parse_specifier(const char *format, t_int8 *i);
 
 t_char			*i_handler(t_format format);
+t_char			*d_handler(t_format format);
 t_char			*u_handler(t_format format);
 t_char			*f_handler(t_format format);
 t_char			*o_handler(t_format format);
 t_char			*x_handler(t_format format);
+t_char			*b_handler(t_format format);
 t_char			*c_handler(t_format format);
 t_char			*s_handler(t_format format);
 t_char			*p_handler(t_format format);

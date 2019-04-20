@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u_handler.c                                        :+:      :+:    :+:   */
+/*   d_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:56:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 22:08:51 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/16 18:52:33 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/17 00:34:20 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         u_handler -- formatted unsigned number conversion
+**         d_handler -- formatted decimal number conversion
 **
 **    SYNOPSIS
 **         #include <libft.h>
 **
 **         t_char	*
-**         u_handler(t_format format);
+**         d_handler(t_format format);
 **
 **    PARAMETERS
 **
@@ -27,15 +27,13 @@
 **                                 be formatted.
 **
 **    DESCRIPTION
-**         Handles the '%u' specifier like the libc 'printf()' function.
+**         Handles the '%d' specifier like the libc 'printf()' function.
 **
 **         Note: the only flags and fields that apply to this specifier
 **         are the following:
 **
-**             Flags: '-', '0'
+**             Flags: '-'
 **             Width: defined or '*'
-**             Precision: defined or '*'
-**             Length: 'hh', 'h', 'l', 'll'
 **
 **
 **    RETURN VALUES
@@ -45,12 +43,7 @@
 
 #include "../ft_printf.h"
 
-t_char	*u_handler(t_format format)
+t_char	*d_handler(t_format format)
 {
-	t_char	*intstr;
-
-	intstr = (format.length < L) ?
-		ft_utoa_base(format.data.uintgr, DECIMAL_BASE, format.precision) :
-		ft_utoa_base(format.data.uintmax_t, DECIMAL_BASE, format.precision);
-	return (intstr);
+	return (i_handler(format));
 }

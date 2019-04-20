@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_handler.c                              :+:      :+:    :+:   */
+/*   s_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 
 /*
 **    NAME
-**         s_handler -- formatted character conversion
+**         s_handler -- formatted string conversion
 **
 **    SYNOPSIS
 **         #include <libft.h>

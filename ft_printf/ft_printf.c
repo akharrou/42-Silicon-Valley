@@ -34,6 +34,8 @@
 **         ...                       (Additional arguments)
 **
 **    DESCRIPTION
+**         Reproduction of the libc printf() function.
+**
 **         Writes the C string pointed by format to the standard output
 **         (stdout). If format includes format specifiers (subsequences
 **         beginning with %), the additional arguments following format
@@ -78,9 +80,9 @@
 **
 **         Flags:
 **
-**              -       --   Left justify
+**              -       --   Left justify the string.
 **
-**              +       --   Prepend w/ '+' or '-'
+**              +       --   Prepend w/ '+' or '-'.
 **
 **              #       --   Used with o, x or X specifiers the value is
 **                           preceeded with 0, 0x or 0X respectively for
@@ -92,13 +94,15 @@
 **                           no digits follow, no decimal point is written.
 **
 **              0       --   Left-pads the number with zeroes '0' instead of
-**                           spaces when padding is specified
+**                           spaces when padding is specified.
 **
 **              space   --   If no sign is going to be written, a blank space
 **                           is inserted before the value.
 **
 **
 **         Width:
+**
+**              *       --   Variable number of characters to be printed.
 **
 **              number  --   Minimum number of characters to be printed.
 **                           If the value to be printed is shorter than
@@ -108,6 +112,8 @@
 **
 **
 **         Precision:
+**
+**              *        --   Variable number length for the padding.
 **
 **              .number  --   For integer specifiers (d, i, o, u, x, X):
 **                            precision specifies the minimum number of
@@ -154,7 +160,7 @@
 **            | (none)  | int    | char*    | void* |
 **            | hh      |        |          |       |
 **            | h       |        |          |       |
-**            | l       | wint_t | wchar_t* |       |
+**            | l       |        |          |       |
 **            | ll      |        |          |       |
 **            | L       |        |          |       |
 **            | — — — — — — — — — — — — — — — — — - -
@@ -166,32 +172,32 @@
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *string, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list		args;
 	t_char		*fstr;
 	t_int32		tt_bytes_written;
 
 	tt_bytes_written = 0;
-	if (string != NULL)
+	if (format != NULL)
 	{
-		va_start(args, string);
-		while (*string != '\0')
+		va_start(args, format);
+		while (*format != '\0')
 		{
-			if (*string == '%')
+			if (*format == '%')
 			{
-				fstr = formatted_string(&string, &args);
+				fstr = formatted_string(&format, &args);
 				if (!fstr)
 					exit(-1);
 				tt_bytes_written += write(STDOUT, fstr, ft_strlen(fstr));
 				free(fstr);
 			}
 			else
-				tt_bytes_written += write(STDOUT, string++, 1);
+				tt_bytes_written += write(STDOUT, format++, 1);
 		}
 		va_end(args);
 	}
-	return ((int)tt_bytes_written);
+	return (tt_bytes_written);
 }
 
 /*

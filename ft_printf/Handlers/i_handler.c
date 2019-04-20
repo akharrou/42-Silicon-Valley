@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   i_handler.c                              :+:      :+:    :+:   */
+/*   i_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**    NAME
+**         i_handler -- formatted signed number conversion
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         t_char	*
+**         i_handler(t_format format);
+**
+**    PARAMETERS
+**
+**         t_format format         Structure containing the variable
+**                                 and information about how it must
+**                                 be formatted.
+**
+**    DESCRIPTION
+**         Handles the '%i' specifier like the libc 'printf()' function.
+**
+**         Note: the only flags and fields that apply to this specifier
+**         are the following:
+**
+**             Flags: '-', '+', ' ', '0'
+**             Width: defined or '*'
+**             Precision: defined or '*'
+**             Length: 'hh', 'h', 'l', 'll'
+**
+**
+**    RETURN VALUES
+**         If successful, returns a formatted string that follows the
+**         specified format; otherwise exits with a -1 on error.
+*/
+
 #include "../ft_printf.h"
 
 t_char	*i_handler(t_format format)
 {
-	if (format.length == H)
-		return ((t_char *)ft_uitoa_base(
-			(signed short int)va_arg(*args, signed int), DECIMAL_BASE,
-			0, 0));
-	if (format.length == HH)
-		return ((t_char *)ft_uitoa_base(
-			(signed char)va_arg(*args, signed int), DECIMAL_BASE,
-			0, 0));
-	if (format.length == L)
-		return ((t_char *)ft_ultoa_base(
-			(signed long int)va_arg(*args, signed long), DECIMAL_BASE,
-			0, 0));
-	if (format.length == LL)
-		return ((t_char *)ft_ulltoa_base(
-			(signed long long)va_arg(*args, signed long long), DECIMAL_BASE,
-			0, 0));
-	else
-		return ((t_char *)ft_uitoa_base(
-			(signed int)va_arg(*args, signed int), DECIMAL_BASE,
-			0, 0)
-		);
+	t_char	*intstr;
+
+	intstr = (format.length < L) ?
+		ft_itoa_base(format.data.intgr, DECIMAL_BASE, format.precision) :
+		ft_itoa_base(format.data.intmax_t, DECIMAL_BASE, format.precision);
+	if (format.flags & PLUS && !ft_strchr(intstr, '-'))
+		intstr = ft_strprepend(intstr, "+", 1, 0);
+	if (format.flags & SPACE && !ft_strchr(intstr, '-'))
+		intstr = ft_strprepend(intstr, " ", 1, 0);
+	return (intstr);
 }

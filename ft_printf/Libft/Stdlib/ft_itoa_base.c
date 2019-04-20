@@ -22,9 +22,9 @@ char	*ft_itoa_base(intmax_t n, char *base, int precision)
 
 	if (!valid_base(base))
 		return (NULL);
-	col = ft_intmaxlen_base(n, ft_strlen(base)) + (n < 0);
-	precision = (precision - col > 0) ? precision - col : 0;
-	col += precision;
+	col = ft_intmaxlen_base(n, ft_strlen(base));
+	precision = ((precision - col > 0) ? precision - col : 0);
+	col += precision + (n < 0);
 	if (!(buf = malloc(col + 1)))
 		return (NULL);
 	buf = ft_memset(buf, '0', col);

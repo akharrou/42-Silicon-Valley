@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c_handler.c                              :+:      :+:    :+:   */
+/*   c_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,8 +9,6 @@
 /*   Updated: 2019/04/17 01:31:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../ft_printf.h"
 
 /*
 **    NAME
@@ -42,6 +40,8 @@
 **         If successful, returns a formatted string that follows the
 **         specified format; otherwise exits with a -1 on error.
 */
+
+#include "../ft_printf.h"
 
 t_char	*c_handler(t_format format)
 {

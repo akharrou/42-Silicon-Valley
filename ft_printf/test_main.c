@@ -127,6 +127,9 @@ int		main(int ac, char *av[])
 //  *
 //  */
 
+	// ft_printf("|%c|\n", 127);
+	// printf("|%c|\n\n", 127);
+
 	// ft_printf("|%c|\n", 'a');
 	// printf("|%c|\n\n", 'a');
 
@@ -152,7 +155,7 @@ int		main(int ac, char *av[])
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %mod SPECIFIER TESTS */
+// /* %% SPECIFIER TESTS */
 
 // /**
 //  * Only takes the following flags & fields:
@@ -160,160 +163,1803 @@ int		main(int ac, char *av[])
 //  * 		– Flag: '-',
 //  *       - Width
 //  *
+//  * Everything else does nothing even though you can
+//  * specify those fields and flags.
+//  *
 //  */
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%%|\n");
+	// printf("|%%|\n\n");
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%20%|\n");
+	// printf("|%20%|\n\n");
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%*%|\n", 15);
+	// printf("|%*%|\n\n", 15);
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%10.5%|\n");
+	// printf("|%10.5%|\n\n");
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%+%|\n");
+	// printf("|%+%|\n\n");
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%#%|\n");
+	// printf("|%#%|\n\n");
 
-	ft_printf("||\n", );
-	printf("||\n\n", );
+	// ft_printf("|%-010.20%|\n");
+	// printf("|%-010.20%|\n\n");
+
+	// ft_printf("|% +5.10%|\n");
+	// printf("|% +5.10%|\n\n");
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %c SPECIFIER TESTS */
+// /* %d & %i SPECIFIER TESTS */
 
 // /**
 //  * Only takes the following flags & fields:
 //  *
-//  * 		– Flag: '-',
-//  *       - Width
+//  * 		– Flag: '-', ' ', '0', '+'
+//  *       - Width: defined or '*'
+//  *       - Precision: defined or '*'
+//  *       - Length: 'h', 'hh', 'l', 'll'
 //  *
 //  */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// // MAXs & MINs
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%hhi|\n",  (signed char)CHAR_MAX);
+// 	printf("|%hhi|\n\n",   (signed char)CHAR_MAX);
+// 	ft_printf("|%hhi|\n",  (signed char)CHAR_MIN);
+// 	printf("|%hhi|\n\n",   (signed char)CHAR_MIN);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%hi|\n",   (short int)SHORT_MAX);
+// 	printf("|%hi|\n\n",    (short int)SHORT_MAX);
+// 	ft_printf("|%hi|\n",   (short int)SHORT_MIN);
+// 	printf("|%hi|\n\n",    (short int)SHORT_MIN);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%i|\n",    (int)INT_MAX);
+// 	printf("|%i|\n\n",     (int)INT_MAX);
+// 	ft_printf("|%i|\n",    (int)INT_MIN);
+// 	printf("|%i|\n\n",     (int)INT_MIN);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%li|\n",   (long int)LONG_MAX);
+// 	printf("|%li|\n\n",    (long int)LONG_MAX);
+// 	ft_printf("|%li|\n",   (long int)-9223372036854775807);
+// 	printf("|%li|\n\n",    (long int)-9223372036854775807);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%lli|\n",  (long long)LLONG_MAX);
+// 	printf("|%lli|\n\n",   (long long)LLONG_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+
+// /* ++++++++++++++++++++++++++++ LENGTH HH +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH HH +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10hhi|\n", (signed char)112);
+// 	printf("|%10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%30hhi|\n", (signed char)112);
+// 	printf("|%30hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%.6hhi|\n", (signed char)112);
+// 	printf("|%.6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%.10hhi|\n", (signed char)112);
+// 	printf("|%.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%25.10hhi|\n", (signed char)112);
+// 	printf("|%25.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%*.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|%*.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|%*.10hhi|\n", 25, (signed char)112);
+// 	printf("|%*.10hhi|\n\n", 25, (signed char)112);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10hhi|\n", (signed char)112);
+// 	printf("|%-10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%-30hhi|\n", (signed char)112);
+// 	printf("|%-30hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%-.6hhi|\n", (signed char)112);
+// 	printf("|%-.6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%-.10hhi|\n", (signed char)112);
+// 	printf("|%-.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%-25.10hhi|\n", (signed char)112);
+// 	printf("|%-25.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%-25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%-25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%-25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%-25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%-*.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|%-*.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|%-*.10hhi|\n", 25, (signed char)112);
+// 	printf("|%-*.10hhi|\n\n", 25, (signed char)112);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10hhi|\n", (signed char)112);
+// 	printf("|%+-10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%+-30hhi|\n", (signed char)112);
+// 	printf("|%+-30hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%+-.6hhi|\n", (signed char)112);
+// 	printf("|%+-.6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%+-.10hhi|\n", (signed char)112);
+// 	printf("|%+-.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%+-25.10hhi|\n", (signed char)112);
+// 	printf("|%+-25.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%+-25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%+-25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%+-25.*hhi|\n", 10, (signed char)112);
+// 	printf("|%+-25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%+-*.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|%+-*.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|%+-*.10hhi|\n", 25, (signed char)112);
+// 	printf("|%+-*.10hhi|\n\n", 25, (signed char)112);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10hhi|\n", (signed char)-112);
+// 	printf("|%+-10hhi|\n\n", (signed char)-112);
+
+// 	ft_printf("|%+-30hhi|\n", (signed char)-112);
+// 	printf("|%+-30hhi|\n\n", (signed char)-112);
+
+// 	ft_printf("|%+-.6hhi|\n", (signed char)-112);
+// 	printf("|%+-.6hhi|\n\n", (signed char)-112);
+
+// 	ft_printf("|%+-.10hhi|\n", (signed char)-112);
+// 	printf("|%+-.10hhi|\n\n", (signed char)-112);
+
+// 	ft_printf("|%+-25.10hhi|\n", (signed char)-112);
+// 	printf("|%+-25.10hhi|\n\n", (signed char)-112);
+
+// 	ft_printf("|%+-25.*hhi|\n", 10, (signed char)-112);
+// 	printf("|%+-25.*hhi|\n\n", 10, (signed char)-112);
+
+// 	ft_printf("|%+-25.*hhi|\n", 10, (signed char)-112);
+// 	printf("|%+-25.*hhi|\n\n", 10, (signed char)-112);
+
+// 	ft_printf("|%+-*.*hhi|\n", 25, 10, (signed char)-112);
+// 	printf("|%+-*.*hhi|\n\n", 25, 10, (signed char)-112);
+
+// 	ft_printf("|%+-*.10hhi|\n", 25, (signed char)-112);
+// 	printf("|%+-*.10hhi|\n\n", 25, (signed char)-112);
+
+// // Width & Precision ('-' with ' ')
+
+// 	ft_printf("|% -10hhi|\n", (signed char)112);
+// 	printf("|% -10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% -30hhi|\n", (signed char)112);
+// 	printf("|% -30hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% -.6hhi|\n", (signed char)112);
+// 	printf("|% -.6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% -.10hhi|\n", (signed char)112);
+// 	printf("|% -.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% -25.10hhi|\n", (signed char)112);
+// 	printf("|% -25.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% -25.*hhi|\n", 10, (signed char)112);
+// 	printf("|% -25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|% -25.*hhi|\n", 10, (signed char)112);
+// 	printf("|% -25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|% -*.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|% -*.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|% -*.10hhi|\n", 25, (signed char)112);
+// 	printf("|% -*.10hhi|\n\n", 25, (signed char)112);
+
+// // Width & Precision ' ')
+
+// 	ft_printf("|% 10hhi|\n", (signed char)112);
+// 	printf("|% 10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% 30hhi|\n", (signed char)112);
+// 	printf("|% 30hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% .6hhi|\n", (signed char)112);
+// 	printf("|% .6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% .10hhi|\n", (signed char)112);
+// 	printf("|% .10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% 25.10hhi|\n", (signed char)112);
+// 	printf("|% 25.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|% 25.*hhi|\n", 10, (signed char)112);
+// 	printf("|% 25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|% 25.*hhi|\n", 10, (signed char)112);
+// 	printf("|% 25.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|% *.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|% *.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|% *.10hhi|\n", 25, (signed char)112);
+// 	printf("|% *.10hhi|\n\n", 25, (signed char)112);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010hhi|\n", (signed char)112);
+// 	printf("|%010hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%030hhi|\n", (signed char)112);
+// 	printf("|%030hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%0.6hhi|\n", (signed char)112);
+// 	printf("|%0.6hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%0.10hhi|\n", (signed char)112);
+// 	printf("|%0.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%025.10hhi|\n", (signed char)112);
+// 	printf("|%025.10hhi|\n\n", (signed char)112);
+
+// 	ft_printf("|%025.*hhi|\n", 10, (signed char)112);
+// 	printf("|%025.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%025.*hhi|\n", 10, (signed char)112);
+// 	printf("|%025.*hhi|\n\n", 10, (signed char)112);
+
+// 	ft_printf("|%0*.*hhi|\n", 25, 10, (signed char)112);
+// 	printf("|%0*.*hhi|\n\n", 25, 10, (signed char)112);
+
+// 	ft_printf("|%0*.10hhi|\n", 25, (signed char)112);
+// 	printf("|%0*.10hhi|\n\n", 25, (signed char)112);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH H +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH H +++++++++++++++++++++++++++ */
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10hi|\n", (short)27352);
+// 	printf("|%10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%30hi|\n", (short)27352);
+// 	printf("|%30hi|\n\n", (short)27352);
+
+// 	ft_printf("|%.6hi|\n", (short)27352);
+// 	printf("|%.6hi|\n\n", (short)27352);
+
+// 	ft_printf("|%.10hi|\n", (short)27352);
+// 	printf("|%.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%25.10hi|\n", (short)27352);
+// 	printf("|%25.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%25.*hi|\n", 10, (short)27352);
+// 	printf("|%25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%25.*hi|\n", 10, (short)27352);
+// 	printf("|%25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%*.*hi|\n", 25, 10, (short)27352);
+// 	printf("|%*.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|%*.10hi|\n", 25, (short)27352);
+// 	printf("|%*.10hi|\n\n", 25, (short)27352);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10hi|\n", (short)27352);
+// 	printf("|%-10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%-30hi|\n", (short)27352);
+// 	printf("|%-30hi|\n\n", (short)27352);
+
+// 	ft_printf("|%-.6hi|\n", (short)27352);
+// 	printf("|%-.6hi|\n\n", (short)27352);
+
+// 	ft_printf("|%-.10hi|\n", (short)27352);
+// 	printf("|%-.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%-25.10hi|\n", (short)27352);
+// 	printf("|%-25.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%-25.*hi|\n", 10, (short)27352);
+// 	printf("|%-25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%-25.*hi|\n", 10, (short)27352);
+// 	printf("|%-25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%-*.*hi|\n", 25, 10, (short)27352);
+// 	printf("|%-*.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|%-*.10hi|\n", 25, (short)27352);
+// 	printf("|%-*.10hi|\n\n", 25, (short)27352);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10hi|\n", (short)27352);
+// 	printf("|%+-10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%+-30hi|\n", (short)27352);
+// 	printf("|%+-30hi|\n\n", (short)27352);
+
+// 	ft_printf("|%+-.6hi|\n", (short)27352);
+// 	printf("|%+-.6hi|\n\n", (short)27352);
+
+// 	ft_printf("|%+-.10hi|\n", (short)27352);
+// 	printf("|%+-.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%+-25.10hi|\n", (short)27352);
+// 	printf("|%+-25.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%+-25.*hi|\n", 10, (short)27352);
+// 	printf("|%+-25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%+-25.*hi|\n", 10, (short)27352);
+// 	printf("|%+-25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%+-*.*hi|\n", 25, 10, (short)27352);
+// 	printf("|%+-*.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|%+-*.10hi|\n", 25, (short)27352);
+// 	printf("|%+-*.10hi|\n\n", 25, (short)27352);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10hi|\n", (short)-27352);
+// 	printf("|%+-10hi|\n\n", (short)-27352);
+
+// 	ft_printf("|%+-30hi|\n", (short)-27352);
+// 	printf("|%+-30hi|\n\n", (short)-27352);
+
+// 	ft_printf("|%+-.6hi|\n", (short)-27352);
+// 	printf("|%+-.6hi|\n\n", (short)-27352);
+
+// 	ft_printf("|%+-.10hi|\n", (short)-27352);
+// 	printf("|%+-.10hi|\n\n", (short)-27352);
+
+// 	ft_printf("|%+-25.10hi|\n", (short)-27352);
+// 	printf("|%+-25.10hi|\n\n", (short)-27352);
+
+// 	ft_printf("|%+-25.*hi|\n", 10, (short)-27352);
+// 	printf("|%+-25.*hi|\n\n", 10, (short)-27352);
+
+// 	ft_printf("|%+-25.*hi|\n", 10, (short)-27352);
+// 	printf("|%+-25.*hi|\n\n", 10, (short)-27352);
+
+// 	ft_printf("|%+-*.*hi|\n", 25, 10, (short)-27352);
+// 	printf("|%+-*.*hi|\n\n", 25, 10, (short)-27352);
+
+// 	ft_printf("|%+-*.10hi|\n", 25, (short)-27352);
+// 	printf("|%+-*.10hi|\n\n", 25, (short)-27352);
+
+// // Width & Precision ('-' with ' ')
+
+// 	ft_printf("|% -10hi|\n", (short)27352);
+// 	printf("|% -10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% -30hi|\n", (short)27352);
+// 	printf("|% -30hi|\n\n", (short)27352);
+
+// 	ft_printf("|% -.6hi|\n", (short)27352);
+// 	printf("|% -.6hi|\n\n", (short)27352);
+
+// 	ft_printf("|% -.10hi|\n", (short)27352);
+// 	printf("|% -.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% -25.10hi|\n", (short)27352);
+// 	printf("|% -25.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% -25.*hi|\n", 10, (short)27352);
+// 	printf("|% -25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|% -25.*hi|\n", 10, (short)27352);
+// 	printf("|% -25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|% -*.*hi|\n", 25, 10, (short)27352);
+// 	printf("|% -*.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|% -*.10hi|\n", 25, (short)27352);
+// 	printf("|% -*.10hi|\n\n", 25, (short)27352);
+
+// // Width & Precision ' ')
+
+// 	ft_printf("|% 10hi|\n", (short)27352);
+// 	printf("|% 10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% 30hi|\n", (short)27352);
+// 	printf("|% 30hi|\n\n", (short)27352);
+
+// 	ft_printf("|% .6hi|\n", (short)27352);
+// 	printf("|% .6hi|\n\n", (short)27352);
+
+// 	ft_printf("|% .10hi|\n", (short)27352);
+// 	printf("|% .10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% 25.10hi|\n", (short)27352);
+// 	printf("|% 25.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|% 25.*hi|\n", 10, (short)27352);
+// 	printf("|% 25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|% 25.*hi|\n", 10, (short)27352);
+// 	printf("|% 25.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|% *.*hi|\n", 25, 10, (short)27352);
+// 	printf("|% *.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|% *.10hi|\n", 25, (short)27352);
+// 	printf("|% *.10hi|\n\n", 25, (short)27352);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010hi|\n", (short)27352);
+// 	printf("|%010hi|\n\n", (short)27352);
+
+// 	ft_printf("|%030hi|\n", (short)27352);
+// 	printf("|%030hi|\n\n", (short)27352);
+
+// 	ft_printf("|%0.6hi|\n", (short)27352);
+// 	printf("|%0.6hi|\n\n", (short)27352);
+
+// 	ft_printf("|%0.10hi|\n", (short)27352);
+// 	printf("|%0.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%025.10hi|\n", (short)27352);
+// 	printf("|%025.10hi|\n\n", (short)27352);
+
+// 	ft_printf("|%025.*hi|\n", 10, (short)27352);
+// 	printf("|%025.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%025.*hi|\n", 10, (short)27352);
+// 	printf("|%025.*hi|\n\n", 10, (short)27352);
+
+// 	ft_printf("|%0*.*hi|\n", 25, 10, (short)27352);
+// 	printf("|%0*.*hi|\n\n", 25, 10, (short)27352);
+
+// 	ft_printf("|%0*.10hi|\n", 25, (short)27352);
+// 	printf("|%0*.10hi|\n\n", 25, (short)27352);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH DEFAULT +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH DEFAULT +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10i|\n", 12345);
+// 	printf("|%10i|\n\n", 12345);
+
+// 	ft_printf("|%30i|\n", 12345);
+// 	printf("|%30i|\n\n", 12345);
+
+// 	ft_printf("|%.6i|\n", 12345);
+// 	printf("|%.6i|\n\n", 12345);
+
+// 	ft_printf("|%.10i|\n", 12345);
+// 	printf("|%.10i|\n\n", 12345);
+
+// 	ft_printf("|%25.10i|\n", 12345);
+// 	printf("|%25.10i|\n\n", 12345);
+
+// 	ft_printf("|%25.*i|\n", 10, 12345);
+// 	printf("|%25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%25.*i|\n", 10, 12345);
+// 	printf("|%25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%*.*i|\n", 25, 10, 12345);
+// 	printf("|%*.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|%*.10i|\n", 25, 12345);
+// 	printf("|%*.10i|\n\n", 25, 12345);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10i|\n", 12345);
+// 	printf("|%-10i|\n\n", 12345);
+
+// 	ft_printf("|%-30i|\n", 12345);
+// 	printf("|%-30i|\n\n", 12345);
+
+// 	ft_printf("|%-.6i|\n", 12345);
+// 	printf("|%-.6i|\n\n", 12345);
+
+// 	ft_printf("|%-.10i|\n", 12345);
+// 	printf("|%-.10i|\n\n", 12345);
+
+// 	ft_printf("|%-25.10i|\n", 12345);
+// 	printf("|%-25.10i|\n\n", 12345);
+
+// 	ft_printf("|%-25.*i|\n", 10, 12345);
+// 	printf("|%-25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%-25.*i|\n", 10, 12345);
+// 	printf("|%-25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%-*.*i|\n", 25, 10, 12345);
+// 	printf("|%-*.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|%-*.10i|\n", 25, 12345);
+// 	printf("|%-*.10i|\n\n", 25, 12345);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10i|\n", 12345);
+// 	printf("|%+-10i|\n\n", 12345);
+
+// 	ft_printf("|%+-30i|\n", 12345);
+// 	printf("|%+-30i|\n\n", 12345);
+
+// 	ft_printf("|%+-.6i|\n", 12345);
+// 	printf("|%+-.6i|\n\n", 12345);
+
+// 	ft_printf("|%+-.10i|\n", 12345);
+// 	printf("|%+-.10i|\n\n", 12345);
+
+// 	ft_printf("|%+-25.10i|\n", 12345);
+// 	printf("|%+-25.10i|\n\n", 12345);
+
+// 	ft_printf("|%+-25.*i|\n", 10, 12345);
+// 	printf("|%+-25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%+-25.*i|\n", 10, 12345);
+// 	printf("|%+-25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%+-*.*i|\n", 25, 10, 12345);
+// 	printf("|%+-*.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|%+-*.10i|\n", 25, 12345);
+// 	printf("|%+-*.10i|\n\n", 25, 12345);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10i|\n", -12345);
+// 	printf("|%+-10i|\n\n", -12345);
+
+// 	ft_printf("|%+-30i|\n", -12345);
+// 	printf("|%+-30i|\n\n", -12345);
+
+// 	ft_printf("|%+-.6i|\n", -12345);
+// 	printf("|%+-.6i|\n\n", -12345);
+
+// 	ft_printf("|%+-.10i|\n", -12345);
+// 	printf("|%+-.10i|\n\n", -12345);
+
+// 	ft_printf("|%+-25.10i|\n", -12345);
+// 	printf("|%+-25.10i|\n\n", -12345);
+
+// 	ft_printf("|%+-25.*i|\n", 10, -12345);
+// 	printf("|%+-25.*i|\n\n", 10, -12345);
+
+// 	ft_printf("|%+-25.*i|\n", 10, -12345);
+// 	printf("|%+-25.*i|\n\n", 10, -12345);
+
+// 	ft_printf("|%+-*.*i|\n", 25, 10, -12345);
+// 	printf("|%+-*.*i|\n\n", 25, 10, -12345);
+
+// 	ft_printf("|%+-*.10i|\n", 25, -12345);
+// 	printf("|%+-*.10i|\n\n", 25, -12345);
+
+// // Width & Precision ('-' with ' ')
+
+// 	ft_printf("|% -10i|\n", 12345);
+// 	printf("|% -10i|\n\n", 12345);
+
+// 	ft_printf("|% -30i|\n", 12345);
+// 	printf("|% -30i|\n\n", 12345);
+
+// 	ft_printf("|% -.6i|\n", 12345);
+// 	printf("|% -.6i|\n\n", 12345);
+
+// 	ft_printf("|% -.10i|\n", 12345);
+// 	printf("|% -.10i|\n\n", 12345);
+
+// 	ft_printf("|% -25.10i|\n", 12345);
+// 	printf("|% -25.10i|\n\n", 12345);
+
+// 	ft_printf("|% -25.*i|\n", 10, 12345);
+// 	printf("|% -25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|% -25.*i|\n", 10, 12345);
+// 	printf("|% -25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|% -*.*i|\n", 25, 10, 12345);
+// 	printf("|% -*.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|% -*.10i|\n", 25, 12345);
+// 	printf("|% -*.10i|\n\n", 25, 12345);
+
+// // Width & Precision ' ')
+
+// 	ft_printf("|% 10i|\n", 12345);
+// 	printf("|% 10i|\n\n", 12345);
+
+// 	ft_printf("|% 30i|\n", 12345);
+// 	printf("|% 30i|\n\n", 12345);
+
+// 	ft_printf("|% .6i|\n", 12345);
+// 	printf("|% .6i|\n\n", 12345);
+
+// 	ft_printf("|% .10i|\n", 12345);
+// 	printf("|% .10i|\n\n", 12345);
+
+// 	ft_printf("|% 25.10i|\n", 12345);
+// 	printf("|% 25.10i|\n\n", 12345);
+
+// 	ft_printf("|% 25.*i|\n", 10, 12345);
+// 	printf("|% 25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|% 25.*i|\n", 10, 12345);
+// 	printf("|% 25.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|% *.*i|\n", 25, 10, 12345);
+// 	printf("|% *.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|% *.10i|\n", 25, 12345);
+// 	printf("|% *.10i|\n\n", 25, 12345);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010i|\n", 12345);
+// 	printf("|%010i|\n\n", 12345);
+
+// 	ft_printf("|%030i|\n", 12345);
+// 	printf("|%030i|\n\n", 12345);
+
+// 	ft_printf("|%0.6i|\n", 12345);
+// 	printf("|%0.6i|\n\n", 12345);
+
+// 	ft_printf("|%0.10i|\n", 12345);
+// 	printf("|%0.10i|\n\n", 12345);
+
+// 	ft_printf("|%025.10i|\n", 12345);
+// 	printf("|%025.10i|\n\n", 12345);
+
+// 	ft_printf("|%025.*i|\n", 10, 12345);
+// 	printf("|%025.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%025.*i|\n", 10, 12345);
+// 	printf("|%025.*i|\n\n", 10, 12345);
+
+// 	ft_printf("|%0*.*i|\n", 25, 10, 12345);
+// 	printf("|%0*.*i|\n\n", 25, 10, 12345);
+
+// 	ft_printf("|%0*.10i|\n", 25, 12345);
+// 	printf("|%0*.10i|\n\n", 25, 12345);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH L +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH L +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10li|\n", (signed long)52728623);
+// 	printf("|%10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%30li|\n", (signed long)52728623);
+// 	printf("|%30li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%.6li|\n", (signed long)52728623);
+// 	printf("|%.6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%.10li|\n", (signed long)52728623);
+// 	printf("|%.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%40.10li|\n", (signed long)52728623);
+// 	printf("|%40.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%*.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|%*.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|%*.10li|\n", 40, (signed long)52728623);
+// 	printf("|%*.10li|\n\n", 40, (signed long)52728623);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10li|\n", (signed long)52728623);
+// 	printf("|%-10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%-30li|\n", (signed long)52728623);
+// 	printf("|%-30li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%-.6li|\n", (signed long)52728623);
+// 	printf("|%-.6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%-.10li|\n", (signed long)52728623);
+// 	printf("|%-.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%-40.10li|\n", (signed long)52728623);
+// 	printf("|%-40.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%-40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%-40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%-40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%-40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%-*.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|%-*.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|%-*.10li|\n", 40, (signed long)52728623);
+// 	printf("|%-*.10li|\n\n", 40, (signed long)52728623);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10li|\n", (signed long)52728623);
+// 	printf("|%+-10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%+-30li|\n", (signed long)52728623);
+// 	printf("|%+-30li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%+-.6li|\n", (signed long)52728623);
+// 	printf("|%+-.6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%+-.10li|\n", (signed long)52728623);
+// 	printf("|%+-.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%+-40.10li|\n", (signed long)52728623);
+// 	printf("|%+-40.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%+-40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%+-40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%+-40.*li|\n", 10, (signed long)52728623);
+// 	printf("|%+-40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%+-*.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|%+-*.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|%+-*.10li|\n", 40, (signed long)52728623);
+// 	printf("|%+-*.10li|\n\n", 40, (signed long)52728623);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-10li|\n", (signed long)-52728623);
+// 	printf("|%+-10li|\n\n", (signed long)-52728623);
+
+// 	ft_printf("|%+-30li|\n", (signed long)-52728623);
+// 	printf("|%+-30li|\n\n", (signed long)-52728623);
+
+// 	ft_printf("|%+-.6li|\n", (signed long)-52728623);
+// 	printf("|%+-.6li|\n\n", (signed long)-52728623);
+
+// 	ft_printf("|%+-.10li|\n", (signed long)-52728623);
+// 	printf("|%+-.10li|\n\n", (signed long)-52728623);
+
+// 	ft_printf("|%+-40.10li|\n", (signed long)-52728623);
+// 	printf("|%+-40.10li|\n\n", (signed long)-52728623);
+
+// 	ft_printf("|%+-40.*li|\n", 10, (signed long)-52728623);
+// 	printf("|%+-40.*li|\n\n", 10, (signed long)-52728623);
+
+// 	ft_printf("|%+-40.*li|\n", 10, (signed long)-52728623);
+// 	printf("|%+-40.*li|\n\n", 10, (signed long)-52728623);
+
+// 	ft_printf("|%+-*.*li|\n", 40, 10, (signed long)-52728623);
+// 	printf("|%+-*.*li|\n\n", 40, 10, (signed long)-52728623);
+
+// 	ft_printf("|%+-*.10li|\n", 40, (signed long)-52728623);
+// 	printf("|%+-*.10li|\n\n", 40, (signed long)-52728623);
+
+// // Width & Precision ('-' with ' ')
+
+// 	ft_printf("|% -10li|\n", (signed long)52728623);
+// 	printf("|% -10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% -30li|\n", (signed long)52728623);
+// 	printf("|% -30li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% -.6li|\n", (signed long)52728623);
+// 	printf("|% -.6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% -.10li|\n", (signed long)52728623);
+// 	printf("|% -.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% -40.10li|\n", (signed long)52728623);
+// 	printf("|% -40.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% -40.*li|\n", 10, (signed long)52728623);
+// 	printf("|% -40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|% -40.*li|\n", 10, (signed long)52728623);
+// 	printf("|% -40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|% -*.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|% -*.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|% -*.10li|\n", 40, (signed long)52728623);
+// 	printf("|% -*.10li|\n\n", 40, (signed long)52728623);
+
+// // Width & Precision ' ')
+
+// 	ft_printf("|% 10li|\n", (signed long)52728623);
+// 	printf("|% 10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% 30li|\n", (signed long)52728623);
+// 	printf("|% 30li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% .6li|\n", (signed long)52728623);
+// 	printf("|% .6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% .10li|\n", (signed long)52728623);
+// 	printf("|% .10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% 40.10li|\n", (signed long)52728623);
+// 	printf("|% 40.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|% 40.*li|\n", 10, (signed long)52728623);
+// 	printf("|% 40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|% 40.*li|\n", 10, (signed long)52728623);
+// 	printf("|% 40.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|% *.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|% *.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|% *.10li|\n", 40, (signed long)52728623);
+// 	printf("|% *.10li|\n\n", 40, (signed long)52728623);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010li|\n", (signed long)52728623);
+// 	printf("|%010li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%030li|\n", (signed long)52728623);
+// 	printf("|%030li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%0.6li|\n", (signed long)52728623);
+// 	printf("|%0.6li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%0.10li|\n", (signed long)52728623);
+// 	printf("|%0.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%040.10li|\n", (signed long)52728623);
+// 	printf("|%040.10li|\n\n", (signed long)52728623);
+
+// 	ft_printf("|%040.*li|\n", 10, (signed long)52728623);
+// 	printf("|%040.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%040.*li|\n", 10, (signed long)52728623);
+// 	printf("|%040.*li|\n\n", 10, (signed long)52728623);
+
+// 	ft_printf("|%0*.*li|\n", 40, 10, (signed long)52728623);
+// 	printf("|%0*.*li|\n\n", 40, 10, (signed long)52728623);
+
+// 	ft_printf("|%0*.10li|\n", 40, (signed long)52728623);
+// 	printf("|%0*.10li|\n\n", 40, (signed long)52728623);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH LL +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH LL +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10lli|\n", (long long int)27323472342);
+// 	printf("|%10lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%30lli|\n", (long long int)27323472342);
+// 	printf("|%30lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%.6lli|\n", (long long int)27323472342);
+// 	printf("|%.6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%.10lli|\n", (long long int)27323472342);
+// 	printf("|%.10lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%25.10lli|\n", (long long int)27323472342);
+// 	printf("|%25.10lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%25.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%25.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%25.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%25.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%*.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%*.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%*.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|%*.60lli|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-60lli|\n", (long long int)27323472342);
+// 	printf("|%-60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-30lli|\n", (long long int)27323472342);
+// 	printf("|%-30lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-.6lli|\n", (long long int)27323472342);
+// 	printf("|%-.6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-.60lli|\n", (long long int)27323472342);
+// 	printf("|%-.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-50.60lli|\n", (long long int)27323472342);
+// 	printf("|%-50.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%-50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%-50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%-50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%-*.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%-*.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%-*.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|%-*.60lli|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-60lli|\n", (long long int)27323472342);
+// 	printf("|%+-60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%+-30lli|\n", (long long int)27323472342);
+// 	printf("|%+-30lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%+-.6lli|\n", (long long int)27323472342);
+// 	printf("|%+-.6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%+-.60lli|\n", (long long int)27323472342);
+// 	printf("|%+-.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%+-50.60lli|\n", (long long int)27323472342);
+// 	printf("|%+-50.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%+-50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%+-50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%+-50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%+-50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%+-*.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%+-*.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%+-*.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|%+-*.60lli|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision ('-' with '+')
+
+// 	ft_printf("|%+-60lli|\n", (long long int)-27323472342);
+// 	printf("|%+-60lli|\n\n", (long long int)-27323472342);
+
+// 	ft_printf("|%+-30lli|\n", (long long int)-27323472342);
+// 	printf("|%+-30lli|\n\n", (long long int)-27323472342);
+
+// 	ft_printf("|%+-.6lli|\n", (long long int)-27323472342);
+// 	printf("|%+-.6lli|\n\n", (long long int)-27323472342);
+
+// 	ft_printf("|%+-.60lli|\n", (long long int)-27323472342);
+// 	printf("|%+-.60lli|\n\n", (long long int)-27323472342);
+
+// 	ft_printf("|%+-50.60lli|\n", (long long int)-27323472342);
+// 	printf("|%+-50.60lli|\n\n", (long long int)-27323472342);
+
+// 	ft_printf("|%+-50.*lli|\n", 60, (long long int)-27323472342);
+// 	printf("|%+-50.*lli|\n\n", 60, (long long int)-27323472342);
+
+// 	ft_printf("|%+-50.*lli|\n", 60, (long long int)-27323472342);
+// 	printf("|%+-50.*lli|\n\n", 60, (long long int)-27323472342);
+
+// 	ft_printf("|%+-*.*lli|\n", 50, 60, (long long int)-27323472342);
+// 	printf("|%+-*.*lli|\n\n", 50, 60, (long long int)-27323472342);
+
+// 	ft_printf("|%+-*.60lli|\n", 50, (long long int)-27323472342);
+// 	printf("|%+-*.60lli|\n\n", 50, (long long int)-27323472342);
+
+// // Width & Precision ('-' with ' ')
+
+// 	ft_printf("|% -60lli|\n", (long long int)27323472342);
+// 	printf("|% -60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% -30lli|\n", (long long int)27323472342);
+// 	printf("|% -30lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% -.6lli|\n", (long long int)27323472342);
+// 	printf("|% -.6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% -.60lli|\n", (long long int)27323472342);
+// 	printf("|% -.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% -50.60lli|\n", (long long int)27323472342);
+// 	printf("|% -50.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% -50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|% -50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|% -50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|% -50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|% -*.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|% -*.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|% -*.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|% -*.60lli|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision ' ')
+
+// 	ft_printf("|% 60lli|\n", (long long int)27323472342);
+// 	printf("|% 60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% 30lli|\n", (long long int)27323472342);
+// 	printf("|% 30lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% .6lli|\n", (long long int)27323472342);
+// 	printf("|% .6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% .60lli|\n", (long long int)27323472342);
+// 	printf("|% .60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% 50.60lli|\n", (long long int)27323472342);
+// 	printf("|% 50.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|% 50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|% 50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|% 50.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|% 50.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|% *.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|% *.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|% *.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|% *.60lli|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%060lli|\n", (long long int)27323472342);
+// 	printf("|%060lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%030lli|\n", (long long int)27323472342);
+// 	printf("|%030lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%0.6lli|\n", (long long int)27323472342);
+// 	printf("|%0.6lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%0.60lli|\n", (long long int)27323472342);
+// 	printf("|%0.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%050.60lli|\n", (long long int)27323472342);
+// 	printf("|%050.60lli|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%050.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%050.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%050.*lli|\n", 60, (long long int)27323472342);
+// 	printf("|%050.*lli|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%0*.*lli|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%0*.*lli|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%0*.60lli|\n", 50, (long long int)27323472342);
+// 	printf("|%0*.60lli|\n\n", 50, (long long int)27323472342);
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %c SPECIFIER TESTS */
+// /* %u SPECIFIER TESTS */
 
 // /**
 //  * Only takes the following flags & fields:
 //  *
-//  * 		– Flag: '-',
-//  *       - Width
+//  * 		– Flag: '-', '0'
+//  *       - Width: defined or '*'
+//  *       - Precision: defined or '*'
+//  *       - Length: 'h', 'hh', 'l', 'll'
 //  *
 //  */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// // MAXs & MINs
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%hhu|\n",  (unsigned char)UCHAR_MAX);
+// 	printf("|%hhu|\n\n",   (unsigned char)UCHAR_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%hu|\n",   (unsigned short)USHORT_MAX);
+// 	printf("|%hu|\n\n",    (unsigned short)USHORT_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%u|\n",    (unsigned int)UINT_MAX);
+// 	printf("|%u|\n\n",     (unsigned int)UINT_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%lu|\n",   (unsigned long)ULONG_MAX);
+// 	printf("|%lu|\n\n",    (unsigned long)ULONG_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%llu|\n",  (unsigned long long)ULLONG_MAX);
+// 	printf("|%llu|\n\n",   (unsigned long long)ULLONG_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+
+// /* ++++++++++++++++++++++++++++ LENGTH HH +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH HH +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10hhu|\n", (unsigned char)112);
+// 	printf("|%10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%30hhu|\n", (unsigned char)112);
+// 	printf("|%30hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%.6hhu|\n", (unsigned char)112);
+// 	printf("|%.6hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%.10hhu|\n", (unsigned char)112);
+// 	printf("|%.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%25.10hhu|\n", (unsigned char)112);
+// 	printf("|%25.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%*.*hhu|\n", 25, 10, (unsigned char)112);
+// 	printf("|%*.*hhu|\n\n", 25, 10, (unsigned char)112);
+
+// 	ft_printf("|%*.10hhu|\n", 25, (unsigned char)112);
+// 	printf("|%*.10hhu|\n\n", 25, (unsigned char)112);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10hhu|\n", (unsigned char)112);
+// 	printf("|%-10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-30hhu|\n", (unsigned char)112);
+// 	printf("|%-30hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-.6hhu|\n", (unsigned char)112);
+// 	printf("|%-.6hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-.10hhu|\n", (unsigned char)112);
+// 	printf("|%-.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-25.10hhu|\n", (unsigned char)112);
+// 	printf("|%-25.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%-25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%-25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%-25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%-*.*hhu|\n", 25, 10, (unsigned char)112);
+// 	printf("|%-*.*hhu|\n\n", 25, 10, (unsigned char)112);
+
+// 	ft_printf("|%-*.10hhu|\n", 25, (unsigned char)112);
+// 	printf("|%-*.10hhu|\n\n", 25, (unsigned char)112);
+
+// // Width & Precision ('-')
+
+// 	ft_printf("|%-10hhu|\n", (unsigned char)112);
+// 	printf("|%-10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-30hhu|\n", (unsigned char)112);
+// 	printf("|%-30hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-.6hhu|\n", (unsigned char)112);
+// 	printf("|%-.6hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-.10hhu|\n", (unsigned char)112);
+// 	printf("|%-.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-25.10hhu|\n", (unsigned char)112);
+// 	printf("|%-25.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%-25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%-25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%-25.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%-25.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%-*.*hhu|\n", 25, 10, (unsigned char)112);
+// 	printf("|%-*.*hhu|\n\n", 25, 10, (unsigned char)112);
+
+// 	ft_printf("|%-*.10hhu|\n", 25, (unsigned char)112);
+// 	printf("|%-*.10hhu|\n\n", 25, (unsigned char)112);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010hhu|\n", (unsigned char)112);
+// 	printf("|%010hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%030hhu|\n", (unsigned char)112);
+// 	printf("|%030hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%0.6hhu|\n", (unsigned char)112);
+// 	printf("|%0.6hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%0.10hhu|\n", (unsigned char)112);
+// 	printf("|%0.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%025.10hhu|\n", (unsigned char)112);
+// 	printf("|%025.10hhu|\n\n", (unsigned char)112);
+
+// 	ft_printf("|%025.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%025.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%025.*hhu|\n", 10, (unsigned char)112);
+// 	printf("|%025.*hhu|\n\n", 10, (unsigned char)112);
+
+// 	ft_printf("|%0*.*hhu|\n", 25, 10, (unsigned char)112);
+// 	printf("|%0*.*hhu|\n\n", 25, 10, (unsigned char)112);
+
+// 	ft_printf("|%0*.10hhu|\n", 25, (unsigned char)112);
+// 	printf("|%0*.10hhu|\n\n", 25, (unsigned char)112);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH H +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH H +++++++++++++++++++++++++++ */
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10hu|\n", (unsigned short)27352);
+// 	printf("|%10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%30hu|\n", (unsigned short)27352);
+// 	printf("|%30hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%.6hu|\n", (unsigned short)27352);
+// 	printf("|%.6hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%.10hu|\n", (unsigned short)27352);
+// 	printf("|%.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%25.10hu|\n", (unsigned short)27352);
+// 	printf("|%25.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%25.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%25.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%25.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%25.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%*.*hu|\n", 25, 10, (unsigned short)27352);
+// 	printf("|%*.*hu|\n\n", 25, 10, (unsigned short)27352);
+
+// 	ft_printf("|%*.10hu|\n", 25, (unsigned short)27352);
+// 	printf("|%*.10hu|\n\n", 25, (unsigned short)27352);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10hu|\n", (unsigned short)27352);
+// 	printf("|%-10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%-30hu|\n", (unsigned short)27352);
+// 	printf("|%-30hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%-.6hu|\n", (unsigned short)27352);
+// 	printf("|%-.6hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%-.10hu|\n", (unsigned short)27352);
+// 	printf("|%-.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%-25.10hu|\n", (unsigned short)27352);
+// 	printf("|%-25.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%-25.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%-25.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%-25.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%-25.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%-*.*hu|\n", 25, 10, (unsigned short)27352);
+// 	printf("|%-*.*hu|\n\n", 25, 10, (unsigned short)27352);
+
+// 	ft_printf("|%-*.10hu|\n", 25, (unsigned short)27352);
+// 	printf("|%-*.10hu|\n\n", 25, (unsigned short)27352);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010hu|\n", (unsigned short)27352);
+// 	printf("|%010hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%030hu|\n", (unsigned short)27352);
+// 	printf("|%030hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%0.6hu|\n", (unsigned short)27352);
+// 	printf("|%0.6hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%0.10hu|\n", (unsigned short)27352);
+// 	printf("|%0.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%025.10hu|\n", (unsigned short)27352);
+// 	printf("|%025.10hu|\n\n", (unsigned short)27352);
+
+// 	ft_printf("|%025.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%025.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%025.*hu|\n", 10, (unsigned short)27352);
+// 	printf("|%025.*hu|\n\n", 10, (unsigned short)27352);
+
+// 	ft_printf("|%0*.*hu|\n", 25, 10, (unsigned short)27352);
+// 	printf("|%0*.*hu|\n\n", 25, 10, (unsigned short)27352);
+
+// 	ft_printf("|%0*.10hu|\n", 25, (unsigned short)27352);
+// 	printf("|%0*.10hu|\n\n", 25, (unsigned short)27352);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH DEFAULT +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH DEFAULT +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10u|\n", (unsigned int)12345);
+// 	printf("|%10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%30u|\n", (unsigned int)12345);
+// 	printf("|%30u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%.6u|\n", (unsigned int)12345);
+// 	printf("|%.6u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%.10u|\n", (unsigned int)12345);
+// 	printf("|%.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%25.10u|\n", (unsigned int)12345);
+// 	printf("|%25.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%25.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%25.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%25.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%25.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%*.*u|\n", 25, 10, (unsigned int)12345);
+// 	printf("|%*.*u|\n\n", 25, 10, (unsigned int)12345);
+
+// 	ft_printf("|%*.10u|\n", 25, (unsigned int)12345);
+// 	printf("|%*.10u|\n\n", 25, (unsigned int)12345);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10u|\n", (unsigned int)12345);
+// 	printf("|%-10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%-30u|\n", (unsigned int)12345);
+// 	printf("|%-30u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%-.6u|\n", (unsigned int)12345);
+// 	printf("|%-.6u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%-.10u|\n", (unsigned int)12345);
+// 	printf("|%-.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%-25.10u|\n", (unsigned int)12345);
+// 	printf("|%-25.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%-25.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%-25.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%-25.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%-25.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%-*.*u|\n", 25, 10, (unsigned int)12345);
+// 	printf("|%-*.*u|\n\n", 25, 10, (unsigned int)12345);
+
+// 	ft_printf("|%-*.10u|\n", 25, (unsigned int)12345);
+// 	printf("|%-*.10u|\n\n", 25, (unsigned int)12345);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010u|\n", (unsigned int)12345);
+// 	printf("|%010u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%030u|\n", (unsigned int)12345);
+// 	printf("|%030u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%0.6u|\n", (unsigned int)12345);
+// 	printf("|%0.6u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%0.10u|\n", (unsigned int)12345);
+// 	printf("|%0.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%025.10u|\n", (unsigned int)12345);
+// 	printf("|%025.10u|\n\n", (unsigned int)12345);
+
+// 	ft_printf("|%025.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%025.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%025.*u|\n", 10, (unsigned int)12345);
+// 	printf("|%025.*u|\n\n", 10, (unsigned int)12345);
+
+// 	ft_printf("|%0*.*u|\n", 25, 10, (unsigned int)12345);
+// 	printf("|%0*.*u|\n\n", 25, 10, (unsigned int)12345);
+
+// 	ft_printf("|%0*.10u|\n", 25, (unsigned int)12345);
+// 	printf("|%0*.10u|\n\n", 25, (unsigned int)12345);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH L +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH L +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10lu|\n", (unsigned long)52728623);
+// 	printf("|%10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%30lu|\n", (unsigned long)52728623);
+// 	printf("|%30lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%.6lu|\n", (unsigned long)52728623);
+// 	printf("|%.6lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%.10lu|\n", (unsigned long)52728623);
+// 	printf("|%.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%40.10lu|\n", (unsigned long)52728623);
+// 	printf("|%40.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%40.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%40.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%40.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%40.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%*.*lu|\n", 40, 10, (unsigned long)52728623);
+// 	printf("|%*.*lu|\n\n", 40, 10, (unsigned long)52728623);
+
+// 	ft_printf("|%*.10lu|\n", 40, (unsigned long)52728623);
+// 	printf("|%*.10lu|\n\n", 40, (unsigned long)52728623);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-10lu|\n", (unsigned long)52728623);
+// 	printf("|%-10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%-30lu|\n", (unsigned long)52728623);
+// 	printf("|%-30lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%-.6lu|\n", (unsigned long)52728623);
+// 	printf("|%-.6lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%-.10lu|\n", (unsigned long)52728623);
+// 	printf("|%-.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%-40.10lu|\n", (unsigned long)52728623);
+// 	printf("|%-40.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%-40.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%-40.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%-40.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%-40.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%-*.*lu|\n", 40, 10, (unsigned long)52728623);
+// 	printf("|%-*.*lu|\n\n", 40, 10, (unsigned long)52728623);
+
+// 	ft_printf("|%-*.10lu|\n", 40, (unsigned long)52728623);
+// 	printf("|%-*.10lu|\n\n", 40, (unsigned long)52728623);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%010lu|\n", (unsigned long)52728623);
+// 	printf("|%010lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%030lu|\n", (unsigned long)52728623);
+// 	printf("|%030lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%0.6lu|\n", (unsigned long)52728623);
+// 	printf("|%0.6lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%0.10lu|\n", (unsigned long)52728623);
+// 	printf("|%0.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%040.10lu|\n", (unsigned long)52728623);
+// 	printf("|%040.10lu|\n\n", (unsigned long)52728623);
+
+// 	ft_printf("|%040.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%040.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%040.*lu|\n", 10, (unsigned long)52728623);
+// 	printf("|%040.*lu|\n\n", 10, (unsigned long)52728623);
+
+// 	ft_printf("|%0*.*lu|\n", 40, 10, (unsigned long)52728623);
+// 	printf("|%0*.*lu|\n\n", 40, 10, (unsigned long)52728623);
+
+// 	ft_printf("|%0*.10lu|\n", 40, (unsigned long)52728623);
+// 	printf("|%0*.10lu|\n\n", 40, (unsigned long)52728623);
+
+
+// /* ++++++++++++++++++++++++++++ LENGTH LL +++++++++++++++++++++++++++ */
+// /* ++++++++++++++++++++++++++++ LENGTH LL +++++++++++++++++++++++++++ */
+
+
+// // Width & Precision (with no flags)
+
+// 	ft_printf("|%10llu|\n", (long long int)27323472342);
+// 	printf("|%10llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%30llu|\n", (long long int)27323472342);
+// 	printf("|%30llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%.6llu|\n", (long long int)27323472342);
+// 	printf("|%.6llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%.10llu|\n", (long long int)27323472342);
+// 	printf("|%.10llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%25.10llu|\n", (long long int)27323472342);
+// 	printf("|%25.10llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%25.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%25.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%25.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%25.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%*.*llu|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%*.*llu|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%*.60llu|\n", 50, (long long int)27323472342);
+// 	printf("|%*.60llu|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision (with '-')
+
+// 	ft_printf("|%-60llu|\n", (long long int)27323472342);
+// 	printf("|%-60llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-30llu|\n", (long long int)27323472342);
+// 	printf("|%-30llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-.6llu|\n", (long long int)27323472342);
+// 	printf("|%-.6llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-.60llu|\n", (long long int)27323472342);
+// 	printf("|%-.60llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-50.60llu|\n", (long long int)27323472342);
+// 	printf("|%-50.60llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%-50.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%-50.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%-50.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%-50.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%-*.*llu|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%-*.*llu|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%-*.60llu|\n", 50, (long long int)27323472342);
+// 	printf("|%-*.60llu|\n\n", 50, (long long int)27323472342);
+
+// // Width & Precision ('0')
+
+// 	ft_printf("|%060llu|\n", (long long int)27323472342);
+// 	printf("|%060llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%030llu|\n", (long long int)27323472342);
+// 	printf("|%030llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%0.6llu|\n", (long long int)27323472342);
+// 	printf("|%0.6llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%0.60llu|\n", (long long int)27323472342);
+// 	printf("|%0.60llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%050.60llu|\n", (long long int)27323472342);
+// 	printf("|%050.60llu|\n\n", (long long int)27323472342);
+
+// 	ft_printf("|%050.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%050.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%050.*llu|\n", 60, (long long int)27323472342);
+// 	printf("|%050.*llu|\n\n", 60, (long long int)27323472342);
+
+// 	ft_printf("|%0*.*llu|\n", 50, 60, (long long int)27323472342);
+// 	printf("|%0*.*llu|\n\n", 50, 60, (long long int)27323472342);
+
+// 	ft_printf("|%0*.60llu|\n", 50, (long long int)27323472342);
+// 	printf("|%0*.60llu|\n\n", 50, (long long int)27323472342);
+
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %c SPECIFIER TESTS */
+/* %o SPECIFIER TESTS */
 
-// /**
-//  * Only takes the following flags & fields:
-//  *
-//  * 		– Flag: '-',
-//  *       - Width
-//  *
-//  */
+/**
+ * Only takes the following flags & fields:
+ *
+**
+**             Flags: '-', '+', ' ', '0'
+**             Width: defined or '*'
+**             Precision: defined or '*'
+**             Length: 'L'
+ *
+ */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// MAXs & MINs --------------------------------------------- */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("|%f|\n",  (double)127.0);
+	printf("|%f|\n\n",   (double)127.0);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("|%f|\n",   (double)USHORT_MAX);
+	printf("|%f|\n\n",    (double)USHORT_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("|%f|\n",    (double)UINT_MAX);
+	printf("|%f|\n\n",     (double)UINT_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	// ft_printf("|%f|\n",   (double)ULONG_MAX);
+	// printf("|%f|\n\n",    (double)ULONG_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	// ft_printf("|%f|\n",  (double)ULLONG_MAX);
+	// printf("|%f|\n\n",   (double)ULLONG_MAX);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+	ft_printf("|%f|\n",  (double)CHAR_MIN);
+	printf("|%f|\n\n",   (double)CHAR_MIN);
+
+	ft_printf("|%f|\n",   (double)SHORT_MIN);
+	printf("|%f|\n\n",    (double)SHORT_MIN);
+
+	ft_printf("|%f|\n",    (double)INT_MIN);
+	printf("|%f|\n\n",     (double)INT_MIN);
+
+	// ft_printf("|%f|\n",   (double)LONG_MIN);
+	// printf("|%f|\n\n",    (double)LONG_MIN);
+
+	// ft_printf("|%f|\n",  (double)LLONG_MIN);
+	// printf("|%f|\n\n",   (double)LLONG_MIN);
+
+// /* --------------------------------------------- */
+
+	ft_printf("|%f|\n", 0.2323);
+	printf("|%f|\n\n", 0.2323);
+
+	ft_printf("|%f|\n", 0.2323);
+	printf("|%f|\n\n", 0.2323);
+
+	ft_printf("|%f|\n", 0.2323);
+	printf("|%f|\n\n", 0.2323);
+
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-// /* %c SPECIFIER TESTS */
+/* %b SPECIFIER TESTS */
 
-// /**
-//  * Only takes the following flags & fields:
-//  *
-//  * 		– Flag: '-',
-//  *       - Width
-//  *
-//  */
+/**
+ * Only takes the following flags & fields:
+ *
+ *
+ *             Flags: '-', '+', ' ', '0', '#'
+ *             Width: defined or '*'
+ *             Precision: defined or '*'
+ *             Length: 'hh', 'h', 'l', 'll'
+ *
+ */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// /* --------------------------------------------- */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|+%.32b|\n", INT_MAX);
+// 	ft_printf("|%b|\n\n", INT_MIN);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|+%.*b|\n", 32, INT_MAX);
+// 	ft_printf("|%b|\n\n", INT_MIN);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|% b|\n", 90);
+// 	ft_printf("|%b|\n\n", -90);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|% b|\n", 100);
+// 	ft_printf("|%b|\n\n", -100);
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// /* --------------------------------------------- */
 
-// 	ft_printf("||\n", );
-// 	printf("||\n\n", );
+// 	ft_printf("|%+#.*b|\n", 32, INT_MAX);
+// 	ft_printf("|%#b|\n\n", INT_MIN);
+
+// 	ft_printf("|%+#.32b|\n", INT_MAX);
+// 	ft_printf("|%#b|\n\n", INT_MIN);
+
+// 	ft_printf("|% #b|\n", 90);
+// 	ft_printf("|%#b|\n\n", -90);
+
+// 	ft_printf("|% #b|\n", 100);
+// 	ft_printf("|%#b|\n\n", -100);
+
+// /* --------------------------------------------- */
+
+// 	ft_printf("|%+#60.*b|\n", 32, INT_MAX);
+// 	ft_printf("|%#60b|\n\n", INT_MIN);
+
+// 	ft_printf("|%+#60.32b|\n", INT_MAX);
+// 	ft_printf("|%#60b|\n\n", INT_MIN);
+
+// 	ft_printf("|% #20b|\n", 90);
+// 	ft_printf("|%#20b|\n\n", -90);
+
+// 	ft_printf("|% #20b|\n", 100);
+// 	ft_printf("|%#20b|\n\n", -100);
+
+
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+/* %o SPECIFIER TESTS */
+
+/**
+ * Only takes the following flags & fields:
+ *
+**
+**             Flags: '-', '+', ' ', '0', '#'
+**             Width: defined or '*'
+**             Precision: defined or '*'
+**             Length: 'hh', 'h', 'l', 'll'
+ *
+ */
+
+	// ft_printf("|%p|\n", (void *)0);
+	// printf("|%p|\n\n", (void *)0);
+
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+/* %x SPECIFIER TESTS */
+
+/**
+ * Only takes the following flags & fields:
+ *
+**
+**             Flags: '-', '+', ' ', '0', '#'
+**             Width: defined or '*'
+**             Precision: defined or '*'
+**             Length: 'hh', 'h', 'l', 'll'
+ *
+ */
+
+	// ft_printf("|%p|\n", (void *)0);
+	// printf("|%p|\n\n", (void *)0);
+
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+/* %X SPECIFIER TESTS */
+
+/**
+ * Only takes the following flags & fields:
+ *
+**
+**             Flags: '-', '+', ' ', '0', '#'
+**             Width: defined or '*'
+**             Precision: defined or '*'
+**             Length: 'hh', 'h', 'l', 'll'
+ *
+ */
+
+	// ft_printf("|%p|\n", (void *)0);
+	// printf("|%p|\n\n", (void *)0);
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
@@ -347,6 +1993,14 @@ int		main(int ac, char *av[])
 
 	// ft_printf("|%*p|\n", 40, (void *)NULL);
 	// printf("|%*p|\n\n", 40, (void *)NULL);
+
+	// intmax_t num = -2386;
+
+	// ft_printf("%i\n", num);
+	// printf("%li\n\n", num);
+
+	ft_printf("|%+-10i|\n", -12356);
+	printf("|%+-10i|\n\n", -12356);
 
 	(void)ac;
 	(void)av;

@@ -104,9 +104,12 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_itoa_base.c                                         \
                 Stdlib/ft_ltoa_base.c                                         \
                 Stdlib/ft_lltoa_base.c                                        \
+                Stdlib/ft_utoa_base.c                                         \
                 Stdlib/ft_uitoa_base.c                                        \
                 Stdlib/ft_ultoa_base.c                                        \
                 Stdlib/ft_ulltoa_base.c                                       \
+                Stdlib/ft_ftoa.c                                              \
+                Stdlib/ft_ftoa_base.c                                         \
                 Stdlib/ft_convert_base.c                                      \
                 Stdlib/ft_find_next_prime.c                                   \
                 Stdlib/ft_wcount.c                                            \
