@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 15:47:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 22:06:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 23:55:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ t_char	**parse_style(const char *format, t_int8 *i)
 					);
 			styles = ft_strsplit(format, ' ');
 		}
+		(*i) += ft_strlen(format) + 2;
+		free((void *)format);
 	}
-	free((void *)format);
 	return (styles);
 }

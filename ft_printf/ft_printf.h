@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 18:36:26 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 22:51:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct			s_format_info
 	t_int32				precision;
 	t_int8				length;
 	t_int8				specifier;
-	t_char				**styles;
+	t_char				**style;
 	t_data				data;
 	t_char				pad;
 	t_int8				format_length;

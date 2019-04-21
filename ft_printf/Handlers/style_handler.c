@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 21:55:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:04:20 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,35 @@
 **
 **              \033[<code1>;<code2>; ... <codeN>m
 **
-**         Note: light colors are preceded with an 'l'.
+**         Note:
+**
+**            - light colors are preceded with an 'l'.
+**            - background colors are preceded with an 'bg'.
+**
+**       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+**
+**         How to specify a style in the format string ?
+**
+**               After the regular specifier format
+**               append to it, between two curly brackets
+**               '{}', all the styles that you want to apply
+**               to the output, by name, seperated by spaces.
+**
+**               Valid names of styles are only those found
+**               in the styles dispatch table below in the
+**               'style' field of each (t_style) element.
+**
+**         Examples:
+**
+**             "%s{red bgwhite underlined}"
+**
+**             "%r{inversed bold}"
+**
+**             "%i{lblue bglgreen}"
 **
 */
 
-t_style styles[] =
+t_style styles_table[] =
 {
 	{    "default",     "0"       },
 	\
@@ -73,6 +97,8 @@ t_style styles[] =
 	{    "bglblue",     "104",    },
 	{    "bglmagenta",  "105",    },
 	{    "bglcyan",     "106"     },
+	\
+	{    NULL,          NULL      }
 };
 
 /*
@@ -110,7 +136,30 @@ t_style styles[] =
 
 t_char	*style_handler(t_format format, t_char *string)
 {
-	(void)string;
-	(void)format;
-	return (NULL);
+	t_int16	i;
+	t_int16	j;
+	t_char	*style_str;
+
+	if (format.style != NULL)
+	{
+		style_str = ft_strdup("\033[");
+		i = -1;
+		while (format.style[++i])
+		{
+			j = -1;
+			while (styles_table[++j].style)
+				if (ft_strcmp(format.style[i], styles_table[j].style) == 0)
+				{
+						style_str = ft_strappend(
+							style_str, styles_table[j].ansi_code, 1, 0);
+					if (format.style[i + 1] != NULL)
+						style_str = ft_strappend(style_str, ";", 1, 0);
+				}
+		}
+		free(format.style);
+		style_str = ft_strappend(style_str, "m", 1, 0);
+		string = ft_strprepend(string, style_str, 1, 1);
+		string = ft_strappend(string, "\033[0m", 1, 0);
+	}
+	return (string);
 }
