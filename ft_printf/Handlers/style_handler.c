@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 00:16:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:21:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,12 @@ t_style styles_table[] =
 {
 	{    "default",     "0"       },
 	\
-	\
 	{    "underlined",  "4"       },
 	{    "bold",        "1"       },
 	{    "italic",      "3"       },
 	{    "inverted",    "7"       },
 	{    "dim",         "2"       },
 	{    "hidden",      "8"       },
-	\
 	\
 	{    "black",       "30",     },
 	{    "white",       "97",     },
@@ -78,7 +76,6 @@ t_style styles_table[] =
 	{    "lblue",       "94",     },
 	{    "lmagenta",    "95",     },
 	{    "lcyan",       "96"      },
-	\
 	\
 	{    "bgblack",     "40",     },
 	{    "bgwhite",     "107",    },
@@ -141,26 +138,25 @@ t_char	*style_handler(t_format format, t_char *string)
 	t_int16	j;
 	t_char	*style_str;
 
-	if (format.style != NULL)
+	if (format.style == NULL)
+		return (string);
+	style_str = ft_strdup("\033[");
+	i = -1;
+	while (format.style[++i])
 	{
-		style_str = ft_strdup("\033[");
-		i = -1;
-		while (format.style[++i])
-		{
-			j = -1;
-			while (styles_table[++j].style)
-				if (ft_strcmp(format.style[i], styles_table[j].style) == 0)
-				{
-						style_str = ft_strappend(
-							style_str, styles_table[j].ansi_code, 1, 0);
-					if (format.style[i + 1] != NULL)
-						style_str = ft_strappend(style_str, ";", 1, 0);
-				}
-		}
-		free(format.style);
-		style_str = ft_strappend(style_str, "m", 1, 0);
-		string = ft_strprepend(string, style_str, 1, 1);
-		string = ft_strappend(string, "\033[0m", 1, 0);
+		j = -1;
+		while (styles_table[++j].style)
+			if (ft_strcmp(format.style[i], styles_table[j].style) == 0)
+			{
+				style_str = ft_strappend(
+						style_str, styles_table[j].ansi_code, 1, 0);
+				if (format.style[i + 1] != NULL)
+					style_str = ft_strappend(style_str, ";", 1, 0);
+			}
 	}
+	free(format.style);
+	style_str = ft_strappend(style_str, "m", 1, 0);
+	string = ft_strprepend(string, style_str, 1, 1);
+	string = ft_strappend(string, "\033[0m", 1, 0);
 	return (string);
 }
