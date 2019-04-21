@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 11:45:32 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 12:59:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 **
 **    RETURN VALUES
 **         Returns a mask representing the specified flags.
-*/
+*/s
 
 t_int8			parse_flags(const char *format, t_int8 *i)
 {
