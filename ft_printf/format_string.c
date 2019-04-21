@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 15:54:18 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 18:51:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ t_char			*formatted_string(const char **format, va_list *args)
 					fstr = (info.flags & MINUS) ?
 					ft_strappend(fstr, ft_padding(info.width, info.pad), 1, 1) :
 					ft_strprepend(fstr, ft_padding(info.width, info.pad), 1, 1);
+				fstr = (info.styles != NULL) ? style_handler(info, fstr) : fstr;
 				break;
 			}
 	}

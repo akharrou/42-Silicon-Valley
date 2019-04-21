@@ -131,29 +131,29 @@ int		main(int ac, char *av[])
 //  *
 //  */
 
-	ft_printf("%r\n", NULL);
-	printf("%r\n", NULL);
+	// ft_printf("%r\n", NULL);
+	// printf("%r\n", NULL);
 
-	ft_printf("|%-10.2s|\n", "\x08hello\x09");
-	printf("|%-10.2s|\n\n", "\x08hello\x09");
+	// ft_printf("|%-10.2s|\n", "\x08hello\x09");
+	// printf("|%-10.2s|\n\n", "\x08hello\x09");
 
-	ft_printf("|%12.2s|\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
-	printf("|%12.2s|\n\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
+	// ft_printf("|%12.2s|\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
+	// printf("|%12.2s|\n\n", "\x30h\x29 e\x28l\x27l\x26o\x25");
 
-	ft_printf("|%-2.1223s|\n", "hello");
-	printf("|%-2.1223s|\n\n", "hello");
+	// ft_printf("|%-2.1223s|\n", "hello");
+	// printf("|%-2.1223s|\n\n", "hello");
 
-	ft_printf("|%-200.12s|\n", "hello");
-	printf("|%-200.12s|\n\n", "hello");
+	// ft_printf("|%-200.12s|\n", "hello");
+	// printf("|%-200.12s|\n\n", "hello");
 
-	ft_printf("|%*.12s|\n", 10, "hello");
-	printf("|%*.12s|\n\n", 10, "hello");
+	// ft_printf("|%*.12s|\n", 10, "hello");
+	// printf("|%*.12s|\n\n", 10, "hello");
 
-	ft_printf("|%*.*s|\n", 40, 5, "hello");
-	printf("|%*.*s|\n\n", 40, 5, "hello");
+	// ft_printf("|%*.*s|\n", 40, 5, "hello");
+	// printf("|%*.*s|\n\n", 40, 5, "hello");
 
-	ft_printf("|%*.*s|\n", 25, 2, "hello");
-	printf("|%*.*s|\n\n", 25, 2, "hello");
+	// ft_printf("|%*.*s|\n", 25, 2, "hello");
+	// printf("|%*.*s|\n\n", 25, 2, "hello");
 
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
@@ -2061,6 +2061,8 @@ int		main(int ac, char *av[])
 	// printf("|%*p|\n\n", 60, &printf);
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+	printf("\033[45m%s\n\033[0m", "James");
 
 	(void)ac;
 	(void)av;
