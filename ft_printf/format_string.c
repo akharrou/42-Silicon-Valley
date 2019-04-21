@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 10:50:24 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:19:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 /*
 **    DESCRIPTION
 **         Dispatch table associating every single format specifier to
-**         its handler.
+**         its function (handler).
 **
-**         The idea is to make the hanlders sort of plugins to the 'printf()'
-**         function as opposed to intertwined with it.
+**         The idea was to make the hanlders sort of plugins to the
+**         'printf()' function as opposed to intertwined with it.
+**         Thus they are laid out individually and seperately and
+**         each in a seperate file being completely independant of
+**         each other.
 */
 
 t_handler table[] =
@@ -182,8 +185,8 @@ t_format		parse_format(const char *format, va_list *args)
 **         string) is passed to the 'style_handler' (the stylist) to
 **         be styled as specified (if specified).
 **
-**         Finally, the format string is advanced by the format length
-**         and the output string is returned.
+**         Finally, the format string index is advanced by the format
+**         length amount and the output string is returned.
 **
 **    RETURN VALUES
 **         If the format is correctly specified, returns the converted

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 22:51:52 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:22:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,14 @@ typedef union			u_data
 	signed long			lng;
 	signed long long	lnglng;
 	intmax_t			intmax_t;
-	\
 	unsigned char		uchr;
 	unsigned short		ushrt;
 	unsigned int		uintgr;
 	unsigned long		ulng;
 	unsigned long long	ulnglng;
 	uintmax_t			uintmax_t;
-	\
 	double				dble;
 	long double			ldble;
-	\
 	char				*str;
 	intptr_t			ptr;
 }						t_data;
@@ -105,6 +102,7 @@ int						ft_fprintf(int filedes, const char *format, ...);
 int						ft_sprintf(char *str, const char *format, ...);
 
 t_format				parse_format(const char *format, va_list *args);
+t_char					**parse_style(const char *format, t_int8 *i);
 
 t_int8					parse_flags(const char *format, t_int8 *i);
 t_int32					parse_width(const char *format, va_list *args,
@@ -113,7 +111,6 @@ t_int32					parse_precison(const char *format, va_list *args,
 						t_int8 *i);
 t_int8					parse_length(const char *format, t_int8 *i);
 t_int8					parse_specifier(const char *format, t_int8 *i);
-t_char					**parse_style(const char *format, t_int8 *i);
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
