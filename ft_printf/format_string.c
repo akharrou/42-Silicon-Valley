@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 10:48:38 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 10:50:24 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_handler table[] =
 */
 
 #include "ft_printf.h"
-#include "Libft/String/ft_strndup.c"
+
 t_char	**parse_style(const char *format, t_int8 *i)
 {
 	t_char		**styles;
