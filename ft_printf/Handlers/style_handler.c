@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 00:04:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:07:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 /*
 **    DESCRIPTION
-**         Dispatch table associating every style to it ANSI code.
-**         A style specification follows this format:
-**
-**              \033[<code1>;<code2>; ... <codeN>m
+**         Dispatch table associating every style to its ANSI code.
 **
 **         Note:
 **
@@ -44,6 +41,11 @@
 **             "%r{inversed bold}"
 **
 **             "%i{lblue bglgreen}"
+**
+**         Under the hood, ANSI code is prepended and appended
+**         to the formatted string; it kinda looks like this:
+**
+**              \033[<code1>;<code2>; ... <codeN>m
 **
 */
 
