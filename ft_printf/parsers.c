@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:45 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 15:46:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 21:15:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,9 @@ t_int8	parse_length(const char *format, t_int8 *i)
 t_int8	parse_specifier(const char *format, t_int8 *i)
 {
 	if (ft_ischarset(format[*i], SPECIFIERS))
-		return(format[(*i)++]);
+	{
+		++(*i);
+		return (format[(*i) - 1]);
+	}
 	return (NONE);
 }

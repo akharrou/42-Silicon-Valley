@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 15:47:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 21:10:59 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 21:52:21 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 
 t_char	**parse_style(const char *format, t_int8 *i)
 {
+	t_int16		j;
 	t_char		**styles;
 	t_char		*closing_bracket;
 
@@ -56,12 +57,24 @@ t_char	**parse_style(const char *format, t_int8 *i)
 		closing_bracket = ft_strchr(format, '}');
 		if (closing_bracket)
 		{
-			(*closing_bracket) = '\0';
-			styles = ft_strsplit(format + (*i) + 1, ' ');
+			format = ft_strdup_range(
+				format, (*i) + 1, closing_bracket - (format + (*i) - 1));
+			styles = ft_strsplit(format, ' ');
 			if (styles)
 				while (*styles)
-					ft_putstr(*styles);
+				{
+					j = 0;
+					while (ft_strcmp())
+				}
 		}
 	}
+	free((void *)format);
 	return (styles);
 }
+
+
+
+
+
+// #include "Libft/String/ft_strdup_range.c"
+// #include "Libft/String/ft_strsplit.c"

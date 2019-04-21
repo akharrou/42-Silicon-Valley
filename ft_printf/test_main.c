@@ -2104,7 +2104,8 @@ int		main(int ac, char *av[])
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-	ft_printf("%s{red underlined bglyellow}", "James");
+	// ft_printf("%s{red underlined bglyellow}", "James");
+	ft_printf("%s{dim inverted black bgwhite bold italic}", "James");
 	// printf("\033[103m%s\n\033[0m", "James");
 
 	(void)ac;
