@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/21 12:04:00 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/21 12:49:07 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,25 +29,26 @@ HEADERS     =   ft_printf.h
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-SOURCES     =   ft_printf.c                                                 \
-                parser.c                                                    \
-                converter.c                                                 \
-                $(PLUGINS)                                                  \
+SOURCES     =   ft_printf.c                                                   \
+                parser.c                                                      \
+                converter.c                                                   \
+                $(PLUGINS)                                                    \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-PLUGINS     =   Handlers/mod_handler.c                                      \
-                Handlers/c_handler.c                                        \
-                Handlers/i_handler.c                                        \
-                Handlers/u_handler.c                                        \
-                Handlers/f_handler.c                                        \
-                Handlers/b_handler.c                                        \
-                Handlers/o_handler.c                                        \
-                Handlers/d_handler.c                                        \
-                Handlers/x_handler.c                                        \
-                Handlers/s_handler.c                                        \
-                Handlers/r_handler.c                                        \
-                Handlers/p_handler.c                                        \
+PLUGINS     =   Handlers/c_handler.c                                          \
+                Handlers/i_handler.c                                          \
+                Handlers/u_handler.c                                          \
+                Handlers/f_handler.c                                          \
+                Handlers/b_handler.c                                          \
+                Handlers/o_handler.c                                          \
+                Handlers/d_handler.c                                          \
+                Handlers/x_handler.c                                          \
+                Handlers/s_handler.c                                          \
+                Handlers/r_handler.c                                          \
+                Handlers/p_handler.c                                          \
+                Handlers/mod_handler.c                                        \
+                Handlers/style_handler.c                                      \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -58,14 +59,14 @@ OBJECTS     =   $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBRARIES) $(OBJECTS)
-	@ar -rcs $(NAME) $(LIBRARIES) $(OBJECTS)
+	@ar -rcs $(NAME) $(OBJECTS) $(shell find Libft/ -name '*.o')
 	@echo && echo $(GREEN) "[√]     [Extended Library Successfully Compiled!]"
 	@echo
 
 $(LIBRARIES):
-	@make -C Libft/
+	@make -C Libft
 
-%.o: %.c $(HEADERS)
+%.o: %.c $(LIBRARIES) $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiling => " $<
 
