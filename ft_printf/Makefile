@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/21 12:49:07 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/21 12:55:01 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,6 @@ CFLAGS      =   -Wall -Wextra -Werror
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 NAME        =   libftprintf.a
-
-# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
-
-LIBRARIES   =   Libft/libft.a
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -58,15 +54,15 @@ OBJECTS     =   $(SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBRARIES) $(OBJECTS)
+$(NAME): Libft/libft.a $(OBJECTS)
 	@ar -rcs $(NAME) $(OBJECTS) $(shell find Libft/ -name '*.o')
 	@echo && echo $(GREEN) "[√]     [Extended Library Successfully Compiled!]"
 	@echo
 
-$(LIBRARIES):
+Libft/libft.a:
 	@make -C Libft
 
-%.o: %.c $(LIBRARIES) $(HEADERS)
+%.o: %.c $(HEADERS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiling => " $<
 
