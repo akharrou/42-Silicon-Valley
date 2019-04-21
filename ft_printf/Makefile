@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/21 11:53:08 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/21 12:04:00 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,11 @@ HEADERS     =   ft_printf.h
 SOURCES     =   ft_printf.c                                                 \
                 parser.c                                                    \
                 converter.c                                                 \
-                                                                            \
-                Handlers/mod_handler.c                                      \
+                $(PLUGINS)                                                  \
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+PLUGINS     =   Handlers/mod_handler.c                                      \
                 Handlers/c_handler.c                                        \
                 Handlers/i_handler.c                                        \
                 Handlers/u_handler.c                                        \
