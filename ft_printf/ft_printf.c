@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:17:26 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 12:36:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:47:07 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 **
 **              %s   --   String of characters
 **
+**              %r   --   String of printable & unprintable characters
+**
 **              %p   --   Pointer address
 **
 **              %d   --   Signed decimal integer
@@ -72,6 +74,8 @@
 **              %x   --   Unsigned hexadecimal integer
 **
 **              %X   --   Unsigned hexadecimal integer (uppercase)
+**
+**              %b   --   Unsigned binary integer
 **
 **
 **   	   Note: a '%' followed by another '%' character will write a single
@@ -186,7 +190,7 @@ int		ft_printf(const char *format, ...)
 		{
 			if (*format == '%')
 			{
-				fstr = formatted_string(&format, &args);
+				fstr = format_converter(&format, &args);
 				if (!fstr)
 					exit(-1);
 				tt_bytes_written += write(STDOUT, fstr, ft_strlen(fstr));
@@ -247,7 +251,7 @@ int		ft_fprintf(int filedes, const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			fstr = formatted_string(&format, &args);
+			fstr = format_converter(&format, &args);
 			tt_bytes_written += write(
 				filedes, fstr, ft_strlen(fstr));
 			free(fstr);
@@ -310,7 +314,7 @@ int		ft_sprintf(char *str, const char *format, ...)
 		if (fstr)
 			tmp = fstr;
 		fstr = (*format == '%') ?
-			ft_strjoin(fstr, formatted_string(&format, &args)) :
+			ft_strjoin(fstr, format_converter(&format, &args)) :
 			ft_strjoin(fstr, &(*format++));
 		free(tmp);
 		if (!fstr)

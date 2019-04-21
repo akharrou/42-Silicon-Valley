@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 01:21:59 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 11:22:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:45:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ t_char					*p_handler(t_format format);
 t_char					*mod_handler(t_format format);
 t_char					*style_handler(t_format format, t_char *fstr);
 
-t_char					*formatted_string(const char **buf, va_list *args);
+t_char					*format_converter(const char **buf, va_list *args);
 
 /*
 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
