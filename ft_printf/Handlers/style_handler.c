@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 00:14:42 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:16:22 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_style styles_table[] =
 {
 	{    "default",     "0"       },
 	\
+	\
 	{    "underlined",  "4"       },
 	{    "bold",        "1"       },
 	{    "italic",      "3"       },
@@ -63,7 +64,6 @@ t_style styles_table[] =
 	\
 	{    "black",       "30",     },
 	{    "white",       "97",     },
-	\
 	{    "gray",        "90",     },
 	{    "red",         "31",     },
 	{    "green",       "32",     },
@@ -71,7 +71,6 @@ t_style styles_table[] =
 	{    "blue",        "34",     },
 	{    "magenta",     "35",     },
 	{    "cyan",        "36",     },
-	\
 	{    "lgray",       "37",     },
 	{    "lred",        "91",     },
 	{    "lgreen",      "92",     },
@@ -83,7 +82,6 @@ t_style styles_table[] =
 	\
 	{    "bgblack",     "40",     },
 	{    "bgwhite",     "107",    },
-	\
 	{    "bggray",      "100",    },
 	{    "bgred",       "41",     },
 	{    "bggreen",     "42",     },
@@ -91,7 +89,6 @@ t_style styles_table[] =
 	{    "bgblue",      "44",     },
 	{    "bgmagenta",   "45",     },
 	{    "bgcyan",      "46",     },
-	\
 	{    "bglgray",     "47",     },
 	{    "bglred",      "101",    },
 	{    "bglgreen",    "102",    },
