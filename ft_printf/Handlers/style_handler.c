@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 00:07:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:14:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 **         Note:
 **
 **            - light colors are preceded with an 'l'.
-**            - background colors are preceded with an 'bg'.
+**            - background colors are preceded with 'bg'.
 **
 **       - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 **
 **         How to specify a style in the format string ?
 **
 **               After the regular specifier format
-**               append to it, between two curly brackets
-**               '{}', all the styles that you want to apply
-**               to the output, by name, seperated by spaces.
+**               append, between two curly brackets '{}',
+**               all the styles that you want to apply to
+**               the output, by name, seperated by spaces.
 **
 **               Valid names of styles are only those found
 **               in the styles dispatch table below in the
@@ -111,7 +111,7 @@ t_style styles_table[] =
 **         #include <libft.h>
 **
 **         t_char	*
-**         style_handler(t_format format);
+**         style_handler(t_format format, t_char *string);
 **
 **    PARAMETERS
 **
@@ -119,21 +119,23 @@ t_style styles_table[] =
 **                                 and information about how it must
 **                                 be formatted.
 **
+**         t_char *string          Output string that we want to style.
+**
 **    DESCRIPTION
-**         Handles the '%o' specifier like the libc 'printf()' function.
+**         Handles the 'style' specification of a formatted string.
 **
-**         Note: the only flags and fields that apply to this specifier
-**         are the following:
+**         Goes through the styles parsed in the format string and
+**         prepends them as their corresponding ANSI code to the output
+**         string.
 **
-**             Flags: '-', '+', ' ', '0', '#'
-**             Width: defined or '*'
-**             Precision: defined or '*'
-**             Length: 'hh', 'h', 'l', 'll'
-**
+**         After having applied all styles, a reset ANSI code is appended
+**         to the end of the output string; this is so that the styling is
+**         not applied to characters that might come after in the output.
 **
 **    RETURN VALUES
-**         If successful, returns a formatted string that follows the
-**         specified format; otherwise exits with a -1 on error.
+**         If style(s) were specified and successfully applied, the output
+**         string all styled up is returned; otherwise the output string
+**         untouched is returned.
 */
 
 t_char	*style_handler(t_format format, t_char *string)
