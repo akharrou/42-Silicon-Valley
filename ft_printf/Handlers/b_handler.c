@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 07:14:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 12:00:40 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 **                                 be formatted.
 **
 **    DESCRIPTION
-**         Handles the '%b' specifier like the libc 'printf()' function.
+**         Handles the '%b' specifier; binary number conversion, similar
+**         to the hexadecimal or octal or decimal conversions.
 **
 **         Note: the only flags and fields that apply to this specifier
 **         are the following:

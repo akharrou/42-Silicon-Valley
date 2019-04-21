@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:29:48 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 11:43:52 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 12:02:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,12 @@ t_format		parse_format(const char *format, va_list *args)
 **         First, the function parses out the format (& style).
 **
 **         If the format is incorrect, then the formatted string
-**         is printed out normally.
+**         is returned.
 **
-**         If the format is correct, the function will look the format
-**         specifier in the dispatch table and pass on the task of the
-**         actual conversion to its associated function (handler).
+**         If the format is correct, the function will look for the
+**         format specifier in the dispatch table and pass on the
+**         task of the actual conversion to its associated function
+**         (handler).
 **
 **         After the conversion is done, the converted string (output
 **         string) is passed to the 'style_handler' (the stylist) to
