@@ -1999,8 +1999,50 @@ int		main(int ac, char *av[])
  *
  */
 
-	// ft_printf("|%p|\n", (void *)0);
-	// printf("|%p|\n\n", (void *)0);
+	// ft_printf("|%X|\n",  (signed char)CHAR_MAX);
+	// printf("|%X|\n\n",   (signed char)CHAR_MAX);
+	// ft_printf("|%X|\n",  (signed char)CHAR_MIN);
+	// printf("|%X|\n\n",   (signed char)CHAR_MIN);
+
+	// ft_printf("|%X|\n",   (short int)SHORT_MAX);
+	// printf("|%X|\n\n",    (short int)SHORT_MAX);
+	// ft_printf("|%X|\n",   (short int)SHORT_MIN);
+	// printf("|%X|\n\n",    (short int)SHORT_MIN);
+
+	// ft_printf("|%X|\n",    (int)INT_MAX);
+	// printf("|%X|\n\n",     (int)INT_MAX);
+	// ft_printf("|%X|\n",    (int)INT_MIN);
+	// printf("|%X|\n\n",     (int)INT_MIN);
+
+	// ft_printf("|%X|\n",   (long int)LONG_MAX);
+	// printf("|%X|\n\n",    (long int)LONG_MAX);
+	// ft_printf("|%X|\n",   (long int)-9223372036854775807);
+	// printf("|%X|\n\n",    (long int)-9223372036854775807);
+
+	// ft_printf("|%X|\n",  (long long)LLONG_MAX);
+	// printf("|%X|\n\n",   (long long)LLONG_MAX);
+
+/* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
+
+
+	// ft_printf("|%X|\n",    (int)100);
+	// printf("|%X|\n\n",     (int)100);
+
+	// ft_printf("|%X|\n",    (int)90);
+	// printf("|%X|\n\n",     (int)90);
+
+	// ft_printf("|%20X|\n",    (int)90);
+	// printf("|%20X|\n\n",     (int)90);
+
+	// ft_printf("|%.20X|\n",    (int)90);
+	// printf("|%.20X|\n\n",     (int)90);
+
+	// ft_printf("|%0.15X|\n",    (int)90);
+	// printf("|%0.15X|\n\n",     (int)90);
+
+	// ft_printf("|%.20X|\n",    (int)90);
+	// printf("|%.20X|\n\n",     (int)90);
+
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
@@ -2062,7 +2104,8 @@ int		main(int ac, char *av[])
 
 /* — — — — – – – – – – – – – – – – – – – – – – – – – –  */
 
-	printf("\033[45m%s\n\033[0m", "James");
+	ft_printf("%s{red underlined bglyellow}", "James");
+	// printf("\033[103m%s\n\033[0m", "James");
 
 	(void)ac;
 	(void)av;

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 18:36:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 19:34:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@
 
 #include "../ft_printf.h"
 
-t_char	*style_handler(t_format format, t_char *fstr)
+t_char	*style_handler(t_format format, t_char *string)
 {
-	(void)fstr;
+	(void)string;
 	(void)format;
 	return (NULL);
 }

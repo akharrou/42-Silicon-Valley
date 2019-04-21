@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 15:47:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/20 15:49:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/20 21:10:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,21 @@
 
 t_char	**parse_style(const char *format, t_int8 *i)
 {
-	(void)format;
-	(void)i;
-	return (NULL);
+	t_char		**styles;
+	t_char		*closing_bracket;
+
+	styles = NULL;
+	if (format[*i] == '{')
+	{
+		closing_bracket = ft_strchr(format, '}');
+		if (closing_bracket)
+		{
+			(*closing_bracket) = '\0';
+			styles = ft_strsplit(format + (*i) + 1, ' ');
+			if (styles)
+				while (*styles)
+					ft_putstr(*styles);
+		}
+	}
+	return (styles);
 }
