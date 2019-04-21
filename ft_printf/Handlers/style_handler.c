@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/21 00:21:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 00:28:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ t_style styles_table[] =
 
 t_char	*style_handler(t_format format, t_char *string)
 {
-	t_int16	i;
-	t_int16	j;
+	t_int8	i;
+	t_int8	j;
 	t_char	*style_str;
 
 	if (format.style == NULL)
