@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 08:30:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/17 04:31:32 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/21 23:55:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 size_t	ft_intlen(int n)
 {
-	return (ft_intlen_base(n, 10));
+	return (ft_intmaxlen_base(n, 10));
 }
