@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/22 18:16:59 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/25 23:49:00 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,6 +155,10 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strjoinfre.c                                        \
                 String/ft_strappend.c                                         \
                 String/ft_strprepend.c                                        \
+                String/ft_strnjoin.c                                          \
+                String/ft_strnjoinfre.c                                       \
+                String/ft_strnappend.c                                        \
+                String/ft_strnprepend.c                                       \
                 String/ft_strtrim.c                                           \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
@@ -287,7 +291,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@ar -rcs $(NAME) $(OBJECTS)
-	@echo && echo $(GREEN) "[√]     [Library Successfully Compiled!]" && echo
+	@echo && echo $(GREEN) "[√]     [Library Successfully Compiled!]"
 	@echo $(WHITE)
 
 %.o: %.c $(HEADERS)

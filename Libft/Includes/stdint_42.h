@@ -6,19 +6,33 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:03:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/25 07:52:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/25 11:42:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STDINT_42_H
 # define STDINT_42_H
 
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
+
+typedef union				u_double
+{
+	double					val;
+	char					body[sizeof(double)];
+}							t_dbl;
+
+typedef union				u_long_double
+{
+	long double				val;
+	char					body[sizeof(long double)];
+}							t_ldbl;
 
 typedef union				u_data
 {
 	char					*str_;
+	bool					bool_;
 	signed char				char_;
 	signed short			short_;
 	signed int				int_;
@@ -31,6 +45,8 @@ typedef union				u_data
 	unsigned long long		ulong_long_;
 	double					double_;
 	long double				long_double_;
+	t_dbl					dbl_;
+	t_ldbl					ldbl_;
 	intmax_t				intmax_;
 	uintmax_t				uintmax_;
 	intptr_t				intptr_;

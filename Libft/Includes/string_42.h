@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 19:10:42 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/25 23:48:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@ char		*ft_strappend(char const *s1, char const *s2, int free_s1,
 			int free_s2);
 char		*ft_strprepend(char const *s1, char const *s2, int free_s1,
 			int free_s2);
+char		*ft_strnjoin(char const *dst, char const *src, size_t len);
+char		*ft_strnjoinfre(char const *dst, char const *src, size_t len,
+			int free_str);
+char		*ft_strnappend(char const *dst, char const *src, size_t len,
+			int free_str);
+char		*ft_strnprepend(char const *dst, char const *src, size_t len,
+			int free_str);
 #endif

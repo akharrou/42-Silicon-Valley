@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_dtoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 15:23:55 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/25 23:07:32 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/25 14:53:33 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/25 14:54:03 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+char		*ft_dtoa_base(double n, char *base, int width, int precision)
 {
-	unsigned int i;
-
-	i = 0;
-	while (*src)
-		dst[i++] = *src++;
-	dst[i] = *src;
-	return (dst);
+	return (NULL);
 }
