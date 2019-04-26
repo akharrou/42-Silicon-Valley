@@ -6,13 +6,14 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 23:25:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/25 23:43:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/26 00:08:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 **    NAME
-**         ft_strnjoinfre -- joins two strings to create a third
+**         ft_strnjoinfre -- joins at most 'n' characters from two strings
+**                           to create a third
 **
 **    SYNOPSIS
 **         #include <libft.h>
@@ -23,27 +24,29 @@
 **
 **    PARAMETERS
 **
-**         char const *dst      Destination string. String to which will
-**                              be appended to a list.
+**         char const *dst      Destination string to which we will
+**                              appended the second string.
 **
-**         char const *src      Source string, to which we will 'append'
-**                              the 'src' string.
+**         char const *src      Source string that will be appended.
+**                              to the destination string.
 **
-**         size_t len           Maximum length to be copied.
+**         size_t len           Maximum length of the created string.
 **
-**         int free_str         8 bit integer. The first bit represents
-**                              whether or not to free the first string
-**                              and the second bit represents whether
-**                              or not to free the 2nd string. If both
-**                              the first and the 2nd bit are on, then
-**                              both strings are free'd.
+**         int free_str         8 bit integer.
+**
+**                              The first bit represents whether or
+**                              not to free the first string. The
+**                              second bit represents whether or not
+**                              to free the 2nd string. Finally, If
+**                              both the first and the 2nd bit are on,
+**                              then both strings are free'd.
 **
 **    DESCRIPTION
 **         Joins up to 'n' characters together from the first and
-**         second integers
+**         second strings to form a third.
 **
 **    RETURN VALUES
-**         If successful returns 0; otherwise -1.
+**         If successful returns the newly created string; otherwise NULL.
 */
 
 #include "../Includes/stdlib_42.h"
