@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getline.h                                       :+:      :+:    :+:   */
+/*   ft_readline.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GETLINE_H
-# define FT_GETLINE_H
+#ifndef ft_readline_H
+# define ft_readline_H
 
 # include "stdio_42.h"
 # include "stdlib_42.h"
@@ -28,6 +28,6 @@ typedef struct	s_file_reader
 	char	*cur_pos;
 }				t_file;
 
-int				ft_getline(const int fd, char **line);
+int				ft_readline(const int fd, char **line);
 
 #endif

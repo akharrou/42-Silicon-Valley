@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:39:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 08:04:21 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:57:42 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr_base(int nbr, char *base);
 void	ft_putnbr_base_fd(int nbr, char *base, int fd);
 
-int		ft_getline(const int fd, char **line);
+int		ft_readline(const int fd, char **line);
 
 #endif

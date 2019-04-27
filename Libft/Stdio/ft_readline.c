@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getline.c                                       :+:      :+:    :+:   */
+/*   ft_readline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 /*
 **    NAME
-**         ft_getline -- get a line from a file
+**         ft_readline -- get a line from a file
 **
 **    SYNOPSIS
 **         #include "stdio_42.h"
 **
 **         int
-**         ft_getline(const int fd, char **line);
+**         ft_readline(const int fd, char **line);
 **
 **    PARAMETERS
 **
@@ -39,9 +39,9 @@
 **         If an error occurs, -1 is returned.
 */
 
-#include "../Includes/ft_getline.h"
+#include "../Includes/ft_readline.h"
 
-int		ft_getline(const int fd, char **line)
+int		ft_readline(const int fd, char **line)
 {
 	static t_file		file[MAX_FDS];
 	char				tmp[BUFF_SIZE + 1];

@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/25 23:49:00 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/26 23:04:55 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ HEADERS     =   Includes/libft.h                                              \
                 Includes/dict.h                                               \
                                                                               \
                 Includes/macros.h                                             \
-                Includes/ft_getline.h                                         \
+                Includes/ft_readline.h                                        \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -75,7 +75,8 @@ STDIO       =   Stdio/ft_putbits.c                                            \
                 Stdio/ft_putnbr_fd.c                                          \
                 Stdio/ft_putnbr_base.c                                        \
                 Stdio/ft_putnbr_base_fd.c                                     \
-                Stdio/ft_getline.c                                            \
+                Stdio/ft_readline.c                                           \
+                Stdio/ft_readfile.c                                           \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
