@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/27 18:31:52 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/27 19:47:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char		*ft_strcpyfre(char *dst, const char *src, int free_dst,
 char		*ft_strcat(char *dst, const char *src);
 char		*ft_strncat(char *dst, const char *src, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
+char		*ft_strcatfre(char *s1, const char *s2, int free_s1, int free_s2);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strrchr(const char *str, int c);
 char		*ft_strchrs(const char *str, const char *charset);

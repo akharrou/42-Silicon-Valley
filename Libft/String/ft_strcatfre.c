@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.h                                      :+:      :+:    :+:   */
+/*   ft_strcatfre.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 19:49:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/27 19:49:09 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 16:02:19 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/27 19:47:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_READLINE_H
-# define FT_READLINE_H
+#include "../Includes/string_42.h"
+#include "../Includes/stdlib_42.h"
 
-# include "stdio_42.h"
-# include "stdlib_42.h"
-# include "string_42.h"
-# include "macros.h"
-
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-
-typedef struct	s_file_reader
+char	*ft_strcatfre(char *s1, const char *s2, int free_s1, int free_s2)
 {
-	char	*buffer;
-	char	*cur_pos;
-}				t_file;
+	char	*ret;
 
-int				ft_readline(const int fd, char **line);
-
-#endif
+	ret = ft_strcat(s1, s2);
+	if (free_s1 && s1)
+		free((void *)s1);
+	if (free_s2 && s2)
+		free((void *)s2);
+	return (ret);
+}
