@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/26 23:26:15 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/27 18:31:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char		*ft_strcpy(char *dst, const char *src);
 char		*ft_strncpy(char *dst, const char *src, size_t n);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 char		*ft_strcpy_until(char *dest, const char *src, char *charset);
+char		*ft_strcpyfre(char *dst, const char *src, int free_dst,
+			int free_src);
 char		*ft_strcat(char *dst, const char *src);
 char		*ft_strncat(char *dst, const char *src, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);

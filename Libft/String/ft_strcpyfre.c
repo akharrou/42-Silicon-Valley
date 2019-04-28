@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strcpyfre.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 16:02:19 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/26 23:32:26 by akharrou         ###   ########.fr       */
+/*   Created: 2019/02/18 15:23:55 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/27 18:56:50 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/string_42.h"
+#include "../Includes/stdlib_42.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strcpyfre(char *dst, const char *src, int free_dst, int free_src)
 {
-	unsigned int i;
-	unsigned int j;
+	char	*res;
 
-	i = ft_strlen(s1);
-	j = 0;
-	while (s2[j] && n-- > 0)
-		s1[i++] = s2[j++];
-	s1[i] = '\0';
-	return (s1);
+	res = ft_strcpy(dst, src);
+	if (free_dst && dst)
+		free(dst);
+	if (free_src && src)
+		free((char *)src);
+	return (res);
 }
