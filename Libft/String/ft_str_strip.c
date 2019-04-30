@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_str_strip.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:25:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/30 09:47:59 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 10:57:14 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/30 11:05:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Includes/ctype_42.h"
+#include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_str_strip(char const *s, char *charset)
 {
-	char *new_str;
+	int		last;
+	int		first;
+	char	*stripped;
 
-	if (s1 || s2)
+	if (s)
 	{
-		if (!s2)
-			return ((char *)s1);
-		if (!s1)
-			return ((char *)s2);
-		if (!(new_str = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
-			return (NULL);
-		return (ft_strcat(ft_strcat(new_str, s1), s2));
+		first = 0;
+		while (s[first] && ft_ischarset(s[first], charset))
+			++first;
+		last = ft_strlen(s) - 1;
+		while (last > 0 && ft_ischarset(s[last], charset))
+			--last;
+		stripped = ft_strndup(s + first, last - first);
+		free((void *)s);
+		return (stripped);
 	}
 	return (NULL);
 }

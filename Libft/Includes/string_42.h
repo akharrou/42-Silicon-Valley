@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/27 19:47:13 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/30 10:59:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strmap(char const *s, char (*f)(char));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
-char		*ft_strtrim(char const *s);
+char		*ft_strtrim(char const *s, unsigned char c);
+char		*ft_str_strip(char const *s, char *charset);
+char		*ft_str_lstrip(char const *s, char *charset);
+char		*ft_str_rstrip(char const *s, char *charset);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strjoinfre(char const *s1, char const *s2, int free_s1,
@@ -64,4 +67,9 @@ char		*ft_strnappend(char const *s1, char const *s2, size_t len,
 			int free_str);
 char		*ft_strnprepend(char const *s1, char const *s2, size_t len,
 			int free_str);
+
+char		*ft_str_multiply(char *numstr, char *base, int multiplier);
+char		*ft_str_divide(char *numstr, char *base, int divider);
+char		*ft_str_round(char *numstr, char *base);
+
 #endif

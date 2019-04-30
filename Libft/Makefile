@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/27 19:47:29 by akharrou         ###   ########.fr        #
+#    Updated: 2019/04/30 11:01:04 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,17 +31,17 @@ HEADERS     =   Includes/libft.h                                              \
                 Includes/stdlib_42.h                                          \
                 Includes/string_42.h                                          \
                 Includes/stdint_42.h                                          \
+                Includes/macros_42.h                                          \
                 Includes/ctype_42.h                                           \
                 Includes/math_42.h                                            \
+                                                                              \
+                Includes/ft_readline.h                                        \
                                                                               \
                 Includes/list.h                                               \
                 Includes/btree.h                                              \
                 Includes/trie.h                                               \
                 Includes/hashtable.h                                          \
                 Includes/dict.h                                               \
-                                                                              \
-                Includes/macros.h                                             \
-                Includes/ft_readline.h                                        \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -111,6 +111,8 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_ulltoa_base.c                                       \
                 Stdlib/ft_ftoa.c                                              \
                 Stdlib/ft_ftoa_base.c                                         \
+                Stdlib/ft_dtoa_base.c                                         \
+                Stdlib/ft_ldtoa_base.c                                        \
                 Stdlib/ft_convert_base.c                                      \
                 Stdlib/ft_find_next_prime.c                                   \
                 Stdlib/ft_wcount.c                                            \
@@ -162,9 +164,15 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strnjoinfre.c                                       \
                 String/ft_strnappend.c                                        \
                 String/ft_strnprepend.c                                       \
-                String/ft_strtrim.c                                           \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
+                String/ft_strtrim.c                                           \
+                String/ft_str_strip.c                                         \
+                String/ft_str_lstrip.c                                        \
+                String/ft_str_rstrip.c                                        \
+                String/ft_str_multiply.c                                      \
+                String/ft_str_divide.c                                        \
+                String/ft_str_round.c                                         \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

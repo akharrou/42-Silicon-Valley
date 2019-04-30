@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_str_rstrip.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 17:53:15 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/30 09:25:02 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 10:57:42 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/30 11:04:45 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/macros_42.h"
+#include "../Includes/ctype_42.h"
+#include "../Includes/stdlib_42.h"
+#include "../Includes/string_42.h"
 
-int		ft_atoi(const char *str)
+char		*ft_str_rstrip(char const *s, char *charset)
 {
-	int	sign;
-	int	val;
-	int	i;
+	int		last;
+	char	*rstripped;
 
-	i = 0;
-	while ((str[i] >= '\a' && str[i] <= '\r') || str[i] == ' ')
-		i++;
-	sign = (str[i] == '-') ? -1 : 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	val = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (s)
 	{
-		if (val > INT_MAX || val < INT_MIN)
-			return (0);
-		val = (val * 10) + (str[i++] - '0');
+		last = ft_strlen(s) - 1;
+		while (last > 0 && ft_ischarset(s[last], charset))
+			--last;
+		rstripped = ft_strndup(s, last);
+		free((void *)s);
+		return (rstripped);
 	}
-	return (val * sign);
+	return (NULL);
 }

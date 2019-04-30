@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macros.h                                           :+:      :+:    :+:   */
+/*   macros_42.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/19 11:24:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/30 09:19:34 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACROS_H
-# define MACROS_H
+#ifndef MACROS_42_H
+# define MACROS_42_H
 
 /*
 ** Constants
@@ -78,7 +78,7 @@
 # endif
 
 # ifndef FLT_MAX
-#  define FLT_MAX 340282346638528859811704183484516925440.000000
+#  define FLT_MAX 1.000000
 # endif
 
 # ifndef FLT_MIN

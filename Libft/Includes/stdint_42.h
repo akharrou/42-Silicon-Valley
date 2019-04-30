@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:03:50 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/25 11:42:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/29 22:51:40 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,58 @@
 # include <stddef.h>
 # include <stdint.h>
 
-typedef union				u_double
+typedef union			u_double
 {
-	double					val;
-	char					body[sizeof(double)];
-}							t_dbl;
+	double				val;
+	char				body[sizeof(double)];
+}						t_dbl;
 
-typedef union				u_long_double
+typedef union			u_long_double
 {
-	long double				val;
-	char					body[sizeof(long double)];
-}							t_ldbl;
+	long double			val;
+	char				body[sizeof(long double)];
+}						t_ldbl;
 
-typedef union				u_data
+typedef struct			s_double
 {
-	char					*str_;
-	bool					bool_;
-	signed char				char_;
-	signed short			short_;
-	signed int				int_;
-	signed long				long_;
-	signed long long		long_long_;
-	unsigned char			uchar_;
-	unsigned short			ushort_;
-	unsigned int			uint_;
-	unsigned long			ulong_;
-	unsigned long long		ulong_long_;
-	double					double_;
-	long double				long_double_;
-	t_dbl					dbl_;
-	t_ldbl					ldbl_;
-	intmax_t				intmax_;
-	uintmax_t				uintmax_;
-	intptr_t				intptr_;
-	uintptr_t				uintptr_;
-	ptrdiff_t				ptrdiff_;
-	size_t					size_;
-}							t_data;
+	bool				sign;
+	short				exponent;
+	uintmax_t			mantissa;
+	t_dbl				dbl_;
+}						t_double;
+
+typedef struct			s_long_double
+{
+	bool				sign;
+	short				exponent;
+	uintmax_t			mantissa;
+	t_ldbl				ldbl_;
+}						t_long_double;
+
+typedef union			u_data
+{
+	char				*str_;
+	bool				bool_;
+	signed char			char_;
+	signed short		short_;
+	signed int			int_;
+	signed long			long_;
+	signed long long	long_long_;
+	unsigned char		uchar_;
+	unsigned short		ushort_;
+	unsigned int		uint_;
+	unsigned long		ulong_;
+	unsigned long long	ulong_long_;
+	double				double_;
+	long double			long_double_;
+	t_dbl				dbl_;
+	t_ldbl				ldbl_;
+	intmax_t			intmax_;
+	uintmax_t			uintmax_;
+	intptr_t			intptr_;
+	uintptr_t			uintptr_;
+	ptrdiff_t			ptrdiff_;
+	size_t				size_;
+}						t_data;
 
 #endif

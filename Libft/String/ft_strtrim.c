@@ -3,28 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:25:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/04 13:17:20 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/04/30 11:05:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ctype_42.h"
+#include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s, unsigned char c)
 {
-	unsigned int	end;
+	int		last;
+	int		first;
+	char	*trimmed;
 
 	if (s)
 	{
-		while (*s && ISSPACE(*s))
-			s++;
-		end = ft_strlen(s);
-		while (end > 0 && ISSPACE(s[end - 1]))
-			--end;
-		return (ft_strdup_range(s, 0, end));
+		first = 0;
+		while (s[first] && c == s[first])
+			++first;
+		last = ft_strlen(s) - 1;
+		while (last > 0 && c == s[last])
+			--last;
+		trimmed = ft_strndup(s + first, last - first);
+		free((void *)s);
+		return (trimmed);
 	}
 	return (NULL);
 }
