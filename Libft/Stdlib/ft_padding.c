@@ -6,33 +6,23 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 07:40:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/18 08:13:41 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/01 19:20:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
-#include "../Includes/string_42.h"
 
-char	*ft_padding(int padding, char pad)
+char	*ft_padding(size_t size, char c)
 {
-	char	pad_str[2];
 	char	*buf;
-	char	*tmp;
-	int		i;
+	size_t	i;
 
-	if (padding < 1)
+	buf = malloc(size + 1);
+	if (!buf)
 		return (NULL);
-	i = -1;
-	buf = NULL;
-	tmp = buf;
-	pad_str[0] = pad;
-	pad_str[1] = '\0';
-	while (padding > ++i)
-	{
-		buf = ft_strjoin(buf, pad_str);
-		if (tmp)
-			free(tmp);
-		tmp = buf;
-	}
+	i = 0;
+	while (size > i)
+		buf[i++] = c;
+	buf[i++] = '\0';
 	return (buf);
 }

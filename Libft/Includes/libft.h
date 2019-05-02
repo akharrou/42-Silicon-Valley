@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/15 08:04:19 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/01 18:03:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "string_42.h"
 # include "ctype_42.h"
 # include "stdint_42.h"
+# include "macros_42.h"
 # include "math_42.h"
 
 # include "list.h"
@@ -25,7 +26,5 @@
 # include "trie.h"
 # include "hashtable.h"
 # include "dict.h"
-
-# include "macros.h"
 
 #endif

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 07:21:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 16:44:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/01 19:14:16 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 
-void	*ft_memalloc(size_t size)
+void	*ft_malloc(size_t size, char c)
 {
 	void	*buf;
+	size_t	i;
 
-	if (!(buf = (void *)malloc(size)))
+	buf = (void *)malloc(size);
+	if (!buf)
 		return (NULL);
-	ft_memset(buf, 0, size);
+	i = 0;
+	while (size > i)
+		((char *)buf)[i++] = c;
 	return (buf);
 }

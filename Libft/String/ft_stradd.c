@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_stradd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 21:58:30 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 23:26:37 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/01 22:15:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
@@ -56,10 +58,113 @@ static void	normalize_decimals(char **op_1, char **op_2)
 	}
 }
 
+char		*ft_stradd(char *operand_1, char *operand_2, char *base)
+{
+	int		intbase;
+	int		carry;
+	int		signs;
+	int		sum;
+	int		i;
+
+	operand_1 = ft_strdup(operand_1);
+	operand_2 = ft_strdup(operand_2);
+	/** TODO
+	 * PASS CERTAIN CASES TO THE STRSUB FUNCTION.
+	*/
+	normalize_decimals(&operand_1, &operand_2);
+	normalize_integers(&operand_1, &operand_2);
+	carry = 0;
+	intbase = ft_strlen(base);
+	i = ft_strlen(operand_1);
+	while (--i >= 0)
+	{
+		if (operand_1[i] == '.')
+			--i;
+		sum = carry + INT(operand_1[i], base) + INT(operand_2[i], base);
+		operand_1[i] = base[sum % intbase];
+		carry = sum >= intbase;
+	}
+	if (carry)
+		operand_1 = ft_strprepend(operand_1, "1", 1, 0);
+	free(operand_2);
+	return (operand_1);
+}
+
+
+int		main(void)
+{
+
+	char *op1 = strdup("9999999999.999999");
+	char *op2 = strdup("0.000001");
+
+	printf("%s\n", ft_strsub(op1, op2, DECIMAL_BASE));
+
+	return (0);
+}
+
+
+
+
 char		*ft_strsub(char *operand_1, char *operand_2, char *base)
 {
+
 	/** TODO
-	 * IMPLEMENT THE STRSUB FUNCTION
+	 *
+	 * 1. KEEP TRACK OF SIGN OF BOTH OPERANDS
+	 * 2. DETERMINE WHAT CASE THE CURRENT SITUATION IS AND DELEGATE
+	 *
+	 *
+	 *
+	 * 	  CASE 1:
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
 	*/
-	return (NULL);
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

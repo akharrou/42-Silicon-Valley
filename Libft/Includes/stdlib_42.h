@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:35:17 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/28 11:26:44 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/01 19:19:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 # include <stdlib.h>
 # include <string.h>
 
-void			ft_bzero(void *str, size_t n);
-
-void			*ft_memset(void *dst, int c, size_t n);
 void			ft_memset_addr(void **buf, int c, size_t len);
+void			*ft_memalloc(size_t size);
+void			*ft_memset(void *dst, int c, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t n);
 void			*ft_memchr(const void *str, int c, size_t n);
 int				ft_memcmp(const void *dst, const void *src, size_t n);
 void			ft_memdel(void **ap);
-void			*ft_memalloc(size_t size);
+
+void			ft_bzero(void *str, size_t n);
+void			*ft_malloc(size_t size, char c);
 char			*ft_realloc(char *buffer, int init_size);
 
 void			**ft_matrix_new(void **matrix, size_t height, size_t width,
@@ -42,7 +43,7 @@ void			ft_swap_char(char *a, char *b);
 void			ft_swap_str(char **a, char **b);
 void			ft_swap_item(void **a, void **b);
 
-char			*ft_padding(int padding, char pad);
+char			*ft_padding(size_t size, char c);
 
 size_t			ft_intlen(int n);
 size_t			ft_intlen_base(int n, unsigned int base);

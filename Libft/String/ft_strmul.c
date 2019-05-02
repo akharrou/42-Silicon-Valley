@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_multiply.c                                  :+:      :+:    :+:   */
+/*   ft_strmul.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 10:23:10 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/30 10:24:41 by akharrou         ###   ########.fr       */
+/*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/01 19:57:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
+#include "../Includes/macros_42.h"
 
-char	*ft_str_multiply(char *numstr, char *base, int multiplier)
+char		*ft_strmul(char *numstr, char *base, int multiplier)
 {
-	int	carry_over;
-	int	prev_carry;
-	int	intbase;
-	int	i;
+	int		intbase;
+	int		carry;
+	char	tmp;
+	int		i;
 
 	intbase = ft_strlen(base);
+	carry = 0;
 	i = ft_strlen(numstr);
-	carry_over = 0;
 	while (--i >= 0)
 	{
-		prev_carry = (numstr[i] - '0') * multiplier / intbase;
-		numstr[i] = base[
-			((numstr[i] - '0') * multiplier % intbase + carry_over) % intbase];
-		carry_over = prev_carry;
+		if (numstr[i] == '.')
+			--i;
+		tmp = numstr[i];
+		numstr[i] = (INT(numstr[i], base) * multiplier + carry) % intbase;
+		carry = ((INT(tmp, base) * multiplier) + carry) / intbase;
 	}
-	if (carry_over)
-	{
-		numstr = ft_strprepend(numstr, "0", 1, 0);
-		numstr[0] = base[carry_over % intbase];
-	}
+	if (carry)
+		numstr = ft_strappend(numstr, ft_itoa(carry), 1, 1);
 	return (numstr);
 }

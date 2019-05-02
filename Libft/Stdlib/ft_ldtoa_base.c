@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/30 10:32:32 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/01 17:57:06 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,18 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	result_str = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
 	while (num.exponent > 0)
 	{
-		result_str = ft_str_multiply(result_str, base, 2);
+		result_str = ft_strmul(result_str, base, 2);
 		--num.exponent;
 	}
 	while (num.exponent++ < 0)
-		result_str = ft_str_divide(result_str, base, 2);
-	result_str = ft_strtrim(result_str, "0");
+		result_str = ft_strdiv(result_str, base, 2);
 	result_str = ft_str_round(result_str, base);
 	result_str = ft_strprepend(result_str, ft_padding(width, '0'), 1, 1);
-	return (result_str);
+	return (ft_str_lstrip(result_str, "0"));
 }
 
 /** TODO
  *
- * 	get rid of leading zeros
  *  round number at precision with the digit before it
  *  truncate at specified precision
  * 	norm

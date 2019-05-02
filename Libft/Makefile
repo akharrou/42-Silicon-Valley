@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/04/30 11:01:04 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/01 17:57:06 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ STDLIB      =   Stdlib/ft_bzero.c                                             \
                 Stdlib/ft_memcmp.c                                            \
                 Stdlib/ft_memdel.c                                            \
                 Stdlib/ft_memalloc.c                                          \
+                Stdlib/ft_malloc.c                                            \
                 Stdlib/ft_realloc.c                                           \
                 Stdlib/ft_matrix_new.c                                        \
                 Stdlib/valid_base.c                                           \
@@ -164,14 +165,14 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strnjoinfre.c                                       \
                 String/ft_strnappend.c                                        \
                 String/ft_strnprepend.c                                       \
-                String/ft_strsub.c                                            \
+                String/ft_strsubstring.c                                            \
                 String/ft_strsplit.c                                          \
                 String/ft_strtrim.c                                           \
                 String/ft_str_strip.c                                         \
                 String/ft_str_lstrip.c                                        \
                 String/ft_str_rstrip.c                                        \
-                String/ft_str_multiply.c                                      \
-                String/ft_str_divide.c                                        \
+                String/ft_strmul.c                                      \
+                String/ft_strdiv.c                                        \
                 String/ft_str_round.c                                         \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —

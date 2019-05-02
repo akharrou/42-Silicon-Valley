@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strsubstring.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/19 07:21:05 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 16:44:10 by akharrou         ###   ########.fr       */
+/*   Created: 2019/05/01 16:08:55 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/01 16:08:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/stdlib_42.h"
+#include "../Includes/string_42.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strsubstring(char const *s, unsigned int start, size_t len)
 {
-	void	*buf;
-
-	if (!(buf = (void *)malloc(size)))
-		return (NULL);
-	ft_memset(buf, 0, size);
-	return (buf);
+	if (s)
+		return (ft_strdup_range(s, start, start + len));
+	return (NULL);
 }
