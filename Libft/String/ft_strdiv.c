@@ -6,20 +6,47 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 19:57:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 15:21:10 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**    NAME
+**         ft_strdiv -- divide a number (that is in the form of a string)
+**
+**    SYNOPSIS
+**         #include <libft.h>
+**
+**         char *
+**         ft_strdiv(char *numstr, char *base, int divider);
+**
+**    PARAMETERS
+**
+**         char *numstr          Brief
+**
+**         char *base            Brief
+**
+**         int divider           Brief
+**
+**    DESCRIPTION
+**         Description.
+**
+**    RETURN VALUES
+**         If successful returns 0; otherwise -1.
+*/
+
 #include "../Includes/string_42.h"
+#include "../Includes/stdlib_42.h"
 #include "../Includes/macros_42.h"
 
 char		*ft_strdiv(char *numstr, char *base, int divider)
 {
+	int		i;
 	int		intbase;
 	int		carry;
 	char	tmp;
-	int		i;
 
+	numstr = ft_strdup(numstr);
 	intbase = ft_strlen(base);
 	i = -1;
 	while (numstr[++i] && numstr[i] != '.')
@@ -39,4 +66,30 @@ char		*ft_strdiv(char *numstr, char *base, int divider)
 		carry = carry + INT(tmp, base) % divider * intbase;
 	}
 	return (numstr);
+}
+
+/*
+**    DESCRIPTION
+**         Wrapper function that allows to clean up & free certain variables
+**         after function execution.
+**
+**    PARAMETERS
+**
+**         int free_numstr         Integer (boolean) to signal whether
+**                                 or not to free the variable(s).
+**
+**    FREE'D PARAMETERS
+**
+**         - char *numstr
+*/
+
+char		*ft_strdivfre(char *numstr, char *base, int divider,
+				int free_numstr)
+{
+	char	*res;
+
+	res = ft_strdiv(numstr, base, divider);
+	if (free_numstr && numstr)
+		free((void *)numstr);
+	return (res);
 }

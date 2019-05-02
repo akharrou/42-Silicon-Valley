@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 17:57:06 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 15:13:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 {
 	t_long_double	num;
-	char			*result_str;
+	char			*res;
 
 	num.ldbl_.val = n;
 	num.sign = num.ldbl_.body[9] >> 7 != 0;
@@ -39,28 +39,51 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 		return ((num.sign) ? ft_strdup("inf") : ft_strdup("-inf"));
 	if (NAN_)
 		return (ft_strdup("nan"));
-	result_str = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
+	res = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
 	while (num.exponent > 0)
 	{
-		result_str = ft_strmul(result_str, base, 2);
+		res = ft_strmul(res, base, 2);
 		--num.exponent;
 	}
 	while (num.exponent++ < 0)
-		result_str = ft_strdiv(result_str, base, 2);
-	result_str = ft_str_round(result_str, base);
-	result_str = ft_strprepend(result_str, ft_padding(width, '0'), 1, 1);
-	return (ft_str_lstrip(result_str, "0"));
+		res = ft_strdiv(res, base, 2);
+	res = ft_strround(ft_str_lstrip(res, "0"), base, precision);
+	res = ft_strprepend(res, ft_padding(width, '0'), 1, 1);
+	res = (num.sign) ? ft_strprepend(res, "-", 1, 0) : res;
+	return (res);
 }
 
 /** TODO
  *
- *  round number at precision with the digit before it
- *  truncate at specified precision
  * 	norm
  *  test
  *
  *  do the doubles version
- *
- *
- *  fix width with '0' / precision with pointer specifier
  */
+
+/*
+ *
+ * TEST MAIN
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <math.h>
+
+int		main(int ac, char *av[])
+{
+	if (ac != )
+	{
+		printf("Usage: ./a \n");
+		return (1);
+	}
+
+
+	printf("%s\n", );
+
+
+	return (0);
+}

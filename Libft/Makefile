@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/01 17:57:06 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/02 15:19:58 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,13 +35,14 @@ HEADERS     =   Includes/libft.h                                              \
                 Includes/ctype_42.h                                           \
                 Includes/math_42.h                                            \
                                                                               \
-                Includes/ft_readline.h                                        \
-                                                                              \
                 Includes/list.h                                               \
                 Includes/btree.h                                              \
                 Includes/trie.h                                               \
                 Includes/hashtable.h                                          \
                 Includes/dict.h                                               \
+                                                                              \
+                Includes/ft_readline.h                                        \
+                Includes/ft_printf.h                                          \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -58,7 +59,19 @@ SOURCES     =   $(STDIO)                                                      \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-STDIO       =   Stdio/ft_putbits.c                                            \
+STDIO       =   Stdio/ft_printf.c                                             \
+                Stdio/ft_dprintf.c                                            \
+                Stdio/ft_sprintf.c                                            \
+                Stdio/ft_asprintf.c                                           \
+                Stdio/ft_vprintf.c                                            \
+                Stdio/ft_vdprintf.c                                           \
+                Stdio/ft_vsprintf.c                                           \
+                Stdio/ft_vasprintf.c                                          \
+                                                                              \
+                Stdio/ft_readline.c                                           \
+                Stdio/ft_readfile.c                                           \
+                                                                              \
+                Stdio/ft_putbits.c                                            \
                 Stdio/ft_putbyte.c                                            \
                 Stdio/ft_putbyte_fd.c                                         \
                 Stdio/ft_putbytes.c                                           \
@@ -75,8 +88,6 @@ STDIO       =   Stdio/ft_putbits.c                                            \
                 Stdio/ft_putnbr_fd.c                                          \
                 Stdio/ft_putnbr_base.c                                        \
                 Stdio/ft_putnbr_base_fd.c                                     \
-                Stdio/ft_readline.c                                           \
-                Stdio/ft_readfile.c                                           \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -137,11 +148,9 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strncpy.c                                           \
                 String/ft_strlcpy.c                                           \
                 String/ft_strcpy_until.c                                      \
-                String/ft_strcpyfre.c                                         \
                 String/ft_strcat.c                                            \
                 String/ft_strncat.c                                           \
                 String/ft_strlcat.c                                           \
-                String/ft_strcatfre.c                                         \
                 String/ft_strchr.c                                            \
                 String/ft_strrchr.c                                           \
                 String/ft_strchrs.c                                           \
@@ -158,22 +167,22 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strmap.c                                            \
                 String/ft_strmapi.c                                           \
                 String/ft_strjoin.c                                           \
-                String/ft_strjoinfre.c                                        \
                 String/ft_strappend.c                                         \
                 String/ft_strprepend.c                                        \
                 String/ft_strnjoin.c                                          \
-                String/ft_strnjoinfre.c                                       \
                 String/ft_strnappend.c                                        \
                 String/ft_strnprepend.c                                       \
-                String/ft_strsubstring.c                                            \
+                String/ft_strsubstring.c                                      \
                 String/ft_strsplit.c                                          \
                 String/ft_strtrim.c                                           \
                 String/ft_str_strip.c                                         \
                 String/ft_str_lstrip.c                                        \
                 String/ft_str_rstrip.c                                        \
-                String/ft_strmul.c                                      \
-                String/ft_strdiv.c                                        \
-                String/ft_str_round.c                                         \
+                String/ft_stradd.c                                            \
+                String/ft_strsub.c                                            \
+                String/ft_strmul.c                                            \
+                String/ft_strdiv.c                                            \
+                String/ft_strround.c                                          \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 19:57:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 13:54:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char		*ft_strmul(char *numstr, char *base, int multiplier)
 	char	tmp;
 	int		i;
 
+	numstr = ft_strdup(numstr);
 	intbase = ft_strlen(base);
 	carry = 0;
 	i = ft_strlen(numstr);
@@ -35,4 +36,30 @@ char		*ft_strmul(char *numstr, char *base, int multiplier)
 	if (carry)
 		numstr = ft_strappend(numstr, ft_itoa(carry), 1, 1);
 	return (numstr);
+}
+
+/*
+**    DESCRIPTION
+**         Wrapper function that allows to clean up & free certain variables
+**         after function execution.
+**
+**    PARAMETERS
+**
+**         int free_numstr         Integer (boolean) to signal whether
+**                                 or not to free the variable(s).
+**
+**    FREE'D PARAMETERS
+**
+**         - char *numstr
+*/
+
+char		*ft_strmulfre(char *numstr, char *base, int divider,
+				int free_numstr)
+{
+	char	*res;
+
+	res = ft_strdiv(numstr, base, divider);
+	if (free_numstr && numstr)
+		free((void *)numstr);
+	return (res);
 }

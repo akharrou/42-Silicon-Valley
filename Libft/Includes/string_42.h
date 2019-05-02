@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 16:09:17 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 13:40:56 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char		*ft_strstr(const char *str, const char *find);
 char		*ft_strnstr(const char *str, const char *find, size_t len);
 char		*ft_strdup(const char *str);
 char		*ft_strndup(const char *src, size_t n);
+char		*ft_strndupfre(const char *src, size_t n, int free_src);
 char		*ft_strdup_range(const char *str, int index, int end);
 char		*ft_strnew(size_t size);
 void		ft_strdel(char **as);
@@ -73,5 +74,16 @@ char		*ft_strsub(char *operand_1, char *operand_2, char *base);
 char		*ft_strmul(char *numstr, char *base, int multiplier);
 char		*ft_strdiv(char *numstr, char *base, int divider);
 char		*ft_strround(char *numstr, char *base, int precision);
+
+char		*ft_straddfre(char *operand_1, char *operand_2, char *base,
+				int free_op);
+char		*ft_strsubfre(char *operand_1, char *operand_2, char *base,
+				int free_op);
+char		*ft_strmulfre(char *numstr, char *base, int multiplier,
+				int free_numstr);
+char		*ft_strdivfre(char *numstr, char *base, int divider,
+				int free_numstr);
+char		*ft_strroundfre(char *numstr, char *base, int precision,
+				int free_numstr);
 
 #endif

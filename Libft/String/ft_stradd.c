@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:26:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 22:15:28 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 15:22:00 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ char		*ft_stradd(char *operand_1, char *operand_2, char *base)
 {
 	int		intbase;
 	int		carry;
-	int		signs;
 	int		sum;
 	int		i;
 
@@ -90,81 +89,101 @@ char		*ft_stradd(char *operand_1, char *operand_2, char *base)
 	return (operand_1);
 }
 
+/*
+**    DESCRIPTION
+**         Wrapper function that allows to clean up & free certain variables
+**         after function execution.
+**
+**    PARAMETERS
+**
+**         int free_op         Integer who's first 2 bits are used as
+**                             booleans.
+**
+**                             If the first bit is on, then the first
+**                             parameter is free'd.
+**
+**                             If the second bit is on, then the second
+**                             parameter is free'd.
+**
+**    FREE'D PARAMETERS
+**
+**         - char *operand_1
+**         - char *operand_2
+*/
 
-int		main(void)
+char		*ft_straddfre(char *operand_1, char *operand_2, char *base,
+				int free_op)
 {
+	char	*res;
 
-	char *op1 = strdup("9999999999.999999");
-	char *op2 = strdup("0.000001");
-
-	printf("%s\n", ft_strsub(op1, op2, DECIMAL_BASE));
-
-	return (0);
+	res = ft_stradd(operand_1, operand_2, base);
+	if (free_op & 1 && operand_1)
+		free((void *)operand_1);
+	if (free_op & 2 && operand_2)
+		free((void *)operand_2);
+	return (res);
 }
 
+// int		main(void)
+// {
 
+// 	char *op1 = strdup("9999999999.999999");
+// 	char *op2 = strdup("0.000001");
 
+// 	printf("%s\n", ft_strsub(op1, op2, DECIMAL_BASE));
 
-char		*ft_strsub(char *operand_1, char *operand_2, char *base)
-{
-
-	/** TODO
-	 *
-	 * 1. KEEP TRACK OF SIGN OF BOTH OPERANDS
-	 * 2. DETERMINE WHAT CASE THE CURRENT SITUATION IS AND DELEGATE
-	 *
-	 *
-	 *
-	 * 	  CASE 1:
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	 *
-	*/
-
-}
+// 	return (0);
+// }
 
 
 
 
+// char		*ft_strsub(char *operand_1, char *operand_2, char *base)
+// {
 
+// 	/** TODO
+// 	 *
+// 	 * 1. KEEP TRACK OF SIGN OF BOTH OPERANDS
+// 	 * 2. DETERMINE WHAT CASE THE CURRENT SITUATION IS AND DELEGATE
+// 	 *
+// 	 *
+// 	 *
+// 	 * 	  CASE 1:
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	 *
+// 	*/
 
-
-
-
-
-
-
-
-
+// }

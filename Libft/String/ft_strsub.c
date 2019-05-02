@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/01 21:58:30 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 08:32:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	normalize_decimals(char **op_1, char **op_2)
 char		*ft_strsub(char *operand_1, char *operand_2, char *base)
 {
 	/** TODO
-	 * IMPLEMENT THE STRSUB FUNCTION
+	 * IMPLEMENT THE STRSUBTRACT FUNCTION
 	*/
 	return (NULL);
 }
