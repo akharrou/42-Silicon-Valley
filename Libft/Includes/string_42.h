@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 13:40:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 19:42:04 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char		*ft_strsubstring(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s, unsigned char c);
 char		*ft_str_strip(char const *s, char *charset);
 char		*ft_str_lstrip(char const *s, char *charset);
+char		*ft_str_nlstrip(char const *s, char *charset, int n);
 char		*ft_str_rstrip(char const *s, char *charset);
 char		**ft_strsplit(char const *s, char c);
 char		*ft_strjoin(char const *s1, char const *s2);

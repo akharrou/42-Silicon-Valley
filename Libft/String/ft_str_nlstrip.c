@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_str_nlstrip.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 15:14:55 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 19:40:46 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 10:57:52 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/02 19:41:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Includes/ctype_42.h"
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char	*ft_strndup(const char *src, size_t n)
+char		*ft_str_nlstrip(char const *s, char *charset, int n)
 {
-	char	*dst;
-	size_t	i;
+	int		first;
+	char	*lstripped;
 
-	if (!(dst = (char *)malloc(ft_strnlen(src, n) + 1)))
-		return (NULL);
-	i = 0;
-	while (i < n)
+	if (s)
 	{
-		dst[i] = src[i];
-		i++;
+		first = 0;
+		while (n-- && s[first] && ft_ischarset(s[first], charset))
+			++first;
+		lstripped = ft_strdup(s + first);
+		free((void *)s);
+		return (lstripped);
 	}
-	dst[i] = '\0';
-	return (dst);
-}
-
-char	*ft_strndupfre(const char *src, size_t n, int free_src)
-{
-	char	*res;
-
-	res = ft_strndup(src, n);
-	if (free_src && src)
-		free((void *)src);
-	return (res);
+	return (NULL);
 }
