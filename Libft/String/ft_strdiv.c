@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 17:50:55 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/03 00:15:25 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/macros_42.h"
 
-char		*ft_strdiv(char *numstr, char *base, int divider)
+char		*ft_strdiv(char *numstr, char *base, int divider) /* FIXME norm function, get under 25 lines */
 {
 	int		intbase;
 	int		carry;

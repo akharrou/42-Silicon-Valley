@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldbl_base.c                                     :+:      :+:    :+:   */
+/*   ft_str_nrstrip.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 14:53:35 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/25 23:49:34 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 10:57:42 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/03 00:13:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../Includes/ctype_42.h"
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char		*ft_ldtoa_base(long double n, char *base, int width, int precision)
+char		*ft_str_nrstrip(char const *s, char *charset, int n)
 {
+	int		last;
+	char	*rstripped;
+
+	if (s)
+	{
+		last = ft_strlen(s) - 1;
+		while (n-- && last > 0 && ft_ischarset(s[last], charset))
+			--last;
+		rstripped = ft_strndup(s, last);
+		free((void *)s);
+		return (rstripped);
+	}
 	return (NULL);
 }

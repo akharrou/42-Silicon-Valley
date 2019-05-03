@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 19:58:04 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/03 00:14:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define MAX_EXPONENT  32767 - BIAS - BITSIZE
 #define EMPTY         9223372036854775808u
 
-#define ZERO          (num.exponent == 0 && num.mantissa == 0)
+#define ZERO          (num.exponent == 0 - BIAS - BITSIZE && num.mantissa == 0)
 #define INF           (num.exponent == MAX_EXPONENT && num.mantissa == EMPTY)
 #define NAN_          (num.exponent == MAX_EXPONENT && num.mantissa != EMPTY)
 
@@ -35,32 +35,24 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	num.exponent = (*(short *)&num.ldbl_.body[8] & _15BITS) - BIAS - BITSIZE;
 	num.mantissa = *(intmax_t *)num.ldbl_.body;
 	if (ZERO)
-		return ((num.sign) ? ft_strdup("0") : ft_strdup("-0"));
+		return ((num.sign) ? ft_strdup("-0") : ft_strdup("0"));
 	if (INF)
 		return (ft_strdup("inf"));
 	if (NAN_)
 		return (ft_strdup("nan"));
 	res = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
-	while (num.exponent > 0)
-	{
-		res = ft_strmulfre(res, base, 2, 1);
-		--num.exponent;
-	}
-	while (num.exponent++ < 0)
-		res = ft_strdivfre(res, base, 2, 1);
-	res = ft_strround(ft_str_nlstrip(res, "0", ft_strchr(res, '.') - res - 1), base, precision);
+	if (num.exponent > 0)
+		while (num.exponent-- > 0)
+			res = ft_strmulfre(res, base, 2, 1);
+	else
+		while (num.exponent++ < 0)
+			res = ft_strdivfre(res, base, 2, 1);
+	res = ft_str_nlstrip(res, "0", ft_strchr(res, '.') - res - 1);
+	res = ft_strround(res, base, precision);
 	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
 	res = (num.sign) ? ft_strprepend(res, "-", 1, 0) : res;
 	return (res);
 }
-
-/** TODO
- *
- * 	norm
- *  test
- *
- *  do the doubles version
- */
 
 #include <float.h>
 #include <stdio.h>
@@ -105,11 +97,11 @@ int	main(void)
 	// printf("\nOURS: %s\n", ft_ldtoa_base(1.0 / 3.0, DECIMAL_BASE, 0, 0));
 	// printf("REAL: %.0f\n", 1.0 / 3.0);
 
-	printf("\nOURS: %s\n", ft_ldtoa_base(0.0, DECIMAL_BASE, 0, 0));
-	printf("REAL: %.0f\n", 0.0);
+	// printf("\nOURS: %s\n", ft_ldtoa_base(0.0, DECIMAL_BASE, 0, 0));
+	// printf("REAL: %.0f\n", 0.0);
 
-	printf("\nOURS: %s\n", ft_ldtoa_base(-0.0, DECIMAL_BASE, 0, 0));
-	printf("REAL: %.0f\n", -0.0);
+	// printf("\nOURS: %s\n", ft_ldtoa_base(-0.0, DECIMAL_BASE, 0, 0));
+	// printf("REAL: %.0f\n", -0.0);
 
 	return (0);
 }

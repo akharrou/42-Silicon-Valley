@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 15:59:38 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/03 00:22:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@
 # endif
 
 /*
-** Error Checking Macros
+** Guard/Check Macros
 */
 
 # ifndef ASSERT
@@ -100,7 +100,7 @@
 # endif
 
 /*
-** Constants
+** MAX & MINS
 */
 
 # ifndef CHAR_MIN
@@ -163,16 +163,32 @@
 #  define ULLONG_MAX 18446744073709551615
 # endif
 
+# ifndef SIZE_MAX
+#  define SIZE_MAX 18446744073709551615
+# endif
+
 # ifndef FLT_MAX
-#  define FLT_MAX 1.000000
+#  define FLT_MAX 3.40282347e+38F
 # endif
 
 # ifndef FLT_MIN
-#  define FLT_MIN -340282346638528859811704183484516925440.000000
+#  define FLT_MIN 1.17549435e-38F
 # endif
 
-# ifndef SIZE_MAX
-#  define SIZE_MAX 18446744073709551615
+# ifndef DBL_MAX
+#  define DBL_MAX 1.7976931348623157e+308
+# endif
+
+# ifndef DBL_MIN
+#  define DBL_MIN 2.2250738585072014e-308
+# endif
+
+# ifndef LDBL_MAX
+#  define LDBL_MAX 1.18973149535723176502e+4932L
+# endif
+
+# ifndef LDBL_MIN
+#  define LDBL_MIN 3.36210314311209350626e-4932L
 # endif
 
 # ifndef MAX_FDS
