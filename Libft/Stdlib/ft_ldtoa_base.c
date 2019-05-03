@@ -6,9 +6,15 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 15:13:49 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 18:09:52 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <math.h>
 
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
@@ -42,13 +48,17 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	res = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
 	while (num.exponent > 0)
 	{
-		res = ft_strmul(res, base, 2);
+		res = ft_strmulfre(res, base, 2, 1);
+		printf("%s\n", res);
 		--num.exponent;
 	}
 	while (num.exponent++ < 0)
-		res = ft_strdiv(res, base, 2);
+	{
+		res = ft_strdivfre(res, base, 2, 1);
+		printf("%s\n", res);
+	}
 	res = ft_strround(ft_str_lstrip(res, "0"), base, precision);
-	res = ft_strprepend(res, ft_padding(width, '0'), 1, 1);
+	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
 	res = (num.sign) ? ft_strprepend(res, "-", 1, 0) : res;
 	return (res);
 }
@@ -61,29 +71,11 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
  *  do the doubles version
  */
 
-/*
- *
- * TEST MAIN
- *
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <math.h>
-
-int		main(int ac, char *av[])
+int	main(void)
 {
-	if (ac != )
-	{
-		printf("Usage: ./a \n");
-		return (1);
-	}
 
-
-	printf("%s\n", );
-
+	printf("\nOURS: %s\n", ft_ldtoa_base(-15615616500604605640465156702785215045627502678025401562756107861275617501756280675801561685401675127802.106577568068517810765107851705167, DECIMAL_BASE, 0, 0));
+	printf("REAL: %.f\n", -15615616500604605640465156702785215045627502678025401562756107861275617501756280675801561685401675127802.106577568068517810765107851705167);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 15:21:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:50:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,32 @@
 
 char		*ft_strdiv(char *numstr, char *base, int divider)
 {
-	int		i;
 	int		intbase;
 	int		carry;
+	int		i;
 	char	tmp;
 
 	numstr = ft_strdup(numstr);
 	intbase = ft_strlen(base);
+	carry = 0;
 	i = -1;
 	while (numstr[++i] && numstr[i] != '.')
 	{
 		tmp = numstr[i];
-		numstr[i] = base[carry + INT(numstr[i], base) / divider];
-		carry = carry + INT(tmp, base) % divider * intbase;
+		numstr[i] = base[(carry + INT(numstr[i], base)) / divider];
+		carry = (carry + INT(tmp, base)) % divider * intbase;
 	}
 	if (carry && numstr[i] != '.')
 		numstr = ft_strappend(numstr, ".", 1, 0);
-	while (numstr[++i] || carry)
+	i += (numstr[i] == '.');
+	while (numstr[i] || carry)
 	{
 		if (carry && numstr[i] == '\0')
-			ft_strappend(numstr, "0", 1, 0);
+			numstr = ft_strappend(numstr, "0", 1, 0);
 		tmp = numstr[i];
-		numstr[i] = base[carry + INT(numstr[i], base) / divider];
-		carry = carry + INT(tmp, base) % divider * intbase;
+		numstr[i] = base[(carry + INT(numstr[i], base)) / divider];
+		carry = (carry + INT(tmp, base)) % divider * intbase;
+		++i;
 	}
 	return (numstr);
 }

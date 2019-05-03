@@ -6,16 +6,16 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 07:40:24 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 15:16:00 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 18:03:11 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/stdlib_42.h"
 
-char	*ft_padding(size_t size, char c)
+char	*ft_padding(int size, char c)
 {
 	char	*buf;
-	size_t	i;
+	int		i;
 
 	buf = NULL;
 	if (size > 0)

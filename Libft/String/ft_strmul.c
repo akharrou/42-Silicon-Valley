@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 13:54:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/02 18:13:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ char		*ft_strmul(char *numstr, char *base, int multiplier)
 		if (numstr[i] == '.')
 			--i;
 		tmp = numstr[i];
-		numstr[i] = (INT(numstr[i], base) * multiplier + carry) % intbase;
+		numstr[i] = base[(INT(numstr[i], base) * multiplier + carry) % intbase];
 		carry = ((INT(tmp, base) * multiplier) + carry) / intbase;
 	}
 	if (carry)
-		numstr = ft_strappend(numstr, ft_itoa(carry), 1, 1);
+		numstr = ft_strprepend(numstr, ft_itoa(carry), 1, 1);
 	return (numstr);
 }
 
@@ -53,12 +53,12 @@ char		*ft_strmul(char *numstr, char *base, int multiplier)
 **         - char *numstr
 */
 
-char		*ft_strmulfre(char *numstr, char *base, int divider,
+char		*ft_strmulfre(char *numstr, char *base, int multiplier,
 				int free_numstr)
 {
 	char	*res;
 
-	res = ft_strdiv(numstr, base, divider);
+	res = ft_strmul(numstr, base, multiplier);
 	if (free_numstr && numstr)
 		free((void *)numstr);
 	return (res);
