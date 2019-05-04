@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/03 16:07:08 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/04 11:09:42 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/04 11:13:50 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,12 +82,13 @@ except Exception:
 
 # Test
 t1 = time.perf_counter()
-times, codes = zip(*bombardServer(url, clients, resquests_per_client))
+report = bombardServer(url, clients, resquests_per_client)
 t2 = time.perf_counter()
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
 
 # Analytics
+times, codes = zip(*report)
 load = clients * resquests_per_client
 successes = len(list(filter(lambda x: x == 200, codes)))
 summed_times = sum(times)
