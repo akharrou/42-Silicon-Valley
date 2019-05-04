@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/03 16:07:08 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/04 11:13:50 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/04 12:15:26 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,11 @@ def Requester(args):
 
 	for i in range(n_requests):
 
-		t1 = time.perf_counter()
-		responses.append(requests.get(url).status_code)
+		response = requests.get(url)
 		print(f'User {user_id} sent a Request.')
-		t2 = time.perf_counter()
-		times.append(t2 - t1)
+
+		responses.append(response.ok)
+		times.append(float(response.elapsed.total_seconds()))
 
 	return tuple(zip(times, responses))
 
@@ -90,7 +90,7 @@ t2 = time.perf_counter()
 # Analytics
 times, codes = zip(*report)
 load = clients * resquests_per_client
-successes = len(list(filter(lambda x: x == 200, codes)))
+successes = len(list(filter(lambda x: x == True, codes)))
 summed_times = sum(times)
 average_times = summed_times / clients / resquests_per_client
 total_test_time = t2 - t1
