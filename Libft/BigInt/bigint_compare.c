@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 19:53:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 21:23:56 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 09:03:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int		bigint_compare(t_bigint operand_1, t_bigint operand_2)
 		res = ft_strcmp(operand_1, operand_2);
 	free(operand_1);
 	free(operand_2);
-	return (res);
+	if (res == 0)
+		return (0);
+	return ((res > 0) ? 1 : -1);
 }
