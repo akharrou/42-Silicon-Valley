@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalizer.c                                       :+:      :+:    :+:   */
+/*   bigint_normalizer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:10:56 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 19:21:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 23:49:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ static void		normalize_decimals(char **op_1, char **op_2)
 
 void			normalize_bigint(t_bigint *op_1, t_bigint *op_2)
 {
-	normalize_decimals(op_1, op_2);
-	normalize_integers(op_1, op_2);
+	t_bigint	copy_op_1;
+	t_bigint	copy_op_2;
+	int			sign_1;
+	int			sign_2;
+
+	sign_1 = (*op_1)[0] == '-';
+	sign_2 = (*op_2)[0] == '-';
+	copy_op_1 = ft_strdup((*op_1) + sign_1);
+	copy_op_2 = ft_strdup((*op_2) + sign_2);
+	free(*op_1);
+	free(*op_2);
+	normalize_decimals(&copy_op_1, &copy_op_2);
+	normalize_integers(&copy_op_1, &copy_op_2);
+	(*op_1) = (sign_1) ? ft_strprepend(copy_op_1, "-", 1, 0) : copy_op_1;
+	(*op_2) = (sign_2) ? ft_strprepend(copy_op_2, "-", 1, 0) : copy_op_2;
+	return ;
 }

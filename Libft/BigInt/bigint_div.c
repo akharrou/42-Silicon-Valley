@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 19:48:25 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 20:06:39 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "../Includes/bigint.h"
 
 /* FIXME norm function, get under 25 lines */
-t_bigint	bigint_div(t_bigint num, char *base, int divider)
+t_bigint	bigint_div(t_bigint num, int divider, char *base)
 {
 	int		intbase;
 	int		carry;
@@ -63,12 +63,12 @@ t_bigint	bigint_div(t_bigint num, char *base, int divider)
 **         - t_bigint num
 */
 
-t_bigint	bigint_divfre(t_bigint num, char *base, int divider,
+t_bigint	bigint_divfre(t_bigint num, int divider, char *base,
 				int free_num)
 {
 	t_bigint	res;
 
-	res = bigint_div(num, base, divider);
+	res = bigint_div(num, divider, base);
 	if (free_num && num)
 		free((void *)num);
 	return (res);

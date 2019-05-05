@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:26:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 19:34:11 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 23:15:28 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,45 @@
 
 #include "../Includes/bigint.h"
 
-t_bigint	bigint_addition(t_bigint operand_1, t_bigint operand_2, char *base)
+t_bigint	bigint_adder(t_bigint operand_1, t_bigint operand_2, char *base)
 {
+	char	*result;
 	int		intbase;
 	int		carry;
 	int		sum;
 	int		i;
 
-	operand_1 = (t_bigint)ft_strdup(operand_1);
-	operand_2 = (t_bigint)ft_strdup(operand_2);
-	carry = 0;
+	result = ft_strdup(operand_1);
 	intbase = ft_strlen(base);
-	i = ft_strlen(operand_1);
+	i = ft_strlen(result);
+	carry = 0;
 	while (--i >= 0)
 	{
-		if (operand_1[i] == '.')
+		if (result[i] == '.')
 			--i;
 		sum = carry + INT(operand_1[i], base) + INT(operand_2[i], base);
-		operand_1[i] = base[sum % intbase];
+		result[i] = base[sum % intbase];
 		carry = sum >= intbase;
 	}
 	if (carry)
-		operand_1 = ft_strprepend(operand_1, "1", 1, 0);
-	free(operand_2);
-	return (operand_1);
+		result = ft_strprepend(result, "1", 1, 0);
+	return (result);
 }
 
 t_bigint	bigint_add(t_bigint operand_1, t_bigint operand_2, char *base)
 {
-	return (arithmetic_dispatcher('+', operand_1, operand_2, base));
+	t_bigint	operand_1_copy;
+	t_bigint	operand_2_copy;
+	t_bigint	result;
+
+	operand_1_copy = ft_strdup(operand_1);
+	operand_2_copy = ft_strdup(operand_2);
+	if (!operand_1_copy || !operand_2_copy)
+		return (NULL);
+	result = arithmetic_dispatcher('+', &operand_1_copy, &operand_2_copy, base);
+	free(operand_1_copy);
+	free(operand_2_copy);
+	return (result);
 }
 
 /*
@@ -77,8 +87,29 @@ t_bigint	bigint_addfre(t_bigint operand_1, t_bigint operand_2, char *base,
 
 	res = bigint_add(operand_1, operand_2, base);
 	if (free_op & 1 && operand_1)
-		free((void *)operand_1);
+		free(operand_1);
 	if (free_op & 2 && operand_2)
-		free((void *)operand_2);
+		free(operand_2);
 	return (res);
+}
+
+/*
+ *
+ * TEST MAIN
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <math.h>
+
+int		main(int ac, char **av)
+{
+
+	printf("%s\n", bigint_add(av[1], av[2], DECIMAL_BASE));
+
+	(void)ac;
+	return (0);
 }

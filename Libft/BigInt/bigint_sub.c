@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 19:33:45 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 23:17:58 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,29 @@
 
 #include "../Includes/bigint.h"
 
-t_bigint	bigint_subtraction(t_bigint operand_1, t_bigint operand_2,
+t_bigint	bigint_subtracter(t_bigint operand_1, t_bigint operand_2,
 				char *base)
 {
-	int		intbase;
-	int		carry;
-	int		sum;
-	int		i;
-
-	operand_1 = ft_strdup(operand_1);
-	operand_2 = ft_strdup(operand_2);
-	carry = 0;
-	intbase = ft_strlen(base);
-	i = ft_strlen(operand_1);
-	while (--i >= 0)
-	{
-		if (operand_1[i] == '.')
-			--i;
-		/* TODO implement */
-	}
-	if (carry)
-		operand_1 = ft_strprepend(operand_1, "1", 1, 0);
-	free(operand_2);
-	return (operand_1);
+	(void)operand_1;
+	(void)operand_2;
+	(void)base;
+	return (NULL);
 }
 
 t_bigint	bigint_sub(t_bigint operand_1, t_bigint operand_2, char *base)
 {
-	return arithmetic_dispatcher('-', operand_1, operand_2, base));
+	t_bigint	operand_1_copy;
+	t_bigint	operand_2_copy;
+	t_bigint	result;
+
+	operand_1_copy = ft_strdup(operand_1);
+	operand_2_copy = ft_strdup(operand_2);
+	if (!operand_1_copy || !operand_2_copy)
+		return (NULL);
+	result = arithmetic_dispatcher('-', &operand_1_copy, &operand_2_copy, base);
+	free(operand_1_copy);
+	free(operand_2_copy);
+	return (result);
 }
 
 /*
@@ -76,8 +71,8 @@ t_bigint	bigint_subfre(t_bigint operand_1, t_bigint operand_2, char *base,
 
 	res = bigint_sub(operand_1, operand_2, base);
 	if (free_op & 1 && operand_1)
-		free((void *)operand_1);
+		free(operand_1);
 	if (free_op & 2 && operand_2)
-		free((void *)operand_2);
+		free(operand_2);
 	return (res);
 }
