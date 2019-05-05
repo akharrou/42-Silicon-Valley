@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:38:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/03 00:13:10 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 19:34:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_striter(char *s, void (*f)(char *));
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strmap(char const *s, char (*f)(char));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char		*ft_strsubstring(char const *s, unsigned int start, size_t len);
+char		*ft_strsub(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s, unsigned char c);
 char		*ft_str_strip(char const *s, char *charset);
 char		*ft_str_lstrip(char const *s, char *charset);
@@ -70,22 +70,5 @@ char		*ft_strnappend(char const *s1, char const *s2, size_t len,
 			int free_str);
 char		*ft_strnprepend(char const *s1, char const *s2, size_t len,
 			int free_str);
-
-char		*ft_stradd(char *operand_1, char *operand_2, char *base);
-char		*ft_strsub(char *operand_1, char *operand_2, char *base);
-char		*ft_strmul(char *numstr, char *base, int multiplier);
-char		*ft_strdiv(char *numstr, char *base, int divider);
-char		*ft_strround(char *numstr, char *base, int precision);
-
-char		*ft_straddfre(char *operand_1, char *operand_2, char *base,
-				int free_op);
-char		*ft_strsubfre(char *operand_1, char *operand_2, char *base,
-				int free_op);
-char		*ft_strmulfre(char *numstr, char *base, int multiplier,
-				int free_numstr);
-char		*ft_strdivfre(char *numstr, char *base, int divider,
-				int free_numstr);
-char		*ft_strroundfre(char *numstr, char *base, int precision,
-				int free_numstr);
 
 #endif

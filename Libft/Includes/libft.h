@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 16:20:29 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 15:50:22 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:35:50 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "stdint_42.h"
 # include "macros_42.h"
 # include "math_42.h"
+
+# include "bigint.h"
 
 # include "list.h"
 # include "btree.h"

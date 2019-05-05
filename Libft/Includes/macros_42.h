@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 09:07:32 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/03 00:22:54 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 19:36:23 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@
 # define STDOUT 1
 # define STDERR 2
 
-# define DIGITS "0123456789"
-# define ALPHABET_LOWER "abcdefghijklmnopqrstuvwxyz"
-# define ALPHABET_UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# define DIGITS          "0123456789"
+# define ALPHABET_LOWER  "abcdefghijklmnopqrstuvwxyz"
+# define ALPHABET_UPPER  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-# define BINARY_BASE "01"
-# define OCTAL_BASE "01234567"
-# define DECIMAL_BASE "0123456789"
-# define HEX_LOWER_BASE "0123456789abcdef"
-# define HEX_UPPER_BASE "0123456789ABCDEF"
+# define BINARY_BASE     "01"
+# define OCTAL_BASE      "01234567"
+# define DECIMAL_BASE    "0123456789"
+# define HEX_LOWER_BASE  "0123456789abcdef"
+# define HEX_UPPER_BASE  "0123456789ABCDEF"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 256

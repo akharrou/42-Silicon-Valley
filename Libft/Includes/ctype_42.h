@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ctype_42.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akharrou <akharrou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:31:54 by akharrou          #+#    #+#             */
-/*   Updated: 2019/03/12 07:31:00 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:44:10 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CTYPE_42_H
 # define CTYPE_42_H
-
-# define ISEQUAL(x, y) (x == y)
-# define ISGREATER(x, y) (x > y)
-# define ISLESSER(x, y) (x < y)
 
 # define ISBLANK(c) (c == ' ' || c == '\t')
 # define ISSPACE(c) (ISBLANK (c) || c >= 10 && c <= 13)
@@ -29,6 +25,10 @@
 # define ISPUNCT(c) (ISGRAPH(c) && !ISALNUM(c))
 # define ISCNTRL(c) (!ISPRINT(c))
 # define ISASCII(c) (c >= 0 && <= 127)
+
+# define ISGREATER(x, y)  (x > y)
+# define ISLESSER(x, y)   (x < y)
+# define ISEQUAL(x, y)    (x == y)
 
 int	ft_isupper(int c);
 int	ft_islower(int c);

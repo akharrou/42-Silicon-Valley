@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmul.c                                        :+:      :+:    :+:   */
+/*   bigint_mul.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 18:13:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 19:48:15 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 #include "../Includes/string_42.h"
 #include "../Includes/macros_42.h"
 
-char		*ft_strmul(char *numstr, char *base, int multiplier)
+#include "../Includes/bigint.h"
+
+t_bigint	bigint_mul(t_bigint num, char *base, int multiplier)
 {
 	int		intbase;
 	int		carry;
 	char	tmp;
 	int		i;
 
-	numstr = ft_strdup(numstr);
+	num = ft_strdup(num);
 	intbase = ft_strlen(base);
 	carry = 0;
-	i = ft_strlen(numstr);
+	i = ft_strlen(num);
 	while (--i >= 0)
 	{
-		if (numstr[i] == '.')
+		if (num[i] == '.')
 			--i;
-		tmp = numstr[i];
-		numstr[i] = base[(INT(numstr[i], base) * multiplier + carry) % intbase];
-		carry = ((INT(tmp, base) * multiplier) + carry) / intbase;
+		tmp = INT(num[i], base);
+		num[i++] = base[(tmp * multiplier + carry) % intbase];
+		carry = ((tmp * multiplier) + carry) / intbase;
 	}
 	if (carry)
-		numstr = ft_strprepend(numstr, ft_itoa(carry), 1, 1);
-	return (numstr);
+		num = ft_strprepend(num, ft_itoa(carry), 1, 1);
+	return (num);
 }
 
 /*
@@ -45,21 +47,21 @@ char		*ft_strmul(char *numstr, char *base, int multiplier)
 **
 **    PARAMETERS
 **
-**         int free_numstr         Integer (boolean) to signal whether
-**                                 or not to free the variable(s).
+**         int free_num         Integer (boolean) to signal whether
+**                              or not to free the variable(s).
 **
 **    FREE'D PARAMETERS
 **
-**         - char *numstr
+**         - t_bigint num
 */
 
-char		*ft_strmulfre(char *numstr, char *base, int multiplier,
-				int free_numstr)
+t_bigint	bigint_mulfre(t_bigint num, char *base, int multiplier,
+				int free_num)
 {
-	char	*res;
+	t_bigint	res;
 
-	res = ft_strmul(numstr, base, multiplier);
-	if (free_numstr && numstr)
-		free((void *)numstr);
+	res = bigint_mul(num, base, multiplier);
+	if (free_num && num)
+		free((void *)num);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:39:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 13:37:41 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 18:40:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		ft_vsprintf(char *str, const char *format, va_list *args);
 int		ft_vasprintf(char **ret, const char *format, va_list *args);
 
 int		ft_readline(const int fd, char **line);
+char	*ft_readfile(int filedes);
 
 #endif

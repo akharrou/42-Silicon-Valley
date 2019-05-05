@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/03 00:11:36 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/04 19:39:18 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ HEADERS     =   Includes/libft.h                                              \
                 Includes/ctype_42.h                                           \
                 Includes/math_42.h                                            \
                                                                               \
+                Includes/bigint.h                                             \
+                                                                              \
                 Includes/list.h                                               \
                 Includes/btree.h                                              \
                 Includes/trie.h                                               \
@@ -51,6 +53,9 @@ SOURCES     =   $(STDIO)                                                      \
                 $(STRING)                                                     \
                 $(CTYPE)                                                      \
                 $(MATH)                                                       \
+                                                                              \
+                $(BIGINT)                                                     \
+                                                                              \
                 $(LIST)                                                       \
                 $(BTREE)                                                      \
                 $(TRIE)                                                       \
@@ -172,7 +177,7 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strnjoin.c                                          \
                 String/ft_strnappend.c                                        \
                 String/ft_strnprepend.c                                       \
-                String/ft_strsubstring.c                                      \
+                String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
                 String/ft_strtrim.c                                           \
                 String/ft_str_strip.c                                         \
@@ -180,11 +185,7 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_str_nlstrip.c                                       \
                 String/ft_str_rstrip.c                                        \
                 String/ft_str_nrstrip.c                                       \
-                String/ft_stradd.c                                            \
-                String/ft_strsub.c                                            \
-                String/ft_strmul.c                                            \
-                String/ft_strdiv.c                                            \
-                String/ft_strround.c                                          \
+
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
@@ -224,6 +225,17 @@ MATH        =   Math/ft_sqrt.c                                               \
                 Math/ft_sum_generic.c                                        \
                 Math/ft_round.c                                              \
                 Math/ft_round_with_prior.c                                   \
+
+# — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+BIGINT      =   BigInt/bigint_add.c                                           \
+                BigInt/bigint_sub.c                                           \
+                BigInt/bigint_mul.c                                           \
+                BigInt/bigint_div.c                                           \
+                BigInt/bigint_round.c                                         \
+                                                                              \
+                BigInt/bigint_normalizer.c                                    \
+                BigInt/arithmetic_dispatcher.c                                \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 

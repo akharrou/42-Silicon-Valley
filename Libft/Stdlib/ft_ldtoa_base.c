@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/03 00:14:18 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/04 13:27:01 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ int	main(void)
 	// printf("\nOURS: %s\n", ft_ldtoa_base(0.237, DECIMAL_BASE, 0, 100));
 	// printf("REAL: %.100f\n", 0.237);
 
+	// printf("\nOURS: %s\n", ft_ldtoa_base(0.237, DECIMAL_BASE, 0, 32));
+	// printf("REAL: %.32f\n", 0.237);
+
+	// printf("\nOURS: %s\n", ft_ldtoa_base(623.28376510723481, DECIMAL_BASE, 0, 2000));
+	// printf("REAL: %.2000f\n", 623.28376510723481);
+
 	// printf("\nOURS: %s\n", ft_ldtoa_base(0.237230242307247273461251390614, DECIMAL_BASE, 0, 100));
 	// printf("REAL: %.100f\n", 0.237230242307247273461251390614);
 
@@ -91,17 +97,26 @@ int	main(void)
 	// printf("\nOURS: %s\n", ft_ldtoa_base(LDBL_MIN, DECIMAL_BASE, 0, 2));
 	// printf("REAL: %.2Lf\n", LDBL_MIN);
 
+	// printf("\nOURS: %s\n", ft_ldtoa_base(LDBL_MIN, DECIMAL_BASE, 0, 20000));
+	// printf("REAL: %.20000Lf\n", LDBL_MIN);
+
 	// printf("\nOURS: %s\n", ft_ldtoa_base(1.0 / 0.0, DECIMAL_BASE, 0, 0));
 	// printf("REAL: %.0f\n", 1.0 / 0.0);
 
-	// printf("\nOURS: %s\n", ft_ldtoa_base(1.0 / 3.0, DECIMAL_BASE, 0, 0));
-	// printf("REAL: %.0f\n", 1.0 / 3.0);
+	// printf("\nOURS: %s\n", ft_ldtoa_base(1.0 / 3.0, DECIMAL_BASE, 0, 80));
+	// printf("REAL: %.80f\n", 1.0 / 3.0);
 
-	// printf("\nOURS: %s\n", ft_ldtoa_base(0.0, DECIMAL_BASE, 0, 0));
-	// printf("REAL: %.0f\n", 0.0);
+	// printf("\nOURS: %s\n", ft_ldtoa_base(0.0, DECIMAL_BASE, 0, 1000));  /* FIXME precision dun work */
+	// printf("REAL: %.1000f\n", 0.0);
 
-	// printf("\nOURS: %s\n", ft_ldtoa_base(-0.0, DECIMAL_BASE, 0, 0));
-	// printf("REAL: %.0f\n", -0.0);
+	// printf("\nOURS: %s\n", ft_ldtoa_base(-0.0, DECIMAL_BASE, 0, 1000));  /* FIXME precision dun work */
+	// printf("REAL: %.1000f\n", -0.0);
+
+	// printf("\nOURS: %s\n", ft_ldtoa_base(0.0, DECIMAL_BASE, 0, 10));  /* FIXME precision dun work */
+	// printf("REAL: %.10f\n", 0.0);
+
+	// printf("\nOURS: %s\n", ft_ldtoa_base(-0.0, DECIMAL_BASE, 0, 10));  /* FIXME precision dun work */
+	// printf("REAL: %.10f\n", -0.0);
 
 	return (0);
 }
