@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 19:48:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 22:00:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 t_bigint	bigint_subtracter(t_bigint operand_1, t_bigint operand_2,
 				char *base)
 {
-	char		*result;
+	t_bigint	result;
 	int8_t		intbase;
 	int32_t		carry;
 	int32_t		sum;

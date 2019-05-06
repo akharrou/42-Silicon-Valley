@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:10:56 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 19:48:18 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 22:00:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ void			bigint_normalizer(t_bigint *op_1, t_bigint *op_2)
 {
 	t_bigint	copy_op_1;
 	t_bigint	copy_op_2;
-	bool		sign_1;
-	bool		sign_2;
+	int8_t		sign_1;
+	int8_t		sign_2;
 
-	sign_1 = (*op_1)[0] == '-';
-	sign_2 = (*op_2)[0] == '-';
+	sign_1 = ((*op_1)[0] == '-');
+	sign_2 = ((*op_2)[0] == '-');
 	copy_op_1 = ft_strdup((*op_1) + sign_1);
 	copy_op_2 = ft_strdup((*op_2) + sign_2);
 	free(*op_1);

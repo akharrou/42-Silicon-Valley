@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 19:39:09 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 22:00:05 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 t_bigint	bigint_mul(t_bigint num, int multiplier, char *base)
 {
-	char		tmp;
+	int8_t		tmp;
 	int8_t		intbase;
 	int32_t		carry;
 	int32_t		i;
@@ -26,13 +26,13 @@ t_bigint	bigint_mul(t_bigint num, int multiplier, char *base)
 	num = ft_strdup(num);
 	intbase = ft_strlen(base);
 	carry = 0;
-	i = ft_strlen(num);
-	while (--i >= 0)
+	i = ft_strlen(num) - 1;
+	while (i >= 0)
 	{
 		if (num[i] == '.')
 			--i;
 		tmp = INT(num[i], base);
-		num[i++] = base[(tmp * multiplier + carry) % intbase];
+		num[i--] = base[(tmp * multiplier + carry) % intbase];
 		carry = ((tmp * multiplier) + carry) / intbase;
 	}
 	if (carry)

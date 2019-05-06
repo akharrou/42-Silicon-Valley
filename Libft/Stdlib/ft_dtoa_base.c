@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 09:49:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 22:27:27 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,67 @@
 #include "../Includes/string_42.h"
 #include "../Includes/stdint_42.h"
 #include "../Includes/macros_42.h"
+#include "../Includes/bigint.h"
 
 #define BIAS          1023
 #define BITSIZE       52
 #define _11BITS       2047
 #define MAX_EXPONENT  2047 - BIAS - BITSIZE
-#define EMPTY         9223372036854775808u  /* FIXME get correct value for 'EMPTY MACRO' */
+#define EMPTY         9223372036854775808u
 
 #define ZERO          (num.exponent == 0 - BIAS - BITSIZE && num.mantissa == 0)
 #define INF           (num.exponent == MAX_EXPONENT && num.mantissa == EMPTY)
 #define NAN_          (num.exponent == MAX_EXPONENT && num.mantissa != EMPTY)
 
-char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
+/* TODO adjust the MACRO values to make it work. & test it */
+/* TODO finish the printf and integrate it with the libft */
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —  */
+char	*parse_double(char *neg, int *exp, unsigned long long *man,
+							t_float *a)
 {
-	t_long_double	num;
-	char			*res;
+	*neg = a->num >> 63;
+	*exp = ((a->num << 1) >> 53) - 1023 - 52;
+	*man = (a->num & ((1L << 52) - 1));
+	if (*exp == 2047 - 1023 - 52)
+	{
+		if (*man)
+			return (ft_strdup("nan"));
+		return (ft_strdup("inf"));
+	}
+	if (*exp != -1075)
+		*man += 1L << 52;
+	else
+		(*exp)++;
+	return (NULL);
+}
+/* — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —  */
 
-	num.ldbl_.val = n;
+char			*ft_dtoa_base(double n, char *base, int width, int precision)
+{
+	t_double	num;
+	char		*res;
+
 	num.sign = *(uintmax_t *)&n >> 63;
 	num.exponent = (*(uintmax_t *)&n << 1 >> 53) - BIAS - BITSIZE;
 	num.mantissa = *(uintmax_t *)&n << 12 >> 12;
 	if (ZERO)
-		return ((num.sign) ? ft_strdup("-0") : ft_strdup("0"));
-	if (INF)
+		return (bigint_roundfre(
+			(num.sign) ? ft_strdup("-0") : ft_strdup("0"), base, precision, 1));
+	else if (INF)
 		return (ft_strdup("inf"));
-	if (NAN_)
+	else if (NAN_)
 		return (ft_strdup("nan"));
 	res = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
 	if (num.exponent > 0)
 		while (num.exponent-- > 0)
-			res = ft_strmulfre(res, base, 2, 1);
+			res = bigint_mulfre(res, 2, base, 1);
 	else
 		while (num.exponent++ < 0)
-			res = ft_strdivfre(res, base, 2, 1);
+			res = bigint_divfre(res, 2, base, 1);
 	res = ft_strnlstrip(res, "0", ft_strchr(res, '.') - res - 1);
-	res = ft_strround(res, base, precision);
+	res = bigint_round(res, base, precision);
 	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
-	res = (num.sign) ? ft_strprepend(res, "-", 1, 0) : res;
-	return (res);
+	return ((num.sign) ? ft_strprepend(res, "-", 1, 0) : res);
 }
 
 #include <float.h>

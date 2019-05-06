@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:26:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 19:38:21 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 21:59:08 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 t_bigint		bigint_adder(t_bigint operand_1, t_bigint operand_2, char *base)
 {
-	char		*result;
+	t_bigint	result;
 	int8_t		intbase;
 	int32_t		carry;
 	int32_t		sum;
@@ -92,99 +92,4 @@ t_bigint	bigint_addfre(t_bigint operand_1, t_bigint operand_2, char *base,
 	if (free_op & 2 && operand_2)
 		free(operand_2);
 	return (res);
-}
-
-// /*
-//  *
-//  * TEST MAIN
-//  *
-//  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <math.h>
-
-// int		main(int ac, char **av)
-// {
-
-// 	printf("%s\n", bigint_add(av[1], av[2], DECIMAL_BASE));
-// 	printf("%s\n", bigint_sub(av[1], av[2], DECIMAL_BASE));
-
-// 	(void)ac;
-// 	return (0);
-// }
-
-
-void	remove_trailing_zero(char *num)
-{
-	int i;
-
-	i = strlen(num);
-	while (num[--i] == '0')
-		num[i] = '\0';
-	if (num[i] == '.')
-		num[i + 1] = '0';
-}
-
-void	test_case(char *operand_1, char *operand_2)
-{
-	char		*temp1;
-	char		*temp2;
-
-	char		*op1 = strdup(operand_1);
-	char		*op2 = strdup(operand_2);
-	long double	num1 = atof(op1);
-	long double num2 = atof(op2);
-
-	asprintf(&temp2, "%Lf", (num1 - num2));
-	asprintf(&temp1, "%Lf", (num1 + num2));
-
-	// remove_trailing_zero(temp1);
-	// remove_trailing_zero(temp2);
-
-	printf("MINE:	ADD: %-45s SUB: %-45s\n",
-		bigint_add(op1, op2, DECIMAL_BASE), bigint_sub(op1, op2, DECIMAL_BASE));
-	printf("SYST:	ADD: %-45s SUB: %-45s\n", temp1, temp2);
-	printf("\n");
-}
-
-int main(void)
-{
-	/*
-	** As per the photo of the cases
-	*/
-	test_case("73", "11");
-	test_case("73", "-11");
-	test_case("73", "-81");
-	test_case("81", "-81");
-	test_case("-83", "73");
-	test_case("-11", "73");
-	test_case("-81", "81");
-	test_case("-73", "-11");
-	test_case("11", "-73");
-	test_case("-11", "73");
-
-	/*
-	** Other Test
-	*/
-
-	test_case("-1.000000001", "0.000000002");
-	test_case("12345", "3456");
-	test_case("3456", "12345");
-
-	test_case("345600000", "12345");
-
-	test_case("345600000", "12345");
-	test_case("3.45600000", "12345");
-
-	test_case("0", "0");
-	test_case("-0", "-0");
-
-	test_case("-123", "-31253234626376574678759897689877");
-
-
-	// test_case()
-	return (0);
 }
