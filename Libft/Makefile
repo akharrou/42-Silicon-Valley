@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/04 19:39:18 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/05 19:47:37 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -180,11 +180,11 @@ STRING      =   String/ft_strlen.c                                            \
                 String/ft_strsub.c                                            \
                 String/ft_strsplit.c                                          \
                 String/ft_strtrim.c                                           \
-                String/ft_str_strip.c                                         \
-                String/ft_str_lstrip.c                                        \
-                String/ft_str_nlstrip.c                                       \
-                String/ft_str_rstrip.c                                        \
-                String/ft_str_nrstrip.c                                       \
+                String/ft_strstrip.c                                          \
+                String/ft_strlstrip.c                                         \
+                String/ft_strnlstrip.c                                        \
+                String/ft_strrstrip.c                                         \
+                String/ft_strnrstrip.c                                        \
 
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
@@ -232,9 +232,15 @@ BIGINT      =   BigInt/bigint_add.c                                           \
                 BigInt/bigint_sub.c                                           \
                 BigInt/bigint_mul.c                                           \
                 BigInt/bigint_div.c                                           \
-                BigInt/bigint_round.c                                         \
                                                                               \
+                BigInt/bigint_round.c                                         \
+                BigInt/bigint_max.c                                           \
+                BigInt/bigint_min.c                                           \
+                BigInt/bigint_compare.c                                       \
+                                                                              \
+                BigInt/bigint_cleaner.c                                       \
                 BigInt/bigint_normalizer.c                                    \
+                                                                              \
                 BigInt/arithmetic_dispatcher.c                                \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 20:06:39 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 09:34:13 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include "../Includes/bigint.h"
 
 /* FIXME norm function, get under 25 lines */
-t_bigint	bigint_div(t_bigint num, int divider, char *base)
+t_bigint		bigint_div(t_bigint num, int divider, char *base)
 {
-	int		intbase;
-	int		carry;
-	int		sum;
-	int		i;
+	int8_t		intbase;
+	int32_t		carry;
+	int32_t		sum;
+	int32_t		i;
 
 	num = ft_strdup(num);
 	intbase = ft_strlen(base);

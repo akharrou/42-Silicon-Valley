@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_rstrip.c                                    :+:      :+:    :+:   */
+/*   bigint_cleaner.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 10:57:42 by akharrou          #+#    #+#             */
-/*   Updated: 2019/04/30 11:04:45 by akharrou         ###   ########.fr       */
+/*   Created: 2019/05/05 19:34:44 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/05 19:46:36 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/ctype_42.h"
-#include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
+#include "../Includes/bigint.h"
 
-char		*ft_str_rstrip(char const *s, char *charset)
+void	bigint_cleaner(t_bigint *number)
 {
-	int		last;
-	char	*rstripped;
+	char	*decimal_pt;
 
-	if (s)
+	decimal_pt = ft_strchr((*number), '.');
+	if (decimal_pt)
 	{
-		last = ft_strlen(s) - 1;
-		while (last > 0 && ft_ischarset(s[last], charset))
-			--last;
-		rstripped = ft_strndup(s, last);
-		free((void *)s);
-		return (rstripped);
+		(*number) = ft_strrstrip((*number), "0");
+		(*number) = ft_strnlstrip((*number), "0", decimal_pt - (*number) - 1);
 	}
-	return (NULL);
+	else
+		(*number) = ft_strnlstrip((*number), "0", ft_strlen(*number) - 1);
 }

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_nlstrip.c                                   :+:      :+:    :+:   */
+/*   bigint_max.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 10:57:52 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/02 19:41:39 by akharrou         ###   ########.fr       */
+/*   Created: 2019/05/05 17:48:37 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/05 17:48:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/ctype_42.h"
-#include "../Includes/stdlib_42.h"
-#include "../Includes/string_42.h"
+#include "../Includes/bigint.h"
 
-char		*ft_str_nlstrip(char const *s, char *charset, int n)
+t_bigint	bigint_max(t_bigint operand_1, t_bigint operand_2)
 {
-	int		first;
-	char	*lstripped;
-
-	if (s)
-	{
-		first = 0;
-		while (n-- && s[first] && ft_ischarset(s[first], charset))
-			++first;
-		lstripped = ft_strdup(s + first);
-		free((void *)s);
-		return (lstripped);
-	}
-	return (NULL);
+	if (bigint_compare(operand_1, operand_2) >= 0)
+		return (operand_1);
+	else
+		return (operand_2);
 }

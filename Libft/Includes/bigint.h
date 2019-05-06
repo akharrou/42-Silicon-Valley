@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:08:13 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 23:18:45 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 19:37:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 typedef char* t_bigint;
 
-void		normalize_bigint(t_bigint *op_1, t_bigint *op_2);
 t_bigint	arithmetic_dispatcher(char operation,
 				t_bigint *operand_1, t_bigint *operand_2, char *base);
+
+void		bigint_cleaner(t_bigint *number);
+void		bigint_normalizer(t_bigint *op_1, t_bigint *op_2);
 
 t_bigint	bigint_addfre(t_bigint operand_1, t_bigint operand_2, char *base,
 				int free_op);
@@ -39,6 +41,10 @@ t_bigint	bigint_subtracter(t_bigint operand_1, t_bigint operand_2,
 
 t_bigint	bigint_mul(t_bigint num, int multiplier, char *base);
 t_bigint	bigint_div(t_bigint num, int divider, char *base);
+
+int			bigint_compare(t_bigint operand_1, t_bigint operand_2);
+t_bigint	bigint_max(t_bigint operand_1, t_bigint operand_2);
+t_bigint	bigint_min(t_bigint operand_1, t_bigint operand_2);
 
 t_bigint	bigint_round(t_bigint num, char *base, int precision);
 

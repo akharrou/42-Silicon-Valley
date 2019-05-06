@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_nrstrip.c                                   :+:      :+:    :+:   */
+/*   ft_strstrip.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 10:57:42 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/03 00:13:15 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/30 10:57:14 by akharrou          #+#    #+#             */
+/*   Updated: 2019/04/30 11:05:54 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 #include "../Includes/stdlib_42.h"
 #include "../Includes/string_42.h"
 
-char		*ft_str_nrstrip(char const *s, char *charset, int n)
+char		*ft_strstrip(char const *s, char *charset)
 {
 	int		last;
-	char	*rstripped;
+	int		first;
+	char	*stripped;
 
 	if (s)
 	{
+		first = 0;
+		while (s[first] && ft_ischarset(s[first], charset))
+			++first;
 		last = ft_strlen(s) - 1;
-		while (n-- && last > 0 && ft_ischarset(s[last], charset))
+		while (last >= 0 && ft_ischarset(s[last], charset))
 			--last;
-		rstripped = ft_strndup(s, last);
+		stripped = ft_strndup(s + first, (last + 1) - first);
 		free((void *)s);
-		return (rstripped);
+		return (stripped);
 	}
 	return (NULL);
 }

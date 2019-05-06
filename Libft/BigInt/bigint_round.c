@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 10:26:49 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 19:32:48 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 20:07:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 #include "../Includes/bigint.h"
 
-t_bigint	bigint_round(t_bigint num, char *base, int precision)
+t_bigint		bigint_round(t_bigint num, char *base, int precision)
 {
-	char	*incrementor;
-	char	*decimalpt;
-	int		decimals;
-	int		len;
+	char		*incrementor;
+	char		*decimalpt;
+	int32_t		decimals;
+	int32_t		len;
 
 	num = ft_strdup(num);
 	if (!ft_strchr(num, '.'))

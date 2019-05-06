@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 23:17:58 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 19:48:35 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,28 @@
 t_bigint	bigint_subtracter(t_bigint operand_1, t_bigint operand_2,
 				char *base)
 {
-	(void)operand_1;
-	(void)operand_2;
-	(void)base;
-	return (NULL);
+	char		*result;
+	int8_t		intbase;
+	int32_t		carry;
+	int32_t		sum;
+	int32_t		i;
+
+	result = ft_strdup(operand_1);
+	intbase = ft_strlen(base);
+	i = ft_strlen(result);
+	carry = 0;
+	while (--i >= 0)
+	{
+		if (result[i] == '.')
+			--i;
+		sum = -carry + INT(operand_1[i], base) - INT(operand_2[i], base);
+		carry = sum < 0;
+		if (sum < 0)
+			sum += intbase;
+		result[i] = base[sum % intbase];
+	}
+	bigint_cleaner(&result);
+	return (result);
 }
 
 t_bigint	bigint_sub(t_bigint operand_1, t_bigint operand_2, char *base)
@@ -39,6 +57,7 @@ t_bigint	bigint_sub(t_bigint operand_1, t_bigint operand_2, char *base)
 	result = arithmetic_dispatcher('-', &operand_1_copy, &operand_2_copy, base);
 	free(operand_1_copy);
 	free(operand_2_copy);
+
 	return (result);
 }
 

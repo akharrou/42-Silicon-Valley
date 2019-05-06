@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 20:07:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 19:39:09 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 t_bigint	bigint_mul(t_bigint num, int multiplier, char *base)
 {
-	int		intbase;
-	int		carry;
-	char	tmp;
-	int		i;
+	char		tmp;
+	int8_t		intbase;
+	int32_t		carry;
+	int32_t		i;
 
 	num = ft_strdup(num);
 	intbase = ft_strlen(base);
@@ -37,6 +37,7 @@ t_bigint	bigint_mul(t_bigint num, int multiplier, char *base)
 	}
 	if (carry)
 		num = ft_strprepend(num, ft_itoa(carry), 1, 1);
+	bigint_cleaner(&num);
 	return (num);
 }
 

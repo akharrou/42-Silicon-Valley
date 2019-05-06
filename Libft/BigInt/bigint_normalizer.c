@@ -6,12 +6,13 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 18:10:56 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 23:49:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/05 19:48:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/string_42.h"
 #include "../Includes/stdlib_42.h"
+#include "../Includes/stdint_42.h"
 
 #include "../Includes/bigint.h"
 
@@ -56,12 +57,12 @@ static void		normalize_decimals(char **op_1, char **op_2)
 	}
 }
 
-void			normalize_bigint(t_bigint *op_1, t_bigint *op_2)
+void			bigint_normalizer(t_bigint *op_1, t_bigint *op_2)
 {
 	t_bigint	copy_op_1;
 	t_bigint	copy_op_2;
-	int			sign_1;
-	int			sign_2;
+	bool		sign_1;
+	bool		sign_2;
 
 	sign_1 = (*op_1)[0] == '-';
 	sign_2 = (*op_2)[0] == '-';
