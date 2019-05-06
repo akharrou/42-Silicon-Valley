@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:26:37 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 21:59:08 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:26:38 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_bigint		bigint_adder(t_bigint operand_1, t_bigint operand_2, char *base)
 	}
 	if (carry)
 		result = ft_strprepend(result, "1", 1, 0);
-	bigint_cleaner(&result);
+	result = bigint_cleaner(result);
 	return (result);
 }
 
-t_bigint	bigint_add(t_bigint operand_1, t_bigint operand_2, char *base)
+t_bigint		bigint_add(t_bigint operand_1, t_bigint operand_2, char *base)
 {
 	t_bigint	operand_1_copy;
 	t_bigint	operand_2_copy;
@@ -81,8 +81,8 @@ t_bigint	bigint_add(t_bigint operand_1, t_bigint operand_2, char *base)
 **         - t_bigint operand_2
 */
 
-t_bigint	bigint_addfre(t_bigint operand_1, t_bigint operand_2, char *base,
-				int free_op)
+t_bigint		bigint_addfre(t_bigint operand_1, t_bigint operand_2,
+					char *base, int free_op)
 {
 	t_bigint	res;
 

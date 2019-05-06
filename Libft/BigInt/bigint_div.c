@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:44 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 20:50:02 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:26:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bigint		bigint_div(t_bigint num, int divider, char *base)
 		num[i++] = base[sum / divider];
 		carry = sum % divider * intbase;
 	}
-	num = (carry && num[i] != '.') ? ft_strappend(num, ".", 1, 0) : num;
+	num = (num[i] != '.' && carry) ? ft_strappend(num, ".", 1, 0) : num;
 	i += (num[i] == '.');
 	while (num[i] || carry)
 	{
@@ -42,7 +42,7 @@ t_bigint		bigint_div(t_bigint num, int divider, char *base)
 		num[i++] = base[sum / divider];
 		carry = sum % divider * intbase;
 	}
-	return (num);
+	return (bigint_cleaner(num));
 }
 
 /*
@@ -60,8 +60,8 @@ t_bigint		bigint_div(t_bigint num, int divider, char *base)
 **         - t_bigint num
 */
 
-t_bigint	bigint_divfre(t_bigint num, int divider, char *base,
-				int free_num)
+t_bigint		bigint_divfre(t_bigint num, int divider, char *base,
+					int free_num)
 {
 	t_bigint	res;
 

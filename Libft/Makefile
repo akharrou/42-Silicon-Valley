@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/05 21:23:30 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/06 12:15:01 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,16 +64,7 @@ SOURCES     =   $(STDIO)                                                      \
 
 # — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-STDIO       =   Stdio/ft_printf.c                                             \
-                Stdio/ft_dprintf.c                                            \
-                Stdio/ft_sprintf.c                                            \
-                Stdio/ft_asprintf.c                                           \
-                Stdio/ft_vprintf.c                                            \
-                Stdio/ft_vdprintf.c                                           \
-                Stdio/ft_vsprintf.c                                           \
-                Stdio/ft_vasprintf.c                                          \
-                                                                              \
-                Stdio/ft_readline.c                                           \
+STDIO       =   Stdio/ft_readline.c                                           \
                 Stdio/ft_readfile.c                                           \
                                                                               \
                 Stdio/ft_putbits.c                                            \

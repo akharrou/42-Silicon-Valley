@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:57:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 22:00:05 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:14:14 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_bigint	bigint_mul(t_bigint num, int multiplier, char *base)
 	}
 	if (carry)
 		num = ft_strprepend(num, ft_itoa(carry), 1, 1);
-	bigint_cleaner(&num);
 	return (num);
 }
 

@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 19:31:36 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/05 22:00:47 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 12:27:12 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_bigint	bigint_subtracter(t_bigint operand_1, t_bigint operand_2,
 			sum += intbase;
 		result[i] = base[sum % intbase];
 	}
-	bigint_cleaner(&result);
+	result = bigint_cleaner(result);
 	return (result);
 }
 
@@ -57,7 +57,6 @@ t_bigint	bigint_sub(t_bigint operand_1, t_bigint operand_2, char *base)
 	result = arithmetic_dispatcher('-', &operand_1_copy, &operand_2_copy, base);
 	free(operand_1_copy);
 	free(operand_2_copy);
-
 	return (result);
 }
 
