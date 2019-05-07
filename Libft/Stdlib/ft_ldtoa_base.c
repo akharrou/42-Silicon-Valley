@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 16:20:18 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:51:51 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include "../Includes/bigint.h"
 
 #define BIAS          16383
-#define BITSIZE       63
+#define MANT_SIZE     63
 #define _15BITS       32767
-#define MAX_EXPONENT  (32767 - BIAS - BITSIZE)
+#define MAX_EXPONENT  (32767 - BIAS - MANT_SIZE)
 #define EMPTY         9223372036854775808u
 
 #define INF           (num.exponent == MAX_EXPONENT && num.mantissa == EMPTY)
@@ -32,7 +32,7 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 
 	num.ldbl_.val = n;
 	num.sign = num.ldbl_.body[9] >> 7 != 0;
-	num.exponent = (*(short *)&num.ldbl_.body[8] & _15BITS) - BIAS - BITSIZE;
+	num.exponent = (*(short *)&num.ldbl_.body[8] & _15BITS) - BIAS - MANT_SIZE;
 	num.mantissa = *(intmax_t *)num.ldbl_.body;
 	if (INF)
 		return ((num.sign) ? ft_strdup("-inf") : ft_strdup("inf"));
@@ -45,7 +45,7 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	else
 		while (num.exponent++ < 0)
 			res = bigint_divfre(res, 2, base, 1);
-	res = bigint_round(res, base, precision);
+	res = bigint_roundfre(res, base, precision, 1);
 	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
 	return ((num.sign) ? ft_strprepend(res, "-", 1, 0) : res);
 }
