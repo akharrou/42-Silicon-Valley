@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 12:50:37 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/06 16:20:18 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	num.exponent = (*(short *)&num.ldbl_.body[8] & _15BITS) - BIAS - BITSIZE;
 	num.mantissa = *(intmax_t *)num.ldbl_.body;
 	if (INF)
-		return (ft_strdup("inf"));
+		return ((num.sign) ? ft_strdup("-inf") : ft_strdup("inf"));
 	if (NAN_)
 		return (ft_strdup("nan"));
 	res = ft_utoa_base(num.mantissa, DECIMAL_BASE, 0);
