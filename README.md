@@ -1,7 +1,4 @@
-# 42-Workspace
-All the work that I have been doing at 42 Silicon Valley. Neatly organized and briefly explained.
-
-# 42 School Silicon Valley
+# 42 Silicon Valley
 
 ![42 Logo]()
 
