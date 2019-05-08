@@ -1,2 +1,2 @@
 # 42-Workspace
-All my work at 42. Each directory corresponds to a project.
+All the work that I have been doing at 42 Silicon Valley. Neatly organized and briefly explained.
