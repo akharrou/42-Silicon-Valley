@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ftoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_sprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 12:41:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 19:08:34 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/25 21:43:09 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/08 08:49:55 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/stdlib_42.h"
+#include "../Includes/ft_printf.h"
 
-char	*ft_ftoa_base(float n, char *base, int width, int precision)
+/*
+** Reproduction of the libc 'sprintf()' function.
+*/
+
+int				ft_sprintf(char *str, const char *format, ...)
 {
-	return (ft_dtoa_base((double)n, base, width, precision));
+	va_list		args;
+
+	va_start(args, format);
+	return (ft_vsprintf(str, format, &args));
 }

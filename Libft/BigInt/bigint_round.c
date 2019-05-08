@@ -6,41 +6,43 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 10:26:49 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 14:56:59 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/07 17:26:49 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/string_42.h"
 #include "../Includes/stdlib_42.h"
 #include "../Includes/macros_42.h"
+#include "../Includes/math_42.h"
 
 #include "../Includes/bigint.h"
 
-t_bigint		bigint_round(t_bigint num, char *base, int precision)
+t_bigint		bigint_round(t_bigint num, char *base, int prec)
 {
-	char		*incrementor;
-	char		*decimalpt;
 	int32_t		decimals;
-	int32_t		len;
+	char		*decpt;
+	char		*rndr;
 
 	num = ft_strdup(num);
-	if (!ft_strchr(num, '.'))
-		num = ft_strappend(num, ".000000", 1, 0);
-	len = ft_strlen(num);
-	decimalpt = ft_strchr(num, '.');
-	decimals = (len - 1) - (decimalpt - num);
-	if (precision < 1)
-		return (ft_strndupfre(num, len - (decimals + 1), 1));
-	else if (decimals <= precision)
-		num = ft_strappend(
-			num, ft_padding(precision - decimals, '0'), 1, 1);
-	else if (INT(decimalpt[precision + 1], base) >= (long)ft_strlen(base) / 2)
+	prec = (prec >= 0) ? prec : 6;
+	if ((decpt = ft_strchr(num, '.')))
 	{
-		incrementor = ft_strappend(ft_strappend(
-			ft_strdup("0."), ft_padding(precision - 1, '0'), 1, 1), "1", 1, 0);
-		num = bigint_addfre(num, incrementor, base, 3);
+		decimals = (ft_strlen(num) - 1) - (decpt - num);
+		if (decimals > prec || prec == 0)
+		{
+			if (INT(*(decpt + prec + 1), base) >= (long)ft_strlen(base) / 2)
+			{
+				rndr = ft_dtoa_base(ft_pow(10, -prec), base, 0, prec);
+				num = bigint_addfre(num, rndr, base, 3);
+			}
+		}
+		else
+			num = ft_strappend(num, ft_padding(prec - decimals, '0'), 1, 1);
+		num[(ft_strchr(num, '.') - num) + ((prec) ? prec + 1 : 0)] = '\0';
 	}
-	num[(ft_strchr(num, '.') - num) + 1 + precision] = '\0';
+	else if (prec)
+		num = ft_strappend(ft_strappend(num, ".", 1, 0),
+				ft_padding(prec, '0'), 1, 1);
 	return (num);
 }
 

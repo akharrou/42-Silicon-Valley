@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/06 12:15:01 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/08 09:35:48 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,31 @@ SOURCES     =   $(STDIO)                                                      \
 
 STDIO       =   Stdio/ft_readline.c                                           \
                 Stdio/ft_readfile.c                                           \
+                                                                              \
+                Stdio/ft_printf.c                                             \
+                Stdio/ft_dprintf.c                                            \
+                Stdio/ft_sprintf.c                                            \
+                Stdio/ft_asprintf.c                                           \
+                Stdio/ft_vprintf.c                                            \
+                Stdio/ft_vdprintf.c                                           \
+                Stdio/ft_vsprintf.c                                           \
+                Stdio/ft_vasprintf.c                                          \
+                                                                              \
+                Stdio/PrintfUtils/parser.c                                    \
+                Stdio/PrintfUtils/formatter.c                                 \
+                Stdio/PrintfUtils/Handlers/c_handler.c                        \
+                Stdio/PrintfUtils/Handlers/s_handler.c                        \
+                Stdio/PrintfUtils/Handlers/r_handler.c                        \
+                Stdio/PrintfUtils/Handlers/p_handler.c                        \
+                Stdio/PrintfUtils/Handlers/i_handler.c                        \
+                Stdio/PrintfUtils/Handlers/u_handler.c                        \
+                Stdio/PrintfUtils/Handlers/f_handler.c                        \
+                Stdio/PrintfUtils/Handlers/b_handler.c                        \
+                Stdio/PrintfUtils/Handlers/o_handler.c                        \
+                Stdio/PrintfUtils/Handlers/d_handler.c                        \
+                Stdio/PrintfUtils/Handlers/x_handler.c                        \
+                Stdio/PrintfUtils/Handlers/xx_handler.c                       \
+                Stdio/PrintfUtils/Handlers/mod_handler.c                      \
                                                                               \
                 Stdio/ft_putbits.c                                            \
                 Stdio/ft_putbyte.c                                            \

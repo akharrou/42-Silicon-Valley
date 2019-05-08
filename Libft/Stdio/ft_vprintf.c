@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ftoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_vprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 12:41:09 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 19:08:34 by akharrou         ###   ########.fr       */
+/*   Created: 2019/04/25 21:40:57 by akharrou          #+#    #+#             */
+/*   Updated: 2019/05/08 09:08:04 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/stdlib_42.h"
+#include "../Includes/macros_42.h"
+#include "../Includes/ft_printf.h"
 
-char	*ft_ftoa_base(float n, char *base, int width, int precision)
+/*
+** Reproduction of the libc 'vprintf()' function.
+*/
+
+int		ft_vprintf(const char *format, va_list *args)
 {
-	return (ft_dtoa_base((double)n, base, width, precision));
+	return (ft_vdprintf(STDOUT, format, args));
 }

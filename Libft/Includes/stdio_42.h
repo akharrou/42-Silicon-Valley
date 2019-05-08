@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 21:39:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/04 18:40:35 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/08 07:59:57 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+
+int		ft_printf(const char *format, ...);
+int		ft_dprintf(int filedes, const char *format, ...);
+int		ft_sprintf(char *str, const char *format, ...);
+int		ft_asprintf(char **ret, const char *format, ...);
+
+int		ft_vprintf(const char *format, va_list *args);
+int		ft_vdprintf(int filedes, const char *format, va_list *args);
+int		ft_vsprintf(char *str, const char *format, va_list *args);
+int		ft_vasprintf(char **ret, const char *format, va_list *args);
 
 void	ft_putbits(unsigned long long num, int n_bits);
 void	ft_putbyte(int c);
@@ -33,16 +43,6 @@ void	ft_putnbr(int n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr_base(int nbr, char *base);
 void	ft_putnbr_base_fd(int nbr, char *base, int fd);
-
-int		ft_printf(const char *format, ...);
-int		ft_dprintf(int filedes, const char *format, ...);
-int		ft_sprintf(char *str, const char *format, ...);
-int		ft_asprintf(char **ret, const char *format, ...);
-
-int		ft_vprintf(const char *format, va_list *args);
-int		ft_vdprintf(int filedes, const char *format, va_list *args);
-int		ft_vsprintf(char *str, const char *format, va_list *args);
-int		ft_vasprintf(char **ret, const char *format, va_list *args);
 
 int		ft_readline(const int fd, char **line);
 char	*ft_readfile(int filedes);

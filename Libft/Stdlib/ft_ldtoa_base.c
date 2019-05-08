@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:48:40 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 18:51:51 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/07 10:56:59 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_ldtoa_base(long double n, char *base, int width, int precision)
 	else
 		while (num.exponent++ < 0)
 			res = bigint_divfre(res, 2, base, 1);
+	precision = (precision >= 0) ? precision : 6;
 	res = bigint_roundfre(res, base, precision, 1);
 	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
 	return ((num.sign) ? ft_strprepend(res, "-", 1, 0) : res);

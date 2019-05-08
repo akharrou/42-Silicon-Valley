@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 18:58:00 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/06 18:58:03 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/07 10:57:47 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define MANT_SIZE      52
 #define TOTAL_SIZE     64
 #define MAX_EXPONENT   (2047 - BIAS - MANT_SIZE)
-#define MANTISSA_MASK  4503599627370495u
+#define MANTISSA_MASK  4503599627370495U
 #define IMPLICIT_BIT   (1L << MANT_SIZE)
 #define EMPTY          IMPLICIT_BIT
 
@@ -52,7 +52,7 @@ char			*ft_dtoa_base(double n, char *base, int width, int precision)
 			while (num.exponent++ < 0)
 				res = bigint_divfre(res, 2, base, 1);
 	}
-	res = bigint_roundfre(res, base, precision, 1);
+	res = bigint_roundfre(res, base, ((precision >= 0) ? precision : 6), 1);
 	res = ft_strprepend(res, ft_padding(width - ft_strlen(res), '0'), 1, 1);
 	return ((num.sign) ? ft_strprepend(res, "-", 1, 0) : res);
 }
