@@ -6,8 +6,8 @@
 
 * [Projects](Projects/)
 * [Piscines](Piscines/)
-* [Hackathons](Hackathons/)
 * [Exams](Exams/)
+* [Hackathons](Hackathons/)
 
 
 ## Overview
