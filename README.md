@@ -14,6 +14,22 @@
 
 Repository containing all the work I have been doing during the 42 program.
 
+## Projects
+
+/* Explanation */
+
+## Piscines
+
+/* Explanation */
+
+## Exams
+
+/* Explanation */
+
+## Hackactions
+
+/* Explanation */
+
 ## Download
 
 Run the following command:
