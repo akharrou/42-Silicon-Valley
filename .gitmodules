@@ -1,3 +1,6 @@
 [submodule "Ft_Printf"]
 	path = Ft_Printf
 	url = https://github.com/akharrou/Ft_Printf.git
+[submodule "42-PHP-Piscine"]
+	path = 42-PHP-Piscine
+	url = https://github.com/akharrou/42-PHP-Piscine.git
