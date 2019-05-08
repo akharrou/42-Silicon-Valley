@@ -1,0 +1,3 @@
+[submodule "Projects/Ft_Printf"]
+	path = Projects/Ft_Printf
+	url = https://github.com/akharrou/Ft_Printf.git
