@@ -16,7 +16,7 @@ Repository of all the work I have been doing during the 42 program
 
 ## Download
 
-Just run the following command:
+Run the following command:
 
 `git clone --recursive https://github.com/akharrou/42-Silicon-Valley.git`
 
