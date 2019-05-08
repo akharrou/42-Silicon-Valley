@@ -6,7 +6,7 @@
 #    By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 16:23:01 by akharrou          #+#    #+#              #
-#    Updated: 2019/05/08 09:35:48 by akharrou         ###   ########.fr        #
+#    Updated: 2019/05/08 09:40:28 by akharrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ STDIO       =   Stdio/ft_readline.c                                           \
                 Stdio/PrintfUtils/Handlers/x_handler.c                        \
                 Stdio/PrintfUtils/Handlers/xx_handler.c                       \
                 Stdio/PrintfUtils/Handlers/mod_handler.c                      \
+                Stdio/PrintfUtils/Handlers/style_handler.c                    \
                                                                               \
                 Stdio/ft_putbits.c                                            \
                 Stdio/ft_putbyte.c                                            \

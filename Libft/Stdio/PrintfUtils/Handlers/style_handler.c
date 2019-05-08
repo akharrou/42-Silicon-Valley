@@ -6,7 +6,7 @@
 /*   By: akharrou <akharrou@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:56:25 by akharrou          #+#    #+#             */
-/*   Updated: 2019/05/08 09:35:23 by akharrou         ###   ########.fr       */
+/*   Updated: 2019/05/08 10:25:33 by akharrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,9 +134,9 @@ t_style g_styles_table[] =
 
 char		*style_handler(t_format format, char *string)
 {
+	char	*style_str;
 	int8_t	i;
 	int8_t	j;
-	char	*style_str;
 
 	if (format.style == NULL)
 		return (string);
@@ -152,11 +152,11 @@ char		*style_handler(t_format format, char *string)
 						style_str, g_styles_table[j].ansi_code, 1, 0);
 				if (format.style[i + 1] != NULL)
 					style_str = ft_strappend(style_str, ";", 1, 0);
+				free(format.style[i]);
 			}
 	}
 	free(format.style);
 	style_str = ft_strappend(style_str, "m", 1, 0);
 	string = ft_strprepend(string, style_str, 1, 1);
-	string = ft_strappend(string, "\033[0m", 1, 0);
-	return (string);
+	return (ft_strappend(string, "\033[0m", 1, 0));
 }
