@@ -4,3 +4,6 @@
 [submodule "42-PHP-Piscine"]
 	path = 42-PHP-Piscine
 	url = https://github.com/akharrou/42-PHP-Piscine.git
+[submodule "Fillit"]
+	path = Fillit
+	url = https://github.com/akharrou/Fillit.git
