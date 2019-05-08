@@ -18,7 +18,8 @@ Repository of all the work I have been doing during the 42 program
 
 Run the following command:
 
-`git clone --recursive https://github.com/akharrou/42-Silicon-Valley.git`
+	git clone --recursive https://github.com/akharrou/42-Silicon-Valley.git
+
 
 This will clone the repository, plus all the submodules,
 projects, piscines, hackathons and exams.
