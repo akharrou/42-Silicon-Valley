@@ -34,3 +34,6 @@
 [submodule "Hackathons/Build-The-Bay"]
 	path = Hackathons/Build-The-Bay
 	url = https://github.com/akharrou/42-Hackathon-BuildTheBay.git
+[submodule "Projects/Ft_ssl_md5"]
+	path = Projects/Ft_ssl_md5
+	url = https://github.com/akharrou/42-Project-Ft_ssl_md5.git
