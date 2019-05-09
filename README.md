@@ -7,7 +7,7 @@
 * [Projects](Projects/) : Stand alone projects offered in the 42 Curriculum.
 * [Piscines](Piscines/) : Extended periods of intensive workloads in a new programming language.
 * [Exams](Exams/) : Small logic problems passed during weekly exams.
-* [Hackathons](Hackathons/) : Special projects that were made during events hosted by **[42 Silicon Valley](https://www.42.us.org/)**.
+* [Hackathons](Hackathons/) : Special projects that were made during events hosted by [42 Silicon Valley](https://www.42.us.org/).
 
 
 ## Overview
