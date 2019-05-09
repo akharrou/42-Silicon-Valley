@@ -28,3 +28,6 @@
 [submodule "Piscines/42-Piscine-C"]
 	path = Piscines/42-Piscine-C
 	url = https://github.com/akharrou/42-Piscine-C.git
+[submodule "Piscines/C-Piscine"]
+	path = Piscines/C-Piscine
+	url = https://github.com/akharrou/42-Piscine-C.git
