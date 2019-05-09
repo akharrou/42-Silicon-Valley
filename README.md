@@ -16,19 +16,19 @@ Repository containing all the work I have been doing during the 42 program.
 
 ## Projects
 
-/* Explanation */
+Stand alone projects offered in the 42 Curriculum.
 
 ## Piscines
 
-/* Explanation */
+Extended periods of intensive workloads in a new programming language.
 
 ## Exams
 
-/* Explanation */
+Small logic problems passed during weekly exams.
 
 ## Hackactions
 
-/* Explanation */
+Special projects that were made during events hosted by 42 Silicon Valley.
 
 ## Download
 
