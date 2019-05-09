@@ -19,3 +19,6 @@
 [submodule "Projects/Hercules"]
 	path = Projects/Hercules
 	url = https://github.com/akharrou/42-Project-Hercules.git
+[submodule "Projects/Init"]
+	path = Projects/Init
+	url = https://github.com/akharrou/42-Project-Init.git
