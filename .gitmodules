@@ -25,3 +25,6 @@
 [submodule "Piscines/PHP-Piscine"]
 	path = Piscines/PHP-Piscine
 	url = https://github.com/akharrou/42-Piscine-PHP.git
+[submodule "Piscines/42-Piscine-C"]
+	path = Piscines/42-Piscine-C
+	url = https://github.com/akharrou/42-Piscine-C.git
