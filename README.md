@@ -7,12 +7,12 @@
 * [Projects](Projects/) : Stand alone projects offered in the 42 Curriculum.
 * [Piscines](Piscines/) : Extended periods of intensive workloads in a new programming language.
 * [Exams](Exams/) : Small logic problems passed during weekly exams.
-* [Hackathons](Hackathons/) : Special projects that were made during events hosted by 42 Silicon Valley.
+* [Hackathons](Hackathons/) : Special projects that were made during events hosted by **[42 Silicon Valley](https://www.42.us.org/)**.
 
 
 ## Overview
 
-Repository containing all the work I have been doing during my stay at [42 Silicon Valley](https://www.42.us.org/).
+Repository containing all the work I have been doing during my stay at **[42 Silicon Valley](https://www.42.us.org/)**.
 
 ## Download
 
@@ -30,4 +30,4 @@ projects, piscines, hackathons and exams.
 Attribution 3.0 license, and the underlying source code used to format and
 display that content is licensed under the MIT license.*
 
-**Copyright © 2019 Aymen Kharroubi**
+_**Copyright © 2019 Aymen Kharroubi**_
