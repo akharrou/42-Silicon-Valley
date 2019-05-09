@@ -22,3 +22,6 @@
 [submodule "Projects/Init"]
 	path = Projects/Init
 	url = https://github.com/akharrou/42-Project-Init.git
+[submodule "Piscines/PHP-Piscine"]
+	path = Piscines/PHP-Piscine
+	url = https://github.com/akharrou/42-Piscine-PHP.git
