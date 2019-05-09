@@ -4,31 +4,15 @@
 
 ## Table of Content
 
-* [Projects](Projects/)
-* [Piscines](Piscines/)
-* [Exams](Exams/)
-* [Hackathons](Hackathons/)
+* [Projects](Projects/) : Stand alone projects offered in the 42 Curriculum.
+* [Piscines](Piscines/) : Extended periods of intensive workloads in a new programming language.
+* [Exams](Exams/) : Small logic problems passed during weekly exams.
+* [Hackathons](Hackathons/) : Special projects that were made during events hosted by 42 Silicon Valley.
 
 
 ## Overview
 
 Repository containing all the work I have been doing during the 42 program.
-
-## Projects
-
-Stand alone projects offered in the 42 Curriculum.
-
-## Piscines
-
-Extended periods of intensive workloads in a new programming language.
-
-## Exams
-
-Small logic problems passed during weekly exams.
-
-## Hackactions
-
-Special projects that were made during events hosted by 42 Silicon Valley.
 
 ## Download
 
