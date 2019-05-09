@@ -4,3 +4,6 @@
 [submodule "Projects/Libft"]
 	path = Projects/Libft
 	url = https://github.com/akharrou/42-Project-Libft.git
+[submodule "Projects/Fillit"]
+	path = Projects/Fillit
+	url = https://github.com/akharrou/42-Project-Fillit.git
