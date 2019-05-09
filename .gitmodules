@@ -7,3 +7,6 @@
 [submodule "Projects/Fillit"]
 	path = Projects/Fillit
 	url = https://github.com/akharrou/42-Project-Fillit.git
+[submodule "Projects/Get_Next_Line"]
+	path = Projects/Get_Next_Line
+	url = https://github.com/akharrou/42-Project-Get_Next_Line.git
