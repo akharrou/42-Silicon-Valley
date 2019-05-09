@@ -13,3 +13,6 @@
 [submodule "Projects/42-Project-Ft_Debut"]
 	path = Projects/42-Project-Ft_Debut
 	url = https://github.com/akharrou/42-Project-Ft_Debut.git
+[submodule "Projects/Ft_Debut"]
+	path = Projects/Ft_Debut
+	url = https://github.com/akharrou/42-Project-Ft_Debut.git
