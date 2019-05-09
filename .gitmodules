@@ -16,3 +16,6 @@
 [submodule "Projects/Ft_Debut"]
 	path = Projects/Ft_Debut
 	url = https://github.com/akharrou/42-Project-Ft_Debut.git
+[submodule "Projects/Hercules"]
+	path = Projects/Hercules
+	url = https://github.com/akharrou/42-Project-Hercules.git
