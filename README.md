@@ -12,7 +12,7 @@
 
 ## Overview
 
-Repository containing all the work I have been doing during the 42 program.
+Repository containing all the work I have been doing during my stay at [42 Silicon Valley](https://www.42.us.org/).
 
 ## Download
 
