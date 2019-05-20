@@ -37,3 +37,9 @@
 [submodule "Projects/Ft_ssl_md5"]
 	path = Projects/Ft_ssl_md5
 	url = https://github.com/akharrou/42-Project-Ft_ssl_md5.git
+[submodule "Projects/42-Project-Ft_ls"]
+	path = Projects/42-Project-Ft_ls
+	url = https://github.com/akharrou/42-Project-Ft_ls.git
+[submodule "Projects/Ft_ls"]
+	path = Projects/Ft_ls
+	url = https://github.com/akharrou/42-Project-Ft_ls.git
