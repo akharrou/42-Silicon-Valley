@@ -43,3 +43,6 @@
 [submodule "Projects/Ft_ls"]
 	path = Projects/Ft_ls
 	url = https://github.com/akharrou/42-Project-Ft_ls.git
+[submodule "Piscines/CPP-Piscine"]
+	path = Piscines/CPP-Piscine
+	url = https://github.com/akharrou/42-Piscine-CPP.git
