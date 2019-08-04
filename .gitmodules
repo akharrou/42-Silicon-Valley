@@ -46,3 +46,6 @@
 [submodule "Piscines/CPP-Piscine"]
 	path = Piscines/CPP-Piscine
 	url = https://github.com/akharrou/42-Piscine-CPP.git
+[submodule "Projects/Docker"]
+	path = Projects/Docker
+	url = https://github.com/akharrou/42-Project-Docker.git
