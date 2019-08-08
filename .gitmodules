@@ -49,3 +49,6 @@
 [submodule "Projects/Docker"]
 	path = Projects/Docker
 	url = https://github.com/akharrou/42-Project-Docker.git
+[submodule "Extras/LibftPlusPlus"]
+	path = Extras/LibftPlusPlus
+	url = https://github.com/akharrou/42-Extras-LibftPlusPlus.git
