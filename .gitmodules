@@ -52,3 +52,6 @@
 [submodule "Extras/LibftPlusPlus"]
 	path = Extras/LibftPlusPlus
 	url = https://github.com/akharrou/42-Extras-LibftPlusPlus.git
+[submodule "Piscines/Interview-Piscine"]
+	path = Piscines/Interview-Piscine
+	url = https://github.com/akharrou/42-Piscine-Interview.git
