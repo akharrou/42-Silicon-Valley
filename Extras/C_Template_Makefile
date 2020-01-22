@@ -1,0 +1,105 @@
+# Makefile (for C programs)
+
+
+# Program Name  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+NAME        =   Program
+
+
+# Header Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+HEADERS     =                                                                 \
+                Includes/____.h                                               \
+                Includes/____.h                                               \
+                Includes/____.h                                               \
+                ...                                                           \
+
+
+# Source Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+SOURCES     =                                                                 \
+                Sources/main.c                                                \
+                Sources/____.c                                                \
+                Sources/____.c                                                \
+                ...                                                           \
+
+
+# Object Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+OBJECTS     =   $(SOURCES:.c=.o)
+
+
+
+# Compilation Flags  — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+CC	        =   gcc
+CSTANDARD   =   -std=c99
+CFLAGS      =   -Wall -Wextra -Werror
+
+
+# Optimization Flags  — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+O_FLAGS     =   -O2 -march=native
+
+
+# Debug Flags  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+D_FLAGS     =   -O0 -g $(S_FLAGS)
+
+
+# Sanitizer Flags  — — —— — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+S_FLAGS     +=  -fsanitize=address
+S_FLAGS     +=  -fsanitize=undefined
+# S_FLAGS     +=  -fsanitize=memory
+# S_FLAGS     +=  -fsanitize=leak
+# S_FLAGS     +=  -fsanitize=thread
+# S_FLAGS     +=  -fsanitize=dataflow
+# S_FLAGS     +=  -fsanitize=cfi
+# S_FLAGS     +=  -fsanitize=safe-stack
+
+
+# Rules/Targets  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+all: CFLAGS += $(O_FLAGS)
+all: $(NAME)
+
+debug: CFLAGS += $(D_FLAGS)
+debug: clean $(NAME)
+	@make clean
+
+run: $(NAME)
+	@./$(NAME)
+
+$(NAME): $(OBJECTS)
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo && echo $(GREEN) "[√]     [$(NAME) Successfully Compiled!]"
+	@echo $(WHITE)
+
+%.o: %.c $(HEADERS)
+	@$(CC) $(CFLAGS) -pipe -c $< -o $@
+	@echo $(WHITE) "Compiling => " $<
+
+
+# House Keeping — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+DEL = /bin/rm -rf
+
+clean:
+	@$(DEL) $(shell find . -name '*.o')
+
+fclean: clean
+	@$(DEL) $(NAME)
+
+re: fclean all
+
+
+# Text Colorization — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+GREEN = "\033[1;32m"
+WHITE = "\033[1;37m"
+
+
+# Phony — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+.PHONY: all clean fclean re run debug
