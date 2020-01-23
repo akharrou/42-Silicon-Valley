@@ -31,7 +31,7 @@ OBJECTS     =   $(SOURCES:.c=.o)
 
 # Compilation Flags  — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-CC	        =   gcc
+CC	    =   gcc
 CSTANDARD   =   -std=c99
 CFLAGS      =   -Wall -Wextra -Werror
 
