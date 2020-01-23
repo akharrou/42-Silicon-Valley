@@ -49,8 +49,8 @@ D_FLAGS     =   -O0 -g $(S_FLAGS)
 
 # Sanitizer Flags  — — —— — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-S_FLAGS     +=  -fsanitize=address
 S_FLAGS     +=  -fsanitize=undefined
+S_FLAGS     +=  -fsanitize=address
 # S_FLAGS     +=  -fsanitize=memory
 # S_FLAGS     +=  -fsanitize=leak
 # S_FLAGS     +=  -fsanitize=thread
