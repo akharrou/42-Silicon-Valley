@@ -56,5 +56,8 @@
 	path = Piscines/Interview-Piscine
 	url = https://github.com/akharrou/42-Piscine-Interview.git
 [submodule "Projects/42-Project-Push_swap"]
+	path = Projects/42-Project-Push_swap
+	url = https://github.com/akharrou/42-Project-Push_swap.git
+[submodule "Projects/Push_swap"]
 	path = Projects/Push_swap
 	url = https://github.com/akharrou/42-Project-Push_swap.git
