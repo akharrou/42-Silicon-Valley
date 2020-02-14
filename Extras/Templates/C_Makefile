@@ -1,26 +1,27 @@
 # Makefile (for C programs)
 
-
 # Program Name  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 NAME        =   Program
 
 
+# Libraries Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+LIBRARIES   =                                                                 \
+                Path/________.a                                               \
+
 # Header Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 HEADERS     =                                                                 \
-                Includes/____.h                                               \
-                Includes/____.h                                               \
-                Includes/____.h                                               \
+                Includes/______.h                                             \
+                Includes/______.h                                             \
                 ...                                                           \
-
 
 # Source Files  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
 SOURCES     =                                                                 \
                 Sources/main.c                                                \
-                Sources/____.c                                                \
-                Sources/____.c                                                \
+                Sources/______.c                                              \
                 ...                                                           \
 
 
@@ -31,8 +32,8 @@ OBJECTS     =   $(SOURCES:.c=.o)
 
 # Compilation Flags  — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
 
-CC	    =   gcc
-CSTANDARD   =   -std=c99
+CC          =   clang    # or clang++    (for C++)
+CSTANDARD   =   -std=c99 # or -std=c++2a (for C++)
 CFLAGS      =   -Wall -Wextra -Werror
 
 
@@ -64,13 +65,12 @@ all: CFLAGS += $(O_FLAGS)
 all: $(NAME)
 
 debug: CFLAGS += $(D_FLAGS)
-debug: clean $(NAME)
-	@make clean
+debug: fclean $(NAME)
 
 run: $(NAME)
 	@./$(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(LIBRARIES)
 	@$(CC) $(CFLAGS) $^ -o $@
 	@echo && echo $(GREEN) "[√]     [$(NAME) Successfully Compiled!]"
 	@echo $(WHITE)
