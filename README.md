@@ -30,4 +30,4 @@ projects, piscines, hackathons and exams.
 Attribution 3.0 license, and the underlying source code used to format and
 display that content is licensed under the MIT license.*
 
-_**Copyright © 2019 Aymen Kharroubi**_
+_**Copyright © 2019 Aymen™**_
