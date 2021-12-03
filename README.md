@@ -1,6 +1,6 @@
 # 42 Silicon Valley
 
-![42 Logo]()
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/42_Logo.svg" alt="42 Silicon Valley" width="150" height="150">
 
 ## Table of Content
 
