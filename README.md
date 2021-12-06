@@ -2,7 +2,9 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/42_Logo.svg" alt="42 Silicon Valley" width="150" height="150">
 
-Repository for some of the work I have been doing during my studies at **[42 Silicon Valley](https://www.42.us.org/)**.
+## Brief
+
+Repository containing some of the work I have been doing during my studies at **[42 Silicon Valley](https://www.42.us.org/)**.
 
 ## Table of Content
 
