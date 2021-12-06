@@ -23,11 +23,3 @@ Run the following command:
 
 This will clone the repository, plus all the submodules,
 projects, piscines, hackathons and exams.
-
-## License
-
-*The content of this repository itself is licensed under the Creative Commons
-Attribution 3.0 license, and the underlying source code used to format and
-display that content is licensed under the MIT license.*
-
-_**Copyright © 2019 Aymen™**_
